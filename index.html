@@ -155,7 +155,111 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 .q-group-t{font-weight:600;color:var(--accent);font-size:1.05em;margin:18px 0 8px;padding-bottom:4px;border-bottom:2px dashed var(--border);display:flex;justify-content:space-between;align-items:center;gap:8px}
 .q-group-t .pts{font-size:.82em;color:var(--muted);font-weight:500;background:var(--bg);padding:2px 8px;border-radius:10px}
 
-@media(max-width:768px){.hero{padding:30px 16px}.hero h1{font-size:1.5em}.topnav .nav-links{display:none}.content{padding:0 10px}.section-body{padding:0 14px 14px}.card-grid{grid-template-columns:1fr}.parcial-stats{grid-template-columns:1fr}.matrix{grid-template-columns:60px 1fr 1fr}}
+/* ============ INTERACTIVE COMPONENTS ============ */
+/* Flashcards */
+.flashcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.flashcard{perspective:1000px;height:180px;cursor:pointer}
+.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
+.flashcard-front,.flashcard-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow)}
+.flashcard-front{background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;font-weight:600;font-size:1.02em}
+.flashcard-back{background:var(--card);color:var(--text);transform:rotateY(180deg);border:2px solid var(--accent);font-size:.92em;line-height:1.45}
+.flashcard-front::after{content:'⟲ tocar';position:absolute;bottom:8px;right:10px;font-size:.72em;opacity:.75;font-weight:400}
+.fc-label{font-size:.72em;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-bottom:4px}
+
+/* Drag and drop classifier */
+.dnd{background:var(--card);border:2px solid var(--accent);border-radius:14px;padding:16px;margin:20px 0}
+.dnd-title{font-weight:700;color:var(--accent);margin-bottom:10px;font-size:1.02em;display:flex;align-items:center;gap:8px}
+.dnd-pool{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--bg);border-radius:10px;min-height:60px;margin-bottom:12px;border:2px dashed var(--border)}
+.dnd-item{background:var(--accent);color:#fff;padding:6px 12px;border-radius:8px;cursor:grab;font-size:.88em;user-select:none;transition:.2s;touch-action:none}
+.dnd-item:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.dnd-item.dragging{opacity:.5;cursor:grabbing}
+.dnd-item.placed-ok{background:var(--green)}
+.dnd-item.placed-bad{background:var(--red)}
+.dnd-targets{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.dnd-target{padding:12px;border:2px dashed var(--border);border-radius:10px;min-height:100px;background:var(--bg);transition:.2s}
+.dnd-target.hover{border-color:var(--accent);background:var(--accent-l)}
+.dnd-target-label{font-weight:700;color:var(--accent);font-size:.88em;margin-bottom:8px;display:block}
+.dnd-feedback{margin-top:10px;font-weight:600;font-size:.92em;min-height:20px}
+.dnd-feedback.ok{color:#16a34a}.dnd-feedback.bad{color:var(--red)}
+.dnd-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+
+/* Matching */
+.match{background:var(--card);border:2px solid var(--accent);border-radius:14px;padding:16px;margin:20px 0}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.match-col{display:flex;flex-direction:column;gap:6px}
+.match-item{padding:10px 12px;background:var(--bg);border:2px solid var(--border);border-radius:8px;cursor:pointer;transition:.2s;font-size:.9em;text-align:center}
+.match-item:hover{border-color:var(--accent);background:var(--accent-l)}
+.match-item.picked{border-color:var(--pink);background:var(--accent-l);box-shadow:0 0 0 3px #ec489955}
+.match-item.matched{border-color:var(--green);background:var(--success-bg);cursor:default;opacity:.75}
+.match-item.wrong{border-color:var(--red);background:var(--danger-bg);animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* Sortable */
+.sortable-list{list-style:none;padding:0;margin:10px 0;counter-reset:item}
+.sortable-list li{background:var(--card);border:2px solid var(--border);border-radius:10px;padding:10px 14px;margin:6px 0;cursor:grab;display:flex;align-items:center;gap:10px;transition:.15s;user-select:none;touch-action:none}
+.sortable-list li:hover{border-color:var(--accent);background:var(--accent-l)}
+.sortable-list li.sort-ok{border-color:var(--green);background:var(--success-bg)}
+.sortable-list li.sort-bad{border-color:var(--red);background:var(--danger-bg)}
+.sortable-list li.dragging{opacity:.4}
+.sortable-list li::before{counter-increment:item;content:counter(item);background:var(--accent);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em;flex-shrink:0}
+.sort-handle{color:var(--muted);font-size:1.1em;cursor:grab}
+
+/* Timeline */
+.timeline{position:relative;padding:20px 0;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--pink),var(--blue));border-radius:2px}
+.timeline-item{position:relative;width:calc(50% - 24px);padding:10px 0;margin-bottom:20px;cursor:pointer}
+.timeline-item:nth-child(odd){margin-left:auto;text-align:left;padding-left:20px}
+.timeline-item:nth-child(even){margin-right:auto;text-align:right;padding-right:20px}
+.timeline-item::before{content:'';position:absolute;top:16px;width:14px;height:14px;background:var(--accent);border:3px solid var(--card);border-radius:50%;z-index:2;transition:.2s}
+.timeline-item:nth-child(odd)::before{left:-31px}
+.timeline-item:nth-child(even)::before{right:-31px}
+.timeline-item:hover::before{transform:scale(1.4)}
+.timeline-card{background:var(--card);border:2px solid var(--border);border-radius:10px;padding:12px;transition:.2s}
+.timeline-item:hover .timeline-card{border-color:var(--accent);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.timeline-year{color:var(--accent);font-weight:700;font-size:.88em;margin-bottom:2px}
+.timeline-title{font-weight:600;font-size:1em;color:var(--text);margin-bottom:6px}
+.timeline-desc{font-size:.85em;color:var(--text2);line-height:1.5}
+@media(max-width:700px){.timeline::before{left:20px}.timeline-item,.timeline-item:nth-child(odd),.timeline-item:nth-child(even){width:calc(100% - 40px);margin-left:40px;margin-right:0;text-align:left;padding-left:0;padding-right:0}.timeline-item::before,.timeline-item:nth-child(odd)::before,.timeline-item:nth-child(even)::before{left:-30px;right:auto}}
+
+/* Case Study */
+.case-study{background:linear-gradient(135deg,var(--accent-l),var(--card));border:2px solid var(--accent);border-radius:14px;padding:18px;margin:20px 0}
+.case-title{font-weight:700;color:var(--accent);font-size:1.1em;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.case-scenario{background:var(--card);border-left:4px solid var(--pink);padding:12px 16px;border-radius:8px;margin:10px 0;font-size:.92em;line-height:1.6}
+
+/* Per-topic progress bar */
+.topic-progress{position:relative;height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin:8px 0 14px}
+.topic-progress .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--pink));width:0;transition:width .4s;border-radius:3px}
+.topic-progress-label{font-size:.78em;color:var(--muted);display:flex;justify-content:space-between;margin-top:-4px}
+
+/* Achievement badges */
+.badges-panel{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;min-height:60px}
+.badge-item{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--bg);border:2px solid var(--border);color:var(--muted);font-size:1.4em;transition:.3s;position:relative;cursor:help}
+.badge-item.earned{background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;border-color:transparent;box-shadow:0 0 0 3px var(--accent-l);animation:pop .4s}
+@keyframes pop{0%{transform:scale(.6)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.badge-item .badge-tooltip{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:6px 10px;border-radius:6px;font-size:.75em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:'Space Grotesk'}
+.badge-item:hover .badge-tooltip{opacity:1}
+
+/* Exam mode */
+.exam-start{background:linear-gradient(135deg,var(--pink),var(--accent));color:#fff;padding:18px 22px;border-radius:14px;margin:16px 0;text-align:center;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+.exam-start:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.exam-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9998;justify-content:center;align-items:center;padding:20px}
+.exam-overlay.active{display:flex}
+.exam-box{background:var(--card);border-radius:16px;padding:24px;max-width:720px;width:100%;max-height:92vh;overflow-y:auto;position:relative}
+.exam-timer{position:sticky;top:0;background:var(--card);padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;z-index:10}
+.exam-timer .t-time{font-family:'JetBrains Mono',monospace;font-size:1.3em;font-weight:700;color:var(--accent)}
+.exam-timer .t-time.warning{color:var(--amber)}
+.exam-timer .t-time.danger{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.exam-close{background:var(--danger-bg);color:var(--red);border:none;border-radius:8px;padding:6px 14px;cursor:pointer;font-weight:600}
+.exam-result{padding:20px;text-align:center}
+.exam-result .score{font-size:3em;font-weight:700;margin:10px 0}
+.exam-result .grade-A{color:var(--green)}
+.exam-result .grade-B{color:var(--blue)}
+.exam-result .grade-C{color:var(--amber)}
+.exam-result .grade-D{color:var(--red)}
+
+@media(max-width:768px){.hero{padding:30px 16px}.hero h1{font-size:1.5em}.topnav .nav-links{display:none}.content{padding:0 10px}.section-body{padding:0 14px 14px}.card-grid{grid-template-columns:1fr}.parcial-stats{grid-template-columns:1fr}.matrix{grid-template-columns:60px 1fr 1fr}.match-grid{grid-template-columns:1fr}}
 @media print{.topnav,.progress-bar,.controls,.topnav .nav-links,.lightbox{display:none!important}.content{margin-top:0}.section-body{display:block!important}body{background:#fff}}
 </style>
 </head>
@@ -190,8 +294,38 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 
 <div class="alert alert-purple">
   <div class="at"><i data-lucide="info" style="width:16px;height:16px"></i> Como usar este resumen</div>
-  <p>Cada tema incluye teoria + <strong>quiz</strong> al final para autoevaluacion. Usa V/F o opcion multiple. El progreso se guarda automaticamente en el navegador. Al final hay <strong>2 parciales simulacros</strong> completos.</p>
+  <p>Cada tema incluye teoria + <strong>flashcards</strong> + <strong>quiz</strong> + <strong>drag &amp; drop</strong> + <strong>casos reales</strong>. Todo funciona en celular, tablet y desktop. El progreso se guarda automaticamente.</p>
   <div style="margin-top:8px"><button class="q-reset" onclick="resetAll()"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar todo el progreso</button></div>
+</div>
+
+<h3 style="color:var(--accent);margin:16px 0 6px;font-size:1em;display:flex;align-items:center;gap:6px"><i data-lucide="award" style="width:18px;height:18px"></i> Logros desbloqueados</h3>
+<div class="badges-panel" id="badges">
+  <div class="badge-item" data-bid="first"><span>🎯</span><span class="badge-tooltip">1a pregunta correcta</span></div>
+  <div class="badge-item" data-bid="ten"><span>⭐</span><span class="badge-tooltip">10 correctas</span></div>
+  <div class="badge-item" data-bid="quarter"><span>🔥</span><span class="badge-tooltip">25% global</span></div>
+  <div class="badge-item" data-bid="half"><span>💪</span><span class="badge-tooltip">50% global</span></div>
+  <div class="badge-item" data-bid="master"><span>🏆</span><span class="badge-tooltip">100% global</span></div>
+  <div class="badge-item" data-bid="4ps"><span>🛒</span><span class="badge-tooltip">Tema 4Ps 100%</span></div>
+  <div class="badge-item" data-bid="foda"><span>🧭</span><span class="badge-tooltip">Tema FODA 100%</span></div>
+  <div class="badge-item" data-bid="ansoff"><span>🗺️</span><span class="badge-tooltip">Tema Ansoff 100%</span></div>
+  <div class="badge-item" data-bid="interactive"><span>🎮</span><span class="badge-tooltip">1er drag &amp; drop OK</span></div>
+  <div class="badge-item" data-bid="exam"><span>📜</span><span class="badge-tooltip">Parcial 1 aprobado</span></div>
+  <div class="badge-item" data-bid="examP"><span>🎓</span><span class="badge-tooltip">Parcial 2 aprobado</span></div>
+</div>
+
+<div class="exam-start" onclick="startExam()">
+  <div style="font-size:1.2em;font-weight:700;margin-bottom:2px"><i data-lucide="timer" style="width:18px;height:18px;vertical-align:-3px"></i> Modo Examen</div>
+  <div style="font-size:.88em;opacity:.92">15 preguntas random de todo el material &bull; 15 min cronometrados &bull; Obtene tu nota</div>
+</div>
+
+<div class="exam-overlay" id="examOverlay">
+  <div class="exam-box">
+    <div class="exam-timer">
+      <div><i data-lucide="clock" style="width:16px;height:16px;vertical-align:-3px"></i> <span class="t-time" id="examTimeDisp">15:00</span></div>
+      <button class="exam-close" onclick="closeExam()">Cancelar</button>
+    </div>
+    <div id="examBody"></div>
+  </div>
 </div>
 
 <!-- ======= TEMA 1: QUE ES EL MARKETING ======= -->
@@ -289,6 +423,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body">
 
+<div class="topic-progress"><div class="fill"></div></div>
+<div class="topic-progress-label"><span>&mdash;</span><span>0%</span></div>
+
 <p>Las 4 P's son las <strong>variables controlables</strong> de la empresa. Son operativas, de corto plazo, y se combinan para llegar al consumidor. McCarthy (1960) fue quien las sistematizo.</p>
 
 <img src="img/4ps.jpg" alt="Las 4 Ps del Marketing Mix" class="illust med" onclick="openLightbox(this)">
@@ -331,6 +468,59 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <div class="alert alert-warn">
   <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Ojo que confunde</div>
   <p><strong>Publicidad</strong> es pago + masivo. <strong>Promocion de venta</strong> es un incentivo (descuento, muestra). <strong>Relaciones publicas</strong> no se paga directamente (no es un aviso), son acciones que influyen la percepcion.</p>
+</div>
+
+<h3><i data-lucide="layers" style="width:18px;height:18px;vertical-align:-3px"></i> Flashcards &mdash; toca para voltear</h3>
+<div class="flashcards">
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">La P que...</div>Genera ingresos</div>
+    <div class="flashcard-back"><strong>Precio</strong><br>Es la unica P que genera ingresos. Las otras son costos.</div>
+  </div></div>
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">Subvariable de</div>Marca</div>
+    <div class="flashcard-back"><strong>Producto</strong><br>Junto con calidad, aspecto, empaque, tamaño, servicios y garantias.</div>
+  </div></div>
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">Pertenece a</div>Canales de distribucion</div>
+    <div class="flashcard-back"><strong>Plaza</strong><br>Junto con cobertura, localizacion, inventario y logistica.</div>
+  </div></div>
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">Tipo de comunicacion</div>Sin intermediarios</div>
+    <div class="flashcard-back"><strong>Marketing directo</strong><br>Email, telemarketing, catalogos. Llega directo al cliente.</div>
+  </div></div>
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">Tipo de comunicacion</div>Incentivo corto plazo</div>
+    <div class="flashcard-back"><strong>Promocion de venta</strong><br>2x1, descuentos, muestras gratis, demostraciones.</div>
+  </div></div>
+  <div class="flashcard"><div class="flashcard-inner">
+    <div class="flashcard-front"><div class="fc-label">Año clave</div>Las 4 P's fueron sistematizadas en...</div>
+    <div class="flashcard-back"><strong>1960</strong> - Jerome McCarthy<br>Las agrupo en "Basic Marketing: A Managerial Approach".</div>
+  </div></div>
+</div>
+
+<div class="dnd" id="dnd-4ps">
+  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica cada ejemplo en la P correcta (toca y arrastra)</div>
+  <div class="dnd-pool" data-cat="pool">
+    <div class="dnd-item" data-cat="producto">Garantia de 1 año</div>
+    <div class="dnd-item" data-cat="precio">Descuento del 20%</div>
+    <div class="dnd-item" data-cat="plaza">Local en shopping</div>
+    <div class="dnd-item" data-cat="promocion">Aviso en Instagram</div>
+    <div class="dnd-item" data-cat="producto">Diseño del empaque</div>
+    <div class="dnd-item" data-cat="precio">Pago en 12 cuotas</div>
+    <div class="dnd-item" data-cat="plaza">Envio a domicilio</div>
+    <div class="dnd-item" data-cat="promocion">Muestra gratis en supermercado</div>
+  </div>
+  <div class="dnd-targets">
+    <div class="dnd-target" data-cat="producto"><span class="dnd-target-label"><i data-lucide="package" style="width:14px;height:14px;vertical-align:-2px"></i> Producto</span></div>
+    <div class="dnd-target" data-cat="precio"><span class="dnd-target-label"><i data-lucide="dollar-sign" style="width:14px;height:14px;vertical-align:-2px"></i> Precio</span></div>
+    <div class="dnd-target" data-cat="plaza"><span class="dnd-target-label"><i data-lucide="truck" style="width:14px;height:14px;vertical-align:-2px"></i> Plaza</span></div>
+    <div class="dnd-target" data-cat="promocion"><span class="dnd-target-label"><i data-lucide="megaphone" style="width:14px;height:14px;vertical-align:-2px"></i> Promocion</span></div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
+    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="dnd-feedback"></span>
+  </div>
 </div>
 
 <div class="quiz">
@@ -433,6 +623,50 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <p>Al definir la mision de tu empresa, preguntate: <strong>&iquest;Que necesidad estoy satisfaciendo?</strong> (no "que producto hago"). Asi identificas a tu competencia real.</p>
 </div>
 
+<div class="case-study">
+  <div class="case-title"><i data-lucide="book" style="width:18px;height:18px"></i> Caso real: Kodak vs los smartphones</div>
+  <div class="case-scenario">
+    <strong>Los hechos:</strong> Kodak fue la empresa dominante de la fotografia durante casi 100 años. En su apogeo tenia el 90% del mercado de rollos en EEUU. En 1975 <strong>Kodak invento la primera camara digital</strong> pero la archivo por miedo a canibalizar su negocio de rollos. Para 2012 se declaro en quiebra. &iquest;Por que?
+  </div>
+  <div class="q" data-mc="c">
+    <div class="q-stem">&iquest;Cual fue el error clave de Kodak?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-kodak-1" value="a"> a) Falto de capital para investigar</label>
+      <label><input type="radio" name="case-kodak-1" value="b"> b) No tenia buenos empleados</label>
+      <label><input type="radio" name="case-kodak-1" value="c"> c) Definio su negocio como "hacer rollos" en vez de "preservar recuerdos"</label>
+      <label><input type="radio" name="case-kodak-1" value="d"> d) Tenia demasiada competencia china</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+  <div class="q" data-mc="b">
+    <div class="q-stem">Si hubieras sido CEO de Kodak en el 2000, &iquest;que mision habrias elegido?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-kodak-2" value="a"> a) "Somos lideres en produccion de rollos fotograficos"</label>
+      <label><input type="radio" name="case-kodak-2" value="b"> b) "Ayudamos a las personas a preservar e inmortalizar sus recuerdos mas importantes"</label>
+      <label><input type="radio" name="case-kodak-2" value="c"> c) "Vendemos camaras de alta gama al mercado profesional"</label>
+      <label><input type="radio" name="case-kodak-2" value="d"> d) "Somos la empresa mas grande de quimicos fotograficos"</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+</div>
+
+<div class="case-study">
+  <div class="case-title"><i data-lucide="film" style="width:18px;height:18px"></i> Caso real: Blockbuster vs Netflix</div>
+  <div class="case-scenario">
+    <strong>Los hechos:</strong> Blockbuster era la cadena de alquiler de VHS y DVDs mas grande del mundo. En <strong>2000 Netflix se le ofrecio en venta por US$50 millones</strong> y Blockbuster se rio. Blockbuster se declaro en quiebra en 2010. Netflix hoy vale mas de US$200.000 millones.
+  </div>
+  <div class="q" data-mc="b">
+    <div class="q-stem">&iquest;Cual era el verdadero negocio que deberian haber identificado?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-block-1" value="a"> a) Alquiler fisico de peliculas</label>
+      <label><input type="radio" name="case-block-1" value="b"> b) Entretenimiento audiovisual en el hogar</label>
+      <label><input type="radio" name="case-block-1" value="c"> c) Compra de derechos de peliculas</label>
+      <label><input type="radio" name="case-block-1" value="d"> d) Fabricacion de DVDs</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+</div>
+
 <div class="quiz">
   <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Miopia del Marketing</div>
 
@@ -481,6 +715,44 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <div class="section-body">
 
 <h3>Segun Kotler (base del examen de Romero)</h3>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-year">1750</div>
+      <div class="timeline-title">Enfoque de Produccion</div>
+      <div class="timeline-desc">Revolucion industrial. Demanda &gt; oferta. Se produce en masa y el consumidor compra lo que hay.</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-year">1930</div>
+      <div class="timeline-title">Enfoque de Ventas</div>
+      <div class="timeline-desc">Gran Depresion. Oferta &gt; demanda. Se vende a toda costa, objetivo es liquidar stock.</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-year">1950s</div>
+      <div class="timeline-title">Enfoque de Marketing</div>
+      <div class="timeline-desc">Post-guerra. <strong>Nacen las 4 P's</strong>. Foco real en el consumidor y sus necesidades.</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-year">1990s</div>
+      <div class="timeline-title">Marketing Holistico</div>
+      <div class="timeline-desc">Globalizacion. Vision abarcativa: <strong>integrado + interno + relacional + social</strong>.</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-card">
+      <div class="timeline-year">2010+</div>
+      <div class="timeline-title">Marketing 4.0 &rarr; 5.0</div>
+      <div class="timeline-desc">Era digital. Omnicanal, Big Data, IA. "La mejor publicidad la hacen los clientes satisfechos."</div>
+    </div>
+  </div>
+</div>
 
 <table>
 <tr><th>Enfoque</th><th>Epoca</th><th>Logica del mercado</th></tr>
@@ -626,6 +898,30 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <div class="at"><i data-lucide="lightbulb" style="width:16px;height:16px"></i> Clave del examen</div>
   <p><strong>Micro = directo / corto plazo / actores cercanos</strong> (consumidor, competencia, intermediarios, proveedores).<br>
   <strong>Macro = indirecto / largo plazo / fuerzas generales</strong> (demo, geo, eco, socio, natural, tecno, politico-legal).</p>
+</div>
+
+<div class="dnd" id="dnd-entornos">
+  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Arrastra cada elemento a microentorno o macroentorno</div>
+  <div class="dnd-pool" data-cat="pool">
+    <div class="dnd-item" data-cat="micro">Proveedor de materia prima</div>
+    <div class="dnd-item" data-cat="macro">Inflacion anual</div>
+    <div class="dnd-item" data-cat="micro">Distribuidor minorista</div>
+    <div class="dnd-item" data-cat="macro">Nueva ley de etiquetado</div>
+    <div class="dnd-item" data-cat="macro">Avance de la IA</div>
+    <div class="dnd-item" data-cat="micro">Competencia directa (Coca vs Pepsi)</div>
+    <div class="dnd-item" data-cat="macro">Cambio climatico</div>
+    <div class="dnd-item" data-cat="micro">Consumidor final</div>
+    <div class="dnd-item" data-cat="macro">Envejecimiento de la poblacion</div>
+  </div>
+  <div class="dnd-targets">
+    <div class="dnd-target" data-cat="micro"><span class="dnd-target-label"><i data-lucide="zoom-in" style="width:14px;height:14px;vertical-align:-2px"></i> Microentorno</span></div>
+    <div class="dnd-target" data-cat="macro"><span class="dnd-target-label"><i data-lucide="globe" style="width:14px;height:14px;vertical-align:-2px"></i> Macroentorno</span></div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
+    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="dnd-feedback"></span>
+  </div>
 </div>
 
 <div class="quiz">
@@ -844,6 +1140,23 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   </div>
 </div>
 
+<div class="dnd sort-box">
+  <div class="dnd-title"><i data-lucide="arrow-up-down" style="width:18px;height:18px"></i> Ordena los 6 pasos del planeamiento estrategico</div>
+  <p style="font-size:.88em;color:var(--muted);margin:0 0 8px">Arrastra los items para ordenarlos. Toca "verificar" cuando creas que estan en orden.</p>
+  <ul class="sortable-list">
+    <li data-pos="4">Definir estrategia (como adaptarse al entorno)</li>
+    <li data-pos="1">Analisis de situacion (recopilar info de entornos)</li>
+    <li data-pos="6">Control (comparar resultados vs objetivos)</li>
+    <li data-pos="2">Diagnostico FODA</li>
+    <li data-pos="5">Implementacion (4 P's)</li>
+    <li data-pos="3">Definir objetivos</li>
+  </ul>
+  <div class="dnd-actions">
+    <button class="q-btn" onclick="checkSort(this)">Verificar orden</button>
+    <span class="dnd-feedback"></span>
+  </div>
+</div>
+
 <div class="quiz">
   <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Planeamiento Estrategico</div>
 
@@ -939,6 +1252,75 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <div class="et">Ejemplos</div>
   <p><strong>FO:</strong> empresa con buena capacidad financiera (F) aprovecha que un competidor se retira (O) para expandirse.<br>
   <strong>DA:</strong> empresa con baja calidad (D) y competencia agresiva (A) lucha por sobrevivir, quiza necesita fusionarse.</p>
+</div>
+
+<div class="dnd" id="dnd-foda">
+  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica cada situacion en F / O / D / A</div>
+  <div class="dnd-pool" data-cat="pool">
+    <div class="dnd-item" data-cat="F">Personal altamente capacitado</div>
+    <div class="dnd-item" data-cat="O">Un competidor grande se retiro del mercado</div>
+    <div class="dnd-item" data-cat="D">Maquinaria obsoleta</div>
+    <div class="dnd-item" data-cat="A">Aumento del costo de la energia</div>
+    <div class="dnd-item" data-cat="F">Patente exclusiva del producto</div>
+    <div class="dnd-item" data-cat="O">Cambio de habitos favorece tu producto</div>
+    <div class="dnd-item" data-cat="D">Alto nivel de endeudamiento</div>
+    <div class="dnd-item" data-cat="A">Nueva regulacion mas estricta</div>
+    <div class="dnd-item" data-cat="F">Ubicacion estrategica del local</div>
+    <div class="dnd-item" data-cat="O">Crecimiento del turismo en la zona</div>
+    <div class="dnd-item" data-cat="D">Falta de presencia digital</div>
+    <div class="dnd-item" data-cat="A">Devaluacion del 30% anual</div>
+  </div>
+  <div class="dnd-targets">
+    <div class="dnd-target" data-cat="F" style="border-color:var(--green)"><span class="dnd-target-label" style="color:var(--green)">F &mdash; Fortalezas (interno +)</span></div>
+    <div class="dnd-target" data-cat="O" style="border-color:var(--amber)"><span class="dnd-target-label" style="color:#d97706">O &mdash; Oportunidades (externo +)</span></div>
+    <div class="dnd-target" data-cat="D" style="border-color:var(--red)"><span class="dnd-target-label" style="color:var(--red)">D &mdash; Debilidades (interno -)</span></div>
+    <div class="dnd-target" data-cat="A" style="border-color:var(--blue)"><span class="dnd-target-label" style="color:var(--blue)">A &mdash; Amenazas (externo -)</span></div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
+    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="dnd-feedback"></span>
+  </div>
+</div>
+
+<div class="case-study">
+  <div class="case-title"><i data-lucide="store" style="width:18px;height:18px"></i> Caso: Kiosco "La Esquinita"</div>
+  <div class="case-scenario">
+    <strong>Escenario:</strong> Maria tiene un kiosco en una esquina concurrida del centro. Vende productos de primera necesidad, golosinas y bebidas. Tiene 15 años de antigüedad y conocimiento de sus clientes. Recientemente abrio un supermercado express a 2 cuadras. La inflacion impacta sus costos pero sus clientes siguen siendo leales.
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">&iquest;Cual es una FORTALEZA del kiosco?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-foda-1" value="a"> a) Inflacion que le impacta los costos</label>
+      <label><input type="radio" name="case-foda-1" value="b"> b) 15 años de antigüedad y clientes leales</label>
+      <label><input type="radio" name="case-foda-1" value="c"> c) El nuevo supermercado a 2 cuadras</label>
+      <label><input type="radio" name="case-foda-1" value="d"> d) Poca competencia digital</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">&iquest;Cual es una AMENAZA?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-foda-2" value="a"> a) Su ubicacion estrategica</label>
+      <label><input type="radio" name="case-foda-2" value="b"> b) Sus clientes leales</label>
+      <label><input type="radio" name="case-foda-2" value="c"> c) El nuevo supermercado que abrio cerca</label>
+      <label><input type="radio" name="case-foda-2" value="d"> d) Su antigüedad en el barrio</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">&iquest;Que estrategia cruzada se adapta mejor al caso (supermercado nuevo + clientela leal)?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="case-foda-3" value="a"> a) DA (sobrevivir)</label>
+      <label><input type="radio" name="case-foda-3" value="b"> b) DO (movilizar)</label>
+      <label><input type="radio" name="case-foda-3" value="c"> c) FO (atacar)</label>
+      <label><input type="radio" name="case-foda-3" value="d"> d) FA (defender: usar la lealtad para reducir el impacto del nuevo competidor)</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
 </div>
 
 <div class="quiz">
@@ -1102,6 +1484,32 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <h3>Relacion con la segmentacion</h3>
 <p>Segmentacion y posicionamiento van <strong>juntos</strong>: <strong>primero se segmenta</strong>, <strong>luego se posiciona</strong> en el segmento elegido. Ambos determinan el <strong>marketing mix</strong> (4 P's).</p>
 
+<div class="match" id="match-pos">
+  <div class="dnd-title"><i data-lucide="link" style="width:18px;height:18px"></i> Emparejar marca con su posicionamiento (toca una de cada columna)</div>
+  <div class="match-grid">
+    <div class="match-col">
+      <div class="match-item" data-col="A" data-pair="volvo">Volvo</div>
+      <div class="match-item" data-col="A" data-pair="ferrari">Ferrari</div>
+      <div class="match-item" data-col="A" data-pair="redbull">Red Bull</div>
+      <div class="match-item" data-col="A" data-pair="cocacola">Coca-Cola</div>
+      <div class="match-item" data-col="A" data-pair="apple">Apple</div>
+      <div class="match-item" data-col="A" data-pair="nike">Nike</div>
+    </div>
+    <div class="match-col">
+      <div class="match-item" data-col="B" data-pair="apple">Diseño e innovacion</div>
+      <div class="match-item" data-col="B" data-pair="volvo">Seguridad</div>
+      <div class="match-item" data-col="B" data-pair="cocacola">Felicidad</div>
+      <div class="match-item" data-col="B" data-pair="ferrari">Lujo deportivo / velocidad</div>
+      <div class="match-item" data-col="B" data-pair="nike">Just do it / superacion deportiva</div>
+      <div class="match-item" data-col="B" data-pair="redbull">Energia</div>
+    </div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-reset" onclick="resetMatch(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="match-feedback dnd-feedback"></span>
+  </div>
+</div>
+
 <div class="quiz">
   <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Posicionamiento</div>
 
@@ -1170,6 +1578,32 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <div class="alert alert-info">
   <div class="at"><i data-lucide="pyramid" style="width:16px;height:16px"></i> La piramide</div>
   <p>Corporativa (CEO / directorio) &rarr; UEN (gerente de unidad / Porter) &rarr; Funcional (gerentes de area / 4 P's). Cada nivel se apoya en el anterior.</p>
+</div>
+
+<div class="match" id="match-porter">
+  <div class="dnd-title"><i data-lucide="link" style="width:18px;height:18px"></i> Empareja empresa con su estrategia generica de Porter</div>
+  <div class="match-grid">
+    <div class="match-col">
+      <div class="match-item" data-col="A" data-pair="walmart">Walmart</div>
+      <div class="match-item" data-col="A" data-pair="zara">Zara</div>
+      <div class="match-item" data-col="A" data-pair="apple">Apple</div>
+      <div class="match-item" data-col="A" data-pair="rolex">Rolex</div>
+      <div class="match-item" data-col="A" data-pair="ferrari">Ferrari</div>
+      <div class="match-item" data-col="A" data-pair="mercedes">Mercedes-Benz</div>
+    </div>
+    <div class="match-col">
+      <div class="match-item" data-col="B" data-pair="walmart">Liderazgo en costos (masivo)</div>
+      <div class="match-item" data-col="B" data-pair="apple">Diferenciacion por diseño</div>
+      <div class="match-item" data-col="B" data-pair="rolex">Enfoque en el segmento de lujo</div>
+      <div class="match-item" data-col="B" data-pair="zara">Liderazgo en costos (moda rapida)</div>
+      <div class="match-item" data-col="B" data-pair="ferrari">Enfoque en deportivos de alta gama</div>
+      <div class="match-item" data-col="B" data-pair="mercedes">Diferenciacion por prestigio y calidad</div>
+    </div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-reset" onclick="resetMatch(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="match-feedback dnd-feedback"></span>
+  </div>
 </div>
 
 <div class="quiz">
@@ -1263,6 +1697,31 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <tr><td><strong>Concentrica</strong></td><td>Productos relacionados, <strong>hay sinergia</strong></td><td>Empresa lactea lanza linea de yogures</td></tr>
 <tr><td><strong>Conglomerada</strong></td><td>Productos sin relacion, <strong>no hay sinergia</strong></td><td>Amazon entra a supermercados fisicos</td></tr>
 </table>
+
+<div class="dnd" id="dnd-ansoff">
+  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica las acciones en la matriz de Ansoff</div>
+  <div class="dnd-pool" data-cat="pool">
+    <div class="dnd-item" data-cat="pen">Supermercado ofrece tarjeta de fidelidad a clientes habituales</div>
+    <div class="dnd-item" data-cat="dm">Netflix llega a un nuevo pais</div>
+    <div class="dnd-item" data-cat="dp">McDonald's lanza linea vegetariana</div>
+    <div class="dnd-item" data-cat="div">Virgin (musica) lanza aerolinea</div>
+    <div class="dnd-item" data-cat="pen">Kiosco hace 2x1 en gaseosas</div>
+    <div class="dnd-item" data-cat="dm">Mercadolibre abre en Colombia</div>
+    <div class="dnd-item" data-cat="dp">Apple lanza el iPhone 16 a sus clientes actuales</div>
+    <div class="dnd-item" data-cat="div">Amazon entra al negocio de supermercados (Whole Foods)</div>
+  </div>
+  <div class="dnd-targets">
+    <div class="dnd-target" data-cat="pen"><span class="dnd-target-label">Penetracion (prod actual + mercado actual)</span></div>
+    <div class="dnd-target" data-cat="dp"><span class="dnd-target-label">Desarrollo de producto</span></div>
+    <div class="dnd-target" data-cat="dm"><span class="dnd-target-label">Desarrollo de mercado</span></div>
+    <div class="dnd-target" data-cat="div"><span class="dnd-target-label">Diversificacion</span></div>
+  </div>
+  <div class="dnd-actions">
+    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
+    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
+    <span class="dnd-feedback"></span>
+  </div>
+</div>
 
 <div class="quiz">
   <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Matriz de Ansoff</div>
@@ -1862,10 +2321,435 @@ document.addEventListener('keydown', e => {
   }
 });
 
+/* ============ FLASHCARDS ============ */
+document.addEventListener('click', e => {
+  const fc = e.target.closest('.flashcard');
+  if(fc) fc.classList.toggle('flipped');
+});
+
+/* ============ DRAG & DROP (mouse + touch via pointer events) ============ */
+let dragGhost = null, dragSource = null, dragOver = null;
+
+function initDnD(container){
+  container.querySelectorAll('.dnd-item').forEach(item => {
+    item.addEventListener('pointerdown', startDrag);
+  });
+}
+
+function startDrag(e){
+  e.preventDefault();
+  dragSource = e.currentTarget;
+  dragSource.classList.add('dragging');
+  dragSource.setPointerCapture(e.pointerId);
+  // ghost
+  dragGhost = dragSource.cloneNode(true);
+  dragGhost.style.cssText = 'position:fixed;pointer-events:none;opacity:.85;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.3)';
+  dragGhost.classList.remove('dragging','placed-ok','placed-bad');
+  document.body.appendChild(dragGhost);
+  moveGhost(e);
+  dragSource.addEventListener('pointermove', moveDrag);
+  dragSource.addEventListener('pointerup', endDrag);
+  dragSource.addEventListener('pointercancel', endDrag);
+}
+function moveDrag(e){
+  moveGhost(e);
+  // find target under pointer
+  dragGhost.style.display='none';
+  const under = document.elementFromPoint(e.clientX, e.clientY);
+  dragGhost.style.display='';
+  const tgt = under ? under.closest('.dnd-target, .dnd-pool') : null;
+  if(tgt !== dragOver){
+    if(dragOver) dragOver.classList.remove('hover');
+    if(tgt) tgt.classList.add('hover');
+    dragOver = tgt;
+  }
+}
+function moveGhost(e){
+  if(!dragGhost) return;
+  dragGhost.style.left = e.clientX+'px';
+  dragGhost.style.top = e.clientY+'px';
+}
+function endDrag(e){
+  if(!dragSource) return;
+  dragSource.removeEventListener('pointermove', moveDrag);
+  dragSource.removeEventListener('pointerup', endDrag);
+  dragSource.removeEventListener('pointercancel', endDrag);
+  dragSource.classList.remove('dragging');
+  if(dragOver){
+    dragOver.appendChild(dragSource);
+    dragOver.classList.remove('hover');
+  }
+  if(dragGhost){ dragGhost.remove(); dragGhost=null; }
+  dragSource=null; dragOver=null;
+}
+
+function checkDnD(btn){
+  const box = btn.closest('.dnd');
+  const items = box.querySelectorAll('.dnd-item');
+  const fb = box.querySelector('.dnd-feedback');
+  let ok = 0, total = items.length;
+  items.forEach(it => {
+    const parent = it.parentElement;
+    const cat = it.dataset.cat;
+    const pcat = parent.dataset.cat;
+    it.classList.remove('placed-ok','placed-bad');
+    if(pcat && pcat === cat){ it.classList.add('placed-ok'); ok++; }
+    else if(parent.classList.contains('dnd-target')) it.classList.add('placed-bad');
+  });
+  if(ok === total){
+    fb.className='dnd-feedback ok'; fb.innerHTML = '&check; Todos correctos!';
+    box.classList.add('dnd-done');
+    saveInteractive();
+  } else {
+    fb.className='dnd-feedback bad'; fb.innerHTML = `${ok}/${total} correctos - revisa los rojos`;
+  }
+}
+
+function resetDnD(btn){
+  const box = btn.closest('.dnd');
+  const pool = box.querySelector('.dnd-pool');
+  box.querySelectorAll('.dnd-item').forEach(it => {
+    it.classList.remove('placed-ok','placed-bad');
+    pool.appendChild(it);
+  });
+  const fb = box.querySelector('.dnd-feedback');
+  fb.className='dnd-feedback'; fb.textContent = '';
+  box.classList.remove('dnd-done');
+  saveInteractive();
+}
+
+/* ============ MATCHING ============ */
+let matchPicked = null;
+
+function initMatch(){
+  document.querySelectorAll('.match-item').forEach(m => {
+    m.addEventListener('click', () => {
+      if(m.classList.contains('matched')) return;
+      const col = m.dataset.col;
+      if(!matchPicked){
+        matchPicked = m; m.classList.add('picked'); return;
+      }
+      if(matchPicked === m){
+        m.classList.remove('picked'); matchPicked = null; return;
+      }
+      // different column required
+      if(matchPicked.dataset.col === col){
+        matchPicked.classList.remove('picked');
+        matchPicked = m; m.classList.add('picked'); return;
+      }
+      // check pair
+      const pickedKey = matchPicked.dataset.pair;
+      const mKey = m.dataset.pair;
+      if(pickedKey === mKey){
+        matchPicked.classList.add('matched'); m.classList.add('matched');
+        matchPicked.classList.remove('picked');
+        matchPicked = null;
+        // check if all matched
+        const box = m.closest('.match');
+        const all = box.querySelectorAll('.match-item').length;
+        const done = box.querySelectorAll('.match-item.matched').length;
+        if(done === all){
+          const fb = box.querySelector('.match-feedback');
+          if(fb){ fb.innerHTML = '&check; Todos emparejados'; fb.className = 'dnd-feedback ok'; }
+          box.classList.add('match-done');
+          saveInteractive();
+        }
+      } else {
+        matchPicked.classList.add('wrong'); m.classList.add('wrong');
+        const a = matchPicked, b = m;
+        setTimeout(() => { a.classList.remove('wrong','picked'); b.classList.remove('wrong'); }, 500);
+        matchPicked = null;
+      }
+    });
+  });
+}
+
+function resetMatch(btn){
+  const box = btn.closest('.match');
+  box.querySelectorAll('.match-item').forEach(m => m.classList.remove('picked','matched','wrong'));
+  const fb = box.querySelector('.match-feedback');
+  if(fb){ fb.textContent=''; fb.className='dnd-feedback'; }
+  box.classList.remove('match-done');
+  matchPicked = null;
+  saveInteractive();
+}
+
+/* ============ SORTABLE ============ */
+let sortSrc = null;
+
+function initSortable(){
+  document.querySelectorAll('.sortable-list li').forEach(li => {
+    li.addEventListener('pointerdown', sortStart);
+  });
+}
+function sortStart(e){
+  sortSrc = e.currentTarget;
+  sortSrc.setPointerCapture(e.pointerId);
+  sortSrc.classList.add('dragging');
+  sortSrc.addEventListener('pointermove', sortMove);
+  sortSrc.addEventListener('pointerup', sortEnd);
+}
+function sortMove(e){
+  if(!sortSrc) return;
+  const list = sortSrc.parentElement;
+  sortSrc.style.display='none';
+  const under = document.elementFromPoint(e.clientX, e.clientY);
+  sortSrc.style.display='';
+  const target = under ? under.closest('li') : null;
+  if(target && target !== sortSrc && target.parentElement === list){
+    const rect = target.getBoundingClientRect();
+    const mid = rect.top + rect.height/2;
+    if(e.clientY < mid) list.insertBefore(sortSrc, target);
+    else list.insertBefore(sortSrc, target.nextSibling);
+  }
+}
+function sortEnd(){
+  if(!sortSrc) return;
+  sortSrc.classList.remove('dragging');
+  sortSrc.removeEventListener('pointermove', sortMove);
+  sortSrc.removeEventListener('pointerup', sortEnd);
+  sortSrc = null;
+}
+
+function checkSort(btn){
+  const list = btn.closest('.sort-box').querySelector('.sortable-list');
+  const items = list.querySelectorAll('li');
+  const fb = btn.closest('.sort-box').querySelector('.dnd-feedback');
+  let ok = 0;
+  items.forEach((li,i) => {
+    li.classList.remove('sort-ok','sort-bad');
+    if(parseInt(li.dataset.pos) === i+1){ li.classList.add('sort-ok'); ok++; }
+    else li.classList.add('sort-bad');
+  });
+  if(ok === items.length){
+    fb.className='dnd-feedback ok'; fb.innerHTML='&check; Orden correcto!';
+    saveInteractive();
+  } else {
+    fb.className='dnd-feedback bad'; fb.textContent = `${ok}/${items.length} en posicion correcta`;
+  }
+}
+
+/* ============ PER-TOPIC PROGRESS ============ */
+function updateTopicProgress(){
+  document.querySelectorAll('.section[id]').forEach(sec => {
+    const qs = sec.querySelectorAll('.q');
+    if(!qs.length) return;
+    const done = sec.querySelectorAll('.q.done').length;
+    const pct = Math.round(done/qs.length*100);
+    const bar = sec.querySelector('.topic-progress .fill');
+    const lbl = sec.querySelector('.topic-progress-label');
+    if(bar) bar.style.width = pct+'%';
+    if(lbl) lbl.innerHTML = `<span>${done}/${qs.length} quizzes</span><span>${pct}%</span>`;
+  });
+  checkBadges();
+}
+
+/* ============ BADGES ============ */
+const BADGES = [
+  {id:'first',emoji:'🎯',tip:'Primera pregunta correcta',check:s=>s.totalDone>=1},
+  {id:'ten',emoji:'⭐',tip:'10 preguntas correctas',check:s=>s.totalDone>=10},
+  {id:'quarter',emoji:'🔥',tip:'25% del progreso global',check:s=>s.pct>=25},
+  {id:'half',emoji:'💪',tip:'50% del progreso global',check:s=>s.pct>=50},
+  {id:'master',emoji:'🏆',tip:'100% del progreso global',check:s=>s.pct>=100},
+  {id:'4ps',emoji:'🛒',tip:'Tema 4Ps completo',check:s=>s.byTopic['4ps']===100},
+  {id:'foda',emoji:'🧭',tip:'Tema FODA completo',check:s=>s.byTopic['foda']===100},
+  {id:'ansoff',emoji:'🗺️',tip:'Tema Ansoff completo',check:s=>s.byTopic['ansoff']===100},
+  {id:'interactive',emoji:'🎮',tip:'Completar un drag & drop',check:s=>s.interactive>=1},
+  {id:'exam',emoji:'📜',tip:'Parcial 1 aprobado (>=60%)',check:s=>s.parcialScore.p1>=60},
+  {id:'examP',emoji:'🎓',tip:'Parcial 2 aprobado (>=60%)',check:s=>s.parcialScore.p2>=60}
+];
+function checkBadges(){
+  const allQ = document.querySelectorAll('.q');
+  const totalDone = document.querySelectorAll('.q.done').length;
+  const pct = allQ.length ? Math.round(totalDone/allQ.length*100) : 0;
+  const byTopic = {};
+  document.querySelectorAll('.section[id]').forEach(sec => {
+    const qs = sec.querySelectorAll('.q'); if(!qs.length) return;
+    const d = sec.querySelectorAll('.q.done').length;
+    byTopic[sec.id] = Math.round(d/qs.length*100);
+  });
+  const interactive = document.querySelectorAll('.dnd-done, .match-done').length;
+  const parcialScore = {
+    p1: byTopic['p1']||0,
+    p2: byTopic['p2']||0
+  };
+  const state = {totalDone, pct, byTopic, interactive, parcialScore};
+  const panel = document.getElementById('badges');
+  if(!panel) return;
+  BADGES.forEach(b => {
+    const el = panel.querySelector(`[data-bid="${b.id}"]`);
+    if(!el) return;
+    if(b.check(state)) el.classList.add('earned');
+  });
+}
+
+function saveInteractive(){
+  const dnd = {};
+  document.querySelectorAll('.dnd[id]').forEach(d => {
+    if(d.classList.contains('dnd-done')) dnd[d.id] = 'done';
+  });
+  const mt = {};
+  document.querySelectorAll('.match[id]').forEach(m => {
+    if(m.classList.contains('match-done')) mt[m.id] = 'done';
+  });
+  localStorage.setItem('mkt-dnd', JSON.stringify(dnd));
+  localStorage.setItem('mkt-match', JSON.stringify(mt));
+  updateTopicProgress();
+}
+
+function loadInteractive(){
+  try{
+    const d = JSON.parse(localStorage.getItem('mkt-dnd')||'{}');
+    Object.keys(d).forEach(k => {
+      const el = document.getElementById(k); if(el) el.classList.add('dnd-done');
+    });
+    const m = JSON.parse(localStorage.getItem('mkt-match')||'{}');
+    Object.keys(m).forEach(k => {
+      const el = document.getElementById(k); if(el) el.classList.add('match-done');
+    });
+  }catch(e){}
+}
+
+/* ============ EXAM MODE ============ */
+let examQs = [], examIdx = 0, examAns = [], examTimer = null, examTime = 0;
+
+function startExam(){
+  const allQs = [...document.querySelectorAll('.q')].filter(q => !q.closest('#p1') && !q.closest('#p2'));
+  // pick 15 random
+  const shuffled = [...allQs].sort(() => Math.random()-0.5);
+  examQs = shuffled.slice(0, 15);
+  examIdx = 0; examAns = new Array(examQs.length).fill(null);
+  examTime = 15*60; // 15 minutes
+  document.getElementById('examOverlay').classList.add('active');
+  renderExamQ();
+  examTimer = setInterval(tickExam, 1000);
+}
+
+function tickExam(){
+  examTime--;
+  const el = document.getElementById('examTimeDisp');
+  if(!el) return;
+  const m = Math.floor(examTime/60), s = examTime%60;
+  el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.classList.toggle('warning', examTime<=180);
+  el.classList.toggle('danger', examTime<=60);
+  if(examTime<=0){ clearInterval(examTimer); finishExam(); }
+}
+
+function renderExamQ(){
+  const box = document.getElementById('examBody');
+  const q = examQs[examIdx];
+  if(!q){ return finishExam(); }
+  const clone = q.cloneNode(true);
+  clone.querySelector('.q-fb').textContent = '';
+  clone.classList.remove('done','bad');
+  clone.querySelectorAll('.vld').forEach(v => { v.value=''; v.classList.remove('ok','bad'); });
+  clone.querySelectorAll('input[type="radio"]').forEach(r => r.checked=false);
+  clone.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('picked','ok','bad'));
+  const btn = clone.querySelector('.q-btn');
+  if(btn) btn.remove();
+  const sol = clone.querySelector('.q-sol');
+  if(sol) sol.remove();
+  box.innerHTML = `<div style="color:var(--muted);font-size:.88em;margin-bottom:8px">Pregunta ${examIdx+1} de ${examQs.length}</div>`;
+  box.appendChild(clone);
+  const nav = document.createElement('div');
+  nav.style.cssText='display:flex;gap:8px;margin-top:16px';
+  nav.innerHTML = `
+    <button class="q-btn" onclick="prevExamQ()" ${examIdx===0?'disabled style=opacity:.4':''}><i data-lucide="chevron-left" style="width:14px;height:14px"></i> Anterior</button>
+    <button class="q-btn" onclick="nextExamQ()">${examIdx===examQs.length-1?'Finalizar':'Siguiente'} <i data-lucide="chevron-right" style="width:14px;height:14px"></i></button>
+    <span style="flex:1"></span>
+    <button class="exam-close" onclick="closeExam()">Cancelar</button>
+  `;
+  box.appendChild(nav);
+  // restore answer if any
+  if(examAns[examIdx]){
+    const ans = examAns[examIdx];
+    if(ans.type==='mc'){
+      const r = clone.querySelector(`input[value="${ans.val}"]`);
+      if(r){ r.checked=true; r.closest('label').classList.add('picked'); }
+    } else if(ans.type==='vld'){
+      clone.querySelectorAll('.vld').forEach((v,i) => v.value = ans.val[i]||'');
+    }
+  }
+  if(typeof lucide!=='undefined') lucide.createIcons();
+}
+
+function captureAnswer(){
+  const box = document.getElementById('examBody');
+  const q = box.querySelector('.q');
+  if(!q) return;
+  const r = q.querySelector('input[type="radio"]:checked');
+  if(r){ examAns[examIdx] = {type:'mc', val:r.value}; return; }
+  const vs = [...q.querySelectorAll('.vld')].map(v => v.value);
+  if(vs.some(v => v && v.trim())){ examAns[examIdx] = {type:'vld', val:vs}; return; }
+  examAns[examIdx] = null;
+}
+
+function prevExamQ(){ captureAnswer(); if(examIdx>0){ examIdx--; renderExamQ(); } }
+function nextExamQ(){ captureAnswer(); if(examIdx<examQs.length-1){ examIdx++; renderExamQ(); } else { finishExam(); } }
+
+function finishExam(){
+  clearInterval(examTimer);
+  captureAnswer();
+  // score
+  let correct = 0;
+  examQs.forEach((q,i) => {
+    const ans = examAns[i]; if(!ans) return;
+    if(ans.type==='mc'){
+      if(normText(ans.val)===normText(q.dataset.mc)) correct++;
+    } else if(ans.type==='vld'){
+      const inps = [...q.querySelectorAll('.vld')];
+      let allOk = inps.length>0;
+      inps.forEach((inp,idx) => {
+        const raw = ans.val[idx];
+        const c = inp.dataset.a; const t = inp.dataset.t;
+        let ok = false;
+        if(!raw || !raw.trim()){ allOk=false; return; }
+        if(t==='vf'){
+          const u = normText(raw), cc = normText(c);
+          ok = (cc==='v' && (u==='v'||u==='verdadero')) || (cc==='f' && (u==='f'||u==='falso'));
+        } else if(t==='text'){
+          ok = String(c).split('|').map(normText).includes(normText(raw));
+        }
+        if(!ok) allOk=false;
+      });
+      if(allOk) correct++;
+    }
+  });
+  const pct = Math.round(correct/examQs.length*100);
+  const grade = pct>=90?'A':pct>=75?'B':pct>=60?'C':'D';
+  const box = document.getElementById('examBody');
+  box.innerHTML = `
+    <div class="exam-result">
+      <h2 style="color:var(--accent);margin-bottom:8px">Resultado</h2>
+      <div class="score grade-${grade}">${pct}%</div>
+      <p style="font-size:1.1em;margin:10px 0">${correct} de ${examQs.length} correctas</p>
+      <p style="color:var(--muted);margin-bottom:16px">${grade==='A'?'Excelente':grade==='B'?'Muy bien':grade==='C'?'Aprobado':'A repasar'}</p>
+      <button class="q-btn" onclick="closeExam()">Cerrar</button>
+    </div>
+  `;
+}
+
+function closeExam(){
+  clearInterval(examTimer);
+  document.getElementById('examOverlay').classList.remove('active');
+}
+
 window.addEventListener('DOMContentLoaded',()=>{
   loadQState();updateQStats();
+  loadInteractive();
+  document.querySelectorAll('.dnd').forEach(initDnD);
+  initMatch();
+  initSortable();
+  updateTopicProgress();
   if(typeof lucide!=='undefined') lucide.createIcons();
 });
+
+// Expose for exam dynamic rendering
+window.prevExamQ = prevExamQ;
+window.nextExamQ = nextExamQ;
+window.closeExam = closeExam;
+window.startExam = startExam;
 </script>
 
 </body>
