@@ -164,7 +164,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 .flashcard-front,.flashcard-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow)}
 .flashcard-front{background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;font-weight:600;font-size:1.02em}
 .flashcard-back{background:var(--card);color:var(--text);transform:rotateY(180deg);border:2px solid var(--accent);font-size:.92em;line-height:1.45}
-.flashcard-front::after{content:'⟲ tocar';position:absolute;bottom:8px;right:10px;font-size:.72em;opacity:.75;font-weight:400}
+.flashcard-front::after{content:'voltear';position:absolute;bottom:8px;right:10px;font-size:.72em;opacity:.75;font-weight:400;text-transform:uppercase;letter-spacing:.08em}
 .fc-label{font-size:.72em;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-bottom:4px}
 
 /* Drag and drop classifier */
@@ -234,7 +234,8 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 
 /* Achievement badges */
 .badges-panel{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;min-height:60px}
-.badge-item{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--bg);border:2px solid var(--border);color:var(--muted);font-size:1.4em;transition:.3s;position:relative;cursor:help}
+.badge-item{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--bg);border:2px solid var(--border);color:var(--muted);transition:.3s;position:relative;cursor:help}
+.badge-item svg{width:24px;height:24px}
 .badge-item.earned{background:linear-gradient(135deg,var(--accent),var(--pink));color:#fff;border-color:transparent;box-shadow:0 0 0 3px var(--accent-l);animation:pop .4s}
 @keyframes pop{0%{transform:scale(.6)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
 .badge-item .badge-tooltip{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:6px 10px;border-radius:6px;font-size:.75em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:'Space Grotesk'}
@@ -300,17 +301,17 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 
 <h3 style="color:var(--accent);margin:16px 0 6px;font-size:1em;display:flex;align-items:center;gap:6px"><i data-lucide="award" style="width:18px;height:18px"></i> Logros desbloqueados</h3>
 <div class="badges-panel" id="badges">
-  <div class="badge-item" data-bid="first"><span>🎯</span><span class="badge-tooltip">1a pregunta correcta</span></div>
-  <div class="badge-item" data-bid="ten"><span>⭐</span><span class="badge-tooltip">10 correctas</span></div>
-  <div class="badge-item" data-bid="quarter"><span>🔥</span><span class="badge-tooltip">25% global</span></div>
-  <div class="badge-item" data-bid="half"><span>💪</span><span class="badge-tooltip">50% global</span></div>
-  <div class="badge-item" data-bid="master"><span>🏆</span><span class="badge-tooltip">100% global</span></div>
-  <div class="badge-item" data-bid="4ps"><span>🛒</span><span class="badge-tooltip">Tema 4Ps 100%</span></div>
-  <div class="badge-item" data-bid="foda"><span>🧭</span><span class="badge-tooltip">Tema FODA 100%</span></div>
-  <div class="badge-item" data-bid="ansoff"><span>🗺️</span><span class="badge-tooltip">Tema Ansoff 100%</span></div>
-  <div class="badge-item" data-bid="interactive"><span>🎮</span><span class="badge-tooltip">1er drag &amp; drop OK</span></div>
-  <div class="badge-item" data-bid="exam"><span>📜</span><span class="badge-tooltip">Parcial 1 aprobado</span></div>
-  <div class="badge-item" data-bid="examP"><span>🎓</span><span class="badge-tooltip">Parcial 2 aprobado</span></div>
+  <div class="badge-item" data-bid="first"><i data-lucide="target"></i><span class="badge-tooltip">1a pregunta correcta</span></div>
+  <div class="badge-item" data-bid="ten"><i data-lucide="star"></i><span class="badge-tooltip">10 correctas</span></div>
+  <div class="badge-item" data-bid="quarter"><i data-lucide="flame"></i><span class="badge-tooltip">25% global</span></div>
+  <div class="badge-item" data-bid="half"><i data-lucide="dumbbell"></i><span class="badge-tooltip">50% global</span></div>
+  <div class="badge-item" data-bid="master"><i data-lucide="trophy"></i><span class="badge-tooltip">100% global</span></div>
+  <div class="badge-item" data-bid="4ps"><i data-lucide="shopping-cart"></i><span class="badge-tooltip">Tema 4Ps 100%</span></div>
+  <div class="badge-item" data-bid="foda"><i data-lucide="compass"></i><span class="badge-tooltip">Tema FODA 100%</span></div>
+  <div class="badge-item" data-bid="ansoff"><i data-lucide="map"></i><span class="badge-tooltip">Tema Ansoff 100%</span></div>
+  <div class="badge-item" data-bid="interactive"><i data-lucide="gamepad-2"></i><span class="badge-tooltip">1er drag &amp; drop OK</span></div>
+  <div class="badge-item" data-bid="exam"><i data-lucide="scroll"></i><span class="badge-tooltip">Parcial 1 aprobado</span></div>
+  <div class="badge-item" data-bid="examP"><i data-lucide="graduation-cap"></i><span class="badge-tooltip">Parcial 2 aprobado</span></div>
 </div>
 
 <div class="exam-start" onclick="startExam()">
@@ -2546,17 +2547,17 @@ function updateTopicProgress(){
 
 /* ============ BADGES ============ */
 const BADGES = [
-  {id:'first',emoji:'🎯',tip:'Primera pregunta correcta',check:s=>s.totalDone>=1},
-  {id:'ten',emoji:'⭐',tip:'10 preguntas correctas',check:s=>s.totalDone>=10},
-  {id:'quarter',emoji:'🔥',tip:'25% del progreso global',check:s=>s.pct>=25},
-  {id:'half',emoji:'💪',tip:'50% del progreso global',check:s=>s.pct>=50},
-  {id:'master',emoji:'🏆',tip:'100% del progreso global',check:s=>s.pct>=100},
-  {id:'4ps',emoji:'🛒',tip:'Tema 4Ps completo',check:s=>s.byTopic['4ps']===100},
-  {id:'foda',emoji:'🧭',tip:'Tema FODA completo',check:s=>s.byTopic['foda']===100},
-  {id:'ansoff',emoji:'🗺️',tip:'Tema Ansoff completo',check:s=>s.byTopic['ansoff']===100},
-  {id:'interactive',emoji:'🎮',tip:'Completar un drag & drop',check:s=>s.interactive>=1},
-  {id:'exam',emoji:'📜',tip:'Parcial 1 aprobado (>=60%)',check:s=>s.parcialScore.p1>=60},
-  {id:'examP',emoji:'🎓',tip:'Parcial 2 aprobado (>=60%)',check:s=>s.parcialScore.p2>=60}
+  {id:'first',check:s=>s.totalDone>=1},
+  {id:'ten',check:s=>s.totalDone>=10},
+  {id:'quarter',check:s=>s.pct>=25},
+  {id:'half',check:s=>s.pct>=50},
+  {id:'master',check:s=>s.pct>=100},
+  {id:'4ps',check:s=>s.byTopic['4ps']===100},
+  {id:'foda',check:s=>s.byTopic['foda']===100},
+  {id:'ansoff',check:s=>s.byTopic['ansoff']===100},
+  {id:'interactive',check:s=>s.interactive>=1},
+  {id:'exam',check:s=>s.parcialScore.p1>=60},
+  {id:'examP',check:s=>s.parcialScore.p2>=60}
 ];
 function checkBadges(){
   const allQ = document.querySelectorAll('.q');
