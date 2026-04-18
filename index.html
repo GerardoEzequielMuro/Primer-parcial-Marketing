@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing - Parcial 1 | UCES 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root,[data-theme="light"]{
+  --bg:#f5f3ff;--card:#fff;--nav-bg:rgba(255,255,255,.88);--text:#1a1a2e;--text2:#555;--muted:#888;
+  --accent:#7c3aed;--accent-l:#ede9fe;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;--amber:#f59e0b;--green:#22c55e;--pink:#ec4899;
+  --border:#e2e8f0;--shadow:0 4px 6px -1px rgba(0,0,0,.07);--shadow-lg:0 10px 25px -5px rgba(0,0,0,.1);
+  --danger-bg:#fef2f2;--success-bg:#f0fdf4;--info-bg:#eff6ff;--warn-bg:#fffbeb;
+  --ex-bg:linear-gradient(135deg,#fef3c7,#fde68a33);--ex-border:#f59e0b;
+}
+[data-theme="dark"]{
+  --bg:#0f0a1f;--card:#1e1b3a;--nav-bg:rgba(15,10,31,.92);--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;
+  --accent:#a78bfa;--accent-l:#2e1065;--border:#3c3758;
+  --shadow:0 4px 6px -1px rgba(0,0,0,.3);--shadow-lg:0 10px 25px -5px rgba(0,0,0,.4);
+  --danger-bg:#450a0a;--success-bg:#052e16;--info-bg:#172554;--warn-bg:#451a03;
+  --ex-bg:linear-gradient(135deg,#451a0322,#78350f22);--ex-border:#d97706;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+.topnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px}
+.topnav .logo{font-weight:700;font-size:1.1em;color:var(--accent);display:flex;align-items:center;gap:6px}
+.topnav .nav-links{display:flex;gap:4px;flex-wrap:wrap;overflow-x:auto}
+.topnav .nav-links a{color:var(--text2);text-decoration:none;font-size:.78em;font-weight:500;padding:4px 9px;border-radius:6px;transition:.2s;white-space:nowrap}
+.topnav .nav-links a:hover{background:var(--accent-l);color:var(--accent)}
+.topnav .controls{display:flex;gap:6px;align-items:center}
+.topnav .controls button{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:1em;transition:.2s;color:var(--text);display:flex;align-items:center}
+.topnav .controls button:hover{transform:scale(1.05);box-shadow:var(--shadow)}
+.progress-bar{position:fixed;top:56px;left:0;right:0;height:3px;z-index:999;background:var(--border)}
+.progress-bar .fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--pink),var(--blue));transition:width .1s}
+
+.content{max-width:960px;margin:76px auto 60px;padding:0 16px}
+
+.hero{background:linear-gradient(135deg,#7c3aed,#ec4899,#f59e0b);border-radius:20px;padding:50px 40px;text-align:center;color:#fff;margin-bottom:30px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 60%);animation:glow 6s ease-in-out infinite}
+@keyframes glow{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+.hero h1{font-size:2.2em;font-weight:700;position:relative;border:none;color:#fff;margin-bottom:6px}
+.hero p{opacity:.95;position:relative;font-size:1em}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);padding:5px 14px;border-radius:20px;font-size:.83em;margin-top:10px;position:relative}
+
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;box-shadow:var(--shadow);transition:.2s}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card .num{font-size:1.8em;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:.82em;color:var(--muted);margin-top:2px}
+
+.section{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden;transition:.3s}
+.section:hover{box-shadow:var(--shadow-lg)}
+.section-header{padding:14px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:.2s}
+.section-header:hover{background:var(--accent-l)}
+.section-header h2{font-size:1.15em;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:8px;margin:0;padding:0;background:none;border:none}
+.section-header .chevron{transition:transform .3s;color:var(--muted)}
+.section-header.active .chevron{transform:rotate(180deg)}
+.section-body{padding:0 22px 22px;display:none;animation:fadeIn .3s}
+.section-body.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.section-body h3{font-size:1.08em;color:var(--accent);margin:22px 0 8px;padding-bottom:5px;border-bottom:2px dashed var(--border)}
+.section-body h4{font-size:.98em;color:var(--text2);margin:14px 0 6px;font-weight:600}
+.section-body p{margin:6px 0}
+.section-body ul,.section-body ol{padding-left:22px;margin:6px 0}
+.section-body li{margin:4px 0}
+
+.card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin:10px 0;transition:.2s}
+.card:hover{border-color:var(--accent)}
+.card h4{margin:0 0 6px;color:var(--accent)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.card-grid .card{margin:0}
+
+.alert{padding:12px 16px;border-radius:10px;margin:12px 0;border-left:4px solid}
+.alert .at{font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:5px}
+.alert-danger{background:var(--danger-bg);border-color:var(--red)}.alert-danger .at{color:var(--red)}
+.alert-success{background:var(--success-bg);border-color:var(--green)}.alert-success .at{color:#16a34a}
+.alert-info{background:var(--info-bg);border-color:var(--blue)}.alert-info .at{color:var(--blue)}
+.alert-warn{background:var(--warn-bg);border-color:var(--amber)}.alert-warn .at{color:#d97706}
+.alert-purple{background:var(--accent-l);border-color:var(--accent)}.alert-purple .at{color:var(--accent)}
+
+.example-box{background:linear-gradient(135deg,#fdf4ff,#fae8ff33);border:1px solid #e9d5ff;border-left:4px solid var(--pink);border-radius:10px;padding:12px 16px;margin:12px 0}
+.example-box .et{font-weight:700;color:var(--pink);margin-bottom:4px}
+[data-theme="dark"] .example-box{background:linear-gradient(135deg,#500724,#4c0519);border-color:#9d174d}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9em;border-radius:10px;overflow:hidden}
+th{background:var(--accent);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:var(--bg)}
+tr:hover td{background:var(--accent-l)}
+
+.quote{background:var(--accent-l);border-left:4px solid var(--accent);padding:12px 18px;margin:14px 0;border-radius:8px;font-style:italic;color:var(--text2)}
+.quote .q-author{display:block;margin-top:6px;font-size:.88em;font-weight:600;color:var(--accent);font-style:normal}
+
+.matrix{display:grid;grid-template-columns:90px 1fr 1fr;gap:6px;margin:14px 0}
+.matrix > div{padding:10px;border-radius:8px;font-size:.88em}
+.matrix .mh{background:var(--accent);color:#fff;font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center}
+.matrix .mc-h{background:var(--border);text-align:center;font-weight:700;color:var(--text)}
+.matrix .mc1{background:var(--success-bg);border:1px solid var(--green)}
+.matrix .mc2{background:var(--warn-bg);border:1px solid var(--amber)}
+.matrix .mc3{background:var(--info-bg);border:1px solid var(--blue)}
+.matrix .mc4{background:var(--danger-bg);border:1px solid var(--red)}
+
+img.illust{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);margin:12px auto;display:block;cursor:pointer;box-shadow:var(--shadow)}
+img.illust.wide{max-width:100%}
+img.illust.med{max-width:500px}
+img.illust.sm{max-width:320px}
+.lightbox{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:95%;max-height:95%;border-radius:8px}
+figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
+
+/* QUIZ */
+.quiz{background:linear-gradient(135deg,var(--accent-l),var(--card));border:2px solid var(--accent);border-radius:14px;padding:16px 18px;margin:20px 0}
+.quiz-title{font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:1.02em}
+.q{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:10px;padding:12px 14px;margin:8px 0;transition:.25s}
+.q.done{border-left-color:var(--green);background:linear-gradient(90deg,var(--success-bg) 0%,var(--card) 40%)}
+.q.bad{border-left-color:var(--red)}
+.q-stem{margin-bottom:8px;color:var(--text);line-height:1.55;font-weight:500}
+.q-opts{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.q-opts label{display:flex;align-items:flex-start;gap:8px;padding:7px 10px;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:.15s;line-height:1.4}
+.q-opts label:hover{border-color:var(--accent);background:var(--accent-l)}
+.q-opts label input{margin-top:3px;cursor:pointer;accent-color:var(--accent)}
+.q-opts label.picked{border-color:var(--accent);background:var(--accent-l)}
+.q-in{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.q-label{font-weight:600;color:var(--accent);font-size:.9em;font-family:'JetBrains Mono',monospace}
+.q-in input.vld,.q-in select.vld{background:var(--bg);border:2px solid var(--border);border-radius:8px;padding:5px 10px;font-family:'JetBrains Mono',monospace;font-size:.92em;color:var(--text);min-width:90px;max-width:220px;transition:.2s}
+.q-in input.vld:focus,.q-in select.vld:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-l)}
+.q-in input.vld.ok,.q-in select.vld.ok{border-color:var(--green);background:var(--success-bg)}
+.q-in input.vld.bad,.q-in select.vld.bad{border-color:var(--red);background:var(--danger-bg)}
+.q-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 14px;font-weight:600;cursor:pointer;font-size:.88em;transition:.2s;display:inline-flex;align-items:center;gap:4px;margin-top:8px}
+.q-btn:hover{background:#6d28d9;transform:translateY(-1px);box-shadow:var(--shadow)}
+.q-fb{font-weight:700;font-size:.92em;margin-left:8px}
+.q-fb.ok{color:#16a34a}
+.q-fb.bad{color:var(--red)}
+.q-sol{margin-top:10px;padding:8px 12px;background:var(--info-bg);border-radius:8px;border-left:3px solid var(--blue);font-size:.88em}
+.q-sol summary{cursor:pointer;color:var(--blue);font-weight:600;user-select:none;font-size:.88em}
+.q-sol[open] summary{margin-bottom:6px}
+.q-sol p{margin:4px 0;color:var(--text2)}
+.q-reset{background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:4px 10px;font-size:.8em;cursor:pointer;transition:.2s}
+.q-reset:hover{background:var(--danger-bg);color:var(--red);border-color:var(--red)}
+
+.parcial-hero{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;padding:22px 24px;border-radius:16px;margin:32px 0 14px;text-align:center;box-shadow:var(--shadow-lg)}
+.parcial-hero h2{color:#fff;background:none;border:none;padding:0;margin:0 0 4px;font-size:1.5em;font-weight:700}
+.parcial-hero p{opacity:.95;margin:0;font-size:.92em}
+.parcial-hero .badge{display:inline-block;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);padding:4px 12px;border-radius:20px;font-size:.78em;margin-top:8px}
+.parcial-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px;background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--border)}
+.parcial-stats .ps-item{text-align:center}
+.parcial-stats .ps-num{font-size:1.5em;font-weight:700;color:var(--accent)}
+.parcial-stats .ps-lab{font-size:.78em;color:var(--muted)}
+.q-group-t{font-weight:600;color:var(--accent);font-size:1.05em;margin:18px 0 8px;padding-bottom:4px;border-bottom:2px dashed var(--border);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.q-group-t .pts{font-size:.82em;color:var(--muted);font-weight:500;background:var(--bg);padding:2px 8px;border-radius:10px}
+
+@media(max-width:768px){.hero{padding:30px 16px}.hero h1{font-size:1.5em}.topnav .nav-links{display:none}.content{padding:0 10px}.section-body{padding:0 14px 14px}.card-grid{grid-template-columns:1fr}.parcial-stats{grid-template-columns:1fr}.matrix{grid-template-columns:60px 1fr 1fr}}
+@media print{.topnav,.progress-bar,.controls,.topnav .nav-links,.lightbox{display:none!important}.content{margin-top:0}.section-body{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="logo"><i data-lucide="target" style="width:20px;height:20px"></i> Marketing</div>
+  <div class="nav-links">
+    <a href="#intro">Intro</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--pink);font-weight:700">Parciales</a>
+  </div>
+  <div class="controls">
+    <button onclick="toggleAll()" title="Abrir/cerrar todo"><i data-lucide="layout-list" style="width:16px;height:16px"></i></button>
+    <button onclick="toggleTheme()" id="themeBtn" title="Tema"><i data-lucide="moon" style="width:16px;height:16px"></i></button>
+  </div>
+</nav>
+<div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<div class="content">
+
+<div class="hero">
+  <h1>Marketing &mdash; Parcial 1</h1>
+  <p>Resumen completo + quizzes + parciales simulacro</p>
+  <div class="badge">Unidades 1 y 2 &bull; Prof. Romero &bull; UCES 2026 &bull; Lic. en Marketing</div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card"><div class="num" id="totalQ">0</div><div class="label">Preguntas totales</div></div>
+  <div class="stat-card"><div class="num" id="doneQ">0</div><div class="label">Correctas</div></div>
+  <div class="stat-card"><div class="num" id="pctQ">0%</div><div class="label">Progreso global</div></div>
+  <div class="stat-card"><div class="num">12</div><div class="label">Temas</div></div>
+</div>
+
+<div class="alert alert-purple">
+  <div class="at"><i data-lucide="info" style="width:16px;height:16px"></i> Como usar este resumen</div>
+  <p>Cada tema incluye teoria + <strong>quiz</strong> al final para autoevaluacion. Usa V/F o opcion multiple. El progreso se guarda automaticamente en el navegador. Al final hay <strong>2 parciales simulacros</strong> completos.</p>
+  <div style="margin-top:8px"><button class="q-reset" onclick="resetAll()"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar todo el progreso</button></div>
+</div>
+
+<!-- ======= TEMA 1: QUE ES EL MARKETING ======= -->
+<div class="section" id="intro">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="sparkles" style="width:20px;height:20px"></i> 1. &iquest;Que es el Marketing?</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<img src="img/marketing-global.png" alt="Marketing global" class="illust med" onclick="openLightbox(this)">
+
+<p>El marketing es <strong>dirigir el flujo de bienes y servicios del productor al consumidor</strong>, satisfaciendo necesidades y alcanzando los objetivos empresariales.</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Definicion social (Kotler &amp; Keller)</h4>
+    <p>Proceso donde grupos consiguen lo que necesitan y desean mediante la <strong>creacion, oferta e intercambio libre</strong> de productos y servicios de valor.</p>
+  </div>
+  <div class="card">
+    <h4>Definicion empresarial</h4>
+    <p>Conocer al consumidor tan bien que la <strong>venta se vuelva inevitable</strong>. El producto o servicio se vende solo.</p>
+  </div>
+</div>
+
+<h3>Concepto de Valor</h3>
+<div class="alert alert-info">
+  <div class="at"><i data-lucide="scale" style="width:16px;height:16px"></i> Valor = que valga la pena</div>
+  <p>El consumidor acepta un <strong>sacrificio</strong> (dinero, tiempo, esfuerzo) porque el <strong>beneficio</strong> lo supera. Si beneficio &gt; sacrificio, se concreta el intercambio.</p>
+</div>
+
+<div class="example-box">
+  <div class="et">Ejemplo</div>
+  <p>Compras un cafe a $1.500. Sacrificio: los $1.500 y el tiempo de hacer la cola. Beneficio: sabor, energia, calidez, ambiente del local. Si el total supera los $1.500 percibidos, la transaccion tiene valor para vos.</p>
+</div>
+
+<h3>Elementos del intercambio</h3>
+<ul>
+  <li><strong>Dos partes</strong> con algo para ofrecer</li>
+  <li><strong>Libertad</strong> de aceptar o rechazar</li>
+  <li><strong>Comunicacion</strong> entre las partes</li>
+  <li><strong>Beneficio mutuo</strong> (gana-gana)</li>
+</ul>
+
+<div class="quote">
+  "El fin del marketing es conocer tan bien al cliente que el producto se venda por si mismo."
+  <span class="q-author">&mdash; Peter Drucker</span>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: &iquest;Que es el Marketing?</div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">1. &iquest;Cual es la definicion <strong>empresarial</strong> de marketing segun la catedra?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-intro-1" value="a"> a) Vender productos a todos los clientes posibles maximizando los ingresos.</label>
+      <label><input type="radio" name="q-intro-1" value="b"> b) Crear publicidad atractiva para atraer al mayor numero de consumidores.</label>
+      <label><input type="radio" name="q-intro-1" value="c"> c) Conocer al consumidor tan bien que la venta se vuelva inevitable.</label>
+      <label><input type="radio" name="q-intro-1" value="d"> d) Distribuir productos desde el productor al consumidor al menor costo.</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">2. El marketing desde lo social es un proceso de <strong>intercambio libre</strong> entre grupos. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. El <strong>valor</strong> percibido existe cuando el sacrificio del consumidor supera al beneficio que recibe. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Es al reves: el <strong>beneficio</strong> debe superar al sacrificio. Si no, no hay intercambio.</p></details>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">4. &iquest;A quien pertenece la frase "el fin del marketing es conocer tan bien al cliente que el producto se venda por si mismo"?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-intro-4" value="a"> a) Philip Kotler</label>
+      <label><input type="radio" name="q-intro-4" value="b"> b) Peter Drucker</label>
+      <label><input type="radio" name="q-intro-4" value="c"> c) Theodore Levitt</label>
+      <label><input type="radio" name="q-intro-4" value="d"> d) Jean-Jacques Lambin</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 2: LAS 4 P's ======= -->
+<div class="section" id="4ps">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="shopping-bag" style="width:20px;height:20px"></i> 2. Las 4 P's (Marketing Mix)</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Las 4 P's son las <strong>variables controlables</strong> de la empresa. Son operativas, de corto plazo, y se combinan para llegar al consumidor. McCarthy (1960) fue quien las sistematizo.</p>
+
+<img src="img/4ps.jpg" alt="Las 4 Ps del Marketing Mix" class="illust med" onclick="openLightbox(this)">
+
+<div class="card-grid">
+  <div class="card">
+    <h4><i data-lucide="package" style="width:16px;height:16px;vertical-align:-3px"></i> Producto</h4>
+    <p>Conjunto de atributos (tangibles e intangibles) que satisfacen una necesidad.</p>
+    <p><strong>Subvariables:</strong> calidad, aspecto/estilo, <strong>marca</strong>, empaque, tamaño, servicios post-venta, garantias, variedad de modelos.</p>
+  </div>
+  <div class="card">
+    <h4><i data-lucide="dollar-sign" style="width:16px;height:16px;vertical-align:-3px"></i> Precio</h4>
+    <p>Valor monetario de satisfacer la necesidad. La unica P que <strong>genera ingresos</strong>; las otras son costos.</p>
+    <p><strong>Subvariables:</strong> precio de lista, descuentos (motivo puntual), bonificaciones (por volumen), formas y plazos de pago.</p>
+  </div>
+  <div class="card">
+    <h4><i data-lucide="truck" style="width:16px;height:16px;vertical-align:-3px"></i> Plaza (Distribucion)</h4>
+    <p>Hacer llegar el producto al consumidor en el lugar y momento correctos.</p>
+    <p><strong>Subvariables:</strong> canales (mayoristas, minoristas, intermediarios), cobertura (cantidad de puntos de venta), localizacion, inventario, logistica, transporte.</p>
+  </div>
+  <div class="card">
+    <h4><i data-lucide="megaphone" style="width:16px;height:16px;vertical-align:-3px"></i> Promocion (Comunicacion)</h4>
+    <p>Informar, persuadir y recordar. Se descompone en la <strong>Mezcla de Comunicacion</strong> (5 elementos &mdash; ver abajo).</p>
+  </div>
+</div>
+
+<h3>La Mezcla de Comunicacion (5 elementos de la P de Promocion)</h3>
+
+<img src="img/mezcla-comunicacion.png" alt="Mezcla de Comunicacion" class="illust wide" onclick="openLightbox(this)">
+
+<table>
+<tr><th>Elemento</th><th>Que es</th><th>Ejemplo</th></tr>
+<tr><td><strong>Publicidad</strong></td><td>Mensaje comercial pago en medios masivos</td><td>Comercial de TV, cartel en ruta, anuncio en IG</td></tr>
+<tr><td><strong>Promocion de venta</strong></td><td>Incentivo de <strong>corto plazo</strong></td><td>2x1, descuentos, muestras gratis, demostraciones</td></tr>
+<tr><td><strong>Venta personal</strong></td><td>Administracion de la fuerza de ventas + tecnica de venta</td><td>Vendedor de seguros, representante comercial</td></tr>
+<tr><td><strong>Relaciones publicas</strong></td><td>Puntos de contacto con el publico <strong>fuera</strong> del control directo de marketing</td><td>Atencion al cliente, eventos, gestion de reputacion</td></tr>
+<tr><td><strong>Marketing directo</strong></td><td><strong>Sin intermediarios</strong></td><td>Email marketing, telemarketing, catalogos</td></tr>
+</table>
+
+<div class="alert alert-warn">
+  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Ojo que confunde</div>
+  <p><strong>Publicidad</strong> es pago + masivo. <strong>Promocion de venta</strong> es un incentivo (descuento, muestra). <strong>Relaciones publicas</strong> no se paga directamente (no es un aviso), son acciones que influyen la percepcion.</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: 4 P's</div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">1. &iquest;Cual de las 4 P's es la unica que <strong>genera ingresos</strong>?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-4ps-1" value="a"> a) Producto</label>
+      <label><input type="radio" name="q-4ps-1" value="b"> b) Precio</label>
+      <label><input type="radio" name="q-4ps-1" value="c"> c) Plaza</label>
+      <label><input type="radio" name="q-4ps-1" value="d"> d) Promocion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">2. Un 2x1 en supermercado es un ejemplo de:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-4ps-2" value="a"> a) Publicidad</label>
+      <label><input type="radio" name="q-4ps-2" value="b"> b) Relaciones publicas</label>
+      <label><input type="radio" name="q-4ps-2" value="c"> c) Promocion de venta</label>
+      <label><input type="radio" name="q-4ps-2" value="d"> d) Marketing directo</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. Las 4 P's son variables <strong>controlables</strong> de la empresa. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. La <strong>marca</strong> es una subvariable de qué P?</div>
+    <div class="q-in"><input class="vld" data-a="producto|p de producto|product" data-t="text" placeholder="Producto / Precio / Plaza / Promocion"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">5. &iquest;Cual elemento de la mezcla de comunicacion NO tiene intermediarios?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-4ps-5" value="a"> a) Publicidad</label>
+      <label><input type="radio" name="q-4ps-5" value="b"> b) Venta personal</label>
+      <label><input type="radio" name="q-4ps-5" value="c"> c) Relaciones publicas</label>
+      <label><input type="radio" name="q-4ps-5" value="d"> d) Marketing directo</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 3: MIOPIA ======= -->
+<div class="section" id="miopia">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="eye-off" style="width:20px;height:20px"></i> 3. Miopia del Marketing</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Concepto de <strong>Theodore Levitt</strong> (Harvard Business Review, 1960). Es el error de <strong>definir el negocio por el producto</strong> en lugar de por la <strong>necesidad que se satisface</strong>.</p>
+
+<img src="img/bicicleta-miopia.png" alt="Miopia del marketing" class="illust sm" onclick="openLightbox(this)">
+<figcaption>Clasico: una bici con flotadores &mdash; querer seguir vendiendo "bicis" cuando el mercado pide otra cosa</figcaption>
+
+<div class="quote">
+  "Nadie quiere un taladro de 1/4 de pulgada. Lo que todo el mundo desea son <strong>huecos en la pared</strong> de 1/4 de pulgada."
+  <span class="q-author">&mdash; Theodore Levitt</span>
+</div>
+
+<div class="alert alert-danger">
+  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Consecuencia</div>
+  <p>La empresa miope <strong>no detecta competidores</strong> de otras industrias que resuelven la misma necesidad. Cree que su competencia es solo la que fabrica lo mismo que ella.</p>
+</div>
+
+<h3>Casos clasicos</h3>
+<table>
+<tr><th>Mirada miope</th><th>Mirada correcta (orientada al mercado)</th></tr>
+<tr><td>Ferrocarriles</td><td>Transporte</td></tr>
+<tr><td>Peliculas (cine)</td><td>Entretenimiento</td></tr>
+<tr><td>Petroleo</td><td>Energia</td></tr>
+<tr><td>Celulares</td><td>Comunicacion efectiva</td></tr>
+<tr><td>Kodak (fotografia analogica)</td><td>Inmortalizar imagenes / recuerdos</td></tr>
+</table>
+
+<h3>Ejemplos modernos</h3>
+<div class="card-grid">
+  <div class="card">
+    <h4>Kodak</h4>
+    <p>No vio a los celulares como competencia. Pensaba que su negocio era fotografia analogica, pero era <strong>inmortalizar imagenes</strong>. Cuando la gente empezo a usar el celular para sacar y guardar fotos, Kodak perdio el mercado.</p>
+  </div>
+  <div class="card">
+    <h4>Blockbuster / Cines</h4>
+    <p>Creian que su negocio era "alquilar peliculas" o "vender entradas de cine". El verdadero negocio era <strong>entretenimiento audiovisual en casa</strong>. Netflix / streaming reemplazaron.</p>
+  </div>
+</div>
+
+<div class="alert alert-success">
+  <div class="at"><i data-lucide="check" style="width:16px;height:16px"></i> Regla practica</div>
+  <p>Al definir la mision de tu empresa, preguntate: <strong>&iquest;Que necesidad estoy satisfaciendo?</strong> (no "que producto hago"). Asi identificas a tu competencia real.</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Miopia del Marketing</div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">1. &iquest;Quien acuñó el concepto de miopia del marketing?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-mio-1" value="a"> a) Philip Kotler</label>
+      <label><input type="radio" name="q-mio-1" value="b"> b) Theodore Levitt</label>
+      <label><input type="radio" name="q-mio-1" value="c"> c) Peter Drucker</label>
+      <label><input type="radio" name="q-mio-1" value="d"> d) Michael Porter</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">2. La miopia del marketing consiste en definir el negocio por <strong>el producto</strong> y no por la <strong>necesidad</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. Una empresa miope detecta facilmente a sus competidores de otras industrias. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Justamente eso es la miopia: solo ve competidores que fabrican lo mismo y <strong>no</strong> detecta sustitutos de otras industrias.</p></details>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. Si Kodak hubiera definido su negocio como "inmortalizar imagenes" (no como fotografia analogica), habria podido detectar la amenaza del celular. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">5. Segun la mirada correcta, &iquest;cual seria el negocio real de "la industria de los ferrocarriles"? (1 palabra)</div>
+    <div class="q-in"><input class="vld" data-a="transporte" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 4: EVOLUCION ======= -->
+<div class="section" id="evolucion">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="trending-up" style="width:20px;height:20px"></i> 4. Evolucion del Marketing</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<h3>Segun Kotler (base del examen de Romero)</h3>
+
+<table>
+<tr><th>Enfoque</th><th>Epoca</th><th>Logica del mercado</th></tr>
+<tr><td><strong>Produccion</strong></td><td>1750</td><td>Demanda &gt; oferta. Se produce en masa, el consumidor compra lo que hay.</td></tr>
+<tr><td><strong>Ventas</strong></td><td>1930</td><td>Oferta &gt; demanda. Se vende a toda costa, objetivo es liquidar stock.</td></tr>
+<tr><td><strong>Marketing</strong></td><td>1950s</td><td>Nacen las 4 P's. Foco en el consumidor y sus necesidades.</td></tr>
+<tr><td><strong>Holistico</strong></td><td>1990s</td><td>Vision abarcativa con 4 componentes (integrado, interno, relacional, social).</td></tr>
+</table>
+
+<h3>Marketing Holistico (4 componentes)</h3>
+<div class="card-grid">
+  <div class="card"><h4>Integrado</h4><p>Mensaje unificado, las 4 P's alineadas entre si.</p></div>
+  <div class="card"><h4>Interno</h4><p>Motivar y capacitar a los empleados. El empleado debe ser "embajador" de la marca.</p></div>
+  <div class="card"><h4>Relacional</h4><p>Relaciones <strong>duraderas</strong> con clientes y stakeholders (proveedores, distribuidores, etc.).</p></div>
+  <div class="card"><h4>Social</h4><p>Aportar a la comunidad. Responsabilidad social empresarial.</p></div>
+</div>
+
+<h3>Segun Lambin (misma historia, otra terminologia)</h3>
+<table>
+<tr><th>Lambin</th><th>= Kotler</th><th>Caracteristica</th></tr>
+<tr><td><strong>Pasivo</strong></td><td>Produccion</td><td>Marketing tiene rol minimo, la empresa vende lo que produce.</td></tr>
+<tr><td><strong>De organizacion</strong></td><td>Ventas</td><td>Optica de venta, "marketing salvaje" (venta forzada, publicidad engañosa). <strong>Autodestructor</strong>.</td></tr>
+<tr><td><strong>Activo</strong></td><td>Marketing / holistico</td><td>Marketing estrategico guia decisiones de producto.</td></tr>
+</table>
+
+<div class="quote">
+  "La venta esta orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador."
+  <span class="q-author">&mdash; Theodore Levitt</span>
+</div>
+
+<img src="img/segway-innovacion.png" alt="Innovacion" class="illust sm" onclick="openLightbox(this)">
+
+<h3>Marketing 1.0 al 5.0 (Kotler - evolucion moderna)</h3>
+
+<table>
+<tr><th>Era</th><th>Centro</th><th>Propuesta de valor</th></tr>
+<tr><td><strong>1.0</strong></td><td>Producto</td><td>Funcional</td></tr>
+<tr><td><strong>2.0</strong></td><td>Consumidor</td><td>Funcional + emocional</td></tr>
+<tr><td><strong>3.0</strong></td><td>Valores</td><td>+ espiritual, RSC, proposito</td></tr>
+<tr><td><strong>4.0</strong></td><td>Digital</td><td>Omnicanal. "La mejor publicidad la hacen los clientes satisfechos"</td></tr>
+<tr><td><strong>5.0</strong></td><td>Tecnologia</td><td>IA, Big Data, CX (experiencia del cliente)</td></tr>
+</table>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Evolucion del Marketing</div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">1. &iquest;Que enfoque de Kotler corresponde al momento historico donde demanda &gt; oferta?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-evo-1" value="a"> a) Produccion</label>
+      <label><input type="radio" name="q-evo-1" value="b"> b) Ventas</label>
+      <label><input type="radio" name="q-evo-1" value="c"> c) Marketing</label>
+      <label><input type="radio" name="q-evo-1" value="d"> d) Holistico</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">2. El enfoque "de organizacion" de Lambin equivale al enfoque de <strong>ventas</strong> de Kotler. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. El marketing holistico tiene 4 componentes: integrado, interno, relacional y _______.</div>
+    <div class="q-in"><input class="vld" data-a="social|societal" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">4. &iquest;Que era de marketing pone el centro en la <strong>tecnologia (IA, Big Data)</strong>?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-evo-4" value="a"> a) 2.0</label>
+      <label><input type="radio" name="q-evo-4" value="b"> b) 3.0</label>
+      <label><input type="radio" name="q-evo-4" value="c"> c) 4.0</label>
+      <label><input type="radio" name="q-evo-4" value="d"> d) 5.0</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">5. Segun Lambin, el enfoque de "marketing salvaje" (venta forzada, publicidad engañosa) es <strong>autodestructor</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 5: ENTORNOS ======= -->
+<div class="section" id="entornos">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="globe" style="width:20px;height:20px"></i> 5. Entornos</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Conjunto de <strong>fuerzas que influyen</strong> en el desempeño de la organizacion. La empresa <strong>no los controla</strong> pero debe conocerlos para adaptarse.</p>
+
+<h3>Entorno Interno</h3>
+<p>Dentro de la empresa: <strong>RRHH, produccion, marketing, finanzas, administracion</strong>.</p>
+
+<h3>Microentorno (directo, corto plazo)</h3>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Consumidores</h4>
+    <p>El factor <strong>mas relevante</strong>. Dos tipos:</p>
+    <ul>
+      <li><strong>Mercado de consumo:</strong> personas/familias compran para si</li>
+      <li><strong>Mercado industrial:</strong> empresas compran para producir/revender</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Competencia (3 niveles)</h4>
+    <ul>
+      <li><strong>De necesidades:</strong> comer vs entretenerse</li>
+      <li><strong>De producto:</strong> auto vs moto</li>
+      <li><strong>De marca:</strong> Coca vs Pepsi (la mas intensa)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Intermediarios</h4>
+    <p>Canal de distribucion: mayoristas, minoristas. <strong>Encarecen el producto</strong> pero dan alcance.</p>
+  </div>
+  <div class="card">
+    <h4>Proveedores</h4>
+    <p>Quien provee materia prima, insumos, servicios necesarios para producir.</p>
+  </div>
+</div>
+
+<h3>Macroentorno (indirecto, largo plazo, no controlable)</h3>
+<p>Lo que afecta a <strong>todas las empresas</strong> por igual. Variables:</p>
+<ul>
+  <li><strong>Demografico:</strong> edad, genero, densidad poblacional</li>
+  <li><strong>Geografico:</strong> clima, region, relieve</li>
+  <li><strong>Economico:</strong> inflacion, tasa de interes, PBI, poder adquisitivo</li>
+  <li><strong>Sociocultural:</strong> valores, creencias, tendencias</li>
+  <li><strong>Natural:</strong> recursos disponibles, clima, ecologia</li>
+  <li><strong>Tecnologico:</strong> nuevas tecnologias, digitalizacion</li>
+  <li><strong>Politico-legal:</strong> leyes, normativa, estabilidad politica</li>
+</ul>
+
+<div class="alert alert-info">
+  <div class="at"><i data-lucide="lightbulb" style="width:16px;height:16px"></i> Clave del examen</div>
+  <p><strong>Micro = directo / corto plazo / actores cercanos</strong> (consumidor, competencia, intermediarios, proveedores).<br>
+  <strong>Macro = indirecto / largo plazo / fuerzas generales</strong> (demo, geo, eco, socio, natural, tecno, politico-legal).</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Entornos</div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">1. La inflacion pertenece a &iquest;que entorno?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ent-1" value="a"> a) Micro</label>
+      <label><input type="radio" name="q-ent-1" value="b"> b) Macro (economico)</label>
+      <label><input type="radio" name="q-ent-1" value="c"> c) Interno</label>
+      <label><input type="radio" name="q-ent-1" value="d"> d) No es parte del entorno</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">2. La competencia Coca vs Pepsi es un ejemplo de competencia de:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ent-2" value="a"> a) Necesidades</label>
+      <label><input type="radio" name="q-ent-2" value="b"> b) Producto</label>
+      <label><input type="radio" name="q-ent-2" value="c"> c) Marca (la mas intensa)</label>
+      <label><input type="radio" name="q-ent-2" value="d"> d) Genero</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. Los proveedores pertenecen al <strong>microentorno</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. La empresa <strong>controla</strong> el macroentorno. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>La empresa <strong>no controla</strong> ni el micro ni el macroentorno. Solo controla el entorno interno y las 4 P's.</p></details>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">5. &iquest;Que tipo de mercado tiene <strong>demanda derivada</strong>?</div>
+    <div class="q-in"><input class="vld" data-a="industrial|organizacional|mercado industrial|mercado organizacional" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>El <strong>mercado industrial</strong>: existe porque hay demanda de consumo detras.</p></details>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 6: CLASES DE MERCADO ======= -->
+<div class="section" id="mercado">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="users" style="width:20px;height:20px"></i> 6. Clases de Mercado</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Mercado de Consumo</h4>
+    <p>Personas o familias que compran para <strong>satisfacer necesidades propias</strong>.</p>
+    <p><strong>Caracteristicas:</strong> muchos compradores, compra emocional/racional, compras frecuentes de bajo volumen.</p>
+  </div>
+  <div class="card">
+    <h4>Mercado Industrial u Organizacional</h4>
+    <p>Empresas que compran para <strong>producir, revender o usar</strong> en su actividad.</p>
+    <p><strong>Caracteristicas:</strong></p>
+    <ul>
+      <li>Demanda derivada (existe porque hay demanda de consumo)</li>
+      <li>Pocos compradores pero gran volumen</li>
+      <li>Compra racional</li>
+      <li>Demanda inelastica (poco sensible al precio)</li>
+      <li>Negociaciones complejas</li>
+    </ul>
+  </div>
+</div>
+
+<img src="img/gafas-producto.png" alt="Producto" class="illust sm" onclick="openLightbox(this)">
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Clases de Mercado</div>
+
+  <div class="q">
+    <div class="q-stem">1. El mercado industrial tiene <strong>demanda inelastica</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">2. &iquest;En que mercado hay generalmente <strong>pocos compradores y gran volumen</strong>?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-mer-2" value="a"> a) Mercado de consumo</label>
+      <label><input type="radio" name="q-mer-2" value="b"> b) Mercado industrial</label>
+      <label><input type="radio" name="q-mer-2" value="c"> c) Ambos por igual</label>
+      <label><input type="radio" name="q-mer-2" value="d"> d) Ninguno</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. La compra en el mercado industrial suele ser mas <strong>emocional</strong> que en el de consumo. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Al reves: el industrial compra <strong>racional</strong> (evaluando costo, especificaciones, contratos). El consumo puede ser mas emocional.</p></details>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 7: MKT ESTRATEGICO VS OPERATIVO ======= -->
+<div class="section" id="estr-op">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="split" style="width:20px;height:20px"></i> 7. Marketing Estrategico vs Operativo (Lambin)</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<img src="img/estrategico-vs-tactico.png" alt="Estrategico vs tactico" class="illust wide" onclick="openLightbox(this)">
+<figcaption>Lambin: Marketing estrategico (analisis, seleccion de valor) vs Marketing tactico / operativo (oferta y comunicacion del valor)</figcaption>
+
+<table>
+<tr><th></th><th>Estrategico</th><th>Operativo (tactico)</th></tr>
+<tr><td><strong>Funcion</strong></td><td>Analisis</td><td>Accion</td></tr>
+<tr><td><strong>Plazo</strong></td><td>Medio-largo</td><td>Corto</td></tr>
+<tr><td><strong>Que hace</strong></td><td>Analiza necesidades, segmenta, evalua atractivo del mercado y competitividad</td><td>Usa las 4 P's para vender y llegar al cliente</td></tr>
+<tr><td><strong>Resultado</strong></td><td>Eleccion de producto-mercado, ventaja competitiva</td><td>Cuota de mercado, cifra de ventas</td></tr>
+</table>
+
+<div class="alert alert-purple">
+  <div class="at"><i data-lucide="link" style="width:16px;height:16px"></i> Son complementarios</div>
+  <p>Sin <strong>estrategia</strong>, el operativo es riesgo inutil (gastas plata en 4 P's sin rumbo). Sin <strong>operativo</strong>, la estrategia no se ejecuta (queda en el papel). El operativo <strong>no puede crear demanda</strong> donde no hay necesidad.</p>
+</div>
+
+<div class="quote">
+  "La venta esta orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador."
+  <span class="q-author">&mdash; Levitt</span>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Estrategico vs Operativo</div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">1. Segmentar el mercado es una tarea del marketing:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-eo-1" value="a"> a) Estrategico</label>
+      <label><input type="radio" name="q-eo-1" value="b"> b) Operativo</label>
+      <label><input type="radio" name="q-eo-1" value="c"> c) Pasivo</label>
+      <label><input type="radio" name="q-eo-1" value="d"> d) De organizacion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">2. Las 4 P's son el corazon de:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-eo-2" value="a"> a) Marketing estrategico</label>
+      <label><input type="radio" name="q-eo-2" value="b"> b) Marketing operativo</label>
+      <label><input type="radio" name="q-eo-2" value="c"> c) Micromarketing</label>
+      <label><input type="radio" name="q-eo-2" value="d"> d) Marketing de servicios</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. El marketing operativo puede <strong>crear demanda donde no hay necesidad</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. El operativo solo trabaja sobre necesidades que ya existen. Detectarlas y activarlas es tarea del marketing <strong>estrategico</strong>.</p></details>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. El marketing estrategico opera en el <strong>corto plazo</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 8: PLANEAMIENTO ESTRATEGICO ======= -->
+<div class="section" id="planeam">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="compass" style="width:20px;height:20px"></i> 8. Planeamiento Estrategico</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Decidir <strong>hoy</strong> que hacer <strong>mañana</strong> teniendo en cuenta el entorno. Es una <strong>filosofia de adaptacion permanente</strong> (a diferencia del planeamiento ordinario que no considera el entorno).</p>
+
+<div class="alert alert-info">
+  <div class="at"><i data-lucide="help-circle" style="width:16px;height:16px"></i> Las 4 preguntas clave</div>
+  <p><strong>1)</strong> &iquest;Quienes somos? (mision / vision) &rarr; <strong>2)</strong> &iquest;Donde estamos? (analisis) &rarr; <strong>3)</strong> &iquest;Adonde vamos? (objetivos) &rarr; <strong>4)</strong> &iquest;Como? (estrategia)</p>
+</div>
+
+<h3>Los 6 pasos del planeamiento</h3>
+
+<table>
+<tr><th>#</th><th>Paso</th><th>Que se hace</th></tr>
+<tr><td>1</td><td><strong>Analisis de situacion</strong></td><td>Recopilar info de todos los entornos (interno, micro, macro)</td></tr>
+<tr><td>2</td><td><strong>Diagnostico (FODA)</strong></td><td>Encontrar Fortalezas, Oportunidades, Debilidades, Amenazas</td></tr>
+<tr><td>3</td><td><strong>Objetivos</strong></td><td>Que se quiere lograr (realistas, definidos DESPUES del diagnostico)</td></tr>
+<tr><td>4</td><td><strong>Estrategia</strong></td><td>Como adaptarse al entorno para lograr los objetivos</td></tr>
+<tr><td>5</td><td><strong>Implementacion</strong></td><td>Llevar a la realidad con las <strong>4 P's</strong> (no existen sin los pasos previos)</td></tr>
+<tr><td>6</td><td><strong>Control</strong></td><td>Comparar resultados reales vs objetivos; ajustar</td></tr>
+</table>
+
+<h3>Mision y Vision</h3>
+<div class="card-grid">
+  <div class="card">
+    <h4><i data-lucide="gift" style="width:16px;height:16px;vertical-align:-3px"></i> Mision (presente &mdash; DAR)</h4>
+    <p>Lo que la organizacion <strong>quiere entregar</strong> a la sociedad. Razon de ser.</p>
+    <p><strong>Clave:</strong> debe orientarse al <strong>mercado</strong>, no al producto (para evitar miopia).</p>
+    <p class="example-box" style="margin-top:6px;padding:8px 12px"><strong>Ej:</strong> Revlon no "fabrica cosmeticos" sino que "<strong>vende esperanza</strong>".</p>
+  </div>
+  <div class="card">
+    <h4><i data-lucide="eye" style="width:16px;height:16px;vertical-align:-3px"></i> Vision (futuro &mdash; SER)</h4>
+    <p>Lo que la organizacion <strong>quiere llegar a ser</strong>. Aspiracion de largo plazo.</p>
+    <p><strong>Ej:</strong> "Ser la empresa mas admirada del sector en Latinoamerica para 2030".</p>
+  </div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Planeamiento Estrategico</div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">1. &iquest;En que paso del planeamiento se definen las 4 P's?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-pla-1" value="a"> a) Analisis</label>
+      <label><input type="radio" name="q-pla-1" value="b"> b) Diagnostico</label>
+      <label><input type="radio" name="q-pla-1" value="c"> c) Implementacion</label>
+      <label><input type="radio" name="q-pla-1" value="d"> d) Control</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">2. La <strong>mision</strong> define lo que la organizacion quiere <strong>llegar a ser</strong> en el futuro. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. La <strong>vision</strong> habla del futuro (SER). La <strong>mision</strong> es el presente (DAR).</p></details>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">3. &iquest;En que orden se ejecutan los pasos del planeamiento?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-pla-3" value="a"> a) Objetivos &rarr; FODA &rarr; Estrategia &rarr; 4 P's</label>
+      <label><input type="radio" name="q-pla-3" value="b"> b) Analisis &rarr; FODA &rarr; Objetivos &rarr; Estrategia &rarr; Implementacion &rarr; Control</label>
+      <label><input type="radio" name="q-pla-3" value="c"> c) Estrategia &rarr; Analisis &rarr; Objetivos &rarr; Control</label>
+      <label><input type="radio" name="q-pla-3" value="d"> d) FODA &rarr; 4 P's &rarr; Analisis &rarr; Control</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. Revlon diciendo "vendemos esperanza" en lugar de "hacemos cosmeticos" es un ejemplo de <strong>mision orientada al mercado</strong>. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 9: FODA ======= -->
+<div class="section" id="foda">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="grid-2x2" style="width:20px;height:20px"></i> 9. Analisis FODA + Estrategias cruzadas</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Herramienta de <strong>diagnostico</strong>. Separa lo positivo y lo negativo, lo interno y lo externo.</p>
+
+<div class="matrix">
+  <div class="mh"></div>
+  <div class="mc-h">Positivo</div>
+  <div class="mc-h">Negativo</div>
+  <div class="mh">Interno</div>
+  <div class="mc1"><strong>Fortalezas</strong><br><small>Recursos, capacidades propias que ventajizan</small></div>
+  <div class="mc4"><strong>Debilidades</strong><br><small>Carencias internas que desventajan</small></div>
+  <div class="mh">Externo</div>
+  <div class="mc2"><strong>Oportunidades</strong><br><small>Tendencias externas favorables</small></div>
+  <div class="mc3"><strong>Amenazas</strong><br><small>Tendencias externas desfavorables</small></div>
+</div>
+
+<div class="alert alert-warn">
+  <div class="at"><i data-lucide="scroll" style="width:16px;height:16px"></i> REGLA DE ROMERO</div>
+  <p>El FODA tiene que ser <strong>REAL</strong>. Nada de "posibilidad", "riesgo" o "potencial". Debe dar a entender que <strong>ya es un hecho</strong>.</p>
+  <p style="margin-top:6px"><span style="color:var(--red)">&cross; MAL:</span> "Podria aumentar la competencia"<br>
+  <span style="color:var(--green)">&check; BIEN:</span> "Hay un aumento de competidores en la zona"</p>
+</div>
+
+<h3>Ejemplos tipicos de cada cuadrante</h3>
+<div class="card-grid">
+  <div class="card"><h4>Fortalezas (F)</h4><ul><li>Productos de calidad</li><li>Costos bajos</li><li>Capacidad financiera</li><li>Ubicacion estrategica</li><li>Personal capacitado</li></ul></div>
+  <div class="card"><h4>Oportunidades (O)</h4><ul><li>Producto se pone de moda</li><li>Competidor se retira</li><li>Subsidios del estado</li><li>Apertura de nuevo mercado</li></ul></div>
+  <div class="card"><h4>Debilidades (D)</h4><ul><li>Mano de obra poco calificada</li><li>Problemas de logistica</li><li>Baja calidad del producto</li><li>Alto endeudamiento</li></ul></div>
+  <div class="card"><h4>Amenazas (A)</h4><ul><li>Inseguridad en la zona</li><li>Competencia agresiva</li><li>Inflacion / recesion</li><li>Sequias / desastres naturales</li><li>Cambios regulatorios adversos</li></ul></div>
+</div>
+
+<h3>Estrategias cruzadas del FODA (matriz FO / DO / FA / DA)</h3>
+
+<div class="matrix">
+  <div class="mh"></div>
+  <div class="mc-h">Fortalezas</div>
+  <div class="mc-h">Debilidades</div>
+  <div class="mh">Oport.</div>
+  <div class="mc1"><strong>FO &mdash; Atacar</strong><br><small>Usar F para aprovechar O. Posicion ideal</small></div>
+  <div class="mc2"><strong>DO &mdash; Movilizar</strong><br><small>Superar D aprovechando O</small></div>
+  <div class="mh">Amen.</div>
+  <div class="mc3"><strong>FA &mdash; Defender</strong><br><small>Usar F para reducir A</small></div>
+  <div class="mc4"><strong>DA &mdash; Sobrevivir</strong><br><small>Minimizar D y A. Precaria</small></div>
+</div>
+
+<div class="example-box">
+  <div class="et">Ejemplos</div>
+  <p><strong>FO:</strong> empresa con buena capacidad financiera (F) aprovecha que un competidor se retira (O) para expandirse.<br>
+  <strong>DA:</strong> empresa con baja calidad (D) y competencia agresiva (A) lucha por sobrevivir, quiza necesita fusionarse.</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: FODA</div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">1. "Los costos bajos de la empresa" es una:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-foda-1" value="a"> a) Debilidad</label>
+      <label><input type="radio" name="q-foda-1" value="b"> b) Oportunidad</label>
+      <label><input type="radio" name="q-foda-1" value="c"> c) Fortaleza</label>
+      <label><input type="radio" name="q-foda-1" value="d"> d) Amenaza</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">2. "Inflacion del 200% anual" es una:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-foda-2" value="a"> a) Fortaleza</label>
+      <label><input type="radio" name="q-foda-2" value="b"> b) Oportunidad</label>
+      <label><input type="radio" name="q-foda-2" value="c"> c) Debilidad</label>
+      <label><input type="radio" name="q-foda-2" value="d"> d) Amenaza</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">3. Segun Romero, "podria aumentar la competencia" es una amenaza valida del FODA. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. La regla de Romero: el FODA debe ser real/concreto. "Podria" implica posibilidad futura, no un hecho actual.</p></details>
+  </div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">4. &iquest;Que estrategia cruzada combina <strong>Fortalezas con Oportunidades</strong>?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-foda-4" value="a"> a) FO - atacar (ideal)</label>
+      <label><input type="radio" name="q-foda-4" value="b"> b) DO - movilizar</label>
+      <label><input type="radio" name="q-foda-4" value="c"> c) FA - defender</label>
+      <label><input type="radio" name="q-foda-4" value="d"> d) DA - sobrevivir</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">5. La estrategia <strong>mas precaria</strong> del cruce FODA es:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-foda-5" value="a"> a) FO</label>
+      <label><input type="radio" name="q-foda-5" value="b"> b) DO</label>
+      <label><input type="radio" name="q-foda-5" value="c"> c) FA</label>
+      <label><input type="radio" name="q-foda-5" value="d"> d) DA</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">6. Las <strong>Oportunidades</strong> pertenecen al entorno interno. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 10: SEGMENTACION ======= -->
+<div class="section" id="segm">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="pie-chart" style="width:20px;height:20px"></i> 10. Segmentacion</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p><strong>Dividir el mercado en subgrupos homogeneos</strong> segun criterios para poder ofrecer algo mas especifico a cada grupo.</p>
+
+<h3>Las 4 bases de segmentacion</h3>
+
+<table>
+<tr><th>Base</th><th>Que analiza</th><th>Ejemplo</th></tr>
+<tr><td><strong>Demografica</strong></td><td>Edad, sexo, ingresos, ocupacion, nivel educativo, tamaño familiar</td><td>Mujeres 25-35 de clase media</td></tr>
+<tr><td><strong>Geografica</strong></td><td>Region, pais, clima, densidad (urbano/rural)</td><td>NEA argentino, urbano</td></tr>
+<tr><td><strong>Psicografica</strong></td><td>Estilo de vida, personalidad, valores, actitudes</td><td>Consumidores ecologicos</td></tr>
+<tr><td><strong>Conductual</strong></td><td>Beneficio buscado, lealtad, tasa y ocasion de uso</td><td>Sensibles al precio, heavy users</td></tr>
+</table>
+
+<div class="alert alert-info">
+  <div class="at"><i data-lucide="target" style="width:16px;height:16px"></i> Por que segmentar?</div>
+  <p>Ningun producto satisface a todos por igual. Al segmentar puedes: (1) afinar la propuesta, (2) usar el presupuesto de mkt eficientemente, (3) posicionarte mejor en un grupo definido.</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Segmentacion</div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">1. "Mujeres de 25 a 35 años, clase media" es segmentacion:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-seg-1" value="a"> a) Demografica</label>
+      <label><input type="radio" name="q-seg-1" value="b"> b) Geografica</label>
+      <label><input type="radio" name="q-seg-1" value="c"> c) Psicografica</label>
+      <label><input type="radio" name="q-seg-1" value="d"> d) Conductual</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">2. "Consumidores ecologicos que priorizan productos sustentables" es segmentacion:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-seg-2" value="a"> a) Demografica</label>
+      <label><input type="radio" name="q-seg-2" value="b"> b) Geografica</label>
+      <label><input type="radio" name="q-seg-2" value="c"> c) Psicografica</label>
+      <label><input type="radio" name="q-seg-2" value="d"> d) Conductual</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">3. "Clientes sensibles al precio" es segmentacion:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-seg-3" value="a"> a) Demografica</label>
+      <label><input type="radio" name="q-seg-3" value="b"> b) Geografica</label>
+      <label><input type="radio" name="q-seg-3" value="c"> c) Psicografica</label>
+      <label><input type="radio" name="q-seg-3" value="d"> d) Conductual</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">4. Segmentar permite afinar la propuesta de valor para cada subgrupo. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 11: POSICIONAMIENTO ======= -->
+<div class="section" id="pos">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="crosshair" style="width:20px;height:20px"></i> 11. Posicionamiento</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Hacer que el producto ocupe un <strong>lugar distintivo en la mente del consumidor</strong> con respecto a la competencia.</p>
+
+<div class="alert alert-purple">
+  <div class="at"><i data-lucide="zap" style="width:16px;height:16px"></i> Idea clave</div>
+  <p>Se logra <strong>asociando la marca a una cualidad</strong> que evoque el recuerdo. Una sola idea, clara y fuerte.</p>
+</div>
+
+<div class="example-box">
+  <div class="et">Ejemplos</div>
+  <ul>
+    <li><strong>Volvo</strong> &rarr; seguridad</li>
+    <li><strong>Ferrari</strong> &rarr; velocidad / lujo deportivo</li>
+    <li><strong>Red Bull</strong> &rarr; energia</li>
+    <li><strong>Coca-Cola</strong> &rarr; felicidad</li>
+    <li><strong>Apple</strong> &rarr; diseño / innovacion</li>
+  </ul>
+</div>
+
+<h3>Relacion con la segmentacion</h3>
+<p>Segmentacion y posicionamiento van <strong>juntos</strong>: <strong>primero se segmenta</strong>, <strong>luego se posiciona</strong> en el segmento elegido. Ambos determinan el <strong>marketing mix</strong> (4 P's).</p>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Posicionamiento</div>
+
+  <div class="q">
+    <div class="q-stem">1. El posicionamiento es un lugar <strong>fisico</strong> en el punto de venta donde esta ubicado el producto. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. El posicionamiento es un lugar <strong>en la mente</strong> del consumidor, no fisico.</p></details>
+  </div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">2. Volvo se posiciona asociada a:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-pos-2" value="a"> a) Seguridad</label>
+      <label><input type="radio" name="q-pos-2" value="b"> b) Velocidad</label>
+      <label><input type="radio" name="q-pos-2" value="c"> c) Precio bajo</label>
+      <label><input type="radio" name="q-pos-2" value="d"> d) Lujo deportivo</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">3. &iquest;Que va primero?</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-pos-3" value="a"> a) Posicionamiento &rarr; Segmentacion</label>
+      <label><input type="radio" name="q-pos-3" value="b"> b) Segmentacion &rarr; Posicionamiento</label>
+      <label><input type="radio" name="q-pos-3" value="c"> c) Van en paralelo y son independientes</label>
+      <label><input type="radio" name="q-pos-3" value="d"> d) Ninguno, primero las 4 P's</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 12: ESTRATEGIAS (3 NIVELES + PORTER) ======= -->
+<div class="section" id="estrats">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="layers" style="width:20px;height:20px"></i> 12. Formulacion de Estrategias (3 niveles)</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<h3>Nivel 1 &mdash; Estrategia Corporativa</h3>
+<p>Se toma en la <strong>cima de la piramide</strong>. Abarca la organizacion en general.</p>
+<ul>
+  <li>Definir la <strong>mision</strong></li>
+  <li>Identificar las unidades de negocio (UEN)</li>
+  <li>Analizar y valorar la <strong>cartera de negocios</strong></li>
+  <li>Identificar nuevas areas de negocio &rarr; <strong>Matriz de Ansoff</strong></li>
+</ul>
+
+<h3>Nivel 2 &mdash; Estrategia de UEN (Porter)</h3>
+<p><strong>Ser competitivo</strong> = tener una cualidad que la competencia no puede igualar.</p>
+
+<table>
+<tr><th>Estrategia</th><th>Que busca</th><th>Ejemplo</th></tr>
+<tr><td><strong>Liderazgo en costos</strong></td><td>Tener costos mas bajos que la competencia. Eficiencia.</td><td>Walmart, Zara</td></tr>
+<tr><td><strong>Diferenciacion</strong></td><td>Ofrecer una cualidad <strong>unica</strong> percibida por el comprador (calidad, diseño, servicio).</td><td>Apple, Mercedes-Benz</td></tr>
+<tr><td><strong>Enfoque (concentracion)</strong></td><td>Liderar solo en un <strong>segmento especifico</strong> del mercado.</td><td>Rolex (lujo), Ferrari (deportivo premium)</td></tr>
+</table>
+
+<h3>Nivel 3 &mdash; Estrategia Funcional</h3>
+<p>Planificacion <strong>por area</strong> (marketing, finanzas, produccion, RRHH). En marketing se trabaja mercado meta, segmentacion, posicionamiento y 4 P's.</p>
+
+<div class="alert alert-info">
+  <div class="at"><i data-lucide="pyramid" style="width:16px;height:16px"></i> La piramide</div>
+  <p>Corporativa (CEO / directorio) &rarr; UEN (gerente de unidad / Porter) &rarr; Funcional (gerentes de area / 4 P's). Cada nivel se apoya en el anterior.</p>
+</div>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Estrategias</div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">1. Las 3 estrategias genericas de Porter son liderazgo en costos, diferenciacion y:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-est-1" value="a"> a) Penetracion</label>
+      <label><input type="radio" name="q-est-1" value="b"> b) Enfoque (concentracion)</label>
+      <label><input type="radio" name="q-est-1" value="c"> c) Diversificacion</label>
+      <label><input type="radio" name="q-est-1" value="d"> d) Consolidacion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">2. Apple con diseño e innovacion como valor diferencial aplica:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-est-2" value="a"> a) Liderazgo en costos</label>
+      <label><input type="radio" name="q-est-2" value="b"> b) Diferenciacion</label>
+      <label><input type="radio" name="q-est-2" value="c"> c) Enfoque</label>
+      <label><input type="radio" name="q-est-2" value="d"> d) Expansion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">3. Zara y Walmart con enfasis en bajos costos aplican:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-est-3" value="a"> a) Enfoque</label>
+      <label><input type="radio" name="q-est-3" value="b"> b) Diferenciacion</label>
+      <label><input type="radio" name="q-est-3" value="c"> c) Liderazgo en costos</label>
+      <label><input type="radio" name="q-est-3" value="d"> d) Penetracion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">4. La <strong>Matriz de Ansoff</strong> se usa en el nivel:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-est-4" value="a"> a) Corporativo</label>
+      <label><input type="radio" name="q-est-4" value="b"> b) UEN</label>
+      <label><input type="radio" name="q-est-4" value="c"> c) Funcional</label>
+      <label><input type="radio" name="q-est-4" value="d"> d) Operativo</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">5. La segmentacion y posicionamiento son tareas del nivel <strong>funcional</strong> (marketing). (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- ======= TEMA 13: ANSOFF ======= -->
+<div class="section" id="ansoff">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="grid-3x3" style="width:20px;height:20px"></i> 13. Matriz de Ansoff (estrategias de crecimiento)</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p>Herramienta para definir <strong>estrategias de crecimiento</strong> cruzando producto (actual/nuevo) con mercado (actual/nuevo).</p>
+
+<div class="matrix">
+  <div class="mh"></div>
+  <div class="mc-h">Productos actuales</div>
+  <div class="mc-h">Productos nuevos</div>
+  <div class="mh">Mercados<br>actuales</div>
+  <div class="mc1"><strong>Penetracion</strong><br><small>Vender mas de lo mismo al mismo mercado (descuentos, publicidad, fidelizacion)</small></div>
+  <div class="mc2"><strong>Desarrollo de producto</strong><br><small>Lanzar productos nuevos al mercado actual (Apple con iPhone nuevo modelo)</small></div>
+  <div class="mh">Mercados<br>nuevos</div>
+  <div class="mc3"><strong>Desarrollo de mercado</strong><br><small>Llevar lo actual a mercados nuevos (nueva zona geografica, nuevo segmento)</small></div>
+  <div class="mc4"><strong>Diversificacion</strong><br><small>Todo nuevo. Mayor riesgo</small></div>
+</div>
+
+<div class="alert alert-warn">
+  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Regla del riesgo</div>
+  <p>A mayor <strong>distancia de lo conocido</strong>, mayor riesgo. Penetracion es lo mas seguro; diversificacion lo mas arriesgado.</p>
+</div>
+
+<h3>Tipos de Diversificacion</h3>
+<table>
+<tr><th>Tipo</th><th>Que es</th><th>Ejemplo</th></tr>
+<tr><td><strong>Horizontal</strong></td><td>Mismo <strong>target</strong>, otra necesidad</td><td>PepsiCo compra Toddy</td></tr>
+<tr><td><strong>Vertical</strong></td><td>Integrarse hacia adelante (comprar cliente/distribuidor) o atras (comprar proveedor)</td><td>Arcor compra a su proveedor de azucar</td></tr>
+<tr><td><strong>Concentrica</strong></td><td>Productos relacionados, <strong>hay sinergia</strong></td><td>Empresa lactea lanza linea de yogures</td></tr>
+<tr><td><strong>Conglomerada</strong></td><td>Productos sin relacion, <strong>no hay sinergia</strong></td><td>Amazon entra a supermercados fisicos</td></tr>
+</table>
+
+<div class="quiz">
+  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Matriz de Ansoff</div>
+
+  <div class="q" data-mc="a">
+    <div class="q-stem">1. Una cadena de supermercados hace promo 2x1 para que sus clientes actuales compren mas. Es una estrategia de:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ans-1" value="a"> a) Penetracion</label>
+      <label><input type="radio" name="q-ans-1" value="b"> b) Desarrollo de mercado</label>
+      <label><input type="radio" name="q-ans-1" value="c"> c) Desarrollo de producto</label>
+      <label><input type="radio" name="q-ans-1" value="d"> d) Diversificacion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">2. McDonald&apos;s abre locales en un pais nuevo. Es:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ans-2" value="a"> a) Penetracion</label>
+      <label><input type="radio" name="q-ans-2" value="b"> b) Desarrollo de mercado</label>
+      <label><input type="radio" name="q-ans-2" value="c"> c) Desarrollo de producto</label>
+      <label><input type="radio" name="q-ans-2" value="d"> d) Diversificacion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="c">
+    <div class="q-stem">3. Apple lanza un nuevo modelo de iPhone a sus clientes habituales. Es:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ans-3" value="a"> a) Penetracion</label>
+      <label><input type="radio" name="q-ans-3" value="b"> b) Desarrollo de mercado</label>
+      <label><input type="radio" name="q-ans-3" value="c"> c) Desarrollo de producto</label>
+      <label><input type="radio" name="q-ans-3" value="d"> d) Diversificacion</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="d">
+    <div class="q-stem">4. Amazon (e-commerce) entra al negocio de supermercados fisicos (Whole Foods). Es una diversificacion:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ans-4" value="a"> a) Horizontal</label>
+      <label><input type="radio" name="q-ans-4" value="b"> b) Vertical</label>
+      <label><input type="radio" name="q-ans-4" value="c"> c) Concentrica</label>
+      <label><input type="radio" name="q-ans-4" value="d"> d) Conglomerada</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q" data-mc="b">
+    <div class="q-stem">5. Una empresa de lacteos lanza una linea de yogures. Es una diversificacion:</div>
+    <div class="q-opts">
+      <label><input type="radio" name="q-ans-5" value="a"> a) Horizontal</label>
+      <label><input type="radio" name="q-ans-5" value="b"> b) Concentrica</label>
+      <label><input type="radio" name="q-ans-5" value="c"> c) Vertical</label>
+      <label><input type="radio" name="q-ans-5" value="d"> d) Conglomerada</label>
+    </div>
+    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+  </div>
+
+  <div class="q">
+    <div class="q-stem">6. La estrategia con <strong>mayor riesgo</strong> en la matriz de Ansoff es la diversificacion. (V/F)</div>
+    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  </div>
+
+</div>
+
+</div></div>
+
+<!-- =============================================== -->
+<!--              PARCIALES SIMULACROS               -->
+<!-- =============================================== -->
+<h1 id="parciales" style="margin-top:50px;text-align:center;color:var(--accent);font-size:1.8em;border-bottom:3px solid var(--accent);padding-bottom:10px">Parciales Simulacros</h1>
+<p style="color:var(--muted);margin-bottom:16px;text-align:center">2 parciales completos integradores. Validan de forma automatica.</p>
+
+<!-- ============ PARCIAL 1 ============ -->
+<div class="parcial-hero" id="phero1">
+  <h2><i data-lucide="file-text" style="width:22px;height:22px;vertical-align:-4px"></i> Parcial Simulacro 1</h2>
+  <p>Integrador completo de Unidad 1 y 2 &bull; 20 preguntas mixtas</p>
+  <div class="badge">V/F + Opcion multiple + Text</div>
+</div>
+<div class="parcial-stats" data-parcial="p1">
+  <div class="ps-item"><div class="ps-num ps-tot">0</div><div class="ps-lab">Total</div></div>
+  <div class="ps-item"><div class="ps-num ps-done">0</div><div class="ps-lab">Correctas</div></div>
+  <div class="ps-item"><div class="ps-num ps-pct">0%</div><div class="ps-lab">Progreso</div></div>
+</div>
+
+<div class="section" id="p1">
+<div class="section-header active" onclick="toggle(this)">
+  <h2><i data-lucide="notebook-pen" style="width:20px;height:20px"></i> Enunciado Parcial 1</h2>
+  <span class="chevron" style="transform:rotate(180deg)"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body open">
+
+<div class="q-group-t">Bloque A &mdash; Conceptos fundamentales <span class="pts">40 pts</span></div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">1. &iquest;Cual es la definicion empresarial de marketing segun Drucker y la catedra?</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-1" value="a"> a) Publicitar el producto al maximo posible.</label>
+    <label><input type="radio" name="p1-1" value="b"> b) Conocer al cliente tan bien que el producto se venda por si mismo.</label>
+    <label><input type="radio" name="p1-1" value="c"> c) Distribuir el producto al menor costo posible.</label>
+    <label><input type="radio" name="p1-1" value="d"> d) Generar demanda donde no hay necesidad.</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">2. En el concepto de <strong>valor</strong>, se concreta el intercambio cuando el <strong>beneficio</strong> percibido es mayor que el sacrificio. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">3. &iquest;Cual de las 4 P's contiene a la <strong>marca</strong> como subvariable?</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-3" value="a"> a) Precio</label>
+    <label><input type="radio" name="p1-3" value="b"> b) Plaza</label>
+    <label><input type="radio" name="p1-3" value="c"> c) Producto</label>
+    <label><input type="radio" name="p1-3" value="d"> d) Promocion</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">4. Las bonificaciones se dan por volumen de compra, los descuentos por un motivo puntual. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q-group-t">Bloque B &mdash; Miopia y Evolucion <span class="pts">20 pts</span></div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">5. La miopia del marketing (Levitt) es:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-5" value="a"> a) Definir el negocio por la necesidad y no por el producto.</label>
+    <label><input type="radio" name="p1-5" value="b"> b) Definir el negocio por el producto y no por la necesidad.</label>
+    <label><input type="radio" name="p1-5" value="c"> c) Vender sin conocer al cliente.</label>
+    <label><input type="radio" name="p1-5" value="d"> d) Ignorar a los competidores directos.</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">6. Segun Kotler, la etapa donde oferta &gt; demanda y se vende a toda costa es:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-6" value="a"> a) Produccion</label>
+    <label><input type="radio" name="p1-6" value="b"> b) Ventas</label>
+    <label><input type="radio" name="p1-6" value="c"> c) Marketing</label>
+    <label><input type="radio" name="p1-6" value="d"> d) Holistico</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">7. El <strong>marketing holistico</strong> tiene 4 componentes: integrado, interno, relacional y ______.</div>
+  <div class="q-in"><input class="vld" data-a="social|societal" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q-group-t">Bloque C &mdash; Entornos y mercados <span class="pts">30 pts</span></div>
+
+<div class="q" data-mc="d">
+  <div class="q-stem">8. "Crecimiento exponencial de la IA generativa" es una variable del entorno:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-8" value="a"> a) Sociocultural</label>
+    <label><input type="radio" name="p1-8" value="b"> b) Economico</label>
+    <label><input type="radio" name="p1-8" value="c"> c) Politico-legal</label>
+    <label><input type="radio" name="p1-8" value="d"> d) Tecnologico</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">9. Los proveedores y los intermediarios pertenecen al <strong>microentorno</strong>. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">10. &iquest;Cual nivel de competencia es el mas intenso?</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-10" value="a"> a) De necesidades</label>
+    <label><input type="radio" name="p1-10" value="b"> b) De producto</label>
+    <label><input type="radio" name="p1-10" value="c"> c) De marca</label>
+    <label><input type="radio" name="p1-10" value="d"> d) De categoria</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">11. El <strong>mercado industrial</strong> tiene demanda derivada, pocos compradores y gran volumen. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q-group-t">Bloque D &mdash; Planeamiento + FODA <span class="pts">40 pts</span></div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">12. &iquest;En que paso del planeamiento se definen las 4 P's?</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-12" value="a"> a) Diagnostico (FODA)</label>
+    <label><input type="radio" name="p1-12" value="b"> b) Objetivos</label>
+    <label><input type="radio" name="p1-12" value="c"> c) Implementacion</label>
+    <label><input type="radio" name="p1-12" value="d"> d) Control</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">13. La <strong>vision</strong> responde a "&iquest;que queremos ser en el futuro?" (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">14. "La empresa tiene personal con baja capacitacion" es una:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-14" value="a"> a) Fortaleza</label>
+    <label><input type="radio" name="p1-14" value="b"> b) Debilidad</label>
+    <label><input type="radio" name="p1-14" value="c"> c) Oportunidad</label>
+    <label><input type="radio" name="p1-14" value="d"> d) Amenaza</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="a">
+  <div class="q-stem">15. La estrategia cruzada que usa <strong>F</strong> para aprovechar <strong>O</strong> es:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-15" value="a"> a) FO (atacar)</label>
+    <label><input type="radio" name="p1-15" value="b"> b) DO (movilizar)</label>
+    <label><input type="radio" name="p1-15" value="c"> c) FA (defender)</label>
+    <label><input type="radio" name="p1-15" value="d"> d) DA (sobrevivir)</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">16. En un FODA, "podria llegar un nuevo competidor" cumple con la regla de Romero. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q-group-t">Bloque E &mdash; Segmentacion, posicionamiento, Ansoff, Porter <span class="pts">30 pts</span></div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">17. "Consumidores que compran productos ecologicos por sus valores ambientales" es segmentacion:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-17" value="a"> a) Demografica</label>
+    <label><input type="radio" name="p1-17" value="b"> b) Geografica</label>
+    <label><input type="radio" name="p1-17" value="c"> c) Psicografica</label>
+    <label><input type="radio" name="p1-17" value="d"> d) Conductual</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">18. Una heladeria abre locales en una ciudad donde nunca vendio. Estrategia de Ansoff:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-18" value="a"> a) Penetracion</label>
+    <label><input type="radio" name="p1-18" value="b"> b) Desarrollo de mercado</label>
+    <label><input type="radio" name="p1-18" value="c"> c) Desarrollo de producto</label>
+    <label><input type="radio" name="p1-18" value="d"> d) Diversificacion</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">19. Walmart con su estrategia de precios bajos aplica la estrategia generica de Porter:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p1-19" value="a"> a) Diferenciacion</label>
+    <label><input type="radio" name="p1-19" value="b"> b) Enfoque</label>
+    <label><input type="radio" name="p1-19" value="c"> c) Liderazgo en costos</label>
+    <label><input type="radio" name="p1-19" value="d"> d) Penetracion</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q">
+  <div class="q-stem">20. El posicionamiento se logra asociando la marca a una cualidad distintiva. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<button class="q-reset" onclick="resetParcial('p1')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 1</button>
+
+</div></div>
+
+<!-- ============ PARCIAL 2 ============ -->
+<div class="parcial-hero" id="phero2">
+  <h2><i data-lucide="file-text" style="width:22px;height:22px;vertical-align:-4px"></i> Parcial Simulacro 2</h2>
+  <p>Segundo simulacro con enfasis en casos y aplicacion &bull; 20 preguntas</p>
+  <div class="badge">Casos + aplicacion a empresas reales</div>
+</div>
+<div class="parcial-stats" data-parcial="p2">
+  <div class="ps-item"><div class="ps-num ps-tot">0</div><div class="ps-lab">Total</div></div>
+  <div class="ps-item"><div class="ps-num ps-done">0</div><div class="ps-lab">Correctas</div></div>
+  <div class="ps-item"><div class="ps-num ps-pct">0%</div><div class="ps-lab">Progreso</div></div>
+</div>
+
+<div class="section" id="p2">
+<div class="section-header active" onclick="toggle(this)">
+  <h2><i data-lucide="notebook-pen" style="width:20px;height:20px"></i> Enunciado Parcial 2</h2>
+  <span class="chevron" style="transform:rotate(180deg)"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body open">
+
+<div class="q-group-t">Bloque A &mdash; Aplicacion a casos <span class="pts">50 pts</span></div>
+
+<div class="q" data-mc="b">
+  <div class="q-stem">1. Kodak no noto que los celulares la sacarian del mercado. Caso tipico de:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p2-1" value="a"> a) Marketing holistico mal aplicado</label>
+    <label><input type="radio" name="p2-1" value="b"> b) Miopia del marketing</label>
+    <label><input type="radio" name="p2-1" value="c"> c) Mala segmentacion</label>
+    <label><input type="radio" name="p2-1" value="d"> d) Problema de distribucion</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="d">
+  <div class="q-stem">2. Si Kodak hubiera definido su mision correctamente orientada al mercado, esta seria:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p2-2" value="a"> a) Hacer camaras de calidad.</label>
+    <label><input type="radio" name="p2-2" value="b"> b) Vender rollos de pelicula a todos los hogares.</label>
+    <label><input type="radio" name="p2-2" value="c"> c) Liderar el mercado de fotografia analogica.</label>
+    <label><input type="radio" name="p2-2" value="d"> d) Ayudar a la gente a preservar sus recuerdos / inmortalizar imagenes.</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">3. Ferrari compite en un segmento muy especifico de autos deportivos de lujo. Porter diria que aplica:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p2-3" value="a"> a) Liderazgo en costos</label>
+    <label><input type="radio" name="p2-3" value="b"> b) Diferenciacion</label>
+    <label><input type="radio" name="p2-3" value="c"> c) Enfoque / concentracion</label>
+    <label><input type="radio" name="p2-3" value="d"> d) Las tres al mismo tiempo</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="c">
+  <div class="q-stem">4. Arcor compra una empresa azucarera (su proveedor de azucar). Tipo de diversificacion:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p2-4" value="a"> a) Horizontal</label>
+    <label><input type="radio" name="p2-4" value="b"> b) Conglomerada</label>
+    <label><input type="radio" name="p2-4" value="c"> c) Vertical hacia atras</label>
+    <label><input type="radio" name="p2-4" value="d"> d) Concentrica</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q" data-mc="d">
+  <div class="q-stem">5. Una marca dice "vendemos felicidad, no gaseosa". Esta usando una definicion de mision:</div>
+  <div class="q-opts">
+    <label><input type="radio" name="p2-5" value="a"> a) Orientada al producto</label>
+    <label><input type="radio" name="p2-5" value="b"> b) Miope</label>
+    <label><input type="radio" name="p2-5" value="c"> c) De ventas</label>
+    <label><input type="radio" name="p2-5" value="d"> d) Orientada al mercado (a la necesidad)</label>
+  </div>
+  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
+</div>
+
+<div class="q-group-t">Bloque B &mdash; V/F conceptual <span class="pts">30 pts</span></div>
+
+<div class="q">
+  <div class="q-stem">6. El marketing estrategico usa las 4 P's para ejecutar la estrategia. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Las 4 P's son parte del marketing <strong>operativo</strong>.</p></details>
+</div>
+
+<div class="q">
+  <div class="q-stem">7. Una empresa puede controlar el macroentorno si tiene suficiente poder de mercado. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">8. Primero se segmenta, luego se posiciona en el segmento elegido. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">9. La Matriz de Ansoff pertenece al nivel de estrategia <strong>funcional</strong>. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+  <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Pertenece al nivel <strong>corporativo</strong> (estrategia de crecimiento de la empresa).</p></details>
+</div>
+
+<div class="q">
+  <div class="q-stem">10. En el marketing 4.0 "la mejor publicidad la hacen los clientes satisfechos". (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">11. "La venta esta orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador." Es una frase de Theodore <strong>Levitt</strong>. (V/F)</div>
+  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q-group-t">Bloque C &mdash; Completar / identificar <span class="pts">40 pts</span></div>
+
+<div class="q">
+  <div class="q-stem">12. Segun Lambin, el equivalente al enfoque de "produccion" de Kotler se llama marketing ______.</div>
+  <div class="q-in"><input class="vld" data-a="pasivo" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">13. Lambin llama marketing "______" a la etapa de ventas (con venta forzada y autodestructora).</div>
+  <div class="q-in"><input class="vld" data-a="de organizacion|organizacion" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">14. Una lavanderia de barrio hace descuentos a sus clientes para que laven mas veces al mes. Ansoff: estrategia de _____.</div>
+  <div class="q-in"><input class="vld" data-a="penetracion" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">15. Unilever (productos de consumo masivo) decide fabricar autopartes. Tipo de diversificacion: _____.</div>
+  <div class="q-in"><input class="vld" data-a="conglomerada" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">16. La mision de Revlon ("vendemos esperanza") es un ejemplo clasico de mision orientada al _____ (no al producto).</div>
+  <div class="q-in"><input class="vld" data-a="mercado|cliente|consumidor|necesidad" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">17. En el FODA de Romero, las fortalezas deben ser hechos reales, no potenciales ni ______.</div>
+  <div class="q-in"><input class="vld" data-a="posibilidades|probables|potenciales" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">18. El elemento de la mezcla de comunicacion que no utiliza intermediarios (email, telemarketing, catalogos) se llama marketing _____.</div>
+  <div class="q-in"><input class="vld" data-a="directo" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">19. El marketing ______ tiene como componentes integrado, interno, relacional y social.</div>
+  <div class="q-in"><input class="vld" data-a="holistico" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<div class="q">
+  <div class="q-stem">20. La estrategia cruzada del FODA mas precaria es la de _____ (codigo de 2 letras).</div>
+  <div class="q-in"><input class="vld" data-a="DA|da" data-t="text" placeholder="ej: FA"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
+</div>
+
+<button class="q-reset" onclick="resetParcial('p2')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 2</button>
+
+</div></div>
+
+<br>
+<p style="text-align:center;color:var(--muted);font-size:.83em">Marketing &mdash; UCES 2026 &mdash; Parcial 1 &mdash; Prof. Romero</p>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src="" alt="Zoom"></div>
+
+<script>
+function toggle(h){h.classList.toggle('active');h.nextElementSibling.classList.toggle('open')}
+let allOpen=false;
+function toggleAll(){allOpen=!allOpen;document.querySelectorAll('.section-header').forEach(h=>{if(allOpen){h.classList.add('active');h.nextElementSibling.classList.add('open')}else{h.classList.remove('active');h.nextElementSibling.classList.remove('open')}})}
+function toggleTheme(){const h=document.documentElement;const n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);localStorage.setItem('mkt-theme',n)}
+const s=localStorage.getItem('mkt-theme');if(s)document.documentElement.setAttribute('data-theme',s);
+window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressFill').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
+function openLightbox(img){document.getElementById('lightboxImg').src=img.src;document.getElementById('lightbox').classList.add('active')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+
+function normText(s){return String(s==null?'':s).trim().toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' ')}
+
+function checkOne(inp){
+  const raw = (inp.value!==undefined) ? inp.value : (inp.checked ? inp.value : null);
+  if(raw==null || String(raw).trim()==='') return null;
+  const ans = inp.dataset.a;
+  const t = inp.dataset.t || 'text';
+  if(t==='vf'){
+    const u = normText(raw), c = normText(ans);
+    if(c==='v') return (u==='v'||u==='verdadero');
+    if(c==='f') return (u==='f'||u==='falso');
+    return u===c;
+  }
+  if(t==='text'){
+    const u = normText(raw);
+    const opts = String(ans).split('|').map(normText);
+    return opts.includes(u);
+  }
+  if(t==='mc'){
+    return normText(raw) === normText(ans);
+  }
+  return false;
+}
+
+function chk(btn){
+  const q = btn.closest('.q');
+  const mcSel = q.querySelector('input[type="radio"]:checked');
+  const inputs = q.querySelectorAll('.vld');
+  const fb = q.querySelector('.q-fb');
+  let allOk = true, anyEmpty = false, anyFilled = false;
+
+  // Multiple choice
+  if(q.dataset.mc){
+    if(!mcSel){
+      fb.className='q-fb bad'; fb.textContent='! Elegi una opcion';
+      q.classList.remove('done'); return;
+    }
+    const ok = normText(mcSel.value) === normText(q.dataset.mc);
+    q.querySelectorAll('.q-opts label').forEach(lb => {
+      lb.classList.remove('ok','bad');
+      if(lb.querySelector('input').checked){
+        lb.classList.add(ok ? 'ok' : 'bad');
+      }
+    });
+    if(ok){ fb.className='q-fb ok'; fb.textContent='Correcto'; q.classList.add('done'); q.classList.remove('bad'); }
+    else { fb.className='q-fb bad'; fb.textContent='Revisa'; q.classList.remove('done'); q.classList.add('bad'); }
+    saveQState(); return;
+  }
+
+  inputs.forEach(inp => {
+    const r = checkOne(inp);
+    if(r===null){ anyEmpty = true; inp.classList.remove('ok','bad'); }
+    else { anyFilled = true; inp.classList.toggle('ok',r); inp.classList.toggle('bad',!r); if(!r) allOk = false; }
+  });
+  if(anyEmpty && !anyFilled){
+    fb.className='q-fb bad'; fb.textContent='! Completa';
+    q.classList.remove('done'); return;
+  }
+  if(anyEmpty){
+    fb.className='q-fb bad'; fb.textContent='! Faltan campos';
+    q.classList.remove('done'); return;
+  }
+  if(allOk){ fb.className='q-fb ok'; fb.textContent='Correcto'; q.classList.add('done'); q.classList.remove('bad'); }
+  else { fb.className='q-fb bad'; fb.textContent='Revisa'; q.classList.remove('done'); q.classList.add('bad'); }
+  saveQState();
+}
+
+function saveQState(){
+  const st = {};
+  document.querySelectorAll('.q').forEach((q,i)=>{
+    if(q.classList.contains('done')) st[i]='done';
+  });
+  localStorage.setItem('mkt-qstate', JSON.stringify(st));
+  updateQStats();
+}
+
+function loadQState(){
+  const d = localStorage.getItem('mkt-qstate');
+  if(!d) return;
+  try{
+    const st = JSON.parse(d);
+    document.querySelectorAll('.q').forEach((q,i)=>{
+      if(st[i]==='done') q.classList.add('done');
+    });
+  }catch(e){}
+}
+
+function updateQStats(){
+  const all = document.querySelectorAll('.q').length;
+  const done = document.querySelectorAll('.q.done').length;
+  const t=document.getElementById('totalQ'); if(t) t.textContent=all;
+  const d=document.getElementById('doneQ'); if(d) d.textContent=done;
+  const p=document.getElementById('pctQ'); if(p) p.textContent=(all?Math.round(done/all*100):0)+'%';
+  document.querySelectorAll('[data-parcial]').forEach(box => {
+    const scope = '#'+box.dataset.parcial;
+    const a = document.querySelectorAll(scope+' .q').length;
+    const dd = document.querySelectorAll(scope+' .q.done').length;
+    const tn = box.querySelector('.ps-tot'); if(tn) tn.textContent=a;
+    const dn = box.querySelector('.ps-done'); if(dn) dn.textContent=dd;
+    const pn = box.querySelector('.ps-pct'); if(pn) pn.textContent=(a?Math.round(dd/a*100):0)+'%';
+  });
+}
+
+function resetAll(){
+  if(!confirm('Reiniciar TODO el progreso (incluidos los parciales)?')) return;
+  document.querySelectorAll('.vld').forEach(i => { i.value=''; i.classList.remove('ok','bad'); });
+  document.querySelectorAll('.q-opts input[type="radio"]').forEach(r => r.checked=false);
+  document.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('ok','bad','picked'));
+  document.querySelectorAll('.q').forEach(q => {
+    q.classList.remove('done','bad');
+    const fb=q.querySelector('.q-fb'); if(fb){ fb.textContent=''; fb.className='q-fb'; }
+  });
+  saveQState();
+}
+
+function resetParcial(id){
+  if(!confirm('Reiniciar este parcial?')) return;
+  const s = document.getElementById(id); if(!s) return;
+  s.querySelectorAll('.vld').forEach(i => { i.value=''; i.classList.remove('ok','bad'); });
+  s.querySelectorAll('.q-opts input[type="radio"]').forEach(r => r.checked=false);
+  s.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('ok','bad','picked'));
+  s.querySelectorAll('.q').forEach(q => {
+    q.classList.remove('done','bad');
+    const fb=q.querySelector('.q-fb'); if(fb){ fb.textContent=''; fb.className='q-fb'; }
+  });
+  saveQState();
+}
+
+document.addEventListener('change', e => {
+  if(e.target.matches('.q-opts input[type="radio"]')){
+    e.target.closest('.q').querySelectorAll('.q-opts label').forEach(l => l.classList.remove('picked'));
+    e.target.closest('label').classList.add('picked');
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if(e.key==='Enter' && e.target.classList && e.target.classList.contains('vld')){
+    e.preventDefault();
+    const q=e.target.closest('.q'); if(q){ const b=q.querySelector('.q-btn'); if(b) b.click(); }
+  }
+});
+
+window.addEventListener('DOMContentLoaded',()=>{
+  loadQState();updateQStats();
+  if(typeof lucide!=='undefined') lucide.createIcons();
+});
+</script>
+
+</body>
+</html>
