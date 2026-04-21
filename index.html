@@ -155,6 +155,26 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 .q-group-t{font-weight:600;color:var(--accent);font-size:1.05em;margin:18px 0 8px;padding-bottom:4px;border-bottom:2px dashed var(--border);display:flex;justify-content:space-between;align-items:center;gap:8px}
 .q-group-t .pts{font-size:.82em;color:var(--muted);font-weight:500;background:var(--bg);padding:2px 8px;border-radius:10px}
 
+/* Source tags - indicacion de material de estudio */
+.source-row{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 14px;padding:8px 10px;background:var(--bg);border:1px dashed var(--border);border-radius:8px;align-items:center}
+.source-row .source-label{font-size:.72em;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-right:4px;display:flex;align-items:center;gap:4px}
+.source-tag{display:inline-flex;align-items:center;gap:4px;font-size:.72em;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:6px;font-weight:500;white-space:nowrap;line-height:1.3}
+.source-tag.ppt{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.source-tag.apunte{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
+.source-tag.kotler{background:#e0e7ff;color:#3730a3;border:1px solid #a5b4fc}
+.source-tag.lambin{background:#fce7f3;color:#9f1239;border:1px solid #f9a8d4}
+.source-tag.gomez{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+.source-tag.levitt{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+.source-tag.romero{background:#ede9fe;color:#5b21b6;border:1px solid #c4b5fd}
+[data-theme="dark"] .source-tag.ppt{background:#451a03;color:#fcd34d;border-color:#78350f}
+[data-theme="dark"] .source-tag.apunte{background:#172554;color:#93c5fd;border-color:#1e3a8a}
+[data-theme="dark"] .source-tag.kotler{background:#1e1b4b;color:#a5b4fc;border-color:#312e81}
+[data-theme="dark"] .source-tag.lambin{background:#500724;color:#f9a8d4;border-color:#831843}
+[data-theme="dark"] .source-tag.gomez{background:#064e3b;color:#6ee7b7;border-color:#065f46}
+[data-theme="dark"] .source-tag.levitt{background:#450a0a;color:#fca5a5;border-color:#7f1d1d}
+[data-theme="dark"] .source-tag.romero{background:#2e1065;color:#c4b5fd;border-color:#4c1d95}
+.source-tag-inline{font-size:.68em;font-family:'JetBrains Mono',monospace;padding:2px 6px;border-radius:5px;margin-left:6px;vertical-align:middle;font-weight:500;background:var(--accent-l);color:var(--accent);border:1px solid var(--border)}
+
 /* ============ INTERACTIVE COMPONENTS ============ */
 /* Flashcards */
 .flashcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
@@ -269,7 +289,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 <nav class="topnav">
   <div class="logo"><i data-lucide="target" style="width:20px;height:20px"></i> Marketing</div>
   <div class="nav-links">
-    <a href="#intro">Intro</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--pink);font-weight:700">Parciales</a>
+    <a href="#intro">Intro</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--pink);font-weight:700">Parciales</a><a href="#bibliografia">Fuentes</a>
   </div>
   <div class="controls">
     <button onclick="toggleAll()" title="Abrir/cerrar todo"><i data-lucide="layout-list" style="width:16px;height:16px"></i></button>
@@ -336,6 +356,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag ppt">PPT catedra C01</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
+  <span class="source-tag romero">Notas clase Romero</span>
+</div>
 
 <img src="img/marketing-global.png" alt="Marketing global" class="illust med" onclick="openLightbox(this)">
 
@@ -461,6 +489,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body">
 
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag ppt">PPT catedra C01</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006) Cap. 1</span>
+  <span class="source-tag apunte">Apunte U1</span>
+</div>
+
 <p>El marketing busca <strong>detectar y satisfacer necesidades</strong>. Pero &iquest;que es una necesidad, y en que se diferencia de un deseo o una demanda? Tres conceptos que Kotler distingue claramente y que <strong>se preguntan en el parcial</strong>.</p>
 
 <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
@@ -550,6 +585,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag ppt">PPT catedra C01</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag gomez">Gomez &amp; Tauro (2023) - McCarthy 1964</span>
+  <span class="source-tag romero">Notas clase Romero C03</span>
+</div>
 
 <div class="topic-progress"><div class="fill"></div></div>
 <div class="topic-progress-label"><span>&mdash;</span><span>0%</span></div>
@@ -709,6 +752,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body">
 
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag levitt">Levitt (1960) HBR</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
+  <span class="source-tag romero">Notas clase Romero C02</span>
+</div>
+
 <p>Concepto de <strong>Theodore Levitt</strong> (Harvard Business Review, 1960). Es el error de <strong>definir el negocio por el producto</strong> en lugar de por la <strong>necesidad que se satisface</strong>.</p>
 
 <img src="img/bicicleta-miopia.png" alt="Miopia del marketing" class="illust sm" onclick="openLightbox(this)">
@@ -841,6 +892,15 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006) Cap. 1</span>
+  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
+  <span class="source-tag gomez">Gomez &amp; Tauro (2023) - M1.0 a 5.0</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag romero">Notas clase Romero C02</span>
+</div>
 
 <h3>Segun Kotler (base del examen de Romero)</h3>
 
@@ -975,6 +1035,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
+  <span class="source-tag ppt">PPT catedra C02</span>
+  <span class="source-tag romero">Notas clase Romero C02</span>
+</div>
 
 <h3>Concepto de Entorno</h3>
 <div class="card" style="border-left:4px solid var(--accent)">
@@ -1117,6 +1185,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body">
 
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag ppt">PPT catedra C03 - slide "Clases de Mercado"</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag romero">Notas clase Romero C03</span>
+</div>
+
 <p style="font-size:.9em;color:var(--muted)">Definiciones textuales del PPT de catedra (slide "Clases de Mercado"):</p>
 
 <div class="card-grid">
@@ -1168,6 +1243,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag lambin">Lambin (1995) Cap. 1 - eje central</span>
+  <span class="source-tag apunte">Apunte U1 / Planeamiento Estrategico</span>
+  <span class="source-tag romero">Notas clase Romero C03-C04</span>
+</div>
 
 <img src="img/estrategico-vs-tactico.png" alt="Estrategico vs tactico" class="illust wide" onclick="openLightbox(this)">
 <figcaption>Lambin: Marketing estrategico (analisis, seleccion de valor) vs Marketing tactico / operativo (oferta y comunicacion del valor)</figcaption>
@@ -1237,6 +1319,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag apunte">Apunte: Planeamiento Estrategico</span>
+  <span class="source-tag kotler">Kotler (1992) - cita "decidir hoy que hacer en el futuro"</span>
+  <span class="source-tag romero">Notas clase Romero C03</span>
+</div>
 
 <p>Decidir <strong>hoy</strong> que hacer <strong>mañana</strong> teniendo en cuenta el entorno. Es una <strong>filosofia de adaptacion permanente</strong> (a diferencia del planeamiento ordinario que no considera el entorno).</p>
 
@@ -1336,6 +1425,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag apunte">Apunte: Estrategias Cruzadas FODA</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag romero">Notas clase Romero C04 + regla C05 (FODA debe ser real)</span>
+</div>
 
 <p>Herramienta de <strong>diagnostico</strong>. Separa lo positivo y lo negativo, lo interno y lo externo.</p>
 
@@ -1525,6 +1621,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body">
 
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
+  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag romero">Notas clase Romero C04</span>
+</div>
+
 <p><strong>Dividir el mercado en subgrupos homogeneos</strong> segun criterios para poder ofrecer algo mas especifico a cada grupo.</p>
 
 <h3>Las 4 bases de segmentacion</h3>
@@ -1594,6 +1698,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
+  <span class="source-tag apunte">Apunte U1</span>
+  <span class="source-tag romero">Notas clase Romero C04</span>
+</div>
 
 <p>Hacer que el producto ocupe un <strong>lugar distintivo en la mente del consumidor</strong> con respecto a la competencia.</p>
 
@@ -1684,6 +1795,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag apunte">Apunte: Planeamiento Estrategico (3 niveles)</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006) - Porter UEN</span>
+  <span class="source-tag romero">Notas clase Romero C05 (estrategia corporativa)</span>
+</div>
 
 <h3>Nivel 1 &mdash; Estrategia Corporativa</h3>
 <p>Se toma en la <strong>cima de la piramide</strong>. Abarca la organizacion en general.</p>
@@ -1818,6 +1936,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag apunte">Apunte: Matriz de Ansoff</span>
+  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
+  <span class="source-tag romero">Notas clase Romero C04</span>
+</div>
 
 <p>Herramienta para definir <strong>estrategias de crecimiento</strong> cruzando producto (actual/nuevo) con mercado (actual/nuevo).</p>
 
@@ -1963,6 +2088,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
   <span class="chevron" style="transform:rotate(180deg)"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
 </div>
 <div class="section-body open">
+
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag romero">Simulacro integrador U1+U2 basado en tipo de pregunta Prof. Romero</span>
+  <span class="source-tag apunte">Apuntes U1 + Planeamiento + FODA + Ansoff</span>
+  <span class="source-tag ppt">PPT catedra C01-C05</span>
+</div>
 
 <div class="q-group-t">Bloque A &mdash; Conceptos fundamentales <span class="pts">40 pts</span></div>
 
@@ -2169,6 +2301,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 <div class="section-body open">
 
+<div class="source-row">
+  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
+  <span class="source-tag romero">Simulacro con casos reales basado en estilo Prof. Romero</span>
+  <span class="source-tag apunte">Ejemplos del apunte (Texas Instruments, Apple, Amazon)</span>
+  <span class="source-tag lambin">Lambin (1995) - marketing salvaje, estrategico vs operativo</span>
+  <span class="source-tag levitt">Levitt (1960) - miopia</span>
+</div>
+
 <div class="q-group-t">Bloque A &mdash; Aplicacion a casos <span class="pts">50 pts</span></div>
 
 <div class="q" data-mc="b">
@@ -2308,6 +2448,172 @@ figcaption{text-align:center;color:var(--muted);font-size:.82em;margin-top:4px}
 </div>
 
 <button class="q-reset" onclick="resetParcial('p2')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 2</button>
+
+</div></div>
+
+<!-- ======= BIBLIOGRAFIA Y FUENTES ======= -->
+<div class="section" id="bibliografia">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="library" style="width:20px;height:20px"></i> Bibliografia y fuentes</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+<p style="margin-bottom:14px">Listado completo del material de estudio utilizado para armar este landing. Los badges que ves en cada seccion (<span class="source-tag ppt">PPT</span> <span class="source-tag apunte">Apunte</span> <span class="source-tag kotler">Kotler</span> <span class="source-tag lambin">Lambin</span> etc.) hacen referencia a estas fuentes.</p>
+
+<h3>Bibliografia principal</h3>
+
+<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+  <div class="card" style="border-left:4px solid #3730a3">
+    <h4><span class="source-tag kotler" style="font-size:.78em">Kotler &amp; Keller (2006)</span></h4>
+    <p><strong>Direccion de Marketing</strong>, 12a edicion.</p>
+    <p style="font-size:.85em;color:var(--muted)">Pearson Prentice Hall.</p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definiciones social y empresarial, marketing holistico (4 componentes), evolucion del marketing, concepto de entorno, segmentacion, posicionamiento, UEN/Porter.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #9f1239">
+    <h4><span class="source-tag lambin" style="font-size:.78em">Lambin (1995)</span></h4>
+    <p><strong>Marketing Estrategico</strong>, 3a edicion.</p>
+    <p style="font-size:.85em;color:var(--muted)">McGraw-Hill. Capitulo 1.</p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> marketing estrategico vs operativo (eje central), evolucion pasivo/organizacion/activo, concepto de marketing salvaje, cita "la venta se orienta al vendedor; el marketing al comprador".</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #065f46">
+    <h4><span class="source-tag gomez" style="font-size:.78em">Gomez &amp; Tauro (2023)</span></h4>
+    <p><strong>Marketing 1.0 a 5.0</strong>.</p>
+    <p style="font-size:.85em;color:var(--muted)">Bibliografia complementaria.</p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> evolucion moderna del marketing (las 5 etapas: centrado en producto, consumidor, humano, digital, transformacion). Referencia a McCarthy 1964 para las 4 P.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #991b1b">
+    <h4><span class="source-tag levitt" style="font-size:.78em">Levitt (1960)</span></h4>
+    <p><strong>Marketing Myopia</strong>.</p>
+    <p style="font-size:.85em;color:var(--muted)">Harvard Business Review.</p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definicion de miopia del marketing, frase "nadie quiere un taladro de 1/4 de pulgada... quieren agujeros", ejemplos ferrocarriles y cines.</p>
+  </div>
+
+</div>
+
+<h3>Apuntes de catedra</h3>
+
+<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+  <div class="card" style="border-left:4px solid #1e40af">
+    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte U1</span></h4>
+    <p><strong>Apunte de catedra, Unidad 1: Marketing y Contexto</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definiciones, 4 P's detalladas, miopia (ejemplos clasicos: ferrocarriles, cine, petroleo, celulares), entornos (micro/macro), niveles de competencia, clases de mercado.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #1e40af">
+    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte Planeamiento</span></h4>
+    <p><strong>Apunte de catedra: Planeamiento Estrategico</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> diferencia entre planeamiento ordinario y estrategico, 6 pasos del proceso, mision y vision (DAR vs SER), caracteristicas de los objetivos, 3 niveles de estrategia (corporativa, UEN, funcional), cita de Kotler (1992) "decidir hoy que hacer en el futuro".</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #1e40af">
+    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte Ansoff</span></h4>
+    <p><strong>Apunte de catedra: Matriz de Ansoff</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> las 4 estrategias de crecimiento (penetracion, desarrollo de mercado, desarrollo de producto, diversificacion), tipos de diversificacion (relacionada/concentrica y no relacionada/conglomerada), ejemplos Apple (iPhone+iTunes), Amazon, limitaciones de la matriz.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #1e40af">
+    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte FODA cruzado</span></h4>
+    <p><strong>Apunte de catedra: Estrategias Cruzadas FODA</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> matriz FO/DO/FA/DA, estrategias ofensiva/movilizacion/defensa/supervivencia, ejemplo Texas Instruments (estrategia FA con departamento legal y patentes), joint ventures (estrategia DO).</p>
+  </div>
+
+</div>
+
+<h3>PPT de catedra (presentaciones de clase)</h3>
+
+<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+  <div class="card" style="border-left:4px solid #92400e">
+    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C01</span></h4>
+    <p><strong>Clase 01 (11/03/2026) - Introduccion al marketing</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> inventos famosos que fracasaron (bici anfibia, Segway, Oakley Thump, Pepsi Cristal), 5 definiciones (McCarthy 1964, AMA 1960, AMA 2006, Kotler social, Drucker empresarial), ecuacion de valor, necesidad/deseo/demanda, 4 P's intro, mezcla de comunicacion.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #92400e">
+    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C02</span></h4>
+    <p><strong>Clase 02 (18/03/2026) - Evolucion, entornos y miopia</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> evolucion del marketing segun Kotler, miopia de Levitt con ejemplos, concepto de entorno, microentorno (consumidores, competencia, intermediarios, proveedores), macroentorno (DESTEP / PESTEL).</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #92400e">
+    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C03</span></h4>
+    <p><strong>Clase 03 (25/03/2026) - Variables controlables y planeamiento</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> detalle de las 4 P's (producto, plaza con canales/cobertura/localizacion/inventario/transporte, precio con descuentos/bonificaciones, promocion), clases de mercado (consumo e industrial), introduccion a marketing estrategico vs operativo.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #92400e">
+    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C04</span></h4>
+    <p><strong>Clase 04 (01/04/2026) - Segmentacion, FODA, posicionamiento, Ansoff</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> marketing estrategico vs operativo (cuadro comparativo), mercado de referencia, producto-mercado, segmentos, 4 bases de segmentacion, FODA, posicionamiento, Matriz de Ansoff.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #92400e">
+    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C05</span></h4>
+    <p><strong>Clase 05 (08/04/2026) - Repaso y aclaraciones para el parcial</strong></p>
+    <p style="font-size:.85em;margin-top:6px"><strong>Slides / aclaraciones clave:</strong> alcance del parcial (Unidades 1 y 2), <strong>regla del FODA real</strong> (no usar "posibilidad", "riesgo" ni "potencial" - deben ser hechos concretos), estrategias de nivel corporativo.</p>
+  </div>
+
+</div>
+
+<h3>Notas de clase</h3>
+
+<div class="card" style="border-left:4px solid #5b21b6">
+  <h4><span class="source-tag romero" style="font-size:.78em">Notas clase Romero</span></h4>
+  <p><strong>Notas tomadas en clases del Prof. Lic. Juan Pablo Romero</strong></p>
+  <p style="font-size:.85em;color:var(--muted)">UCES Resistencia, 1er cuatrimestre 2026.</p>
+  <p style="font-size:.85em;margin-top:6px"><strong>Aportes exclusivos:</strong> definicion sintetica ("ofrecer mejor lo que ofrezco, mostrar valor, enfocarme en el consumidor"), aclaracion mision como "DAR" vs vision como "SER", aclaracion consumidores son el actor mas relevante del microentorno, ejemplos criollos (sequia, Chaco, contexto local), regla del FODA real, prioridad del profesor sobre la bibliografia cuando hay diferencias.</p>
+</div>
+
+<div class="alert alert-info" style="margin-top:18px">
+  <div class="at"><i data-lucide="info" style="width:16px;height:16px;vertical-align:-3px"></i> Nota importante</div>
+  <p>Cuando hay diferencia entre lo que dice un libro y lo que explico Romero en clase, <strong>la version del profesor tiene prioridad para el examen</strong> (aclarado en C05).</p>
+</div>
+
+<h3>Indice rapido: tema &rarr; fuente principal</h3>
+
+<table>
+<thead><tr><th>Tema del landing</th><th>Fuente principal</th><th>Fuentes secundarias</th></tr></thead>
+<tbody>
+<tr><td>1. Que es el Marketing</td><td><span class="source-tag ppt">PPT C01</span></td><td><span class="source-tag kotler">Kotler</span> <span class="source-tag apunte">Apunte U1</span></td></tr>
+<tr><td>2. Necesidad, Deseo y Demanda</td><td><span class="source-tag ppt">PPT C01</span></td><td><span class="source-tag kotler">Kotler Cap. 1</span></td></tr>
+<tr><td>3. Las 4 P's</td><td><span class="source-tag apunte">Apunte U1</span></td><td><span class="source-tag gomez">Gomez-Tauro (McCarthy)</span> <span class="source-tag ppt">PPT C01/C03</span></td></tr>
+<tr><td>4. Miopia del Marketing</td><td><span class="source-tag levitt">Levitt 1960</span></td><td><span class="source-tag apunte">Apunte U1</span> <span class="source-tag lambin">Lambin</span></td></tr>
+<tr><td>5. Evolucion del Marketing</td><td><span class="source-tag kotler">Kotler</span> + <span class="source-tag lambin">Lambin</span></td><td><span class="source-tag gomez">Gomez-Tauro (M1.0-5.0)</span></td></tr>
+<tr><td>6. Entornos (micro / macro)</td><td><span class="source-tag apunte">Apunte U1</span></td><td><span class="source-tag kotler">Kotler</span> <span class="source-tag ppt">PPT C02</span></td></tr>
+<tr><td>7. Clases de Mercado</td><td><span class="source-tag ppt">PPT C03</span></td><td><span class="source-tag apunte">Apunte U1</span></td></tr>
+<tr><td>8. Mkt Estrategico vs Operativo</td><td><span class="source-tag lambin">Lambin Cap. 1</span></td><td><span class="source-tag apunte">Apunte Planeam.</span></td></tr>
+<tr><td>9. Planeamiento Estrategico</td><td><span class="source-tag apunte">Apunte Planeamiento</span></td><td><span class="source-tag kotler">Kotler 1992</span></td></tr>
+<tr><td>10. FODA + Estrategias cruzadas</td><td><span class="source-tag apunte">Apunte FODA cruzado</span></td><td><span class="source-tag romero">Regla FODA real (C05)</span></td></tr>
+<tr><td>11. Segmentacion</td><td><span class="source-tag kotler">Kotler</span> + <span class="source-tag lambin">Lambin</span></td><td><span class="source-tag apunte">Apunte U1</span></td></tr>
+<tr><td>12. Posicionamiento</td><td><span class="source-tag kotler">Kotler</span></td><td><span class="source-tag apunte">Apunte U1</span> <span class="source-tag romero">Romero (cualidad evocativa)</span></td></tr>
+<tr><td>13. Formulacion de Estrategias (3 niveles + Porter)</td><td><span class="source-tag apunte">Apunte Planeamiento</span></td><td><span class="source-tag kotler">Kotler (Porter)</span></td></tr>
+<tr><td>14. Matriz de Ansoff</td><td><span class="source-tag apunte">Apunte Ansoff</span></td><td><span class="source-tag kotler">Kotler</span></td></tr>
+<tr><td>Simulacros 1 y 2</td><td><span class="source-tag romero">Estilo preguntas Romero</span></td><td>Integran todas las fuentes anteriores</td></tr>
+</tbody>
+</table>
+
+<h3>Referencias bibliograficas (formato academico)</h3>
+
+<ul style="font-size:.88em;font-family:'JetBrains Mono',monospace;line-height:1.7">
+<li>Kotler, P. &amp; Keller, K. L. (2006). <em>Direccion de Marketing</em> (12a ed.). Pearson Prentice Hall.</li>
+<li>Lambin, J. J. (1995). <em>Marketing Estrategico</em> (3a ed.). McGraw-Hill.</li>
+<li>Gomez, L. &amp; Tauro, A. (2023). <em>Marketing 1.0 a 5.0</em>.</li>
+<li>Levitt, T. (1960). Marketing Myopia. <em>Harvard Business Review</em>.</li>
+<li>McCarthy, E. J. (1964). <em>Basic Marketing: A Managerial Approach</em>. Richard D. Irwin. [citado en Gomez &amp; Tauro, 2023]</li>
+<li>Drucker, P. [citado en Kotler &amp; Keller, 2006, Cap. 1]</li>
+<li>Apunte de catedra - Unidad 1: Marketing y Contexto.</li>
+<li>Apunte de catedra - Planeamiento Estrategico.</li>
+<li>Apunte de catedra - Matriz de Ansoff.</li>
+<li>Apunte de catedra - Estrategias Cruzadas FODA.</li>
+<li>PPT de catedra - Clases 01 a 05.</li>
+<li>Notas de clase, Prof. Lic. Juan Pablo Romero, UCES Resistencia, 2026.</li>
+</ul>
 
 </div></div>
 
