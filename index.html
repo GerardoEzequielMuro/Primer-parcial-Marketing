@@ -1,2596 +1,634 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marketing - Parcial 1 | UCES 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<title>Marketing - Parcial 1 | UCES</title>
 <style>
-/* ========= MINIMALIST DESIGN ========= */
-:root,[data-theme="light"]{
-  --bg:#fafafa;--card:#fff;--nav-bg:rgba(255,255,255,.95);
-  --text:#111;--text2:#444;--muted:#888;
-  --accent:#111;--accent-l:#f0f0f0;
-  --border:#e5e5e5;--border-strong:#d4d4d4;
-  --shadow:none;--shadow-lg:none;
-  --red:#b91c1c;--green:#15803d;--blue:#1e40af;--amber:#a16207;--pink:#9d174d;--purple:#581c87;
-  --danger-bg:#fafafa;--success-bg:#fafafa;--info-bg:#fafafa;--warn-bg:#fafafa;
-}
-[data-theme="dark"]{
-  --bg:#0a0a0a;--card:#141414;--nav-bg:rgba(10,10,10,.95);
-  --text:#e5e5e5;--text2:#a3a3a3;--muted:#737373;
-  --accent:#fafafa;--accent-l:#1f1f1f;
-  --border:#262626;--border-strong:#404040;
-  --red:#f87171;--green:#4ade80;--blue:#60a5fa;--amber:#fbbf24;--pink:#f472b6;--purple:#a78bfa;
-  --danger-bg:#1a0a0a;--success-bg:#0a1a0a;--info-bg:#0a0a1a;--warn-bg:#1a150a;
-}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:15px}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,250,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e5e5;padding:12px 0;
+}
+.nav-inner{
+  max-width:780px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.nav-title{font-weight:600;font-size:15px;letter-spacing:-.01em}
+.nav-links{display:flex;gap:20px;overflow-x:auto;font-size:13px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap;transition:color .15s}
+.nav-links a:hover{color:#1a1a1a}
 
-/* Nav */
-.topnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px}
-.topnav .logo{font-weight:600;font-size:.95em;color:var(--text);display:flex;align-items:center;gap:6px}
-.topnav .nav-links{display:flex;gap:2px;flex-wrap:wrap;overflow-x:auto}
-.topnav .nav-links a{color:var(--muted);text-decoration:none;font-size:.78em;font-weight:400;padding:4px 8px;border-radius:4px;white-space:nowrap}
-.topnav .nav-links a:hover{color:var(--text);background:var(--accent-l)}
-.topnav .controls{display:flex;gap:4px;align-items:center}
-.topnav .controls button{background:transparent;border:1px solid var(--border);border-radius:4px;padding:4px 8px;cursor:pointer;font-size:.9em;color:var(--text2);display:flex;align-items:center}
-.topnav .controls button:hover{color:var(--text);border-color:var(--border-strong)}
-.progress-bar{position:fixed;top:52px;left:0;right:0;height:1px;z-index:999;background:var(--border)}
-.progress-bar .fill{height:100%;width:0;background:var(--text);transition:width .1s}
+.container{max-width:780px;margin:0 auto;padding:90px 32px 80px}
 
-.content{max-width:780px;margin:68px auto 60px;padding:0 32px}
-@media(max-width:600px){.content{padding:0 20px}}
+h1{
+  font-size:32px;font-weight:700;letter-spacing:-.02em;
+  margin:0 0 8px;color:#1a1a1a;line-height:1.2;
+}
+.subtitle{color:#666;font-size:15px;margin-bottom:40px}
 
-/* Hero */
-.hero{border-bottom:1px solid var(--border);padding:40px 0 30px;margin-bottom:24px}
-.hero h1{font-size:1.8em;font-weight:600;color:var(--text);margin-bottom:8px;letter-spacing:-.02em;border:none;background:none}
-.hero p{color:var(--muted);font-size:.92em;margin:0}
-.hero .badge{display:inline-block;color:var(--muted);padding:0;font-size:.78em;margin-top:12px;letter-spacing:.03em;text-transform:uppercase}
+h2{
+  font-size:22px;font-weight:700;letter-spacing:-.01em;
+  margin:56px 0 16px;color:#1a1a1a;line-height:1.3;
+  padding-top:24px;border-top:1px solid #e5e5e5;
+}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
 
-/* Stats */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-bottom:24px;background:var(--border);border:1px solid var(--border);border-radius:0}
-.stat-card{background:var(--card);padding:14px;text-align:left;border-radius:0}
-.stat-card .num{font-size:1.4em;font-weight:600;color:var(--text);font-feature-settings:'tnum'}
-.stat-card .label{font-size:.75em;color:var(--muted);margin-top:2px;letter-spacing:.02em}
+h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:#1a1a1a}
+h4{font-size:15px;font-weight:600;margin:18px 0 6px;color:#1a1a1a}
 
-/* Section (accordion) */
-.section{background:transparent;border:none;border-top:1px solid var(--border);border-radius:0;margin-bottom:0;box-shadow:none;overflow:hidden}
-.section:last-of-type{border-bottom:1px solid var(--border)}
-.section-header{padding:14px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
-.section-header:hover{background:transparent}
-.section-header:hover h2{color:var(--muted)}
-.section-header h2{font-size:1em;font-weight:500;color:var(--text);display:flex;align-items:center;gap:8px;margin:0;padding:0;background:none;border:none;letter-spacing:-.01em}
-.section-header h2 svg,.section-header h2 i{display:none}
-.section-header .chevron{color:var(--muted);transition:transform .2s}
-.section-header.active .chevron{transform:rotate(180deg)}
-.section-body{padding:0 0 24px;display:none}
-.section-body.open{display:block}
-.section-body h3{font-size:.95em;color:var(--text);margin:20px 0 8px;padding:0;border:none;font-weight:600;letter-spacing:-.005em}
-.section-body h3 svg,.section-body h3 i{display:none}
-.section-body h4{font-size:.9em;color:var(--text);margin:14px 0 6px;font-weight:600}
-.section-body h4 svg,.section-body h4 i{display:none}
-.section-body p{margin:8px 0;color:var(--text2)}
-.section-body ul,.section-body ol{padding-left:22px;margin:8px 0;color:var(--text2)}
-.section-body li{margin:4px 0}
-.section-body strong{color:var(--text)}
+p{margin:10px 0;color:#333}
+strong{color:#1a1a1a;font-weight:600}
+em{color:#333}
 
-/* Card - plain */
-.card{background:transparent;border:1px solid var(--border);border-radius:0;padding:14px 16px;margin:12px 0}
-.card:hover{border-color:var(--border-strong)}
-.card h4{margin:0 0 6px;color:var(--text);font-size:.95em;font-weight:600}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0}
-.card-grid .card{margin:0}
+ul,ol{margin:10px 0;padding-left:22px;color:#333}
+li{margin:4px 0}
 
-/* Alert - borderless, pure typography */
-.alert{padding:12px 14px;border-radius:0;margin:12px 0;border-left:2px solid var(--text);background:var(--accent-l)}
-.alert .at{font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:5px;font-size:.82em;text-transform:uppercase;letter-spacing:.04em;color:var(--text)}
-.alert .at svg,.alert .at i{display:none}
-.alert-danger,.alert-success,.alert-info,.alert-warn,.alert-purple{background:var(--accent-l);border-color:var(--text)}
-.alert-danger .at,.alert-success .at,.alert-info .at,.alert-warn .at,.alert-purple .at{color:var(--text)}
-.alert p,.alert li{color:var(--text2);font-size:.92em}
+blockquote{
+  margin:16px 0;padding:4px 0 4px 16px;
+  border-left:2px solid #1a1a1a;color:#555;font-style:italic;
+}
+blockquote .author{
+  display:block;margin-top:8px;font-size:13px;
+  color:#888;font-style:normal;font-weight:500;
+}
 
-.example-box{background:transparent;border:1px solid var(--border);border-left:2px solid var(--text);border-radius:0;padding:12px 16px;margin:12px 0}
-.example-box .et{font-weight:600;color:var(--text);margin-bottom:4px;font-size:.82em;text-transform:uppercase;letter-spacing:.04em}
+.box{
+  border:1px solid #e5e5e5;padding:16px 20px;margin:16px 0;
+  background:#fff;border-radius:2px;
+}
+.box h4{margin-top:0}
 
-/* Table - minimal */
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88em;border-radius:0;overflow:hidden;border:1px solid var(--border)}
-th{background:transparent;color:var(--text);padding:10px 12px;text-align:left;font-weight:600;border-bottom:1px solid var(--border-strong);font-size:.82em;text-transform:uppercase;letter-spacing:.03em}
-td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text2)}
-td strong{color:var(--text)}
+.highlight{
+  background:#f5f5f5;padding:16px 20px;margin:16px 0;
+  border-left:2px solid #1a1a1a;border-radius:2px;
+}
+.highlight p:first-child{margin-top:0}
+.highlight p:last-child{margin-bottom:0}
+.highlight .label{
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:#666;margin-bottom:6px;display:block;
+}
+
+table{
+  width:100%;border-collapse:collapse;margin:16px 0;
+  font-size:14px;border:1px solid #e5e5e5;background:#fff;
+}
+th{
+  background:#f5f5f5;text-align:left;padding:10px 12px;
+  font-weight:600;font-size:12px;text-transform:uppercase;
+  letter-spacing:.05em;color:#1a1a1a;
+  border-bottom:1px solid #e5e5e5;
+}
+td{padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#333}
 tr:last-child td{border-bottom:none}
-tr:nth-child(even) td{background:transparent}
-tr:hover td{background:var(--accent-l)}
 
-/* Quote */
-.quote{background:transparent;border-left:2px solid var(--text);padding:8px 16px;margin:14px 0;border-radius:0;font-style:italic;color:var(--text2);font-size:.94em}
-.quote .q-author{display:block;margin-top:6px;font-size:.82em;font-weight:500;color:var(--muted);font-style:normal}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 
-/* Matrix - minimal */
-.matrix{display:grid;grid-template-columns:90px 1fr 1fr;gap:0;margin:14px 0;border:1px solid var(--border)}
-.matrix > div{padding:12px;border-radius:0;font-size:.88em;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.matrix > div:nth-child(3n){border-right:none}
-.matrix .mh{background:transparent;color:var(--text);font-weight:600;text-align:center;display:flex;align-items:center;justify-content:center;font-size:.8em;text-transform:uppercase;letter-spacing:.03em}
-.matrix .mc-h{background:var(--accent-l);text-align:center;font-weight:600;color:var(--text);font-size:.85em}
-.matrix .mc1,.matrix .mc2,.matrix .mc3,.matrix .mc4{background:transparent;border-top:none;border-left:none}
+footer{
+  margin-top:80px;padding-top:24px;border-top:1px solid #e5e5e5;
+  color:#888;font-size:13px;text-align:center;
+}
 
-/* Images */
-img.illust{max-width:100%;height:auto;border-radius:0;border:1px solid var(--border);margin:12px auto;display:block;cursor:pointer;box-shadow:none}
-img.illust.med{max-width:500px}img.illust.sm{max-width:320px}
-.lightbox{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:9999;justify-content:center;align-items:center;cursor:zoom-out}
-.lightbox.active{display:flex}
-.lightbox img{max-width:95%;max-height:95%;border-radius:0}
-figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
-
-/* Quiz */
-.quiz{background:transparent;border:1px solid var(--border);border-radius:0;padding:16px;margin:20px 0}
-.quiz-title{font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:.82em;text-transform:uppercase;letter-spacing:.04em}
-.quiz-title svg,.quiz-title i{display:none}
-.q{background:transparent;border:none;border-top:1px solid var(--border);border-left:none;border-radius:0;padding:12px 0;margin:0}
-.q:first-of-type{border-top:none;padding-top:4px}
-.q.done{border-left:none;background:transparent}
-.q.bad{border-left:none}
-.q-stem{margin-bottom:8px;color:var(--text);line-height:1.5;font-weight:500;font-size:.92em}
-.q-opts{display:flex;flex-direction:column;gap:4px;margin-top:6px}
-.q-opts label{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;background:transparent;border:1px solid var(--border);border-radius:0;cursor:pointer;line-height:1.35;font-size:.9em}
-.q-opts label:hover{border-color:var(--text);background:transparent}
-.q-opts label input{margin-top:3px;cursor:pointer;accent-color:var(--text)}
-.q-opts label.picked{border-color:var(--text);background:var(--accent-l)}
-.q-in{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
-.q-in input.vld,.q-in select.vld{background:var(--card);border:1px solid var(--border);border-radius:0;padding:5px 10px;font-family:inherit;font-size:.9em;color:var(--text);min-width:90px;max-width:220px}
-.q-in input.vld:focus,.q-in select.vld:focus{outline:none;border-color:var(--text);box-shadow:none}
-.q-in input.vld.ok,.q-in select.vld.ok{border-color:var(--green)}
-.q-in input.vld.bad,.q-in select.vld.bad{border-color:var(--red)}
-.q-btn{background:var(--text);color:var(--bg);border:none;border-radius:0;padding:5px 12px;font-weight:500;cursor:pointer;font-size:.82em;transition:opacity .2s;margin-top:8px}
-.q-btn:hover{opacity:.85}
-.q-btn svg,.q-btn i{display:none}
-.q-fb{font-weight:600;font-size:.88em;margin-left:8px}
-.q-fb.ok{color:var(--green)}
-.q-fb.bad{color:var(--red)}
-.q-sol{margin-top:8px;padding:8px 12px;background:transparent;border-radius:0;border-left:2px solid var(--border);font-size:.85em}
-.q-sol summary{cursor:pointer;color:var(--text2);font-weight:500;user-select:none;font-size:.85em}
-.q-sol[open] summary{margin-bottom:4px}
-.q-sol p{margin:4px 0;color:var(--text2)}
-.q-reset{background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:0;padding:4px 10px;font-size:.78em;cursor:pointer}
-.q-reset:hover{border-color:var(--text);color:var(--text)}
-
-/* Parcial hero */
-.parcial-hero{background:transparent;color:var(--text);padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:32px 0 14px;text-align:left;box-shadow:none}
-.parcial-hero h2{color:var(--text);background:none;border:none;padding:0;margin:0 0 4px;font-size:1.2em;font-weight:600}
-.parcial-hero p{color:var(--muted);margin:0;font-size:.9em}
-.parcial-hero .badge{display:inline-block;background:transparent;backdrop-filter:none;padding:0;font-size:.75em;margin-top:6px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.parcial-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:0 0 16px;background:var(--border);padding:1px;border-radius:0;border:1px solid var(--border)}
-.parcial-stats .ps-item{text-align:left;background:var(--card);padding:10px 12px}
-.parcial-stats .ps-num{font-size:1.2em;font-weight:600;color:var(--text)}
-.parcial-stats .ps-lab{font-size:.72em;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
-.q-group-t{font-weight:600;color:var(--text);font-size:.88em;margin:20px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.03em}
-.q-group-t .pts{font-size:.75em;color:var(--muted);font-weight:500;background:transparent;padding:0;border-radius:0;text-transform:none;letter-spacing:0}
-
-/* Source tags - single style */
-.source-row{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 14px;padding:0;background:transparent;border:none;border-radius:0;align-items:center}
-.source-row .source-label{font-size:.7em;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:500;margin-right:4px}
-.source-row .source-label svg,.source-row .source-label i{display:none}
-.source-tag{display:inline-flex;align-items:center;gap:4px;font-size:.7em;font-family:inherit;padding:2px 6px;border-radius:0;font-weight:400;white-space:nowrap;line-height:1.2;background:transparent;color:var(--muted);border:1px solid var(--border)}
-.source-tag.ppt,.source-tag.apunte,.source-tag.kotler,.source-tag.lambin,.source-tag.gomez,.source-tag.levitt,.source-tag.romero{background:transparent;color:var(--muted);border:1px solid var(--border)}
-.source-tag-inline{font-size:.68em;padding:1px 5px;border-radius:0;margin-left:4px;vertical-align:middle;font-weight:400;background:transparent;color:var(--muted);border:1px solid var(--border)}
-
-/* Flashcards */
-.flashcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:16px 0}
-.flashcard{perspective:1000px;height:160px;cursor:pointer}
-.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
-.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}
-.flashcard-front,.flashcard-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:0;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:none;border:1px solid var(--border)}
-.flashcard-front{background:transparent;color:var(--text);font-weight:500;font-size:.95em}
-.flashcard-back{background:var(--accent-l);color:var(--text);transform:rotateY(180deg);border:1px solid var(--border-strong);font-size:.88em;line-height:1.45}
-.flashcard-front::after{content:'voltear';position:absolute;bottom:8px;right:10px;font-size:.7em;opacity:.5;font-weight:400;text-transform:uppercase;letter-spacing:.05em}
-.fc-label{font-size:.7em;text-transform:uppercase;letter-spacing:.06em;opacity:.6;margin-bottom:4px;color:var(--muted)}
-
-/* Drag and drop */
-.dnd,.match{background:transparent;border:1px solid var(--border);border-radius:0;padding:16px;margin:20px 0}
-.dnd-title,.match-title{font-weight:600;color:var(--text);margin-bottom:10px;font-size:.82em;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.04em}
-.dnd-title svg,.dnd-title i,.match-title svg,.match-title i{display:none}
-.dnd-pool{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--accent-l);border-radius:0;min-height:50px;margin-bottom:10px;border:1px dashed var(--border)}
-.dnd-item{background:var(--text);color:var(--bg);padding:5px 10px;border-radius:0;cursor:grab;font-size:.85em;user-select:none;touch-action:none}
-.dnd-item:hover{opacity:.85}
-.dnd-item.dragging{opacity:.4;cursor:grabbing}
-.dnd-item.placed-ok{background:var(--green);color:#fff}
-.dnd-item.placed-bad{background:var(--red);color:#fff}
-.dnd-targets{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
-.dnd-target{padding:10px;border:1px dashed var(--border);border-radius:0;min-height:80px;background:transparent}
-.dnd-target.hover{border-color:var(--text);background:var(--accent-l)}
-.dnd-target-label{font-weight:600;color:var(--text);font-size:.82em;margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:.03em}
-.dnd-target-label svg,.dnd-target-label i{display:none}
-.dnd-feedback{margin-top:8px;font-weight:600;font-size:.88em;min-height:18px}
-.dnd-feedback.ok{color:var(--green)}.dnd-feedback.bad{color:var(--red)}
-.dnd-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-
-/* Matching */
-.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.match-col{display:flex;flex-direction:column;gap:4px}
-.match-item{padding:8px 10px;background:transparent;border:1px solid var(--border);border-radius:0;cursor:pointer;font-size:.88em;text-align:center}
-.match-item:hover{border-color:var(--text)}
-.match-item.picked{border-color:var(--text);background:var(--accent-l)}
-.match-item.matched{border-color:var(--green);color:var(--green);cursor:default;opacity:.7}
-.match-item.wrong{border-color:var(--red);color:var(--red);animation:shake .4s}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
-
-/* Sortable */
-.sortable-list{list-style:none;padding:0;margin:10px 0;counter-reset:item}
-.sortable-list li{background:transparent;border:1px solid var(--border);border-radius:0;padding:8px 12px;margin:4px 0;cursor:grab;display:flex;align-items:center;gap:10px;user-select:none;touch-action:none;font-size:.9em}
-.sortable-list li:hover{border-color:var(--text)}
-.sortable-list li.sort-ok{border-color:var(--green)}
-.sortable-list li.sort-bad{border-color:var(--red)}
-.sortable-list li.dragging{opacity:.4}
-.sortable-list li::before{counter-increment:item;content:counter(item);background:transparent;color:var(--muted);width:22px;height:22px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:.78em;flex-shrink:0}
-
-/* Timeline - minimal */
-.timeline{position:relative;padding:10px 0;margin:16px 0}
-.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--border);border-radius:0}
-.timeline-item{position:relative;width:100%;padding:6px 0 6px 30px;margin-bottom:10px;cursor:default}
-.timeline-item:nth-child(odd),.timeline-item:nth-child(even){margin-left:0;margin-right:0;text-align:left;padding-left:30px;padding-right:0;width:100%}
-.timeline-item::before{content:'';position:absolute;left:3px !important;right:auto !important;top:14px;width:9px;height:9px;background:var(--card);border:1px solid var(--border-strong);border-radius:50%;z-index:2}
-.timeline-item:hover::before{transform:none;background:var(--text)}
-.timeline-card{background:transparent;border:1px solid var(--border);border-radius:0;padding:12px 14px}
-.timeline-item:hover .timeline-card{border-color:var(--border-strong);box-shadow:none;transform:none}
-.timeline-year{color:var(--muted);font-weight:500;font-size:.78em;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
-.timeline-title{font-weight:600;font-size:.95em;color:var(--text);margin-bottom:6px}
-.timeline-desc{font-size:.88em;color:var(--text2);line-height:1.55}
-
-/* Case Study */
-.case-study{background:transparent;border:1px solid var(--border);border-radius:0;padding:16px;margin:18px 0}
-.case-title{font-weight:600;color:var(--text);font-size:.88em;margin-bottom:8px;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.04em}
-.case-title svg,.case-title i{display:none}
-.case-scenario{background:transparent;border:none;border-left:2px solid var(--border);padding:8px 14px;border-radius:0;margin:10px 0;font-size:.9em;line-height:1.55;color:var(--text2)}
-
-/* Topic progress */
-.topic-progress{position:relative;height:2px;background:var(--border);border-radius:0;overflow:hidden;margin:8px 0 14px}
-.topic-progress .fill{height:100%;background:var(--text);width:0;transition:width .3s}
-.topic-progress-label{font-size:.72em;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px}
-
-/* Badges */
-.badges-panel{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;padding:10px;background:transparent;border:1px solid var(--border);border-radius:0;min-height:50px}
-.badge-item{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--border);color:var(--muted);position:relative;cursor:help}
-.badge-item svg{width:18px;height:18px}
-.badge-item.earned{background:var(--text);color:var(--bg);border-color:var(--text);box-shadow:none;animation:none}
-.badge-item .badge-tooltip{position:absolute;bottom:46px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:4px 8px;border-radius:0;font-size:.72em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
-.badge-item:hover .badge-tooltip{opacity:1}
-
-/* Exam mode */
-.exam-start{background:var(--text);color:var(--bg);padding:14px 20px;border-radius:0;margin:16px 0;text-align:center;cursor:pointer;border:none;font-weight:500}
-.exam-start:hover{opacity:.9}
-.exam-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9998;justify-content:center;align-items:center;padding:20px}
-.exam-overlay.active{display:flex}
-.exam-box{background:var(--card);border-radius:0;padding:24px;max-width:720px;width:100%;max-height:92vh;overflow-y:auto;position:relative;border:1px solid var(--border)}
-.exam-timer{position:sticky;top:0;background:var(--card);padding:10px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;z-index:10}
-.exam-timer .t-time{font-family:'JetBrains Mono',monospace;font-size:1.2em;font-weight:600;color:var(--text)}
-.exam-timer .t-time.warning{color:var(--amber)}
-.exam-timer .t-time.danger{color:var(--red);animation:pulse 1s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-.exam-close{background:transparent;color:var(--text);border:1px solid var(--border);border-radius:0;padding:5px 12px;cursor:pointer;font-weight:500;font-size:.82em}
-.exam-close:hover{border-color:var(--text)}
-.exam-result{padding:20px;text-align:center}
-.exam-result .score{font-size:2.5em;font-weight:600;margin:10px 0;color:var(--text)}
-.exam-result .grade-A,.exam-result .grade-B,.exam-result .grade-C,.exam-result .grade-D{color:var(--text)}
-
-/* Hide all decorative Lucide icons in section body, keep only functional ones (chevron, etc) */
-.section-body svg[data-lucide]:not(.keep){display:inline-block}
-.alert .at svg[data-lucide],.quiz-title svg[data-lucide],.dnd-title svg[data-lucide],.match-title svg[data-lucide]{display:none !important}
-
-@media(max-width:768px){.hero{padding:30px 0 20px}.hero h1{font-size:1.4em}.topnav .nav-links{display:none}.content{padding:0 16px}.section-body{padding:0 0 20px}.card-grid{grid-template-columns:1fr}.parcial-stats{grid-template-columns:1fr}.matrix{grid-template-columns:60px 1fr 1fr}.match-grid{grid-template-columns:1fr}}
-@media print{.topnav,.progress-bar,.controls,.topnav .nav-links,.lightbox{display:none!important}.content{margin-top:0}.section-body{display:block!important}body{background:#fff}}
+@media(max-width:640px){
+  body{font-size:15px}
+  .container{padding:80px 20px 60px}
+  .nav-inner{padding:0 20px;gap:12px}
+  .nav-links{gap:14px;font-size:12px}
+  h1{font-size:26px}
+  h2{font-size:20px;margin-top:40px}
+  h3{font-size:16px}
+  table{font-size:13px}
+  th,td{padding:8px 10px}
+  .grid-2{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="logo"><i data-lucide="target" style="width:20px;height:20px"></i> Marketing</div>
-  <div class="nav-links">
-    <a href="#intro">Intro</a><a href="#ndd">Necesidades</a><a href="#4ps">4 P's</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#mercado">Mercado</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--text);font-weight:600">Parciales</a><a href="#bibliografia">Fuentes</a>
-  </div>
-  <div class="controls">
-    <button onclick="toggleAll()" title="Abrir/cerrar todo"><i data-lucide="layout-list" style="width:16px;height:16px"></i></button>
-    <button onclick="toggleTheme()" id="themeBtn" title="Tema"><i data-lucide="moon" style="width:16px;height:16px"></i></button>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Marketing · Parcial 1</div>
+    <div class="nav-links">
+      <a href="#mkt">Marketing</a>
+      <a href="#ndd">Necesidades</a>
+      <a href="#evolucion">Evolución</a>
+      <a href="#lambin">Lambin</a>
+      <a href="#estrop">Estr/Op</a>
+      <a href="#entornos">Entornos</a>
+      <a href="#plan">Planeamiento</a>
+      <a href="#foda">FODA</a>
+      <a href="#4ps">4 P's</a>
+    </div>
   </div>
 </nav>
-<div class="progress-bar"><div class="fill" id="progressFill"></div></div>
 
-<div class="content">
+<div class="container">
 
-<div class="hero">
-  <h1>Marketing &mdash; Parcial 1</h1>
-  <p>Resumen completo + quizzes + parciales simulacro</p>
-  <div class="badge">Unidades 1 y 2 &bull; Prof. Romero &bull; UCES 2026 &bull; Lic. en Marketing</div>
-</div>
+<h1>Marketing — Primer Parcial</h1>
+<p class="subtitle">UCES · Unidad 1 y 2 · Apunte resumen</p>
 
-<div class="stats-row">
-  <div class="stat-card"><div class="num" id="totalQ">0</div><div class="label">Preguntas totales</div></div>
-  <div class="stat-card"><div class="num" id="doneQ">0</div><div class="label">Correctas</div></div>
-  <div class="stat-card"><div class="num" id="pctQ">0%</div><div class="label">Progreso global</div></div>
-  <div class="stat-card"><div class="num">12</div><div class="label">Temas</div></div>
-</div>
 
-<div class="alert alert-purple">
-  <div class="at"><i data-lucide="info" style="width:16px;height:16px"></i> Como usar este resumen</div>
-  <p>Cada tema incluye teoria + <strong>flashcards</strong> + <strong>quiz</strong> + <strong>drag &amp; drop</strong> + <strong>casos reales</strong>. Todo funciona en celular, tablet y desktop. El progreso se guarda automaticamente.</p>
-  <div style="margin-top:8px"><button class="q-reset" onclick="resetAll()"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar todo el progreso</button></div>
-</div>
+<h2 id="mkt">1. Concepto de Marketing</h2>
 
+<blockquote>
+"El proceso mediante el cual las compañías crean valor para sus clientes y establecen relaciones sólidas con ellos para obtener a cambio valor de éstos."
+<span class="author">Kotler y Armstrong (2012)</span>
+</blockquote>
 
+<blockquote>
+"Función organizacional y conjunto de procesos para generar, comunicar y entregar valor a los consumidores y administrar las relaciones con ellos de modo que la organización y sus accionistas obtengan un beneficio."
+<span class="author">AMA (2006)</span>
+</blockquote>
 
+<blockquote>
+"Conocer y entender tan bien al consumidor que los productos y servicios se ajusten a sus necesidades y se vendan solos."
+<span class="author">Peter Drucker</span>
+</blockquote>
 
+<p>El marketing <strong>no es solo vender o hacer publicidad</strong>. Parte de detectar necesidades, moldear deseos y convertirlos en demanda, generando valor para el cliente y la empresa.</p>
 
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 1: INTRO ======= -->
-<div class="section" id="intro">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="sparkles" style="width:20px;height:20px"></i> 1. &iquest;Que es el Marketing?</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<h3><i data-lucide="target" style="width:18px;height:18px;vertical-align:-3px"></i> &iquest;Para que es util el Marketing?</h3>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>1. Detectar necesidades</h4>
-    <p>Identifica que <strong>necesidades insatisfechas</strong> existen en el mercado, antes de producir.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>2. Crear valor</h4>
-    <p>Diseña productos y servicios que <strong>resuelvan</strong> esas necesidades mejor que la competencia.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4>3. Conectar oferta y demanda</h4>
-    <p>Funciona como <strong>intermediario</strong> entre lo que la empresa produce y lo que el mercado consume.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4>4. Generar ingresos sostenibles</h4>
-    <p>No solo vender una vez: construir <strong>relaciones duraderas</strong> que den rentabilidad en el tiempo.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--pink)">
-    <h4>5. Adaptar a la empresa al entorno</h4>
-    <p>Analiza cambios en consumidores, competencia y tecnologia para que la empresa <strong>no quede obsoleta</strong>.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--accent)">
-    <h4>6. Diferenciar y posicionar</h4>
-    <p>Logra que la marca ocupe un <strong>lugar unico en la mente</strong> del consumidor frente a otras opciones.</p>
-  </div>
-</div>
-
-
-
-<h3>Concepto central de Marketing</h3>
-<div class="card" style="border-left:4px solid var(--accent)">
-<p>El marketing, como disciplina, se ocupa de <strong>identificar y satisfacer las necesidades de las personas y de la sociedad</strong>. Una de las definiciones mas breves es la de Kotler: <em>"satisfacer necesidades de manera rentable"</em>.</p>
-<p>No se trata solo de vender o hacer publicidad. Como dicen Kotler y Armstrong (2012, p.5): <em>"El proceso mediante el cual las compañias <strong>crean valor para sus clientes y establecen relaciones solidas con ellos</strong> para obtener a cambio valor de estos"</em>.</p>
-<p>A lo largo del tiempo, el concepto de marketing <strong>evoluciono</strong> junto con los cambios en los mercados, los consumidores y las tecnologias. Por eso existen <strong>multiples definiciones</strong>, cada una reflejando el contexto de su epoca.</p>
-</div>
-
-<h3>Definiciones de Marketing (5 definiciones del PPT)</h3>
-<p>Estas son las <strong>5 definiciones de marketing</strong> que figuran en el PPT de catedra (Unidad 1 - Marketing y Contexto), ordenadas cronologicamente:</p>
-
-<div class="card">
-  <h4>1) McCarthy (1964)</h4>
-  <p>"Es el resultado de la actividad de la empresa que <strong>dirige el flujo de bienes y servicios desde el productor hasta el consumidor o usuario</strong>, con la pretension de satisfacer a los consumidores y permitir alcanzar los objetivos de la empresa."</p>
-</div>
-
-<div class="card">
-  <h4>2) Asociacion Americana de Marketing (AMA, 1960)</h4>
-  <p>"La <strong>ejecucion de ciertas actividades en los negocios</strong> que, de una forma planificada y sistematica, dirigen el flujo de mercancias y servicios desde el productor hasta el consumidor <strong>con beneficio mutuo</strong>."</p>
-</div>
-
-<div class="card">
-  <h4>3) Asociacion Americana de Marketing (AMA, 2006)</h4>
-  <p>"Marketing es una <strong>funcion organizacional y un conjunto de procesos para generar, comunicar y entregar valor</strong> a los consumidores, asi como para administrar las relaciones con estos ultimos, de modo que la organizacion y sus accionistas obtengan un beneficio."</p>
-</div>
-
-<div class="card">
-  <h4>4) Definicion Social &mdash; Philip Kotler (2006)</h4>
-  <p>"Marketing es un <strong>proceso social</strong> por el cual tanto grupos como individuos consiguen lo que necesitan y desean mediante la <strong>creacion, la oferta y el libre intercambio</strong> de productos y servicios de valor para otros grupos o individuos."</p>
-</div>
-
-<div class="card">
-  <h4>5) Definicion Empresarial &mdash; Peter Drucker</h4>
-  <p>"<strong>Conocer y entender tan bien al consumidor</strong> que los productos y servicios se ajusten perfectamente a sus necesidades y <strong>se vendan solos</strong>."</p>
-</div>
-
-<div class="quote">
-  "Nadie quiere un taladro de 1/4 de pulgada... lo que todo el mundo desea son huecos en la pared de 1/4 de pulgada."
-  <span class="q-author">Theodore Levitt (1960) - Marketing Miopia, Harvard Business Review</span>
-</div>
-
-<h3>Conceptos centrales del marketing (Kotler y Keller, 2006)</h3>
-<p>Para <strong>desarrollar bien el concepto</strong>, conviene mencionar los <strong>conceptos nucleo</strong> que componen el marketing:</p>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--red)">
-    <h4>Necesidades, deseos, demandas</h4>
-    <p>Punto de partida: el marketing parte de <strong>detectar necesidades innatas</strong>, moldear <strong>deseos</strong> y convertirlos en <strong>demandas</strong> (deseos respaldados por poder de compra).</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>Producto / Oferta</h4>
-    <p>Todo aquello que se ofrece a un mercado para <strong>satisfacer una necesidad o un deseo</strong>: bienes fisicos, servicios, experiencias, eventos, personas, lugares, ideas.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4>Valor y Satisfaccion</h4>
-    <p><strong>Valor</strong> = beneficios percibidos / costos percibidos. El consumidor elige la oferta que le entrega <strong>mas valor</strong>. La <strong>satisfaccion</strong> depende del rendimiento percibido del producto respecto a las expectativas.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4>Intercambio y transacciones</h4>
-    <p>El marketing emerge cuando la gente decide satisfacer necesidades y deseos mediante el <strong>intercambio</strong>. Es el <strong>acto fundamental</strong> del marketing.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>Relaciones y redes</h4>
-    <p><strong>Marketing de relaciones:</strong> el objetivo es construir relaciones <strong>duraderas y satisfactorias</strong> con clientes, proveedores y distribuidores. El activo final es la <strong>red de marketing</strong> de la empresa.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--pink)">
-    <h4>Mercado meta y posicionamiento</h4>
-    <p>La empresa no puede servir a todos. Identifica <strong>segmentos</strong>, elige <strong>mercados meta</strong> y diseña una <strong>oferta posicionada</strong> en la mente del consumidor.</p>
-  </div>
-</div>
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 2: NDD ======= -->
-<div class="section" id="ndd">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="heart" style="width:20px;height:20px"></i> 2. Necesidad, Deseo y Demanda</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-
-
-<p>Son conceptos <strong>basicos del marketing</strong> que Kotler distingue claramente en <em>Direccion de Marketing</em> (Cap. 1). Kotler considera que <strong>el marketing busca detectar y satisfacer necesidades humanas y sociales de forma rentable</strong>. Estos tres conceptos forman la base de toda la disciplina.</p>
-
-
-
-
-
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 2: LAS 4 P's ======= -->
-<div class="section" id="4ps">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="shopping-bag" style="width:20px;height:20px"></i> 3. Las 4 P's (Marketing Mix)</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-
-
-<div class="alert alert-info"><div class="at"><i data-lucide="book-marked" style="width:14px;height:14px"></i> DEFINICION (Kotler y Armstrong, 2007)</div>
-<p>La <strong>mezcla de marketing</strong> es un conjunto de variables o herramientas controlables que se combinan para lograr un determinado resultado en el <strong>mercado meta</strong>, como influir positivamente en la demanda, generar ventas, entre otros.</p>
-</div>
-
-<p>Las 4 P's son las <strong>variables controlables</strong> de la empresa. Son operativas, de corto plazo, y se combinan para llegar al consumidor. McCarthy (1960) fue quien las sistematizo.</p>
-
-<div class="card-grid">
-  <div class="card">
-    <h4><i data-lucide="package" style="width:16px;height:16px;vertical-align:-3px"></i> Producto</h4>
-    <p>Conjunto de atributos (tangibles e intangibles) que satisfacen una necesidad.</p>
-    <p><strong>Subvariables:</strong> calidad, aspecto/estilo, <strong>marca</strong>, empaque, tamaño, servicios post-venta, garantias, variedad de modelos.</p>
-  </div>
-  <div class="card">
-    <h4><i data-lucide="dollar-sign" style="width:16px;height:16px;vertical-align:-3px"></i> Precio</h4>
-    <p>Valor monetario de satisfacer la necesidad. La unica P que <strong>genera ingresos</strong>; las otras son costos.</p>
-    <p><strong>Subvariables:</strong> precio de lista, descuentos (motivo puntual), bonificaciones (por volumen), formas y plazos de pago.</p>
-  </div>
-  <div class="card">
-    <h4><i data-lucide="truck" style="width:16px;height:16px;vertical-align:-3px"></i> Plaza (Distribucion)</h4>
-    <p>Hacer llegar el producto al consumidor en el lugar y momento correctos.</p>
-    <p><strong>Subvariables:</strong> canales (mayoristas, minoristas, intermediarios), cobertura (cantidad de puntos de venta), localizacion, inventario, logistica, transporte.</p>
-  </div>
-  <div class="card">
-    <h4><i data-lucide="megaphone" style="width:16px;height:16px;vertical-align:-3px"></i> Promocion (Comunicacion)</h4>
-    <p>Informar, persuadir y recordar. Se descompone en la <strong>Mezcla de Comunicacion</strong> (5 elementos &mdash; ver abajo).</p>
-  </div>
-</div>
-
-<h3>La Mezcla de Comunicacion (5 elementos de la P de Promocion)</h3>
-
-<table>
-<tr><th>Elemento</th><th>Que es</th><th>Ejemplo</th></tr>
-<tr><td><strong>Publicidad</strong></td><td>Mensaje comercial pago en medios masivos</td><td>Comercial de TV, cartel en ruta, anuncio en IG</td></tr>
-<tr><td><strong>Promocion de venta</strong></td><td>Incentivo de <strong>corto plazo</strong></td><td>2x1, descuentos, muestras gratis, demostraciones</td></tr>
-<tr><td><strong>Venta personal</strong></td><td>Administracion de la fuerza de ventas + tecnica de venta</td><td>Vendedor de seguros, representante comercial</td></tr>
-<tr><td><strong>Relaciones publicas</strong></td><td>Puntos de contacto con el publico <strong>fuera</strong> del control directo de marketing</td><td>Atencion al cliente, eventos, gestion de reputacion</td></tr>
-<tr><td><strong>Marketing directo</strong></td><td><strong>Sin intermediarios</strong></td><td>Email marketing, telemarketing, catalogos</td></tr>
-</table>
-
-<div class="alert alert-warn">
-  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Ojo que confunde</div>
-  <p><strong>Publicidad</strong> es pago + masivo. <strong>Promocion de venta</strong> es un incentivo (descuento, muestra). <strong>Relaciones publicas</strong> no se paga directamente (no es un aviso), son acciones que influyen la percepcion.</p>
-</div>
-
-<h3><i data-lucide="layers" style="width:18px;height:18px;vertical-align:-3px"></i> Flashcards &mdash; toca para voltear</h3>
-
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 3: MIOPIA ======= -->
-<div class="section" id="miopia">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="eye-off" style="width:20px;height:20px"></i> 4. Miopia del Marketing</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<div class="card" style="border-left:4px solid var(--accent)">
-<p><strong>Origen:</strong> <strong>Theodore Levitt</strong> escribio en 1960 el articulo <em>"Marketing Myopia"</em>, publicado en la <strong>Harvard Business Review</strong> (edicion de julio-agosto). Un articulo que <strong>aun hoy se sigue estudiando</strong>.</p>
-<p style="margin-top:8px"><strong>Definicion (Apunte U1 UCES):</strong> la "miopia" de Levitt se refiere al <strong>error comun en la definicion de la naturaleza de los negocios</strong>, con los problemas consecuentes que esto conlleva. Basicamente es ser <strong>"obtuso" al analizar el problema de mercado</strong> que se enfrenta.</p>
-<p style="margin-top:8px"><strong>En criollo:</strong> es el error de <strong>definir el negocio por el producto</strong> en lugar de por la <strong>necesidad que se satisface</strong>.</p>
-</div>
-
-
-
-<div class="quote">
-  "Nadie quiere un taladro de 1/4 de pulgada. Lo que todo el mundo desea son <strong>huecos en la pared</strong> de 1/4 de pulgada."
-  <span class="q-author">Theodore Levitt (1960)</span>
-</div>
-
-<p style="font-size:.9em;color:var(--muted)">Para Levitt, <strong>el origen de todo esta en la mente del consumidor</strong>. El cliente no compra el producto, compra la solucion a su necesidad (Apunte UCES U1).</p>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="refresh-cw" style="width:14px;height:14px"></i> COMENTARIO RETROSPECTIVO DE LEVITT</div>
-<p>Al escribir un comentario retrospectivo sobre su articulo, Levitt reconocio el cambio en las empresas y en su vision estrategica. Cito especialmente el caso de las <strong>empresas petroleras</strong>, que cambiaron su vision: <strong>ya no piensan en terminos de "petroleo", sino en el negocio de la "Energia"</strong> (Apunte UCES U1).</p>
-</div>
-
-<h3>Ejemplo clasico: los ferrocarriles (Levitt, 1960)</h3>
-<div class="card" style="border-left:4px solid var(--red)">
-<p>Levitt diagnostico a la red privada de ferrocarriles de EEUU y concluyo que:</p>
+<h3>¿Para qué sirve el marketing?</h3>
 <ul>
-  <li><strong>La empresa definio su negocio como "ferrocarriles"</strong> (miope).</li>
-  <li><strong>Su verdadero negocio era "transporte de carga o pasajeros"</strong> (orientado al mercado).</li>
+  <li><strong>Detectar necesidades</strong> insatisfechas del mercado.</li>
+  <li><strong>Crear valor</strong> con productos que resuelvan esas necesidades.</li>
+  <li><strong>Conectar</strong> la oferta con la demanda.</li>
+  <li><strong>Construir relaciones</strong> duraderas con los clientes.</li>
+  <li><strong>Adaptar</strong> la empresa a los cambios del entorno.</li>
+  <li><strong>Diferenciar y posicionar</strong> la marca en la mente del consumidor.</li>
 </ul>
-<p>Esta miopia en la definicion del problema real de marketing puede ser la <strong>diferencia entre el exito o el fracaso</strong> de las empresas.</p>
+
+
+<h2 id="ndd">2. Necesidad, Deseo y Demanda</h2>
+
+<div class="highlight">
+<span class="label">Definiciones (Kotler y Keller, 2006)</span>
+<p><strong>Necesidades:</strong> requerimientos humanos básicos (alimentos, aire, agua, vestido, refugio; también ocio, educación, entretenimiento). Son <strong>innatas</strong>: el marketing no las crea.</p>
+<p><strong>Deseos:</strong> necesidades dirigidas a objetos específicos que podrían satisfacerlas. Son <strong>moldeados por la sociedad</strong>.</p>
+<p><strong>Demandas:</strong> deseos de productos específicos <strong>respaldados por una capacidad de pago</strong>.</p>
 </div>
 
-<div class="alert alert-danger">
-  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Consecuencia</div>
-  <p>La empresa miope <strong>no detecta competidores</strong> de otras industrias que resuelven la misma necesidad. Cree que su competencia es solo la que fabrica lo mismo que ella.</p>
-</div>
-
-<h3>Casos clasicos</h3>
-<table>
-<tr><th>Mirada miope</th><th>Mirada correcta (orientada al mercado)</th></tr>
-<tr><td>Ferrocarriles</td><td>Transporte</td></tr>
-<tr><td>Peliculas (cine)</td><td>Entretenimiento</td></tr>
-<tr><td>Petroleo</td><td>Energia</td></tr>
-<tr><td>Celulares</td><td>Comunicacion efectiva</td></tr>
-<tr><td>Kodak (fotografia analogica)</td><td>Inmortalizar imagenes / recuerdos</td></tr>
-</table>
-
-<h3>Ejemplos modernos</h3>
-<div class="card-grid">
-  <div class="card">
-    <h4>Kodak</h4>
-    <p>No vio a los celulares como competencia. Pensaba que su negocio era fotografia analogica, pero era <strong>inmortalizar imagenes</strong>. Cuando la gente empezo a usar el celular para sacar y guardar fotos, Kodak perdio el mercado.</p>
-  </div>
-  <div class="card">
-    <h4>Blockbuster / Cines</h4>
-    <p>Creian que su negocio era "alquilar peliculas" o "vender entradas de cine". El verdadero negocio era <strong>entretenimiento audiovisual en casa</strong>. Netflix / streaming reemplazaron.</p>
-  </div>
-</div>
-
-<div class="alert alert-success">
-  <div class="at"><i data-lucide="check" style="width:16px;height:16px"></i> Regla practica</div>
-  <p>Al definir la mision de tu empresa, preguntate: <strong>&iquest;Que necesidad estoy satisfaciendo?</strong> (no "que producto hago"). Asi identificas a tu competencia real.</p>
-</div>
-
-
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 4: EVOLUCION ======= -->
-<div class="section" id="evolucion">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="trending-up" style="width:20px;height:20px"></i> 5. Evolucion del Marketing</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-
-<h3>Linea de tiempo de las 7 etapas</h3>
-
-<div class="timeline">
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">1750 - 1900s</div>
-    <div class="timeline-title">1. Produccion</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> Revolucion Industrial. <strong>Demanda &gt; oferta</strong>. Todo lo que se produce se vende.<br>
-      <strong>Logica:</strong> "Los consumidores prefieren productos <strong>disponibles y de bajo costo</strong>".<br>
-      <strong>Foco directivo:</strong> eficiencia productiva, escala, distribucion masiva.<br>
-      <strong>Rol del marketing:</strong> casi nulo. Solo entrega del productor al mayorista.<br>
-      <strong>Ejemplo:</strong> Ford Modelo T (1908) &mdash; "cualquier color mientras sea negro".<br>
-      <strong>Riesgo:</strong> perder de vista al cliente cuando la oferta alcance a la demanda.
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">fines XIX - XX</div>
-    <div class="timeline-title">2. Producto</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> aparecen los primeros competidores. Los consumidores pueden comparar.<br>
-      <strong>Logica:</strong> "Prefieren productos con <strong>mayor calidad, desempeño e innovacion</strong>".<br>
-      <strong>Foco directivo:</strong> hacer el mejor producto posible, mejorarlo con el tiempo.<br>
-      <strong>Problema:</strong> diseñan sin aportaciones del cliente; confian en sus ingenieros.<br>
-      <strong>Frase (Levitt):</strong> <em>"Si construyes una ratonera mejor, el mundo abrira un camino a tu puerta"</em> &mdash; no es cierto si no se comunica y distribuye bien.<br>
-      <strong>Riesgo:</strong> <strong>MIOPIA DE MARKETING</strong> (Levitt).<br>
-      <strong>Ejemplos:</strong> ferrocarriles, Kodak, Segway, Oakley Thump.
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">1930 - 1950</div>
-    <div class="timeline-title">3. Ventas</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> Gran Depresion. <strong>Oferta &gt; demanda</strong>. Hay stock sin vender.<br>
-      <strong>Logica:</strong> "Si los dejamos solos, <strong>no compran suficiente</strong>".<br>
-      <strong>3 hipotesis (Kotler, 1991):</strong> (1) se resisten a lo no esencial, (2) pueden ser motivados con estimulos, (3) se necesita un departamento de ventas potente.<br>
-      <strong>Rol del marketing:</strong> promocional, corto plazo, transaccion unica.<br>
-      <strong>Se aplica a:</strong> bienes no buscados (seguros, enciclopedias, cementerios) o cuando hay exceso de capacidad.<br>
-      <strong>Frase (Levitt, 1960):</strong> <em>"La venta se orienta hacia las necesidades del vendedor; el marketing, hacia las del comprador"</em>.<br>
-      <strong>Riesgo:</strong> <strong>marketing salvaje</strong> (Lambin), <strong>autodestructor</strong>.
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">1950s</div>
-    <div class="timeline-title">4. Marketing (parteaguas)</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> post-Segunda Guerra Mundial. Sociedad mas informada, mas competencia.<br>
-      <strong>Logica:</strong> "Identificar necesidades del mercado meta y <strong>satisfacerlas mejor que la competencia</strong>".<br>
-      <strong>Cambio de optica:</strong> de "adentro hacia afuera" (empujar el producto) a <strong>"afuera hacia adentro"</strong> (partir del cliente).<br>
-      <strong>Rol del marketing:</strong> <strong>estrategico</strong> (analiza, segmenta, posiciona) + <strong>operativo</strong> (ejecuta las 4 P's).<br>
-      <strong>Hito &mdash; McCarthy (1964):</strong> sistematiza las <strong>4 P's</strong> (producto, precio, plaza, promocion).<br>
-      <strong>Hito &mdash; Kotler y Levy (1969):</strong> amplian el marketing a ideas y organizaciones no lucrativas (marketing social).<br>
-      <strong>Frase (Drucker, 1973):</strong> <em>"El objetivo del marketing es convertir en superflua la venta"</em>.<br>
-      <strong>Ejemplos:</strong> Procter &amp; Gamble, Disney, Marriott, McDonald's.
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">1970s</div>
-    <div class="timeline-title">5. Marketing Social</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> crisis del petroleo, conciencia ambiental, movimientos de consumidores.<br>
-      <strong>Logica:</strong> satisfacer al cliente no alcanza; hay que cuidar el <strong>bienestar de la sociedad a largo plazo</strong>.<br>
-      <strong>Triple balance (Kotler):</strong> (1) necesidades del cliente + (2) objetivos de la empresa + (3) <strong>bienestar social</strong>.<br>
-      <strong>Aparece la RSC</strong> (Responsabilidad Social Corporativa): se valora el impacto ambiental y social de las decisiones.<br>
-      <strong>Cliente:</strong> valora positivamente a empresas eticas. Paga mas por productos "verdes".<br>
-      <strong>Ejemplos:</strong> Patagonia, Ben &amp; Jerry's, The Body Shop, empresas B, comercio justo.
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">1990s - 2000s</div>
-    <div class="timeline-title">6. Marketing Holistico</div>
-    <div class="timeline-desc">
-      <strong>Contexto:</strong> globalizacion + Internet + stakeholders multiples.<br>
-      <strong>Definicion (Kotler y Keller, 2012):</strong> "El marketing holistico <strong>reconoce que todo importa</strong> cuando se trata de marketing, y que una perspectiva amplia e integrada es necesaria".<br>
-      <strong>4 componentes:</strong>
-      <ul style="margin:4px 0 0 16px;font-size:.95em">
-        <li><strong>Relacional:</strong> clientes, empleados, socios, comunidad financiera.</li>
-        <li><strong>Integrado:</strong> comunicaciones, productos y canales coherentes.</li>
-        <li><strong>Interno:</strong> alta direccion + depto marketing + otros departamentos alineados.</li>
-        <li><strong>Rendimiento:</strong> ingresos, etica, comunidad, entorno, capital de marca, legal.</li>
-      </ul>
-      <strong>Ejemplos:</strong> Apple (integrado), Disney (interno), aerolineas con millas (relacional).
-    </div>
-  </div></div>
-
-  <div class="timeline-item"><div class="timeline-card">
-    <div class="timeline-year">2010 - hoy</div>
-    <div class="timeline-title">7. Marketing 4.0 / 5.0</div>
-    <div class="timeline-desc">
-      <strong>4.0 (2010+):</strong> de lo <strong>tradicional a lo digital</strong>. Redes sociales, TICs, Internet.<br>
-      El cliente esta <strong>siempre conectado</strong>, es infiel a las marcas y confia mas en otros usuarios que en la publicidad.<br>
-      <strong>Enfoque omnicanal:</strong> comunicacion 360 integrando on-line y off-line.<br>
-      <strong>Frase (Kotler):</strong> <em>"La mejor publicidad es la que hacen los clientes satisfechos"</em>.<br><br>
-      <strong>5.0 (2021+):</strong> <strong>Tecnologia para la humanidad</strong>.<br>
-      <strong>Tecnologias habilitadoras:</strong> IA, PLN, IoT, RA/RV, sensores, blockchain.<br>
-      <strong>CX (Customer Experience):</strong> es el norte. Personalizacion <strong>de segmentos de uno</strong> via Big Data + IA.<br>
-      <strong>Principio:</strong> <em>"la tecnologia debe seguir a la estrategia"</em>. Humanidad al centro, tecnologia como apoyo.
-    </div>
-  </div></div>
-</div>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="lightbulb" style="width:14px;height:14px"></i> COMO INTERPRETARLA</div>
-<p><strong>Etapas 1-3</strong> (Produccion, Producto, Ventas) = "de adentro hacia afuera" = marketing <strong>pasivo y de organizacion</strong> (Lambin). <strong>Etapa 4</strong> = parteaguas, nacen las 4 P's = marketing <strong>activo</strong>. <strong>Etapas 5-7</strong> = profundizaciones (social, holistico, digital). Las etapas <strong>no son excluyentes</strong>: hoy hay empresas con mentalidad 1.0 o 2.0.</p>
-</div>
-
-
-<h3>Las 6 orientaciones de Kotler (detalle por filosofia)</h3>
-
-<div class="card" style="border-left:4px solid var(--blue)">
-<h4>1. Produccion (1850 - 1920)</h4>
-<p><strong>Hipotesis:</strong> "los consumidores prefieren productos <strong>disponibles y de bajo costo</strong>". Demanda &gt; oferta.<br>
-<strong>Foco:</strong> eficiencia productiva, escala, distribucion masiva.<br>
-<strong>Ejemplo:</strong> Ford Modelo T.<br>
-<strong>Riesgo:</strong> perder de vista al cliente.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--purple)">
-<h4>2. Producto (1900 - 1930)</h4>
-<p><strong>Hipotesis:</strong> "prefieren productos con <strong>mayor calidad e innovacion</strong>". La empresa asume que la calidad se explica sola.<br>
-<strong>Foco:</strong> hacer el mejor producto, mejorarlo con el tiempo. Fuerte inversion en I+D.<br>
-<strong>Frase:</strong> <em>"Si construyes una ratonera mejor, el mundo abrira un camino a tu puerta"</em>.<br>
-<strong>Riesgo:</strong> <strong>miopia de Levitt</strong> (ferrocarriles, Kodak, Segway).</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--amber)">
-<h4>3. Ventas (1930 - 1950)</h4>
-<p><strong>Hipotesis (Kotler, 1991):</strong> "si los dejamos solos, no compran suficiente". Oferta &gt; demanda, hay stock.<br>
-<strong>Foco:</strong> venta agresiva, fuerza de ventas grande, promociones fuertes.<br>
-<strong>Se aplica a:</strong> bienes no buscados (seguros, enciclopedias, parcelas) o exceso de capacidad.<br>
-<strong>Riesgo:</strong> <strong>marketing salvaje</strong> (Lambin), autodestructor.<br>
-<strong>Levitt:</strong> <em>"la venta se orienta a las necesidades del vendedor; el marketing, a las del comprador"</em>.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--green)">
-<h4>4. Marketing (1950s - parteaguas)</h4>
-<p><strong>Hipotesis:</strong> la clave es "identificar necesidades del mercado meta y satisfacerlas <strong>mejor que la competencia</strong>".<br>
-<strong>Gran cambio:</strong> de "adentro hacia afuera" a <strong>"afuera hacia adentro"</strong>.<br>
-<strong>4 pilares:</strong> mercado meta + necesidades del cliente + marketing integrado + rentabilidad.<br>
-<strong>Hitos:</strong> McCarthy (1964) sistematiza las <strong>4 P's</strong>; Kotler y Levy (1969) amplian el marketing a lo no lucrativo.<br>
-<strong>Drucker:</strong> <em>"el objetivo del marketing es convertir en superflua la venta"</em>.<br>
-<strong>Ejemplos:</strong> P&amp;G, Disney, Marriott, IKEA.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--pink)">
-<h4>5. Marketing Social (1970s)</h4>
-<p><strong>Contexto:</strong> crisis del petroleo, conciencia ambiental.<br>
-<strong>Hipotesis:</strong> satisfacer al cliente <strong>no alcanza</strong>; hay que cuidar tambien el <strong>bienestar social a largo plazo</strong>.<br>
-<strong>Triple balance:</strong> cliente + empresa + sociedad.<br>
-<strong>Aparece la RSC</strong> (Responsabilidad Social Corporativa).<br>
-<strong>Ejemplos:</strong> Patagonia, Ben &amp; Jerry's, The Body Shop, empresas B.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--accent)">
-<h4>6. Marketing Holistico (1990s - hoy)</h4>
-<p><strong>Contexto:</strong> globalizacion + Internet + stakeholders multiples.<br>
-<strong>Definicion (Kotler y Keller, 2012):</strong> <em>"todo importa cuando se trata de marketing; una perspectiva amplia e integrada es necesaria"</em>.<br>
-<strong>4 dimensiones:</strong> Relacional + Integrado + Interno + Rendimiento (R-I-I-R).<br>
-<strong>Integra</strong> todas las orientaciones anteriores + mirada sistemica.<br>
-<strong>Ejemplos:</strong> Apple, Disney, Starbucks.</p>
-</div>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="layers" style="width:14px;height:14px"></i> CONCEPTO CLAVE: MARKETING HOLISTICO (Kotler y Keller, 2012, p.18)</div>
-<p>Dentro del Marketing 3.0 surge el concepto de <strong>marketing holistico</strong>:</p>
-<p class="quote" style="margin:8px 0">"Se basa en el <strong>desarrollo, diseño e implementacion</strong> de programas, procesos y actividades de marketing que <strong>reconocen su amplitud e interdependencias</strong>. El marketing holistico reconoce que <strong>todo importa</strong> cuando se trata de marketing, y que una perspectiva amplia e integrada es necesaria frecuentemente."</p>
-<p>Kotler y Keller identifican <strong>4 componentes</strong> (ver detalle abajo): marketing de relaciones, marketing integrado, marketing interno y rendimiento del marketing.</p>
-</div>
-
-<h4 style="margin-top:18px">Los 4 componentes del Marketing Holistico (con sus elementos)</h4>
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--accent)">
-    <h4><i data-lucide="handshake" style="width:14px;height:14px;vertical-align:-2px"></i> 1. Marketing de Relaciones</h4>
-    <p><strong>Objetivo:</strong> desarrollar <strong>relaciones profundas y duraderas</strong> con personas y organizaciones. El resultado es una <strong>red de marketing</strong> mas valiosa que los activos fisicos.</p>
-    <p><strong>4 elementos (stakeholders):</strong></p>
-    <ul style="margin:4px 0 0 18px;font-size:.92em">
-      <li><strong>Clientes</strong></li>
-      <li><strong>Empleados</strong></li>
-      <li><strong>Socios de marketing</strong> (intermediarios, canales, proveedores, distribuidores)</li>
-      <li><strong>Miembros de la comunidad financiera</strong> (accionistas, inversores, analistas)</li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4><i data-lucide="layers" style="width:14px;height:14px;vertical-align:-2px"></i> 2. Marketing Integrado</h4>
-    <p>Diseñar e implementar cualquier actividad de marketing <strong>en consonancia con todas las demas</strong>. El lanzamiento de un nuevo producto debe ser <strong>coherente</strong> con los existentes.</p>
-    <p><strong>3 elementos:</strong></p>
-    <ul style="margin:4px 0 0 18px;font-size:.92em">
-      <li><strong>Comunicaciones</strong> (integradas entre si)</li>
-      <li><strong>Productos y servicios</strong> (coherentes)</li>
-      <li><strong>Canales</strong> (estrategia integrada)</li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4><i data-lucide="user-check" style="width:14px;height:14px;vertical-align:-2px"></i> 3. Marketing Interno</h4>
-    <p><strong>Todos</strong> los integrantes de la organizacion deben adoptar una <strong>vision de marketing</strong>. No alcanza con involucrar solo al departamento.</p>
-    <p><strong>3 elementos:</strong></p>
-    <ul style="margin:4px 0 0 18px;font-size:.92em">
-      <li><strong>Departamento de marketing</strong></li>
-      <li><strong>Alta direccion</strong></li>
-      <li><strong>Otros departamentos</strong></li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--pink)">
-    <h4><i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px"></i> 4. Rendimiento del Marketing</h4>
-    <p>No solo se monitorean ventas y participacion de mercado, tambien los <strong>efectos legales, eticos, sociales y ambientales</strong> del marketing.</p>
-    <p><strong>6 elementos:</strong></p>
-    <ul style="margin:4px 0 0 18px;font-size:.92em">
-      <li><strong>Ingresos por ventas</strong></li>
-      <li><strong>Etica</strong></li>
-      <li><strong>Comunidad</strong></li>
-      <li><strong>Entorno</strong></li>
-      <li><strong>Capital de marca y de clientes</strong></li>
-      <li><strong>Legal</strong></li>
-    </ul>
-  </div>
-</div>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="lightbulb" style="width:14px;height:14px"></i> REGLA MNEMOTECNICA (para recordar los 4 componentes)</div>
-<p><strong>"R-I-I-R"</strong> &rarr; <strong>R</strong>elaciones, <strong>I</strong>ntegrado, <strong>I</strong>nterno, <strong>R</strong>endimiento.</p>
-</div>
-
-<h3 style="margin-top:24px">Apendice: Marketing 1.0 al 5.0 (Gomez-Tauro, 2023)</h3>
-<p style="font-size:.9em;color:var(--muted)">Lectura moderna de Kotler que re-mapea la evolucion como "versiones" del marketing. <strong>Se pregunta menos en el parcial</strong>, pero sirve como referencia.</p>
-
-<div style="overflow-x:auto">
-<table style="font-size:.88em">
-<tr><th></th><th>M 1.0</th><th>M 2.0</th><th>M 3.0</th><th>M 4.0</th><th>M 5.0</th></tr>
-<tr><td style="font-weight:600">Centro</td><td>Producto</td><td>Consumidor</td><td>Valores</td><td>Digital</td><td>Tecnologia / humanidad</td></tr>
-<tr><td style="font-weight:600">Objetivo</td><td>Vender productos</td><td>Satisfacer y retener</td><td>Hacer un mundo mejor</td><td>Confianza y fidelizacion</td><td>Experiencia del cliente (CX)</td></tr>
-<tr><td style="font-weight:600">Fuerza</td><td>Revolucion industrial</td><td>TICs</td><td>Nueva ola tecnologica</td><td>Redes sociales</td><td>IA, IoT, Big Data</td></tr>
-<tr><td style="font-weight:600">Propuesta</td><td>Funcional</td><td>Funcional + emocional</td><td>+ espiritual</td><td>Omnicanal 360</td><td>Predictivo, contextual, aumentado, agil</td></tr>
-<tr><td style="font-weight:600">Interaccion</td><td>Transacciones 1 a 1</td><td>Relaciones 1 a 1</td><td>Colaboracion entre muchos</td><td>Redes sociales</td><td>Martech</td></tr>
-</table>
-</div>
-
-<p style="font-size:.9em;color:var(--muted);margin-top:8px"><strong>Nota:</strong> 1.0 equivale a la <strong>orientacion al producto</strong>, 2.0 al <strong>marketing</strong>, 3.0 al <strong>marketing social + holistico</strong>, 4.0-5.0 son profundizaciones digitales del holistico. Las etapas <strong>no son excluyentes</strong>: hoy hay empresas con mentalidad 1.0 o 2.0.</p>
-
-<h3>La misma historia segun Lambin (Cap. 1)</h3>
-
-<p>Lambin cuenta la evolucion desde <strong>la organizacion de la empresa</strong>. Distingue <strong>tres fases</strong> segun el objetivo prioritario del marketing:</p>
-
-
-
-<div class="card" style="border-left:4px solid var(--blue)">
-  <h4><i data-lucide="factory" style="width:16px;height:16px;vertical-align:-3px"></i> 1. Marketing Pasivo (optica de produccion) - LAMBIN</h4>
-  <p><strong>Definicion (Lambin, 1995):</strong> "Una organizacion de <em>marketing pasivo</em> es una <strong>forma de organizacion que prevalece en un entorno economico caracterizado por la existencia de un mercado potencial importante, pero donde hay escasez de oferta</strong>, siendo insuficientes las capacidades de produccion disponibles para las necesidades del mercado. <strong>La demanda es, pues, superior a la oferta</strong>."</p>
-
-  <p><strong>Factores que lo originan (Lambin):</strong></p>
-  <ul>
-    <li>La existencia de <strong>necesidades conocidas y establecidas</strong>.</li>
-    <li>Un <strong>debil ritmo de innovacion tecnologica</strong>.</li>
-  </ul>
-
-  <p><strong>Contexto historico:</strong> se observo a <strong>principios del siglo XX</strong>, a lo largo de la <strong>Revolucion Industrial</strong>, y mas tarde tras la <strong>posguerra</strong>. Actualmente persiste en varios paises en vias de industrializacion, en particular en Europa del Este.</p>
-
-  <p><strong>Rol del marketing:</strong> es <strong>limitado y pasivo</strong>.</p>
-  <ul>
-    <li>El <strong>marketing estrategico se ejerce naturalmente</strong>, ya que las necesidades son conocidas.</li>
-    <li>El <strong>marketing operativo se reduce a organizar la salida</strong> de los productos fabricados.</li>
-    <li>Las <strong>acciones promocionales son superfluas</strong>, porque la empresa no puede alimentar el mercado como desearia.</li>
-    <li>Los <strong>contactos con el mercado se limitan al primer escalon</strong> (el primer comprador, que suele ser un mayorista o distribuidor industrial).</li>
-    <li>Hay <strong>pocos contactos con la demanda final</strong> y los <strong>estudios de mercado no son frecuentes</strong>.</li>
-  </ul>
-
-  <p><strong>Estructura organizacional de una empresa con "optica de produccion":</strong></p>
-  <ul>
-    <li><strong>Desequilibrio de funciones:</strong> el marketing <strong>NO esta representado al mismo nivel jerarquico</strong> que produccion, finanzas, administracion o RRHH.</li>
-    <li>El primer nivel de marketing es un <strong>departamento comercial</strong>, encargado de las relaciones con la clientela y la administracion de ventas.</li>
-    <li>La <strong>eleccion de productos depende de la funcion de produccion</strong>.</li>
-    <li>Los <strong>precios de venta y las previsiones estan bajo responsabilidad de finanzas</strong>.</li>
-    <li>Hay <strong>dispersion de responsabilidades</strong> en todo lo relativo a las 4 P.</li>
-  </ul>
-
-  <p><strong>Hipotesis implicita:</strong> "la empresa <strong>sabe lo que es bueno para el comprador</strong>, el cual comparte esta conviccion". Los dirigentes estan convencidos de que fabrican un producto superior y asumen que los compradores seguiran demandandolo. Actitud <strong>tipicamente burocratica</strong>: se privilegian las preocupaciones internas de funcionamiento sobre la satisfaccion de los compradores.</p>
-
-  <p><strong>Frase clave de esta etapa:</strong> <em>"El marketing es para vender lo que se ha producido"</em>.</p>
-
-  <p><strong>Oposicion de opticas:</strong> la <strong>optica de produccion</strong> esta en completa oposicion con la <strong>optica del comprador</strong>, que ve un producto como una solucion y no como una entidad tecnica.</p>
-
-  <p><strong>Riesgo / peligro:</strong> la optica de produccion <strong>vuelve a la empresa miope</strong> y no favorece un cambio de mentalidad a tiempo, es decir, antes de que el entorno se modifique. Cuando la oferta alcanza y supera a la demanda, las empresas que no adaptan su mentalidad <strong>desaparecen</strong>.</p>
-
-  <p><strong>Conclusion (Lambin):</strong> el marketing pasivo <strong>no conviene en el entorno actual</strong> al que se enfrenta la mayoria de las empresas de paises industrializados. La optica de produccion persiste, sin embargo, en algunas empresas de <strong>productos industriales</strong>, y es el origen de la <strong>desaparicion de muchas</strong> que no supieron adaptarse.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--amber)">
-  <h4><i data-lucide="megaphone" style="width:16px;height:16px;vertical-align:-3px"></i> 2. Marketing de Organizacion (optica de venta)</h4>
-  <p><strong>Contexto:</strong> economias occidentales de los <strong>años 50</strong>. Demanda en fuerte expansion, capacidades de produccion disponibles, pero la organizacion material del intercambio es deficiente.</p>
-  <p><strong>3 cambios del entorno que lo generan:</strong></p>
-  <ul style="margin:4px 0 0 18px">
-    <li>Aparicion del <strong>autoservicio</strong> y nuevas formas de distribucion.</li>
-    <li>Extension geografica de los mercados + alejamiento fisico y psicologico entre productor y consumidor &rarr; necesidad de <strong>fuerza de ventas y publicidad</strong>.</li>
-    <li>Desarrollo generalizado de la <strong>politica de marca</strong>.</li>
-  </ul>
-  <p><strong>Objetivo:</strong> crear una organizacion comercial eficaz. Buscar y organizar las salidas para los productos fabricados. Surge la <strong>direccion de ventas / comercial</strong>.</p>
-  <p><strong>3 hipotesis implicitas de la optica de venta (Kotler, 1991):</strong></p>
-  <ol style="margin:4px 0 0 22px">
-    <li>Los consumidores tienen tendencia a <strong>resistirse</strong> a comprar productos no esenciales.</li>
-    <li>Pueden ser <strong>motivados</strong> a comprar mas con diferentes estimulos de ventas.</li>
-    <li>La empresa debe <strong>crear un departamento de ventas potente</strong> y usar medios promocionales importantes para atraer y mantener a la clientela.</li>
-  </ol>
-  <p><strong>Cita clave (General Electric, postguerra):</strong> <em>"Fabricad lo que podais vender, antes que intentar vender lo que podais fabricar"</em>.</p>
-</div>
-
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> EL MARKETING SALVAJE (Lambin, Figura 1.7)</div>
-<p>Cuando la optica de venta se lleva al extremo, aparece el <strong>marketing de manipulacion o marketing salvaje</strong>: se somete la demanda a las exigencias de la oferta en lugar de adaptar la oferta a la demanda.</p>
-<p><strong>7 practicas tipicas del marketing salvaje:</strong></p>
-<ol style="margin:4px 0 0 22px">
-  <li>Oferta de <strong>productos defectuosos o peligrosos</strong> en su uso.</li>
-  <li><strong>Exageracion del contenido aparente</strong> del producto mediante un diseño adulador del acondicionamiento.</li>
-  <li>Recurso a <strong>practicas fraudulentas</strong> en precios y descuentos.</li>
-  <li>Uso <strong>abusivo de medios promocionales</strong> que explotan la impulsividad de compra.</li>
-  <li><strong>Exageracion publicitaria</strong> de atributos y promesas del producto.</li>
-  <li><strong>Explotacion publicitaria</strong> de sufrimientos y ansiedades de los individuos.</li>
-  <li><strong>Incitacion al sobre-consumo</strong> mediante venta forzada o venta bajo presion (<em>hard selling</em>).</li>
-</ol>
-<p style="margin-top:8px;font-weight:600">Al final, el marketing salvaje es <strong>autodestructor</strong> para el producto y la marca, y va en contra del interes bien entendido de la empresa.</p>
-</div>
-
-<div class="card" style="border-left:4px solid var(--green)">
-  <h4><i data-lucide="target" style="width:16px;height:16px;vertical-align:-3px"></i> 3. Marketing Activo</h4>
-  <p><strong>Contexto:</strong> decadas del 60 y 70 (periodo llamado <em>golden sixties</em>). Se refuerza el marketing <strong>estrategico</strong>.</p>
-  <p><strong>3 factores que originan esta evolucion (Lambin):</strong></p>
-  <ol style="margin:4px 0 0 22px">
-    <li><strong>Aceleracion de la difusion del progreso tecnologico.</strong> Reduccion del ciclo de vida de los productos. En empresas rentables, <strong>40-60%</strong> de la facturacion viene de productos con menos de 5 años.</li>
-    <li><strong>Saturacion del nucleo basico del mercado.</strong> La demanda basica esta cubierta. Aparece demanda para productos <strong>mas especificos</strong> segun grupos de consumidores. Esto <strong>fragmenta los mercados</strong> y obliga a estrategias de segmentacion.</li>
-    <li><strong>Internacionalizacion creciente de los mercados.</strong> Mercado Comun europeo, acuerdos del GATT, fin de la guerra fria, desarrollo de intercambios Este-Oeste.</li>
-  </ol>
-  <p><strong>Cambio organizacional:</strong> las decisiones de <strong>producto</strong> pasan a la <strong>funcion marketing</strong> (ya no a produccion), en relacion con I+D. El marketing estrategico <strong>orienta la politica de producto</strong> y decide su viabilidad economica.</p>
-  <p><strong>Hipotesis:</strong> la <strong>satisfaccion de las necesidades del comprador</strong> es el objetivo primordial, no por altruismo sino porque es el mejor medio para alcanzar los objetivos de <strong>rentabilidad y crecimiento</strong>.</p>
-  <p><strong>Cita de Drucker (1973):</strong> <em>"Se puede admitir que una cierta forma de venta sera necesaria siempre. Pero el objetivo del marketing es convertir en superflua la venta. El fin del marketing es conocer y comprender tan bien al cliente, que el producto o servicio este naturalmente adaptado a sus necesidades y se venda por si mismo"</em>.</p>
-</div>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="book" style="width:14px;height:14px"></i> LIMITES DE LA OPTICA MARKETING (Lambin, 1.4.4)</div>
-<p>Una adopcion <strong>demasiado entusiasta</strong> de la optica marketing tambien tiene riesgos: pone el acento en los productos <strong>demandados por el mercado</strong> y descuida los productos <strong>impulsados por la tecnologia</strong>. Una estrategia guiada <em>solo</em> por la voz del mercado tiende a favorecer <strong>innovaciones menores</strong>. La mayoria de las <strong>innovaciones de ruptura surgen del laboratorio, no del mercado</strong> (ejemplo: Polaroid).</p>
-<p>Por eso hay que <strong>equilibrar</strong> el desarrollo por el mercado con el desarrollo por la tecnologia. La optica marketing es un <strong>ideal</strong> que guia la actividad de la empresa, aunque rara vez se alcance por completo.</p>
-</div>
-
-<h3>Venta vs Marketing (comparacion clasica de Levitt)</h3>
-<table>
-<tr><th>Dimension</th><th>Optica de Venta</th><th>Optica de Marketing</th></tr>
-<tr><td><strong>Punto de partida</strong></td><td>La fabrica / el stock</td><td>El mercado meta</td></tr>
-<tr><td><strong>Foco</strong></td><td>Producto existente</td><td>Necesidades del cliente</td></tr>
-<tr><td><strong>Medios</strong></td><td>Venta y promocion</td><td>Marketing integrado (4 P's)</td></tr>
-<tr><td><strong>Fin</strong></td><td>Utilidades por <strong>volumen</strong> (convertir producto en dinero liquido)</td><td>Utilidades por <strong>satisfaccion</strong> del cliente</td></tr>
-<tr><td><strong>Horizonte</strong></td><td>Corto plazo, transaccion</td><td>Largo plazo, relacion</td></tr>
-</table>
-
-<div class="quote">
-  "La venta esta orientada hacia las necesidades del vendedor, el marketing hacia las del comprador. La venta esta preocupada por la necesidad de convertir su producto en dinero liquido; el marketing esta preocupado por la satisfaccion de las necesidades del cliente a traves del producto y de todo lo que este asociado a su creacion, su entrega y, finalmente, su consumo."
-  <span class="q-author">Theodore Levitt (1960)</span>
-</div>
-
-<h3>Tabla de equivalencias Kotler &harr; Lambin</h3>
-<table>
-<tr><th>Kotler</th><th>Lambin</th><th>Relacion oferta-demanda</th><th>Rol del marketing</th></tr>
-<tr><td>Produccion / Producto</td><td><strong>Pasivo</strong></td><td>Demanda &gt; oferta</td><td>Limitado, organiza la salida de lo fabricado</td></tr>
-<tr><td>Ventas</td><td><strong>De organizacion</strong></td><td>Oferta &gt; demanda</td><td>Promocional, crea una organizacion comercial eficaz. Riesgo de marketing salvaje.</td></tr>
-<tr><td>Marketing / Social / Holistico / 3.0-5.0</td><td><strong>Activo</strong></td><td>Mercados saturados, fragmentados, globalizados</td><td>Marketing estrategico guia decisiones de producto</td></tr>
-</table>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="check-circle" style="width:14px;height:14px"></i> CONEXIONES PARA EL PARCIAL</div>
-<ul style="margin:6px 0 0 18px">
-<li>Las <strong>4 P's</strong> (McCarthy, 1964) nacen en el <strong>Marketing 2.0</strong>, no antes.</li>
-<li>El concepto de <strong>Marketing Social</strong> (Kotler y Levy, 1969) extiende el marketing a ideas y organizaciones no lucrativas.</li>
-<li>El <strong>Marketing Holistico</strong> (Kotler y Keller, 2012) aparece dentro del Marketing 3.0 con <strong>4 componentes</strong>: relaciones, integrado, interno y rendimiento.</li>
-<li>La <strong>miopia de Levitt</strong> es el riesgo tipico del Marketing 1.0 (optica de produccion / producto): la empresa cree saber que quiere el comprador y no mira el entorno.</li>
-<li><strong>Lambin equivalente:</strong> pasivo = 1.0, de organizacion = ventas, activo = marketing a partir de 1950s.</li>
-<li>El <strong>marketing salvaje</strong> es la patologia del marketing de organizacion: <strong>autodestructor</strong>.</li>
-<li>El <strong>Marketing 5.0</strong> gira alrededor de la <strong>CX (experiencia del cliente)</strong>, apoyado en IA, Big Data, IoT, RA/RV y blockchain. "La tecnologia debe seguir a la estrategia".</li>
-</ul>
-</div>
-
-
-
-</div></div>
-
-<!-- ======= TEMA 5: ENTORNOS ======= -->
-<div class="section" id="entornos">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="globe" style="width:20px;height:20px"></i> 6. Entornos</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<h3>Concepto de Entorno (Apunte UCES U1)</h3>
-<div class="card" style="border-left:4px solid var(--accent)">
-<p>El <strong>entorno son fuerzas que no son controlables por parte de la empresa, pero en cambio si que influyen sobre ella</strong>. La organizacion no puede incidir directamente en el comportamiento del entorno, <strong>pero conociendolo si puede contribuir a mantener ventajas competitivas</strong> y mejorar la posicion del negocio con respecto a los competidores.</p>
-<p style="margin-top:8px"><strong>Para que sirve analizarlo:</strong> valorar <strong>oportunidades del negocio o amenazas</strong> a las que esta sometido, y conocer el comportamiento del mercado.</p>
-</div>
-
-<div class="quote">
-"El entorno de una empresa se compone de los factores y fuerzas que afectan a su capacidad para desarrollar y mantener transacciones y relaciones exitosas con sus publicos objetivos."
-<span class="q-author">Kotler (1996), citado en Apunte UCES U1</span>
-</div>
-
-<p>Se distingue entre <strong>microentorno</strong> y <strong>macroentorno</strong>.</p>
-
-<h3>Microentorno (4 agentes)</h3>
-<p>Son los agentes <strong>muy cercanos a la empresa</strong> que se encuentran en <strong>interactividad constante</strong>.</p>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--accent)">
-    <h4><i data-lucide="users" style="width:14px;height:14px;vertical-align:-2px"></i> A. Clientes o mercado</h4>
-    <p><strong>El factor de mas relevancia en el entorno.</strong> No todos los clientes son iguales:</p>
-    <ul>
-      <li><strong>Mercado de consumo:</strong> personas o familias que adquieren bienes para atender sus necesidades.</li>
-      <li><strong>Mercado industrial / organizacional:</strong> empresas que adquieren bienes para producir.</li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4><i data-lucide="truck" style="width:14px;height:14px;vertical-align:-2px"></i> B. Proveedores</h4>
-    <p>Empresas que proporcionan <strong>materia prima</strong> para poder producir bienes y servicios.</p>
-    <p><strong>La empresa podra influir sobre el proveedor si:</strong></p>
-    <ul>
-      <li>es de gran tamaño</li>
-      <li>tiene poder de mercado</li>
-      <li>tiene poder de negociacion</li>
-      <li>existe un gran numero de proveedores</li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4><i data-lucide="store" style="width:14px;height:14px;vertical-align:-2px"></i> C. Intermediarios</h4>
-    <p>Es lo que se denomina <strong>red de distribucion</strong>. Operan en los canales de distribucion, necesarios por la <strong>distancia fisica</strong> entre la produccion y el punto de venta.</p>
-    <p>Influyen en las acciones de marketing en temas de <strong>precio</strong>: al añadir distribucion, <strong>encarecen el bien o servicio final</strong>.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4><i data-lucide="swords" style="width:14px;height:14px;vertical-align:-2px"></i> D. Competidores</h4>
-    <p>Empresas que fabrican o venden el <strong>mismo bien o servicio</strong>. El mercado puede decidir entre uno u otro.</p>
-    <p><strong>3 niveles de competencia (Apunte U1, Torres Tirado 2011):</strong></p>
-  </div>
-</div>
-
-<h4 style="margin-top:14px">Los 3 niveles de competencia (clave de parcial)</h4>
-<table>
-<tr><th>Nivel</th><th>Definicion</th><th>Ejemplo</th></tr>
-<tr><td><strong>1. Competencia de Necesidades</strong></td><td>Las necesidades compiten entre si porque el consumidor tiene un <strong>poder limitado de compra</strong> y un numero elevado de deseos y necesidades a satisfacer.</td><td>Gastar el sueldo en viajar vs ahorrar vs comprar ropa</td></tr>
-<tr><td><strong>2. Competencia de Producto</strong></td><td>Se da entre productos que, aunque son relativamente diferentes, <strong>se utilizan para satisfacer una misma necesidad</strong>.</td><td>Auto vs moto vs colectivo (transporte)</td></tr>
-<tr><td><strong>3. Competencia de Marca</strong></td><td>Se da entre <strong>distintas marcas de un mismo producto</strong>. Es el <strong>nivel de competencia mas intenso</strong>.</td><td>Coca-Cola vs Pepsi; Nike vs Adidas</td></tr>
-</table>
-
-<h3>Macroentorno (7 fuerzas no controlables segun Apunte UCES U1)</h3>
-<p>Esta en <strong>constante movimiento y no se puede controlar</strong>, pero si se puede utilizar para <strong>adaptar, moldear y crear estrategias</strong> a partir de los cambios presentes, adaptandose favorablemente a estas variables.</p>
-
-<div class="card-grid">
-  <div class="card"><h4><i data-lucide="users-2" style="width:14px;height:14px;vertical-align:-2px"></i> 1. Entorno Demografico</h4><p>Edad, sexo, estado civil, tamaño y ciclo de vida de las familias, datos historicos. Factores importantes para el diseño de las <strong>7 P's</strong> (producto, precio, plaza, promocion, proceso, personal). Se analiza cada 10 años por <strong>censos poblacionales</strong>.</p></div>
-  <div class="card"><h4><i data-lucide="trending-up" style="width:14px;height:14px;vertical-align:-2px"></i> 2. Entorno Economico</h4><p>Indica el <strong>sistema economico</strong>: libre comercio, monopolios, oligopolios. Se investiga el <strong>poder adquisitivo</strong> y cuanto estan dispuestas a pagar las personas. Afecta directamente al <strong>Precio y a la Plaza</strong>.</p></div>
-  <div class="card"><h4><i data-lucide="cpu" style="width:14px;height:14px;vertical-align:-2px"></i> 3. Entorno Tecnologico</h4><p>Esta en constante innovacion. Aumenta la <strong>eficiencia y eficacia</strong> de los procesos administrativos e industriales. Las empresas deben innovar para <strong>no quedar rezagadas</strong>. Afecta directamente a <strong>Procesos, Personal y Promocion</strong> de la mezcla.</p></div>
-  <div class="card"><h4><i data-lucide="heart-handshake" style="width:14px;height:14px;vertical-align:-2px"></i> 4. Entorno Social</h4><p>Nivel socioeconomico, <strong>ingresos, estilos de vida, costumbres, valores, comportamiento</strong>. Afecta la creacion de productos que satisfagan las necesidades cambiantes del consumidor. Permite ubicar <strong>lideres de opinion</strong> para programas sociales.</p></div>
-  <div class="card"><h4><i data-lucide="book-open" style="width:14px;height:14px;vertical-align:-2px"></i> 5. Entorno Cultural</h4><p>Toda poblacion se divide en <strong>culturas y subculturas</strong>. Variables: subgrupos, nivel de escolaridad, variables pictograficas, creencias, tipos de religion, actitudes, valores, nacionalidad, ubicacion geografica.</p></div>
-  <div class="card"><h4><i data-lucide="landmark" style="width:14px;height:14px;vertical-align:-2px"></i> 6. Entorno Politico</h4><p>Sistema politico, de gobierno y tipos de poderes. Las medidas politicas <strong>pueden marcar el exito o fracaso</strong> de organizaciones. Rigen sobre el ambito laboral, domestico, deportivo, recreativo. Sancionan malos comportamientos.</p></div>
-  <div class="card"><h4><i data-lucide="scale" style="width:14px;height:14px;vertical-align:-2px"></i> 7. Entorno Legal</h4><p>Regulacion legislativa a escala <strong>internacional, nacional y municipal</strong>: leyes sobre competencia, medioambientales, convenios internacionales, incentivos industriales, legislacion de mercado de cambios, propiedad intelectual, legislacion laboral, normas de seguridad.</p></div>
-</div>
-
-<div class="alert alert-info">
-  <div class="at"><i data-lucide="lightbulb" style="width:16px;height:16px"></i> CLAVE PARA EL PARCIAL</div>
-  <p><strong>Micro = actores cercanos con interactividad constante</strong> (<strong>4</strong>: clientes, proveedores, intermediarios, competidores).<br>
-  <strong>Macro = fuerzas generales no controlables</strong> (<strong>7</strong>: demografico, economico, tecnologico, social, cultural, politico, legal).<br>
-  Ni el micro ni el macro son controlables. La empresa <strong>solo controla el entorno interno</strong> (RRHH, produccion, marketing, finanzas, administracion) y las <strong>4 P's</strong>.</p>
-</div>
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 6: CLASES DE MERCADO ======= -->
-<div class="section" id="mercado">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="users" style="width:20px;height:20px"></i> 7. Clases de Mercado</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4><i data-lucide="shopping-cart" style="width:14px;height:14px;vertical-align:-2px"></i> Mercado de Consumo</h4>
-    <p><strong>"Son aquellos mercados donde se comercializan productos destinados a satisfacer las necesidades del <strong>consumidor final</strong>."</strong></p>
-    <p><strong>4 preguntas para estudiarlo</strong> (Torres Tirado, 2011):</p>
-    <ol style="margin-left:18px">
-      <li>&iquest;<strong>Quienes</strong> compran el producto?</li>
-      <li>&iquest;<strong>Por que</strong> lo compran?</li>
-      <li>&iquest;<strong>Donde</strong> lo compran?</li>
-      <li>&iquest;<strong>En que cantidad</strong>?</li>
-    </ol>
-    <p><strong>Perfil del consumidor a construir:</strong> tamaño de la poblacion, distincion por sexo y edad, familia y tamaño de estas, renta por persona y por familia.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4><i data-lucide="factory" style="width:14px;height:14px;vertical-align:-2px"></i> Mercado Organizacional o Industrial</h4>
-    <p>"Esta formado por todas las <strong>organizaciones que adquieren bienes y servicios para la fabricacion de otros productos</strong> o la prestacion de otros servicios que venden, alquilan o suministran a terceros."</p>
-    <p><strong>Demanda derivada:</strong> es la demanda del organizacional. Se genera como <strong>consecuencia de la demanda de un bien de consumo</strong>. Sin consumo no hay industrial.</p>
-  </div>
-</div>
-
-<h3>Caracteristicas del Mercado Organizacional (10, segun Apunte U1)</h3>
-<div class="alert alert-info">
-<ol style="margin:4px 0 0 22px">
-  <li><strong>Demanda derivada:</strong> consecuencia de la existencia de bienes de consumo.</li>
-  <li><strong>Gran volumen de ventas,</strong> tanto en unidades fisicas como en unidades monetarias.</li>
-  <li>Se trata de un <strong>numero reducido de compradores</strong>.</li>
-  <li><strong>Gran concentracion geografica</strong> en zonas metropolitanas o industriales.</li>
-  <li><strong>Gran fluctuacion del volumen de compras</strong> provocada por los cambios en la demanda y la demanda derivada.</li>
-  <li><strong>La demanda es inelastica</strong> (menos sensible a los cambios del precio).</li>
-  <li>En la decision de compra <strong>intervienen varios responsables</strong> de la organizacion demandante (centro de compras).</li>
-  <li><strong>Mayor nivel de especificaciones</strong> en los pedidos (mas tecnicas).</li>
-  <li><strong>Negociaciones mas complejas y menos frecuentes.</strong></li>
-  <li><strong>Compra racional</strong> (no se deja llevar por emociones).</li>
-</ol>
-</div>
-
-<h3>Consumo vs Industrial (tabla comparativa)</h3>
-<table>
-<tr><th>Dimension</th><th>Mercado de Consumo</th><th>Mercado Organizacional / Industrial</th></tr>
-<tr><td>Compra para</td><td>Satisfacer necesidades personales / familiares</td><td>Producir otros bienes o servicios</td></tr>
-<tr><td>Demanda</td><td>Directa</td><td><strong>Derivada</strong> (depende del consumo)</td></tr>
-<tr><td>Elasticidad</td><td>Sensible al precio</td><td><strong>Inelastica</strong></td></tr>
-<tr><td>Cantidad de compradores</td><td>Muchos</td><td>Pocos (concentrados)</td></tr>
-<tr><td>Volumen por compra</td><td>Bajo</td><td>Alto (en $ y unidades)</td></tr>
-<tr><td>Distribucion geografica</td><td>Dispersa</td><td>Concentrada (metropolis / zonas industriales)</td></tr>
-<tr><td>Decisores</td><td>Persona o familia</td><td><strong>Varios responsables</strong> (centro de compras)</td></tr>
-<tr><td>Tipo de compra</td><td>A veces emocional, impulsiva</td><td><strong>Racional</strong>, planificada</td></tr>
-<tr><td>Especificaciones</td><td>Bajas / estandar</td><td>Altas / muy tecnicas</td></tr>
-<tr><td>Negociacion</td><td>Simple y frecuente</td><td>Compleja y poco frecuente</td></tr>
-</table>
-
-</div></div>
-
-<!-- ======= TEMA 7: MKT ESTRATEGICO VS OPERATIVO ======= -->
-<div class="section" id="estr-op">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="split" style="width:20px;height:20px"></i> 8. Marketing Estrategico vs Operativo (Lambin)</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-
-
-
-
-<h3>Concepto general (Lambin, Cap. 1)</h3>
-<div class="card" style="border-left:4px solid var(--accent)">
-<p>Segun Lambin, la <strong>gestion de marketing</strong> en una empresa se desdobla en <strong>dos dimensiones complementarias</strong>: el <strong>marketing estrategico</strong> (la <strong>dimension analisis</strong>) y el <strong>marketing operativo</strong> (la <strong>dimension accion</strong>). Las dos son <strong>indisolubles</strong>: se necesitan mutuamente, pero cumplen funciones distintas y operan en horizontes temporales diferentes.</p>
-</div>
-
-<h3>MARKETING ESTRATEGICO (la dimension analisis)</h3>
-<div class="card" style="border-left:4px solid var(--blue)">
-<p><strong>Definicion (Lambin):</strong> el marketing estrategico es esencialmente un <strong>analisis sistematico y permanente</strong> de las necesidades del mercado y el desarrollo de conceptos de productos rentables destinados a grupos de compradores especificos, con caracteristicas distintivas que los <strong>diferencien de los competidores inmediatos</strong>, asegurando asi al productor una <strong>ventaja competitiva defendible</strong>.</p>
-
-<p><strong>Se apoya al inicio sobre:</strong></p>
+<h3>La cadena</h3>
+<p><strong>Necesidad</strong> (innata) → <strong>Deseo</strong> (cultural) → <strong>Demanda</strong> (con poder de compra).</p>
+<p>Ejemplo: hambre (necesidad) → querer una pizza (deseo, cultural) → tener $5000 y comprarla (demanda).</p>
+
+<p>El marketing <strong>no crea</strong> necesidades. Las detecta, moldea deseos y activa la demanda.</p>
+
+
+<h2 id="evolucion">3. Evolución del Marketing (Kotler)</h2>
+
+<p>Kotler identifica <strong>5 orientaciones</strong> históricas según la filosofía de la empresa hacia el mercado.</p>
+
+<h3>1. Orientación a la PRODUCCIÓN</h3>
+<p><strong>Época:</strong> Revolución Industrial (1850–1920). Demanda &gt; oferta.</p>
+<p><strong>Hipótesis:</strong> los consumidores prefieren productos <strong>disponibles y baratos</strong>.</p>
+<p><strong>Foco:</strong> eficiencia productiva, escala, distribución masiva.</p>
+<p><strong>Ejemplo:</strong> Ford Modelo T.</p>
+<p><strong>Riesgo:</strong> perder de vista al cliente.</p>
+
+<h3>2. Orientación al PRODUCTO</h3>
+<p><strong>Época:</strong> fines siglo XIX — principios XX.</p>
+<p><strong>Hipótesis:</strong> los consumidores prefieren <strong>mayor calidad, desempeño, innovación</strong>.</p>
+<p><strong>Foco:</strong> hacer el mejor producto posible.</p>
+<p><strong>Riesgo:</strong> <strong>miopía de Levitt</strong> — enamorarse del producto y olvidar la necesidad que resuelve.</p>
+<p><strong>Ejemplos:</strong> ferrocarriles, Kodak, Segway.</p>
+
+<h3>3. Orientación a las VENTAS</h3>
+<p><strong>Época:</strong> Gran Depresión (1930–1950). Oferta &gt; demanda.</p>
+<p><strong>Hipótesis:</strong> si no se los empuja, los consumidores no compran suficiente.</p>
+<p><strong>Foco:</strong> venta agresiva, promociones fuertes, fuerza de ventas.</p>
+<p><strong>Se aplica a:</strong> bienes no buscados (seguros, enciclopedias) y cuando hay exceso de stock.</p>
+<p><strong>Riesgo:</strong> <strong>marketing salvaje</strong> (Lambin) — autodestructor.</p>
+<blockquote>"La venta está orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador."<span class="author">Theodore Levitt (1960)</span></blockquote>
+
+<h3>4. Orientación al MARKETING (parteaguas — 1950s)</h3>
+<p><strong>Época:</strong> post Segunda Guerra Mundial.</p>
+<p><strong>Gran cambio de óptica:</strong> de <strong>"adentro hacia afuera"</strong> (empujar el producto) a <strong>"afuera hacia adentro"</strong> (partir del cliente).</p>
+<p><strong>Hipótesis:</strong> identificar necesidades del mercado meta y <strong>satisfacerlas mejor que la competencia</strong>.</p>
+<p><strong>Hito:</strong> McCarthy (1964) sistematiza las <strong>4 P's</strong>.</p>
+<blockquote>"El objetivo del marketing es convertir en superflua la venta."<span class="author">Peter Drucker (1973)</span></blockquote>
+
+<h3>5. Orientación al MARKETING HOLÍSTICO (1990s — hoy)</h3>
+<p><strong>Definición (Kotler y Keller, 2012):</strong> <em>"todo importa cuando se trata de marketing; una perspectiva amplia e integrada es necesaria"</em>.</p>
+<p><strong>4 dimensiones:</strong></p>
 <ul>
-  <li>El analisis de las <strong>necesidades de individuos y organizaciones</strong>.</li>
-  <li>Lo que el comprador busca <strong>no es el producto en si</strong>, sino el <strong>servicio o la solucion</strong> al problema que el producto es susceptible de ofrecerle.</li>
+  <li><strong>Relacional:</strong> relaciones duraderas con clientes, empleados, socios.</li>
+  <li><strong>Integrado:</strong> comunicaciones, productos y canales coherentes entre sí.</li>
+  <li><strong>Interno:</strong> alinear a toda la organización detrás del cliente.</li>
+  <li><strong>Rendimiento:</strong> medir impacto financiero, ético, social y ambiental.</li>
 </ul>
 
-<p><strong>Funciones basicas del marketing estrategico (Lambin):</strong></p>
+<h3>Tabla resumen</h3>
+<table>
+<tr><th>Orientación</th><th>Lógica</th><th>Riesgo / ejemplo</th></tr>
+<tr><td><strong>Producción</strong></td><td>Productos disponibles y baratos</td><td>Ford T</td></tr>
+<tr><td><strong>Producto</strong></td><td>Mayor calidad e innovación</td><td>Miopía — Kodak</td></tr>
+<tr><td><strong>Ventas</strong></td><td>Empujar al cliente</td><td>Marketing salvaje</td></tr>
+<tr><td><strong>Marketing</strong></td><td>Satisfacer mejor que la competencia</td><td>Parteaguas — 4 P's</td></tr>
+<tr><td><strong>Holístico</strong></td><td>Todo importa</td><td>Apple, Patagonia</td></tr>
+</table>
+
+
+<h2 id="lambin">4. Marketing Pasivo / de Organización / Activo (Lambin)</h2>
+
+<p>Lambin, Cap. 1, distingue <strong>3 fases</strong> en la evolución según la organización de la empresa.</p>
+
+<h3>Marketing Pasivo (óptica de producción)</h3>
+<div class="highlight">
+<span class="label">Definición (Lambin, 1995)</span>
+<p>"Forma de organización que prevalece en un entorno económico con <strong>escasez de oferta</strong>. Las capacidades de producción son insuficientes para las necesidades del mercado. <strong>La demanda es superior a la oferta</strong>."</p>
+</div>
+
+<p><strong>Contexto:</strong> principios del siglo XX, Revolución Industrial, posguerra. Hoy persiste en países en vías de industrialización.</p>
+
+<p><strong>Factores que lo originan:</strong></p>
+<ul>
+  <li>Necesidades conocidas y establecidas.</li>
+  <li>Débil ritmo de innovación tecnológica.</li>
+</ul>
+
+<p><strong>Rol del marketing:</strong> limitado y pasivo.</p>
+<ul>
+  <li>El marketing estratégico se ejerce naturalmente (las necesidades son conocidas).</li>
+  <li>El marketing operativo se reduce a <strong>organizar la salida</strong> de los productos.</li>
+  <li>Acciones promocionales superfluas.</li>
+  <li>Pocos contactos con la demanda final; estudios de mercado escasos.</li>
+</ul>
+
+<p><strong>Estructura organizacional:</strong></p>
+<ul>
+  <li>Marketing <strong>no está al mismo nivel</strong> que producción, finanzas, RRHH.</li>
+  <li>Los productos los elige <strong>producción</strong>; los precios los fija <strong>finanzas</strong>.</li>
+</ul>
+
+<p><strong>Hipótesis implícita:</strong> "la empresa sabe lo que es bueno para el comprador". Actitud burocrática.</p>
+
+<blockquote>"El marketing es para vender lo que se ha producido."<span class="author">Frase de la etapa</span></blockquote>
+
+<p><strong>Riesgo:</strong> vuelve a la empresa miope. Muchas empresas industriales que persistieron en esta óptica desaparecieron.</p>
+
+<h3>Marketing de Organización (óptica de venta)</h3>
+<p><strong>Contexto:</strong> años 50. Demanda en expansión, distribución deficiente.</p>
+<p><strong>Objetivo:</strong> crear una organización comercial eficaz.</p>
+<p><strong>3 hipótesis (Kotler, 1991):</strong></p>
 <ol>
-  <li><strong>Analisis de las necesidades</strong> (definicion del mercado de referencia).</li>
-  <li><strong>Segmentacion del mercado</strong>: macro-segmentacion y micro-segmentacion.</li>
-  <li><strong>Analisis del atractivo</strong>: mercado potencial, ciclo de vida.</li>
-  <li><strong>Analisis de la competitividad</strong>: ventajas competitivas defendibles.</li>
-  <li><strong>Eleccion de una estrategia de desarrollo</strong>.</li>
+  <li>Los consumidores se resisten a comprar lo no esencial.</li>
+  <li>Pueden ser motivados con estímulos de venta.</li>
+  <li>Se necesita un departamento de ventas potente.</li>
 </ol>
+<p><strong>Riesgo:</strong> <strong>marketing salvaje</strong> — venta forzada, publicidad engañosa, autodestructor.</p>
+<blockquote>"Fabricad lo que podáis vender, antes que intentar vender lo que podáis fabricar."<span class="author">General Electric</span></blockquote>
 
-<p><strong>Caracteristicas:</strong></p>
-<ul>
-  <li><strong>Horizonte:</strong> medio y largo plazo.</li>
-  <li><strong>Base:</strong> necesidades a satisfacer, no productos a vender.</li>
-  <li><strong>Orientacion:</strong> guia la <strong>politica de producto</strong> (decide que productos llevar al mercado).</li>
-  <li><strong>Producto:</strong> plan de marketing estrategico / orientacion de la empresa.</li>
-</ul>
-</div>
+<h3>Marketing Activo</h3>
+<p><strong>Contexto:</strong> décadas del 60–70.</p>
+<p><strong>3 factores que lo originan:</strong></p>
+<ol>
+  <li>Aceleración del progreso tecnológico.</li>
+  <li>Saturación del núcleo básico del mercado.</li>
+  <li>Internacionalización creciente.</li>
+</ol>
+<p><strong>Cambio clave:</strong> las decisiones de producto pasan a marketing (ya no a producción). El marketing estratégico guía la política de producto.</p>
 
-<h3>MARKETING OPERATIVO (la dimension accion)</h3>
-<div class="card" style="border-left:4px solid var(--amber)">
-<p><strong>Definicion (Lambin):</strong> el marketing operativo es la <strong>dimension accion</strong> de la gestion de marketing. Es el <strong>brazo comercial</strong> de la empresa. Su objetivo es <strong>conquistar los mercados existentes</strong> mediante el uso de los medios tacticos derivados de la politica de <strong>producto, distribucion, precio y comunicacion (las 4 P's)</strong>.</p>
 
-<p><strong>Se apoya sobre:</strong></p>
-<ul>
-  <li>Las decisiones relativas a la <strong>politica de producto</strong> (marca, packaging, gama).</li>
-  <li>La <strong>distribucion</strong>: canales, cobertura, merchandising.</li>
-  <li>El <strong>precio</strong>: listas, descuentos, bonificaciones.</li>
-  <li>La <strong>comunicacion</strong>: publicidad, fuerza de ventas, promociones, marketing directo, relaciones publicas.</li>
-</ul>
+<h2 id="estrop">5. Marketing Estratégico y Operativo</h2>
 
-<p><strong>Caracteristicas:</strong></p>
-<ul>
-  <li><strong>Horizonte:</strong> corto plazo (suele ser anual o del plan).</li>
-  <li><strong>Base:</strong> productos existentes y los mercados elegidos previamente.</li>
-  <li><strong>Orientacion:</strong> busca la <strong>cifra de ventas</strong> y la <strong>cuota de mercado</strong>.</li>
-  <li><strong>Producto:</strong> plan de marketing operativo / 4 P's ejecutadas.</li>
-</ul>
+<p>Según Lambin, la gestión de marketing tiene <strong>dos dimensiones complementarias e indisolubles</strong>.</p>
 
-<p><strong>Lambin dice:</strong> el marketing operativo es el <strong>aspecto mas espectacular y visible</strong> del marketing por las actividades de publicidad y promocion. Sin embargo, <strong>no puede crear demanda donde no existe necesidad</strong>: una publicidad no convierte un mal producto en un exito.</p>
-</div>
+<h3>Marketing Estratégico — dimensión ANÁLISIS</h3>
+<p><strong>Definición:</strong> análisis sistemático y permanente de las necesidades del mercado, orientado al desarrollo de conceptos de productos rentables con una <strong>ventaja competitiva defendible</strong>.</p>
+<p><strong>5 funciones básicas:</strong></p>
+<ol>
+  <li>Análisis de necesidades (mercado de referencia).</li>
+  <li>Segmentación del mercado.</li>
+  <li>Análisis del atractivo (potencial, ciclo de vida).</li>
+  <li>Análisis de la competitividad.</li>
+  <li>Elección de la estrategia de desarrollo.</li>
+</ol>
+<p><strong>Horizonte:</strong> medio / largo plazo.</p>
 
-<h3>Tabla comparativa (estilo parcial)</h3>
+<h3>Marketing Operativo — dimensión ACCIÓN</h3>
+<p><strong>Definición:</strong> brazo comercial de la empresa. Conquista los mercados con los medios tácticos de las <strong>4 P's</strong>.</p>
+<p><strong>Horizonte:</strong> corto plazo.</p>
+<p><strong>Busca:</strong> cuota de mercado y cifra de ventas.</p>
+
+<h3>Tabla comparativa</h3>
 <table>
-<tr><th>Dimension</th><th>Marketing ESTRATEGICO</th><th>Marketing OPERATIVO</th></tr>
-<tr><td><strong>Funcion dominante</strong></td><td>Analisis</td><td>Accion</td></tr>
-<tr><td><strong>Orientacion temporal</strong></td><td>Medio / largo plazo</td><td>Corto plazo</td></tr>
+<tr><th></th><th>Estratégico</th><th>Operativo</th></tr>
+<tr><td><strong>Función</strong></td><td>Análisis</td><td>Acción</td></tr>
+<tr><td><strong>Plazo</strong></td><td>Medio–largo</td><td>Corto</td></tr>
 <tr><td><strong>Parte de</strong></td><td>Necesidades del cliente</td><td>Producto existente</td></tr>
-<tr><td><strong>Actividades</strong></td><td>Analizar necesidades, segmentar, analizar atractivo, analizar competitividad, elegir estrategia de desarrollo</td><td>Producto, Precio, Plaza, Promocion (las <strong>4 P's</strong>)</td></tr>
-<tr><td><strong>Herramientas</strong></td><td>FODA, ciclo de vida, segmentacion, BCG, matriz de Ansoff, Porter</td><td>Politica de marca, fijacion de precios, canales, publicidad, promociones</td></tr>
-<tr><td><strong>Objetivo</strong></td><td>Ventaja competitiva defendible, eleccion de producto-mercado</td><td>Cuota de mercado, cifra de ventas</td></tr>
-<tr><td><strong>Documento</strong></td><td>Plan estrategico</td><td>Plan de marketing anual</td></tr>
-<tr><td><strong>Costos</strong></td><td>Bajos (analisis)</td><td>Altos (produccion, pub, distribucion)</td></tr>
-<tr><td><strong>Riesgo si falla</strong></td><td>Eleccion equivocada de mercado (alto)</td><td>No alcanzar ventas (operativo)</td></tr>
-<tr><td><strong>Responsable tipico</strong></td><td>Director de marketing / gerente estrategico</td><td>Product manager / brand manager</td></tr>
+<tr><td><strong>Actividades</strong></td><td>Segmentar, posicionar</td><td>Ejecutar 4 P's</td></tr>
+<tr><td><strong>Objetivo</strong></td><td>Ventaja competitiva</td><td>Cuota, ventas</td></tr>
 </table>
 
-<h3>La relacion entre ambos (clave conceptual)</h3>
-<div class="alert alert-info"><div class="at"><i data-lucide="link" style="width:14px;height:14px"></i> SON INDISOLUBLES - DESARROLLO PARA EL PARCIAL</div>
-<p>Estrategico y operativo son <strong>complementarios e indisolubles</strong>. Lambin lo explica asi:</p>
-<ul style="margin:6px 0 0 18px">
-  <li><strong>Sin estrategia, el operativo es riesgo inutil:</strong> la empresa puede estar invirtiendo grandes sumas en publicidad, promociones y canales para un producto que <strong>nadie necesita</strong> o para un segmento equivocado. Es como apretar el acelerador sin volante.</li>
-  <li><strong>Sin operativo, la estrategia queda en el papel:</strong> se puede haber hecho el analisis mas brillante del mundo, pero si no se ejecutan las 4 P's, <strong>nadie compra</strong>. Es un plan perfecto que nunca ve la luz.</li>
-  <li><strong>El operativo NO crea demanda donde no hay necesidad:</strong> la publicidad no transforma un mal producto en bueno; solo amplifica lo que la estrategia ya identifico.</li>
-  <li><strong>La estrategia guia las decisiones de producto:</strong> decide <strong>que</strong> llevar al mercado. El operativo decide <strong>como llegar</strong> a ese mercado.</li>
+<div class="highlight">
+<span class="label">Relación</span>
+<p>Son <strong>indisolubles</strong>. Sin estrategia, el operativo es riesgo inútil (gastás sin rumbo). Sin operativo, la estrategia queda en el papel. El operativo <strong>no puede crear demanda donde no hay necesidad</strong>.</p>
+</div>
+
+
+<h2 id="entornos">6. Entornos</h2>
+
+<p>El <strong>entorno</strong> son fuerzas <strong>no controlables</strong> por la empresa que influyen sobre ella. Conocerlo permite detectar oportunidades y amenazas.</p>
+
+<h3>Microentorno — 4 agentes</h3>
+<div class="grid-2">
+  <div class="box">
+    <h4>Clientes</h4>
+    <p>Factor más relevante. Mercado de consumo (personas/familias) o industrial (empresas que compran para producir).</p>
+  </div>
+  <div class="box">
+    <h4>Proveedores</h4>
+    <p>Proveen materia prima. La empresa influye si es grande, tiene poder de negociación o hay muchos proveedores.</p>
+  </div>
+  <div class="box">
+    <h4>Intermediarios</h4>
+    <p>Canal de distribución. Encarecen el producto pero dan alcance.</p>
+  </div>
+  <div class="box">
+    <h4>Competidores</h4>
+    <p>Actúan en 3 niveles: necesidades, producto, marca.</p>
+  </div>
+</div>
+
+<h3>3 niveles de competencia</h3>
+<table>
+<tr><th>Nivel</th><th>Definición</th><th>Ejemplo</th></tr>
+<tr><td><strong>Necesidades</strong></td><td>Las necesidades compiten por el poder de compra limitado</td><td>Viajar vs. ropa</td></tr>
+<tr><td><strong>Producto</strong></td><td>Productos distintos que satisfacen la misma necesidad</td><td>Auto vs. moto</td></tr>
+<tr><td><strong>Marca</strong></td><td>Distintas marcas del mismo producto (el más intenso)</td><td>Coca vs. Pepsi</td></tr>
+</table>
+
+<h3>Macroentorno — 7 fuerzas</h3>
+<ul>
+  <li><strong>Demográfico:</strong> edad, sexo, familias.</li>
+  <li><strong>Económico:</strong> sistema, poder adquisitivo.</li>
+  <li><strong>Tecnológico:</strong> innovación.</li>
+  <li><strong>Social:</strong> ingresos, estilos de vida.</li>
+  <li><strong>Cultural:</strong> subculturas, creencias.</li>
+  <li><strong>Político:</strong> gobierno, poderes.</li>
+  <li><strong>Legal:</strong> leyes, normas.</li>
 </ul>
-</div>
 
-<div class="quote">
-  "La venta esta orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador."
-  <span class="q-author">Theodore Levitt (1960)</span>
-</div>
-
-<div class="quote">
-  "El objetivo del marketing es convertir en superflua la venta. El fin del marketing es conocer y comprender tan bien al cliente que el producto o servicio este naturalmente adaptado a sus necesidades y se venda por si mismo."
-  <span class="q-author">Peter Drucker (1973)</span>
+<div class="highlight">
+<p><strong>Importante:</strong> ni el micro ni el macro son controlables. La empresa solo controla su entorno interno (RRHH, producción, marketing, finanzas) y las 4 P's.</p>
 </div>
 
 
+<h2 id="mercados">7. Clases de Mercado</h2>
 
-
-</div></div>
-
-<!-- ======= TEMA 8: PLANEAMIENTO ESTRATEGICO ======= -->
-<div class="section" id="planeam">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="compass" style="width:20px;height:20px"></i> 9. Planeamiento Estrategico</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-
-
-<h3>Concepto de Planeamiento Estrategico</h3>
-<div class="card" style="border-left:4px solid var(--accent)">
-<p><strong>Definicion formal:</strong> la planificacion estrategica es un <strong>proceso de decision</strong> que persigue como objetivo que la empresa <strong>este permanentemente adaptada a su entorno</strong>, de la manera mas adecuada.</p>
-
-<p><strong>Segun Kotler (1992):</strong> "La planificacion consiste en <strong>decidir hoy lo que va a hacerse en el futuro</strong>, es decir, comprende la determinacion de un <strong>futuro deseado</strong> y las etapas necesarias para realizarlo".</p>
-
-<p>La planificacion debe entenderse como un <strong>proceso de preparacion de las decisiones empresariales y de los medios para llevarlas a cabo</strong>. Tiene por objeto poner a disposicion de los dirigentes, en el momento oportuno y por el procedimiento mas economico, los medios de accion comercial necesarios para su implantacion en uno o varios mercados.</p>
-
-<p><strong>Sin planificacion, la empresa carece de orientacion, definicion y direccion.</strong></p>
-
-<p><strong>Se concreta en un documento:</strong> el <strong>Plan de Marketing</strong>, donde se definen los objetivos a conseguir en un periodo determinado y los programas y medios de accion para alcanzarlos.</p>
+<div class="grid-2">
+  <div class="box">
+    <h4>Mercado de Consumo</h4>
+    <p>Productos para el <strong>consumidor final</strong>. Se estudia con 4 preguntas: quién, por qué, dónde, cuánto.</p>
+  </div>
+  <div class="box">
+    <h4>Mercado Organizacional / Industrial</h4>
+    <p>Organizaciones que compran para <strong>fabricar otros productos</strong>. <strong>Demanda derivada</strong>: depende del consumo.</p>
+  </div>
 </div>
 
-<h3>Las 4 preguntas clave del planeamiento</h3>
+<h3>Características del mercado organizacional (10)</h3>
+<ol>
+  <li>Demanda <strong>derivada</strong>.</li>
+  <li>Gran volumen de ventas (en $ y unidades).</li>
+  <li>Número <strong>reducido</strong> de compradores.</li>
+  <li>Gran concentración geográfica.</li>
+  <li>Fluctuación del volumen de compras.</li>
+  <li>Demanda <strong>inelástica</strong>.</li>
+  <li>Intervienen varios responsables (centro de compras).</li>
+  <li>Mayor nivel de especificaciones técnicas.</li>
+  <li>Negociaciones complejas y poco frecuentes.</li>
+  <li>Compra <strong>racional</strong>.</li>
+</ol>
+
+
+<h2 id="miopia">8. Miopía del Marketing (Levitt, 1960)</h2>
+
+<div class="highlight">
+<span class="label">Definición</span>
+<p>Error común en la <strong>definición de la naturaleza del negocio</strong>. Definir el negocio por el <strong>producto</strong> en vez de por la <strong>necesidad</strong> que se satisface.</p>
+</div>
+
+<blockquote>"Nadie quiere un taladro de 1/4 de pulgada; lo que todos desean son huecos en la pared de 1/4 de pulgada."<span class="author">Theodore Levitt</span></blockquote>
+
+<h3>Ejemplos clásicos</h3>
+<table>
+<tr><th>Mirada miope</th><th>Mirada correcta</th></tr>
+<tr><td>Ferrocarriles</td><td>Transporte</td></tr>
+<tr><td>Películas (cine)</td><td>Entretenimiento</td></tr>
+<tr><td>Petróleo</td><td>Energía</td></tr>
+<tr><td>Celulares</td><td>Comunicación efectiva</td></tr>
+<tr><td>Kodak (rollo)</td><td>Inmortalizar recuerdos</td></tr>
+</table>
+
+<p><strong>Consecuencia:</strong> la empresa miope no detecta competidores de otras industrias que resuelven la misma necesidad.</p>
+
+
+<h2 id="plan">9. Planeamiento Estratégico</h2>
+
+<div class="highlight">
+<span class="label">Concepto</span>
+<p>Proceso de decisión que busca que la empresa esté <strong>permanentemente adaptada a su entorno</strong>. Sin planificación, la empresa carece de orientación y dirección.</p>
+</div>
+
+<blockquote>"La planificación consiste en decidir hoy lo que va a hacerse en el futuro."<span class="author">Kotler (1992)</span></blockquote>
+
+<h3>Las 4 preguntas clave</h3>
 <table>
 <tr><th>Pregunta</th><th>Etapa</th></tr>
-<tr><td>&iquest;<strong>Quienes somos?</strong></td><td>Definicion de la <strong>mision</strong> de la empresa</td></tr>
-<tr><td>&iquest;<strong>Donde nos encontramos?</strong></td><td><strong>Analisis de la situacion</strong> (interno + externo)</td></tr>
-<tr><td>&iquest;<strong>A donde queremos llegar?</strong></td><td>Establecimiento de los <strong>objetivos</strong> de marketing</td></tr>
-<tr><td>&iquest;<strong>Como lo conseguiremos?</strong></td><td>Formulacion de la <strong>estrategia</strong> de marketing</td></tr>
+<tr><td>¿Quiénes somos?</td><td>Definición de la misión</td></tr>
+<tr><td>¿Dónde estamos?</td><td>Análisis de situación</td></tr>
+<tr><td>¿A dónde queremos llegar?</td><td>Objetivos</td></tr>
+<tr><td>¿Cómo lo conseguiremos?</td><td>Estrategia</td></tr>
 </table>
 
-<h3>Los 6 pasos del planeamiento</h3>
-
-<table>
-<tr><th>#</th><th>Paso</th><th>Que se hace</th></tr>
-<tr><td>1</td><td><strong>Analisis de situacion</strong></td><td>Recopilar info de todos los entornos (interno, micro, macro)</td></tr>
-<tr><td>2</td><td><strong>Diagnostico (FODA)</strong></td><td>Encontrar Fortalezas, Oportunidades, Debilidades, Amenazas</td></tr>
-<tr><td>3</td><td><strong>Objetivos</strong></td><td>Que se quiere lograr (realistas, definidos DESPUES del diagnostico)</td></tr>
-<tr><td>4</td><td><strong>Estrategia</strong></td><td>Como adaptarse al entorno para lograr los objetivos</td></tr>
-<tr><td>5</td><td><strong>Implementacion</strong></td><td>Llevar a la realidad con las <strong>4 P's</strong> (no existen sin los pasos previos)</td></tr>
-<tr><td>6</td><td><strong>Control</strong></td><td>Comparar resultados reales vs objetivos; ajustar</td></tr>
-</table>
-
-<h3>Mision y Vision</h3>
-<div class="card-grid">
-  <div class="card">
-    <h4><i data-lucide="gift" style="width:16px;height:16px;vertical-align:-3px"></i> Mision (presente &mdash; DAR)</h4>
-    <p>Lo que la organizacion <strong>quiere entregar</strong> a la sociedad. Razon de ser.</p>
-    <p><strong>Clave:</strong> debe orientarse al <strong>mercado</strong>, no al producto (para evitar miopia).</p>
-    <p class="example-box" style="margin-top:6px;padding:8px 12px"><strong>Ej:</strong> Revlon no "fabrica cosmeticos" sino que "<strong>vende esperanza</strong>".</p>
-  </div>
-  <div class="card">
-    <h4><i data-lucide="eye" style="width:16px;height:16px;vertical-align:-3px"></i> Vision (futuro &mdash; SER)</h4>
-    <p>Lo que la organizacion <strong>quiere llegar a ser</strong>. Aspiracion de largo plazo.</p>
-    <p><strong>Ej:</strong> "Ser la empresa mas admirada del sector en Latinoamerica para 2030".</p>
-  </div>
-</div>
-
-<h3>Formulacion de la mision (Planificacion Estrategica de Marketing)</h3>
-
-<div class="card" style="border-left:4px solid var(--accent)">
-  <p>La <strong>mision condiciona y guia la gestion de la cartera de negocios</strong>: solo seran oportunidades de negocio las areas de actividad que <strong>encajen con la mision</strong>.</p>
-</div>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>4 preguntas para definir la mision</h4>
-    <ol>
-      <li>&iquest;En que negocio <strong>estamos</strong>?</li>
-      <li>&iquest;<strong>Quienes</strong> son nuestros clientes?</li>
-      <li>&iquest;Cual es la <strong>envergadura</strong> de nuestro negocio?</li>
-      <li>&iquest;En que negocios <strong>deberiamos</strong> estar?</li>
-    </ol>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>5 elementos en que se apoya la mision</h4>
-    <ol>
-      <li>La <strong>historia</strong> de la empresa</li>
-      <li>Las <strong>preferencias</strong> de los propietarios y dirigentes</li>
-      <li>Las caracteristicas del <strong>entorno</strong></li>
-      <li>Los <strong>recursos</strong> con que cuenta la empresa</li>
-      <li>Las <strong>competencias distintivas</strong></li>
-    </ol>
-  </div>
-</div>
-
-<h3>Mision orientada a PRODUCTO vs orientada a MERCADO</h3>
-<p><strong>Regla de oro:</strong> una mision muy estrecha <strong>orientada al producto</strong> <em>limita</em> las posibilidades de crecimiento. Se recomienda <strong>orientarla al mercado</strong> para ampliar las posibilidades estrategicas (y evitar la miopia de Levitt).</p>
-
-<table>
-<tr><th>Empresa</th><th>Orientacion PRODUCTO (miope)</th><th>Orientacion MERCADO (correcta)</th></tr>
-<tr><td><strong>Revlon</strong></td><td>Hacemos cosmeticos</td><td>Vendemos esperanza</td></tr>
-<tr><td><strong>Xerox</strong></td><td>Fabricamos equipos de fotocopiado</td><td>Ayudamos a mejorar la productividad de las oficinas</td></tr>
-<tr><td><strong>Repsol</strong></td><td>Vendemos gasolina</td><td>Suministramos energia</td></tr>
-<tr><td><strong>Columbia Pictures</strong></td><td>Hacemos peliculas</td><td>Servimos al ocio</td></tr>
-<tr><td><strong>Carrier</strong></td><td>Hacemos equipos de aire acondicionado</td><td>Proporcionamos comodidad para las viviendas</td></tr>
-<tr><td><strong>Hojiblanca</strong></td><td>Empresa de aceite</td><td>Empresa de alimentos</td></tr>
-</table>
-
-<h3>3 niveles de la estrategia</h3>
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--accent)">
-    <h4><i data-lucide="building" style="width:14px;height:14px;vertical-align:-2px"></i> 1. Estrategia Corporativa (global)</h4>
-    <p>Toma como referencia a <strong>toda la organizacion</strong>. Establece mision, objetivos de largo plazo y la <strong>combinacion de actividades</strong>. Decide en que invertir y la relacion con el entorno.</p>
-    <p><strong>4 actividades:</strong></p>
-    <ol style="font-size:.9em">
-      <li>Definir la mision</li>
-      <li>Identificar <strong>UENs</strong></li>
-      <li>Analizar y valorar la cartera de negocios (<strong>BCG</strong>, <strong>GE</strong>)</li>
-      <li>Identificar <strong>nuevas UENs</strong> (estrategias de crecimiento)</li>
-    </ol>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4><i data-lucide="layers" style="width:14px;height:14px;vertical-align:-2px"></i> 2. Estrategia de Unidad de Negocio (UEN)</h4>
-    <p>Estrategia para <strong>cada unidad de negocio</strong>. Cada UEN opera en un entorno competitivo distinto. Adquiere su mayor significado en empresas <strong>diversificadas</strong>.</p>
-    <p><strong>Opciones (Porter):</strong> Liderazgo en costes, Diferenciacion, Enfoque/Concentracion.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4><i data-lucide="wrench" style="width:14px;height:14px;vertical-align:-2px"></i> 3. Estrategia Funcional</h4>
-    <p>Planteamiento estrategico de cada <strong>area funcional</strong> (marketing, produccion, finanzas, RRHH), optimizando recursos y buscando interacciones.</p>
-    <p><strong>En marketing:</strong> segmentacion, posicionamiento y marketing-mix (4 P's).</p>
-  </div>
-</div>
-
-<h3>Unidad Estrategica de Negocio (UEN)</h3>
-<div class="card" style="border-left:4px solid var(--green)">
-<p><strong>Definicion:</strong> esta integrada por uno o varios negocios que tienen una <strong>base comun de mercado</strong>, un <strong>entorno competitivo especifico</strong> y son dirigidos por un <strong>unico responsable</strong>.</p>
-<p><strong>2 caracteristicas fundamentales:</strong></p>
+<h3>Las 6 etapas del planeamiento</h3>
 <ol>
-  <li>Es un unico negocio o conjunto de negocios relacionados <strong>que se pueden planificar separadamente</strong> del resto (puede cubrir uno o varios productos-mercado).</li>
-  <li>Tiene su <strong>propio director</strong>, responsable de la planificacion estrategica y de la consecucion de objetivos, que <strong>controla la mayoria de los factores que afectan al beneficio</strong>.</li>
+  <li><strong>Análisis de situación</strong> (externo + interno) → FODA.</li>
+  <li><strong>Fijación de objetivos</strong> (realistas, cuantificados, con plazo).</li>
+  <li><strong>Formulación de la estrategia</strong> (3 niveles: corporativa, UEN, funcional).</li>
+  <li><strong>Programación</strong> de recursos (4 P's).</li>
+  <li><strong>Ejecución / implementación</strong>.</li>
+  <li><strong>Control</strong> (medir vs objetivos, corregir desvíos).</li>
 </ol>
-<p style="font-size:.9em;color:var(--muted);margin-top:6px"><em>Levitt: los negocios deben verse como un proceso de <strong>satisfaccion de clientes</strong>, no de produccion de bienes. Definir el negocio en terminos de necesidades, no de productos.</em></p>
-</div>
+<p>Etapas 1–3 = <strong>marketing estratégico</strong>. Etapas 4–5 = <strong>marketing operativo</strong>. Control cruza ambos.</p>
 
-<h3>Identificacion de nuevas areas de negocio (el "gap")</h3>
-<p>Si hay una <strong>distancia (gap)</strong> entre las ventas futuras <strong>deseadas</strong> y las ventas <strong>proyectadas</strong>, la direccion tiene <strong>3 opciones</strong> para cerrar esa brecha, conocidas como <strong>estrategias de crecimiento</strong>:</p>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4>1. Crecimiento intensivo</h4>
-    <p>Aprovechar oportunidades <strong>dentro de los propios negocios actuales</strong>.</p>
-    <p><em>Matriz de Ansoff (ver seccion siguiente).</em></p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>2. Crecimiento integrado</h4>
-    <p>Construir o adquirir negocios que <strong>se relacionen con los actuales</strong>.</p>
-    <ul>
-      <li><strong>Integracion vertical hacia atras:</strong> actividades iniciales (proveedores).</li>
-      <li><strong>Integracion vertical hacia adelante:</strong> actividades finales (distribucion).</li>
-      <li><strong>Integracion horizontal:</strong> absorber/fusionarse con competidores.</li>
-    </ul>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>3. Crecimiento diversificado</h4>
-    <p>Añadir <strong>nuevos negocios no relacionados</strong> con los actuales.</p>
-    <ul>
-      <li><strong>Diversificacion concentrica:</strong> mantiene alguna relacion (sinergias de marketing, produccion, tecnologia).</li>
-      <li><strong>Diversificacion pura:</strong> sin relacion con el negocio original.</li>
-    </ul>
-  </div>
-</div>
-
-<h3>Requisitos de los objetivos de marketing</h3>
-<div class="alert alert-info">
-<ul style="margin:4px 0 0 18px">
-  <li>Ser <strong>coherentes</strong> con los objetivos generales del plan estrategico.</li>
-  <li>Ser <strong>realistas y alcanzables</strong>, segun recursos de la empresa.</li>
-  <li>Estar <strong>cuantificados</strong> (en la medida de lo posible).</li>
-  <li>Referirse a un <strong>periodo de tiempo determinado</strong>.</li>
-  <li><strong>Registrarse y comunicarse por escrito</strong> a los responsables afectados.</li>
-</ul>
-</div>
-
-<div class="quote">
-  "La planificacion consiste en decidir hoy lo que va a hacerse en el futuro."
-  <span class="q-author">Kotler (1992)</span>
-</div>
-
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 9: FODA ======= -->
-<div class="section" id="foda">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="grid-2x2" style="width:20px;height:20px"></i> 10. Analisis FODA + Estrategias cruzadas</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<p>Herramienta de <strong>diagnostico</strong>. Separa lo positivo y lo negativo, lo interno y lo externo.</p>
-
-<div class="matrix">
-  <div class="mh"></div>
-  <div class="mc-h">Positivo</div>
-  <div class="mc-h">Negativo</div>
-  <div class="mh">Interno</div>
-  <div class="mc1"><strong>Fortalezas</strong><br><small>Recursos, capacidades propias que ventajizan</small></div>
-  <div class="mc4"><strong>Debilidades</strong><br><small>Carencias internas que desventajan</small></div>
-  <div class="mh">Externo</div>
-  <div class="mc2"><strong>Oportunidades</strong><br><small>Tendencias externas favorables</small></div>
-  <div class="mc3"><strong>Amenazas</strong><br><small>Tendencias externas desfavorables</small></div>
-</div>
-
-<div class="alert alert-warn">
-  <div class="at"><i data-lucide="scroll" style="width:16px;height:16px"></i> REGLA DE ROMERO</div>
-  <p>El FODA tiene que ser <strong>REAL</strong>. Nada de "posibilidad", "riesgo" o "potencial". Debe dar a entender que <strong>ya es un hecho</strong>.</p>
-  <p style="margin-top:6px"><span style="color:var(--red)">&cross; MAL:</span> "Podria aumentar la competencia"<br>
-  <span style="color:var(--green)">&check; BIEN:</span> "Hay un aumento de competidores en la zona"</p>
-</div>
-
-<h3>Ejemplos tipicos de cada cuadrante</h3>
-<div class="card-grid">
-  <div class="card"><h4>Fortalezas (F)</h4><ul><li>Productos de calidad</li><li>Costos bajos</li><li>Capacidad financiera</li><li>Ubicacion estrategica</li><li>Personal capacitado</li></ul></div>
-  <div class="card"><h4>Oportunidades (O)</h4><ul><li>Producto se pone de moda</li><li>Competidor se retira</li><li>Subsidios del estado</li><li>Apertura de nuevo mercado</li></ul></div>
-  <div class="card"><h4>Debilidades (D)</h4><ul><li>Mano de obra poco calificada</li><li>Problemas de logistica</li><li>Baja calidad del producto</li><li>Alto endeudamiento</li></ul></div>
-  <div class="card"><h4>Amenazas (A)</h4><ul><li>Inseguridad en la zona</li><li>Competencia agresiva</li><li>Inflacion / recesion</li><li>Sequias / desastres naturales</li><li>Cambios regulatorios adversos</li></ul></div>
-</div>
-
-<h3>Estrategias cruzadas del FODA (matriz FO / DO / FA / DA)</h3>
-
-<div class="matrix">
-  <div class="mh"></div>
-  <div class="mc-h">Fortalezas</div>
-  <div class="mc-h">Debilidades</div>
-  <div class="mh">Oport.</div>
-  <div class="mc1"><strong>FO &mdash; Atacar</strong><br><small>Usar F para aprovechar O. Posicion ideal</small></div>
-  <div class="mc2"><strong>DO &mdash; Movilizar</strong><br><small>Superar D aprovechando O</small></div>
-  <div class="mh">Amen.</div>
-  <div class="mc3"><strong>FA &mdash; Defender</strong><br><small>Usar F para reducir A</small></div>
-  <div class="mc4"><strong>DA &mdash; Sobrevivir</strong><br><small>Minimizar D y A. Precaria</small></div>
-</div>
-
-
-
-
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 10: SEGMENTACION ======= -->
-<div class="section" id="segm">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="pie-chart" style="width:20px;height:20px"></i> 11. Segmentacion</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<p><strong>Dividir el mercado en subgrupos homogeneos</strong> segun criterios para poder ofrecer algo mas especifico a cada grupo.</p>
-
-<h3>Las 4 bases de segmentacion</h3>
-
+<h3>Misión: orientación PRODUCTO vs MERCADO</h3>
+<p>La misión orientada al <strong>mercado</strong> amplía posibilidades. La orientada al <strong>producto</strong> limita (miopía).</p>
 <table>
-<tr><th>Base</th><th>Que analiza</th><th>Ejemplo</th></tr>
-<tr><td><strong>Demografica</strong></td><td>Edad, sexo, ingresos, ocupacion, nivel educativo, tamaño familiar</td><td>Mujeres 25-35 de clase media</td></tr>
-<tr><td><strong>Geografica</strong></td><td>Region, pais, clima, densidad (urbano/rural)</td><td>NEA argentino, urbano</td></tr>
-<tr><td><strong>Psicografica</strong></td><td>Estilo de vida, personalidad, valores, actitudes</td><td>Consumidores ecologicos</td></tr>
-<tr><td><strong>Conductual</strong></td><td>Beneficio buscado, lealtad, tasa y ocasion de uso</td><td>Sensibles al precio, heavy users</td></tr>
+<tr><th>Empresa</th><th>Producto (miope)</th><th>Mercado (correcto)</th></tr>
+<tr><td>Revlon</td><td>Hacemos cosméticos</td><td>Vendemos esperanza</td></tr>
+<tr><td>Xerox</td><td>Fabricamos fotocopiadoras</td><td>Productividad de oficinas</td></tr>
+<tr><td>Repsol</td><td>Vendemos gasolina</td><td>Suministramos energía</td></tr>
+<tr><td>Columbia Pictures</td><td>Hacemos películas</td><td>Servimos al ocio</td></tr>
 </table>
 
-<div class="alert alert-info">
-  <div class="at"><i data-lucide="target" style="width:16px;height:16px"></i> Por que segmentar?</div>
-  <p>Ningun producto satisface a todos por igual. Al segmentar puedes: (1) afinar la propuesta, (2) usar el presupuesto de mkt eficientemente, (3) posicionarte mejor en un grupo definido.</p>
-</div>
-
-
-
-</div></div>
-
-<!-- ======= TEMA 11: POSICIONAMIENTO ======= -->
-<div class="section" id="pos">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="crosshair" style="width:20px;height:20px"></i> 12. Posicionamiento</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<p>Hacer que el producto ocupe un <strong>lugar distintivo en la mente del consumidor</strong> con respecto a la competencia.</p>
-
-<div class="alert alert-purple">
-  <div class="at"><i data-lucide="zap" style="width:16px;height:16px"></i> Idea clave</div>
-  <p>Se logra <strong>asociando la marca a una cualidad</strong> que evoque el recuerdo. Una sola idea, clara y fuerte.</p>
-</div>
-
-
-
-<h3>Relacion con la segmentacion</h3>
-<p>Segmentacion y posicionamiento van <strong>juntos</strong>: <strong>primero se segmenta</strong>, <strong>luego se posiciona</strong> en el segmento elegido. Ambos determinan el <strong>marketing mix</strong> (4 P's).</p>
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 12: ESTRATEGIAS (3 NIVELES + PORTER) ======= -->
-<div class="section" id="estrats">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="layers" style="width:20px;height:20px"></i> 13. Formulacion de Estrategias (3 niveles)</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<h3>Nivel 1 &mdash; Estrategia Corporativa</h3>
-<p>Se toma en la <strong>cima de la piramide</strong>. Abarca la organizacion en general.</p>
+<h3>3 niveles de estrategia</h3>
 <ul>
-  <li>Definir la <strong>mision</strong></li>
-  <li>Identificar las unidades de negocio (UEN)</li>
-  <li>Analizar y valorar la <strong>cartera de negocios</strong></li>
-  <li>Identificar nuevas areas de negocio &rarr; <strong>Matriz de Ansoff</strong></li>
+  <li><strong>Corporativa:</strong> toda la organización. Misión, UENs, cartera.</li>
+  <li><strong>UEN:</strong> cada unidad de negocio. Porter: liderazgo en costes / diferenciación / enfoque.</li>
+  <li><strong>Funcional:</strong> cada área. En marketing: segmentación, posicionamiento, 4 P's.</li>
 </ul>
 
-<h3>Nivel 2 &mdash; Estrategia de UEN</h3>
-
-<div class="card" style="border-left:4px solid var(--purple)">
-<h4>&iquest;Que es una Unidad Estrategica de Negocio (UEN)?</h4>
-<p>Una <strong>UEN</strong> es una <strong>parte de la empresa</strong> que tiene:</p>
-<ul style="margin-left:22px">
-<li>Mision y <strong>objetivos propios</strong>, distintos del resto.</li>
-<li>Competidores y clientes <strong>diferenciables</strong>.</li>
-<li>Puede planificarse de forma <strong>independiente</strong> del resto de la empresa.</li>
-</ul>
-<p style="margin-top:8px;font-size:.9em"><em>Ejemplo:</em> Coca-Cola tiene una UEN de bebidas gaseosas (Coca, Fanta, Sprite), otra de aguas (Aquarius, Dasani), otra de jugos (Cepita). Cada una compite con jugadores distintos y se planifica aparte.</p>
-</div>
-
-<h4>Las 3 Estrategias Genericas de Porter (a nivel UEN)</h4>
-<p>Para que una UEN sea competitiva, Porter identifica <strong>3 estrategias genericas</strong>. Tenes que elegir UNA y comprometerte con ella (quedar "en el medio" suele fallar):</p>
-
-<table>
-<tr><th>Estrategia</th><th>Que busca</th><th>Ejemplo</th></tr>
-<tr><td><strong>Liderazgo en costos</strong></td><td>Tener costos mas bajos que la competencia. Eficiencia, volumen, escala.</td><td>Walmart, Zara</td></tr>
-<tr><td><strong>Diferenciacion</strong></td><td>Ofrecer una cualidad <strong>unica</strong> percibida por el comprador (calidad, diseño, servicio, marca).</td><td>Apple, Mercedes-Benz</td></tr>
-<tr><td><strong>Enfoque (concentracion)</strong></td><td>Liderar solo en un <strong>segmento especifico</strong> del mercado (nicho).</td><td>Rolex (lujo), Ferrari (deportivo premium)</td></tr>
-</table>
-
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> IMPORTANTE</div>
-<p>En el parcial te pueden preguntar tanto <strong>"&iquest;que es una UEN?"</strong> (definicion) como <strong>"&iquest;que estrategia generica aplica X empresa?"</strong> (aplicacion Porter). Son DOS cosas distintas pero del mismo nivel.</p>
-</div>
-
-<h3>Nivel 3 &mdash; Estrategia Funcional</h3>
-<p>Planificacion <strong>por area</strong> (marketing, finanzas, produccion, RRHH). En marketing se trabaja mercado meta, segmentacion, posicionamiento y 4 P's.</p>
-
-<div class="alert alert-info">
-  <div class="at"><i data-lucide="pyramid" style="width:16px;height:16px"></i> La piramide</div>
-  <p>Corporativa (CEO / directorio) &rarr; UEN (gerente de unidad / Porter) &rarr; Funcional (gerentes de area / 4 P's). Cada nivel se apoya en el anterior.</p>
-</div>
-
-
-
-
-
-</div></div>
-
-<!-- ======= TEMA 13: ANSOFF ======= -->
-<div class="section" id="ansoff">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="grid-3x3" style="width:20px;height:20px"></i> 14. Matriz de Ansoff (estrategias de crecimiento)</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-
-
-<p>Herramienta para definir <strong>estrategias de crecimiento</strong> cruzando producto (actual/nuevo) con mercado (actual/nuevo).</p>
-
-<div class="matrix">
-  <div class="mh"></div>
-  <div class="mc-h">Productos actuales</div>
-  <div class="mc-h">Productos nuevos</div>
-  <div class="mh">Mercados<br>actuales</div>
-  <div class="mc1"><strong>Penetracion</strong><br><small>Vender mas de lo mismo al mismo mercado (descuentos, publicidad, fidelizacion)</small></div>
-  <div class="mc2"><strong>Desarrollo de producto</strong><br><small>Lanzar productos nuevos al mercado actual (Apple con iPhone nuevo modelo)</small></div>
-  <div class="mh">Mercados<br>nuevos</div>
-  <div class="mc3"><strong>Desarrollo de mercado</strong><br><small>Llevar lo actual a mercados nuevos (nueva zona geografica, nuevo segmento)</small></div>
-  <div class="mc4"><strong>Diversificacion</strong><br><small>Todo nuevo. Mayor riesgo</small></div>
-</div>
-
-<div class="alert alert-warn">
-  <div class="at"><i data-lucide="triangle-alert" style="width:16px;height:16px"></i> Regla del riesgo</div>
-  <p>A mayor <strong>distancia de lo conocido</strong>, mayor riesgo. Penetracion es lo mas seguro; diversificacion lo mas arriesgado.</p>
-</div>
-
-<h3>Tipos de Diversificacion</h3>
-<table>
-<tr><th>Tipo</th><th>Que es</th><th>Ejemplo</th></tr>
-<tr><td><strong>Horizontal</strong></td><td>Mismo <strong>target</strong>, otra necesidad</td><td>PepsiCo compra Toddy</td></tr>
-<tr><td><strong>Vertical</strong></td><td>Integrarse hacia adelante (comprar cliente/distribuidor) o atras (comprar proveedor)</td><td>Arcor compra a su proveedor de azucar</td></tr>
-<tr><td><strong>Concentrica</strong></td><td>Productos relacionados, <strong>hay sinergia</strong></td><td>Empresa lactea lanza linea de yogures</td></tr>
-<tr><td><strong>Conglomerada</strong></td><td>Productos sin relacion, <strong>no hay sinergia</strong></td><td>Amazon entra a supermercados fisicos</td></tr>
-</table>
-
-
-
-
-
-</div></div>
-
-<!-- =============================================== -->
-<!--              PARCIALES SIMULACROS               -->
-<!-- =============================================== -->
-<h1 id="parciales" style="margin-top:50px;text-align:center;color:var(--accent);font-size:1.8em;border-bottom:3px solid var(--accent);padding-bottom:10px">Parciales Simulacros</h1>
-<p style="color:var(--muted);margin-bottom:16px;text-align:center">2 parciales completos integradores. Validan de forma automatica.</p>
-
-<!-- ============ PARCIAL 1 ============ -->
-<div class="parcial-hero" id="phero1">
-  <h2><i data-lucide="file-text" style="width:22px;height:22px;vertical-align:-4px"></i> Parcial Simulacro 1</h2>
-  <p>Integrador completo de Unidad 1 y 2 &bull; 20 preguntas mixtas</p>
-  <div class="badge">V/F + Opcion multiple + Text</div>
-</div>
-<div class="parcial-stats" data-parcial="p1">
-  <div class="ps-item"><div class="ps-num ps-tot">0</div><div class="ps-lab">Total</div></div>
-  <div class="ps-item"><div class="ps-num ps-done">0</div><div class="ps-lab">Correctas</div></div>
-  <div class="ps-item"><div class="ps-num ps-pct">0%</div><div class="ps-lab">Progreso</div></div>
-</div>
-
-<div class="section" id="p1">
-<div class="section-header active" onclick="toggle(this)">
-  <h2><i data-lucide="notebook-pen" style="width:20px;height:20px"></i> Enunciado Parcial 1</h2>
-  <span class="chevron" style="transform:rotate(180deg)"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body open">
-
-
-
-<div class="q-group-t">Bloque A &mdash; Conceptos fundamentales <span class="pts">40 pts</span></div>
-
-
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque B &mdash; Miopia y Evolucion <span class="pts">20 pts</span></div>
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque C &mdash; Entornos y mercados <span class="pts">30 pts</span></div>
-
-
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque D &mdash; Planeamiento + FODA <span class="pts">40 pts</span></div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque E &mdash; Segmentacion, posicionamiento, Ansoff, Porter <span class="pts">30 pts</span></div>
-
-
-
-
-
-
-
-
-
-<button class="q-reset" onclick="resetParcial('p1')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 1</button>
-
-</div></div>
-
-<!-- ============ PARCIAL 2 ============ -->
-<div class="parcial-hero" id="phero2">
-  <h2><i data-lucide="file-text" style="width:22px;height:22px;vertical-align:-4px"></i> Parcial Simulacro 2</h2>
-  <p>Segundo simulacro con enfasis en casos y aplicacion &bull; 20 preguntas</p>
-  <div class="badge">Casos + aplicacion a empresas reales</div>
-</div>
-<div class="parcial-stats" data-parcial="p2">
-  <div class="ps-item"><div class="ps-num ps-tot">0</div><div class="ps-lab">Total</div></div>
-  <div class="ps-item"><div class="ps-num ps-done">0</div><div class="ps-lab">Correctas</div></div>
-  <div class="ps-item"><div class="ps-num ps-pct">0%</div><div class="ps-lab">Progreso</div></div>
-</div>
-
-<div class="section" id="p2">
-<div class="section-header active" onclick="toggle(this)">
-  <h2><i data-lucide="notebook-pen" style="width:20px;height:20px"></i> Enunciado Parcial 2</h2>
-  <span class="chevron" style="transform:rotate(180deg)"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body open">
-
-
-
-<div class="q-group-t">Bloque A &mdash; Aplicacion a casos <span class="pts">50 pts</span></div>
-
-
-
-
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque B &mdash; V/F conceptual <span class="pts">30 pts</span></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="q-group-t">Bloque C &mdash; Completar / identificar <span class="pts">40 pts</span></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button class="q-reset" onclick="resetParcial('p2')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 2</button>
-
-</div></div>
-
-<!-- ======= BIBLIOGRAFIA Y FUENTES ======= -->
-<div class="section" id="bibliografia">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="library" style="width:20px;height:20px"></i> Bibliografia y fuentes</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-<p style="margin-bottom:14px">Listado completo del material de estudio utilizado para armar este landing. Los badges que ves en cada seccion (<span class="source-tag ppt">PPT</span> <span class="source-tag apunte">Apunte</span> <span class="source-tag kotler">Kotler</span> <span class="source-tag lambin">Lambin</span> etc.) hacen referencia a estas fuentes.</p>
-
-<h3>Bibliografia principal</h3>
-
-<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-
-  <div class="card" style="border-left:4px solid #3730a3">
-    <h4><span class="source-tag kotler" style="font-size:.78em">Kotler &amp; Keller (2006)</span></h4>
-    <p><strong>Direccion de Marketing</strong>, 12a edicion.</p>
-    <p style="font-size:.85em;color:var(--muted)">Pearson Prentice Hall.</p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definiciones social y empresarial, marketing holistico (4 componentes), evolucion del marketing, concepto de entorno, segmentacion, posicionamiento, UEN/Porter.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #9f1239">
-    <h4><span class="source-tag lambin" style="font-size:.78em">Lambin (1995)</span></h4>
-    <p><strong>Marketing Estrategico</strong>, 3a edicion.</p>
-    <p style="font-size:.85em;color:var(--muted)">McGraw-Hill. Capitulo 1.</p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> marketing estrategico vs operativo (eje central), evolucion pasivo/organizacion/activo, concepto de marketing salvaje, cita "la venta se orienta al vendedor; el marketing al comprador".</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #065f46">
-    <h4><span class="source-tag gomez" style="font-size:.78em">Gomez &amp; Tauro (2023)</span></h4>
-    <p><strong>Marketing 1.0 a 5.0</strong>.</p>
-    <p style="font-size:.85em;color:var(--muted)">Bibliografia complementaria.</p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> evolucion moderna del marketing (las 5 etapas: centrado en producto, consumidor, humano, digital, transformacion). Referencia a McCarthy 1964 para las 4 P.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #991b1b">
-    <h4><span class="source-tag levitt" style="font-size:.78em">Levitt (1960)</span></h4>
-    <p><strong>Marketing Myopia</strong>.</p>
-    <p style="font-size:.85em;color:var(--muted)">Harvard Business Review.</p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definicion de miopia del marketing, frase "nadie quiere un taladro de 1/4 de pulgada... quieren agujeros", ejemplos ferrocarriles y cines.</p>
-  </div>
-
-</div>
-
-<h3>Apuntes de catedra</h3>
-
-<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-
-  <div class="card" style="border-left:4px solid #1e40af">
-    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte U1</span></h4>
-    <p><strong>Apunte de catedra, Unidad 1: Marketing y Contexto</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> definiciones, 4 P's detalladas, miopia (ejemplos clasicos: ferrocarriles, cine, petroleo, celulares), entornos (micro/macro), niveles de competencia, clases de mercado.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #1e40af">
-    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte Planeamiento</span></h4>
-    <p><strong>Apunte de catedra: Planeamiento Estrategico</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> diferencia entre planeamiento ordinario y estrategico, 6 pasos del proceso, mision y vision (DAR vs SER), caracteristicas de los objetivos, 3 niveles de estrategia (corporativa, UEN, funcional), cita de Kotler (1992) "decidir hoy que hacer en el futuro".</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #1e40af">
-    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte Ansoff</span></h4>
-    <p><strong>Apunte de catedra: Matriz de Ansoff</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> las 4 estrategias de crecimiento (penetracion, desarrollo de mercado, desarrollo de producto, diversificacion), tipos de diversificacion (relacionada/concentrica y no relacionada/conglomerada), ejemplos Apple (iPhone+iTunes), Amazon, limitaciones de la matriz.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #1e40af">
-    <h4><span class="source-tag apunte" style="font-size:.78em">Apunte FODA cruzado</span></h4>
-    <p><strong>Apunte de catedra: Estrategias Cruzadas FODA</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Usado en:</strong> matriz FO/DO/FA/DA, estrategias ofensiva/movilizacion/defensa/supervivencia, ejemplo Texas Instruments (estrategia FA con departamento legal y patentes), joint ventures (estrategia DO).</p>
-  </div>
-
-</div>
-
-<h3>PPT de catedra (presentaciones de clase)</h3>
-
-<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-
-  <div class="card" style="border-left:4px solid #92400e">
-    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C01</span></h4>
-    <p><strong>Clase 01 (11/03/2026) - Introduccion al marketing</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> inventos famosos que fracasaron (bici anfibia, Segway, Oakley Thump, Pepsi Cristal), 5 definiciones (McCarthy 1964, AMA 1960, AMA 2006, Kotler social, Drucker empresarial), ecuacion de valor, necesidad/deseo/demanda, 4 P's intro, mezcla de comunicacion.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #92400e">
-    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C02</span></h4>
-    <p><strong>Clase 02 (18/03/2026) - Evolucion, entornos y miopia</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> evolucion del marketing segun Kotler, miopia de Levitt con ejemplos, concepto de entorno, microentorno (consumidores, competencia, intermediarios, proveedores), macroentorno (DESTEP / PESTEL).</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #92400e">
-    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C03</span></h4>
-    <p><strong>Clase 03 (25/03/2026) - Variables controlables y planeamiento</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> detalle de las 4 P's (producto, plaza con canales/cobertura/localizacion/inventario/transporte, precio con descuentos/bonificaciones, promocion), clases de mercado (consumo e industrial), introduccion a marketing estrategico vs operativo.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #92400e">
-    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C04</span></h4>
-    <p><strong>Clase 04 (01/04/2026) - Segmentacion, FODA, posicionamiento, Ansoff</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Slides clave:</strong> marketing estrategico vs operativo (cuadro comparativo), mercado de referencia, producto-mercado, segmentos, 4 bases de segmentacion, FODA, posicionamiento, Matriz de Ansoff.</p>
-  </div>
-
-  <div class="card" style="border-left:4px solid #92400e">
-    <h4><span class="source-tag ppt" style="font-size:.78em">PPT C05</span></h4>
-    <p><strong>Clase 05 (08/04/2026) - Repaso y aclaraciones para el parcial</strong></p>
-    <p style="font-size:.85em;margin-top:6px"><strong>Slides / aclaraciones clave:</strong> alcance del parcial (Unidades 1 y 2), <strong>regla del FODA real</strong> (no usar "posibilidad", "riesgo" ni "potencial" - deben ser hechos concretos), estrategias de nivel corporativo.</p>
-  </div>
-
-</div>
-
-<h3>Notas de clase</h3>
-
-<div class="card" style="border-left:4px solid #5b21b6">
-  <h4><span class="source-tag romero" style="font-size:.78em">Notas clase Romero</span></h4>
-  <p><strong>Notas tomadas en clases del Prof. Lic. Juan Pablo Romero</strong></p>
-  <p style="font-size:.85em;color:var(--muted)">UCES Resistencia, 1er cuatrimestre 2026.</p>
-  <p style="font-size:.85em;margin-top:6px"><strong>Aportes exclusivos:</strong> definicion sintetica ("ofrecer mejor lo que ofrezco, mostrar valor, enfocarme en el consumidor"), aclaracion mision como "DAR" vs vision como "SER", aclaracion consumidores son el actor mas relevante del microentorno, ejemplos criollos (sequia, Chaco, contexto local), regla del FODA real, prioridad del profesor sobre la bibliografia cuando hay diferencias.</p>
-</div>
-
-<div class="alert alert-info" style="margin-top:18px">
-  <div class="at"><i data-lucide="info" style="width:16px;height:16px;vertical-align:-3px"></i> Nota importante</div>
-  <p>Cuando hay diferencia entre lo que dice un libro y lo que explico Romero en clase, <strong>la version del profesor tiene prioridad para el examen</strong> (aclarado en C05).</p>
-</div>
-
-<h3>Indice rapido: tema &rarr; fuente principal</h3>
-
-<table>
-<thead><tr><th>Tema del landing</th><th>Fuente principal</th><th>Fuentes secundarias</th></tr></thead>
-<tbody>
-<tr><td>1. Que es el Marketing</td><td><span class="source-tag ppt">PPT C01</span></td><td><span class="source-tag kotler">Kotler</span> <span class="source-tag apunte">Apunte U1</span></td></tr>
-<tr><td>2. Necesidad, Deseo y Demanda</td><td><span class="source-tag ppt">PPT C01</span></td><td><span class="source-tag kotler">Kotler Cap. 1</span></td></tr>
-<tr><td>3. Las 4 P's</td><td><span class="source-tag apunte">Apunte U1</span></td><td><span class="source-tag gomez">Gomez-Tauro (McCarthy)</span> <span class="source-tag ppt">PPT C01/C03</span></td></tr>
-<tr><td>4. Miopia del Marketing</td><td><span class="source-tag levitt">Levitt 1960</span></td><td><span class="source-tag apunte">Apunte U1</span> <span class="source-tag lambin">Lambin</span></td></tr>
-<tr><td>5. Evolucion del Marketing</td><td><span class="source-tag kotler">Kotler</span> + <span class="source-tag lambin">Lambin</span></td><td><span class="source-tag gomez">Gomez-Tauro (M1.0-5.0)</span></td></tr>
-<tr><td>6. Entornos (micro / macro)</td><td><span class="source-tag apunte">Apunte U1</span></td><td><span class="source-tag kotler">Kotler</span> <span class="source-tag ppt">PPT C02</span></td></tr>
-<tr><td>7. Clases de Mercado</td><td><span class="source-tag ppt">PPT C03</span></td><td><span class="source-tag apunte">Apunte U1</span></td></tr>
-<tr><td>8. Mkt Estrategico vs Operativo</td><td><span class="source-tag lambin">Lambin Cap. 1</span></td><td><span class="source-tag apunte">Apunte Planeam.</span></td></tr>
-<tr><td>9. Planeamiento Estrategico</td><td><span class="source-tag apunte">Apunte Planeamiento</span></td><td><span class="source-tag kotler">Kotler 1992</span></td></tr>
-<tr><td>10. FODA + Estrategias cruzadas</td><td><span class="source-tag apunte">Apunte FODA cruzado</span></td><td><span class="source-tag romero">Regla FODA real (C05)</span></td></tr>
-<tr><td>11. Segmentacion</td><td><span class="source-tag kotler">Kotler</span> + <span class="source-tag lambin">Lambin</span></td><td><span class="source-tag apunte">Apunte U1</span></td></tr>
-<tr><td>12. Posicionamiento</td><td><span class="source-tag kotler">Kotler</span></td><td><span class="source-tag apunte">Apunte U1</span> <span class="source-tag romero">Romero (cualidad evocativa)</span></td></tr>
-<tr><td>13. Formulacion de Estrategias (3 niveles + Porter)</td><td><span class="source-tag apunte">Apunte Planeamiento</span></td><td><span class="source-tag kotler">Kotler (Porter)</span></td></tr>
-<tr><td>14. Matriz de Ansoff</td><td><span class="source-tag apunte">Apunte Ansoff</span></td><td><span class="source-tag kotler">Kotler</span></td></tr>
-<tr><td>Simulacros 1 y 2</td><td><span class="source-tag romero">Estilo preguntas Romero</span></td><td>Integran todas las fuentes anteriores</td></tr>
-</tbody>
-</table>
-
-<h3>Referencias bibliograficas (formato academico)</h3>
-
-<ul style="font-size:.88em;font-family:'JetBrains Mono',monospace;line-height:1.7">
-<li>Kotler, P. &amp; Keller, K. L. (2006). <em>Direccion de Marketing</em> (12a ed.). Pearson Prentice Hall.</li>
-<li>Lambin, J. J. (1995). <em>Marketing Estrategico</em> (3a ed.). McGraw-Hill.</li>
-<li>Gomez, L. &amp; Tauro, A. (2023). <em>Marketing 1.0 a 5.0</em>.</li>
-<li>Levitt, T. (1960). Marketing Myopia. <em>Harvard Business Review</em>.</li>
-<li>McCarthy, E. J. (1964). <em>Basic Marketing: A Managerial Approach</em>. Richard D. Irwin. [citado en Gomez &amp; Tauro, 2023]</li>
-<li>Drucker, P. [citado en Kotler &amp; Keller, 2006, Cap. 1]</li>
-<li>Apunte de catedra - Unidad 1: Marketing y Contexto.</li>
-<li>Apunte de catedra - Planeamiento Estrategico.</li>
-<li>Apunte de catedra - Matriz de Ansoff.</li>
-<li>Apunte de catedra - Estrategias Cruzadas FODA.</li>
-<li>PPT de catedra - Clases 01 a 05.</li>
-<li>Notas de clase, Prof. Lic. Juan Pablo Romero, UCES Resistencia, 2026.</li>
+<h3>Estrategias de crecimiento</h3>
+<ul>
+  <li><strong>Intensivo:</strong> Ansoff (penetración, desarrollo de producto/mercado, diversificación).</li>
+  <li><strong>Integrado:</strong> vertical (hacia atrás/adelante) u horizontal.</li>
+  <li><strong>Diversificado:</strong> concéntrico (con sinergia) o puro (sin relación).</li>
 </ul>
 
-</div></div>
 
-<br>
-<p style="text-align:center;color:var(--muted);font-size:.83em">Marketing &mdash; UCES 2026 &mdash; Parcial 1 &mdash; Prof. Romero</p>
+<h2 id="foda">10. Análisis FODA</h2>
 
+<p>Herramienta de <strong>diagnóstico</strong>. Separa lo positivo / negativo y lo interno / externo.</p>
+
+<table>
+<tr><th></th><th>Interno</th><th>Externo</th></tr>
+<tr><td><strong>Positivo</strong></td><td>Fortalezas</td><td>Oportunidades</td></tr>
+<tr><td><strong>Negativo</strong></td><td>Debilidades</td><td>Amenazas</td></tr>
+</table>
+
+<div class="grid-2">
+  <div class="box">
+    <h4>Fortalezas (F)</h4>
+    <ul style="margin:4px 0 0 18px">
+      <li>Recursos financieros</li>
+      <li>Buena imagen de marca</li>
+      <li>Ventaja en costes</li>
+      <li>Líder de mercado</li>
+      <li>Tecnología propia</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>Debilidades (D)</h4>
+    <ul style="margin:4px 0 0 18px">
+      <li>Sin dirección clara</li>
+      <li>Atraso en I+D</li>
+      <li>Rentabilidad baja</li>
+      <li>Distribución débil</li>
+      <li>Cartera limitada</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>Oportunidades (O)</h4>
+    <ul style="margin:4px 0 0 18px">
+      <li>Nuevos mercados</li>
+      <li>Mercado en crecimiento</li>
+      <li>Nuevos segmentos</li>
+      <li>Diversificación</li>
+      <li>Complacencia rival</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>Amenazas (A)</h4>
+    <ul style="margin:4px 0 0 18px">
+      <li>Competidores baratos</li>
+      <li>Productos sustitutos</li>
+      <li>Crecimiento lento</li>
+      <li>Cambio de gustos</li>
+      <li>Recesión</li>
+    </ul>
+  </div>
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src="" alt="Zoom"></div>
+<h3>Estrategias cruzadas</h3>
+<ul>
+  <li><strong>FO (ofensivas):</strong> usar fortalezas para aprovechar oportunidades.</li>
+  <li><strong>DO (reorientación):</strong> superar debilidades aprovechando oportunidades.</li>
+  <li><strong>FA (defensivas):</strong> usar fortalezas para evitar amenazas.</li>
+  <li><strong>DA (supervivencia):</strong> reducir debilidades y evitar amenazas.</li>
+</ul>
+
+
+<h2 id="ansoff">11. Matriz de Ansoff</h2>
+
+<p>Define <strong>estrategias de crecimiento</strong> cruzando producto × mercado.</p>
+
+<table>
+<tr><th></th><th>Productos actuales</th><th>Productos nuevos</th></tr>
+<tr><td><strong>Mercados actuales</strong></td><td>Penetración de mercado</td><td>Desarrollo de producto</td></tr>
+<tr><td><strong>Mercados nuevos</strong></td><td>Desarrollo de mercado</td><td>Diversificación</td></tr>
+</table>
+
+<ul>
+  <li><strong>Penetración:</strong> vender más de lo mismo al mismo mercado.</li>
+  <li><strong>Desarrollo de producto:</strong> productos nuevos al mercado actual.</li>
+  <li><strong>Desarrollo de mercado:</strong> productos actuales a nuevos mercados.</li>
+  <li><strong>Diversificación:</strong> todo nuevo. Máximo riesgo.</li>
+</ul>
+
+
+<h2 id="porter">12. Estrategias de Porter</h2>
+
+<p>A nivel de <strong>Unidad de Negocio</strong>, Porter identifica 3 opciones:</p>
+
+<ul>
+  <li><strong>Liderazgo en costes:</strong> precios más bajos. Ej: Walmart, Zara.</li>
+  <li><strong>Diferenciación:</strong> producto único apreciado. Ej: Apple, Mercedes.</li>
+  <li><strong>Enfoque / concentración:</strong> especializarse en un segmento. Ej: Rolex, Ferrari.</li>
+</ul>
+
+
+<h2 id="4ps">13. Las 4 P's (Marketing Mix)</h2>
+
+<blockquote>"La mezcla de marketing es un conjunto de variables o herramientas controlables que se combinan para lograr un determinado resultado en el mercado meta."<span class="author">Kotler y Armstrong (2007)</span></blockquote>
+
+<p>Son las <strong>variables controlables</strong> de la empresa. Operativas, corto plazo. Sistematizadas por <strong>McCarthy (1964)</strong>.</p>
+
+<div class="grid-2">
+  <div class="box">
+    <h4>Producto</h4>
+    <p>Atributos que satisfacen una necesidad. Subvariables: calidad, <strong>marca</strong>, empaque, tamaño, garantías.</p>
+  </div>
+  <div class="box">
+    <h4>Precio</h4>
+    <p>Valor monetario. <strong>La única P que genera ingresos</strong>. Subvariables: precio de lista, descuentos, bonificaciones, plazos.</p>
+  </div>
+  <div class="box">
+    <h4>Plaza</h4>
+    <p>Llegar al consumidor en el lugar y momento correctos. Subvariables: canales, cobertura, localización, inventario, logística.</p>
+  </div>
+  <div class="box">
+    <h4>Promoción</h4>
+    <p>Informar, persuadir, recordar. Se descompone en la <strong>mezcla de comunicación</strong> (5 elementos).</p>
+  </div>
+</div>
+
+<h3>Mezcla de comunicación</h3>
+<table>
+<tr><th>Elemento</th><th>Qué es</th><th>Ejemplo</th></tr>
+<tr><td><strong>Publicidad</strong></td><td>Mensaje comercial pago en medios masivos</td><td>TV, IG, cartel</td></tr>
+<tr><td><strong>Promoción de venta</strong></td><td>Incentivo de corto plazo</td><td>2x1, descuentos</td></tr>
+<tr><td><strong>Venta personal</strong></td><td>Fuerza de ventas</td><td>Vendedor de seguros</td></tr>
+<tr><td><strong>Relaciones públicas</strong></td><td>Contacto con el público</td><td>Eventos, reputación</td></tr>
+<tr><td><strong>Marketing directo</strong></td><td>Sin intermediarios</td><td>Email, telemarketing</td></tr>
+</table>
+
+
+<footer>
+Marketing · Primer Parcial · UCES
+</footer>
+
+</div>
 
 <script>
-function toggle(h){h.classList.toggle('active');h.nextElementSibling.classList.toggle('open')}
-let allOpen=false;
-function toggleAll(){allOpen=!allOpen;document.querySelectorAll('.section-header').forEach(h=>{if(allOpen){h.classList.add('active');h.nextElementSibling.classList.add('open')}else{h.classList.remove('active');h.nextElementSibling.classList.remove('open')}})}
-function toggleTheme(){const h=document.documentElement;const n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);localStorage.setItem('mkt-theme',n)}
-const s=localStorage.getItem('mkt-theme');if(s)document.documentElement.setAttribute('data-theme',s);
-window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progressFill').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%'});
-function openLightbox(img){document.getElementById('lightboxImg').src=img.src;document.getElementById('lightbox').classList.add('active')}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
-
-function normText(s){return String(s==null?'':s).trim().toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u').replace(/ñ/g,'n').replace(/\s+/g,' ')}
-
-function checkOne(inp){
-  const raw = (inp.value!==undefined) ? inp.value : (inp.checked ? inp.value : null);
-  if(raw==null || String(raw).trim()==='') return null;
-  const ans = inp.dataset.a;
-  const t = inp.dataset.t || 'text';
-  if(t==='vf'){
-    const u = normText(raw), c = normText(ans);
-    if(c==='v') return (u==='v'||u==='verdadero');
-    if(c==='f') return (u==='f'||u==='falso');
-    return u===c;
-  }
-  if(t==='text'){
-    const u = normText(raw);
-    const opts = String(ans).split('|').map(normText);
-    return opts.includes(u);
-  }
-  if(t==='mc'){
-    return normText(raw) === normText(ans);
-  }
-  return false;
-}
-
-function chk(btn){
-  const q = btn.closest('.q');
-  const mcSel = q.querySelector('input[type="radio"]:checked');
-  const inputs = q.querySelectorAll('.vld');
-  const fb = q.querySelector('.q-fb');
-  let allOk = true, anyEmpty = false, anyFilled = false;
-
-  // Multiple choice
-  if(q.dataset.mc){
-    if(!mcSel){
-      fb.className='q-fb bad'; fb.textContent='! Elegi una opcion';
-      q.classList.remove('done'); return;
-    }
-    const ok = normText(mcSel.value) === normText(q.dataset.mc);
-    q.querySelectorAll('.q-opts label').forEach(lb => {
-      lb.classList.remove('ok','bad');
-      if(lb.querySelector('input').checked){
-        lb.classList.add(ok ? 'ok' : 'bad');
-      }
-    });
-    if(ok){ fb.className='q-fb ok'; fb.textContent='Correcto'; q.classList.add('done'); q.classList.remove('bad'); }
-    else { fb.className='q-fb bad'; fb.textContent='Revisa'; q.classList.remove('done'); q.classList.add('bad'); }
-    saveQState(); return;
-  }
-
-  inputs.forEach(inp => {
-    const r = checkOne(inp);
-    if(r===null){ anyEmpty = true; inp.classList.remove('ok','bad'); }
-    else { anyFilled = true; inp.classList.toggle('ok',r); inp.classList.toggle('bad',!r); if(!r) allOk = false; }
-  });
-  if(anyEmpty && !anyFilled){
-    fb.className='q-fb bad'; fb.textContent='! Completa';
-    q.classList.remove('done'); return;
-  }
-  if(anyEmpty){
-    fb.className='q-fb bad'; fb.textContent='! Faltan campos';
-    q.classList.remove('done'); return;
-  }
-  if(allOk){ fb.className='q-fb ok'; fb.textContent='Correcto'; q.classList.add('done'); q.classList.remove('bad'); }
-  else { fb.className='q-fb bad'; fb.textContent='Revisa'; q.classList.remove('done'); q.classList.add('bad'); }
-  saveQState();
-}
-
-function saveQState(){
-  const st = {};
-  document.querySelectorAll('.q').forEach((q,i)=>{
-    if(q.classList.contains('done')) st[i]='done';
-  });
-  localStorage.setItem('mkt-qstate', JSON.stringify(st));
-  updateQStats();
-}
-
-function loadQState(){
-  const d = localStorage.getItem('mkt-qstate');
-  if(!d) return;
-  try{
-    const st = JSON.parse(d);
-    document.querySelectorAll('.q').forEach((q,i)=>{
-      if(st[i]==='done') q.classList.add('done');
-    });
-  }catch(e){}
-}
-
-function updateQStats(){
-  const all = document.querySelectorAll('.q').length;
-  const done = document.querySelectorAll('.q.done').length;
-  const t=document.getElementById('totalQ'); if(t) t.textContent=all;
-  const d=document.getElementById('doneQ'); if(d) d.textContent=done;
-  const p=document.getElementById('pctQ'); if(p) p.textContent=(all?Math.round(done/all*100):0)+'%';
-  document.querySelectorAll('[data-parcial]').forEach(box => {
-    const scope = '#'+box.dataset.parcial;
-    const a = document.querySelectorAll(scope+' .q').length;
-    const dd = document.querySelectorAll(scope+' .q.done').length;
-    const tn = box.querySelector('.ps-tot'); if(tn) tn.textContent=a;
-    const dn = box.querySelector('.ps-done'); if(dn) dn.textContent=dd;
-    const pn = box.querySelector('.ps-pct'); if(pn) pn.textContent=(a?Math.round(dd/a*100):0)+'%';
-  });
-}
-
-function resetAll(){
-  if(!confirm('Reiniciar TODO el progreso (incluidos los parciales)?')) return;
-  document.querySelectorAll('.vld').forEach(i => { i.value=''; i.classList.remove('ok','bad'); });
-  document.querySelectorAll('.q-opts input[type="radio"]').forEach(r => r.checked=false);
-  document.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('ok','bad','picked'));
-  document.querySelectorAll('.q').forEach(q => {
-    q.classList.remove('done','bad');
-    const fb=q.querySelector('.q-fb'); if(fb){ fb.textContent=''; fb.className='q-fb'; }
-  });
-  saveQState();
-}
-
-function resetParcial(id){
-  if(!confirm('Reiniciar este parcial?')) return;
-  const s = document.getElementById(id); if(!s) return;
-  s.querySelectorAll('.vld').forEach(i => { i.value=''; i.classList.remove('ok','bad'); });
-  s.querySelectorAll('.q-opts input[type="radio"]').forEach(r => r.checked=false);
-  s.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('ok','bad','picked'));
-  s.querySelectorAll('.q').forEach(q => {
-    q.classList.remove('done','bad');
-    const fb=q.querySelector('.q-fb'); if(fb){ fb.textContent=''; fb.className='q-fb'; }
-  });
-  saveQState();
-}
-
-document.addEventListener('change', e => {
-  if(e.target.matches('.q-opts input[type="radio"]')){
-    e.target.closest('.q').querySelectorAll('.q-opts label').forEach(l => l.classList.remove('picked'));
-    e.target.closest('label').classList.add('picked');
-  }
-});
-
-document.addEventListener('keydown', e => {
-  if(e.key==='Enter' && e.target.classList && e.target.classList.contains('vld')){
-    e.preventDefault();
-    const q=e.target.closest('.q'); if(q){ const b=q.querySelector('.q-btn'); if(b) b.click(); }
-  }
-});
-
-/* ============ FLASHCARDS ============ */
-document.addEventListener('click', e => {
-  const fc = e.target.closest('.flashcard');
-  if(fc) fc.classList.toggle('flipped');
-});
-
-/* ============ DRAG & DROP (mouse + touch via pointer events) ============ */
-let dragGhost = null, dragSource = null, dragOver = null;
-
-function initDnD(container){
-  container.querySelectorAll('.dnd-item').forEach(item => {
-    item.addEventListener('pointerdown', startDrag);
-  });
-}
-
-function startDrag(e){
-  e.preventDefault();
-  dragSource = e.currentTarget;
-  dragSource.classList.add('dragging');
-  dragSource.setPointerCapture(e.pointerId);
-  // ghost
-  dragGhost = dragSource.cloneNode(true);
-  dragGhost.style.cssText = 'position:fixed;pointer-events:none;opacity:.85;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.3)';
-  dragGhost.classList.remove('dragging','placed-ok','placed-bad');
-  document.body.appendChild(dragGhost);
-  moveGhost(e);
-  dragSource.addEventListener('pointermove', moveDrag);
-  dragSource.addEventListener('pointerup', endDrag);
-  dragSource.addEventListener('pointercancel', endDrag);
-}
-function moveDrag(e){
-  moveGhost(e);
-  // find target under pointer
-  dragGhost.style.display='none';
-  const under = document.elementFromPoint(e.clientX, e.clientY);
-  dragGhost.style.display='';
-  const tgt = under ? under.closest('.dnd-target, .dnd-pool') : null;
-  if(tgt !== dragOver){
-    if(dragOver) dragOver.classList.remove('hover');
-    if(tgt) tgt.classList.add('hover');
-    dragOver = tgt;
-  }
-}
-function moveGhost(e){
-  if(!dragGhost) return;
-  dragGhost.style.left = e.clientX+'px';
-  dragGhost.style.top = e.clientY+'px';
-}
-function endDrag(e){
-  if(!dragSource) return;
-  dragSource.removeEventListener('pointermove', moveDrag);
-  dragSource.removeEventListener('pointerup', endDrag);
-  dragSource.removeEventListener('pointercancel', endDrag);
-  dragSource.classList.remove('dragging');
-  if(dragOver){
-    dragOver.appendChild(dragSource);
-    dragOver.classList.remove('hover');
-  }
-  if(dragGhost){ dragGhost.remove(); dragGhost=null; }
-  dragSource=null; dragOver=null;
-}
-
-function checkDnD(btn){
-  const box = btn.closest('.dnd');
-  const items = box.querySelectorAll('.dnd-item');
-  const fb = box.querySelector('.dnd-feedback');
-  let ok = 0, total = items.length;
-  items.forEach(it => {
-    const parent = it.parentElement;
-    const cat = it.dataset.cat;
-    const pcat = parent.dataset.cat;
-    it.classList.remove('placed-ok','placed-bad');
-    if(pcat && pcat === cat){ it.classList.add('placed-ok'); ok++; }
-    else if(parent.classList.contains('dnd-target')) it.classList.add('placed-bad');
-  });
-  if(ok === total){
-    fb.className='dnd-feedback ok'; fb.innerHTML = '&check; Todos correctos!';
-    box.classList.add('dnd-done');
-    saveInteractive();
-  } else {
-    fb.className='dnd-feedback bad'; fb.innerHTML = `${ok}/${total} correctos - revisa los rojos`;
-  }
-}
-
-function resetDnD(btn){
-  const box = btn.closest('.dnd');
-  const pool = box.querySelector('.dnd-pool');
-  box.querySelectorAll('.dnd-item').forEach(it => {
-    it.classList.remove('placed-ok','placed-bad');
-    pool.appendChild(it);
-  });
-  const fb = box.querySelector('.dnd-feedback');
-  fb.className='dnd-feedback'; fb.textContent = '';
-  box.classList.remove('dnd-done');
-  saveInteractive();
-}
-
-/* ============ MATCHING ============ */
-let matchPicked = null;
-
-function initMatch(){
-  document.querySelectorAll('.match-item').forEach(m => {
-    m.addEventListener('click', () => {
-      if(m.classList.contains('matched')) return;
-      const col = m.dataset.col;
-      if(!matchPicked){
-        matchPicked = m; m.classList.add('picked'); return;
-      }
-      if(matchPicked === m){
-        m.classList.remove('picked'); matchPicked = null; return;
-      }
-      // different column required
-      if(matchPicked.dataset.col === col){
-        matchPicked.classList.remove('picked');
-        matchPicked = m; m.classList.add('picked'); return;
-      }
-      // check pair
-      const pickedKey = matchPicked.dataset.pair;
-      const mKey = m.dataset.pair;
-      if(pickedKey === mKey){
-        matchPicked.classList.add('matched'); m.classList.add('matched');
-        matchPicked.classList.remove('picked');
-        matchPicked = null;
-        // check if all matched
-        const box = m.closest('.match');
-        const all = box.querySelectorAll('.match-item').length;
-        const done = box.querySelectorAll('.match-item.matched').length;
-        if(done === all){
-          const fb = box.querySelector('.match-feedback');
-          if(fb){ fb.innerHTML = '&check; Todos emparejados'; fb.className = 'dnd-feedback ok'; }
-          box.classList.add('match-done');
-          saveInteractive();
-        }
-      } else {
-        matchPicked.classList.add('wrong'); m.classList.add('wrong');
-        const a = matchPicked, b = m;
-        setTimeout(() => { a.classList.remove('wrong','picked'); b.classList.remove('wrong'); }, 500);
-        matchPicked = null;
-      }
-    });
-  });
-}
-
-function resetMatch(btn){
-  const box = btn.closest('.match');
-  box.querySelectorAll('.match-item').forEach(m => m.classList.remove('picked','matched','wrong'));
-  const fb = box.querySelector('.match-feedback');
-  if(fb){ fb.textContent=''; fb.className='dnd-feedback'; }
-  box.classList.remove('match-done');
-  matchPicked = null;
-  saveInteractive();
-}
-
-/* ============ SORTABLE ============ */
-let sortSrc = null;
-
-function initSortable(){
-  document.querySelectorAll('.sortable-list li').forEach(li => {
-    li.addEventListener('pointerdown', sortStart);
-  });
-}
-function sortStart(e){
-  sortSrc = e.currentTarget;
-  sortSrc.setPointerCapture(e.pointerId);
-  sortSrc.classList.add('dragging');
-  sortSrc.addEventListener('pointermove', sortMove);
-  sortSrc.addEventListener('pointerup', sortEnd);
-}
-function sortMove(e){
-  if(!sortSrc) return;
-  const list = sortSrc.parentElement;
-  sortSrc.style.display='none';
-  const under = document.elementFromPoint(e.clientX, e.clientY);
-  sortSrc.style.display='';
-  const target = under ? under.closest('li') : null;
-  if(target && target !== sortSrc && target.parentElement === list){
-    const rect = target.getBoundingClientRect();
-    const mid = rect.top + rect.height/2;
-    if(e.clientY < mid) list.insertBefore(sortSrc, target);
-    else list.insertBefore(sortSrc, target.nextSibling);
-  }
-}
-function sortEnd(){
-  if(!sortSrc) return;
-  sortSrc.classList.remove('dragging');
-  sortSrc.removeEventListener('pointermove', sortMove);
-  sortSrc.removeEventListener('pointerup', sortEnd);
-  sortSrc = null;
-}
-
-function checkSort(btn){
-  const list = btn.closest('.sort-box').querySelector('.sortable-list');
-  const items = list.querySelectorAll('li');
-  const fb = btn.closest('.sort-box').querySelector('.dnd-feedback');
-  let ok = 0;
-  items.forEach((li,i) => {
-    li.classList.remove('sort-ok','sort-bad');
-    if(parseInt(li.dataset.pos) === i+1){ li.classList.add('sort-ok'); ok++; }
-    else li.classList.add('sort-bad');
-  });
-  if(ok === items.length){
-    fb.className='dnd-feedback ok'; fb.innerHTML='&check; Orden correcto!';
-    saveInteractive();
-  } else {
-    fb.className='dnd-feedback bad'; fb.textContent = `${ok}/${items.length} en posicion correcta`;
-  }
-}
-
-/* ============ PER-TOPIC PROGRESS ============ */
-function updateTopicProgress(){
-  document.querySelectorAll('.section[id]').forEach(sec => {
-    const qs = sec.querySelectorAll('.q');
-    if(!qs.length) return;
-    const done = sec.querySelectorAll('.q.done').length;
-    const pct = Math.round(done/qs.length*100);
-    const bar = sec.querySelector('.topic-progress .fill');
-    const lbl = sec.querySelector('.topic-progress-label');
-    if(bar) bar.style.width = pct+'%';
-    if(lbl) lbl.innerHTML = `<span>${done}/${qs.length} quizzes</span><span>${pct}%</span>`;
-  });
-  checkBadges();
-}
-
-/* ============ BADGES ============ */
-const BADGES = [
-  {id:'first',check:s=>s.totalDone>=1},
-  {id:'ten',check:s=>s.totalDone>=10},
-  {id:'quarter',check:s=>s.pct>=25},
-  {id:'half',check:s=>s.pct>=50},
-  {id:'master',check:s=>s.pct>=100},
-  {id:'4ps',check:s=>s.byTopic['4ps']===100},
-  {id:'foda',check:s=>s.byTopic['foda']===100},
-  {id:'ansoff',check:s=>s.byTopic['ansoff']===100},
-  {id:'interactive',check:s=>s.interactive>=1},
-  {id:'exam',check:s=>s.parcialScore.p1>=60},
-  {id:'examP',check:s=>s.parcialScore.p2>=60}
-];
-function checkBadges(){
-  const allQ = document.querySelectorAll('.q');
-  const totalDone = document.querySelectorAll('.q.done').length;
-  const pct = allQ.length ? Math.round(totalDone/allQ.length*100) : 0;
-  const byTopic = {};
-  document.querySelectorAll('.section[id]').forEach(sec => {
-    const qs = sec.querySelectorAll('.q'); if(!qs.length) return;
-    const d = sec.querySelectorAll('.q.done').length;
-    byTopic[sec.id] = Math.round(d/qs.length*100);
-  });
-  const interactive = document.querySelectorAll('.dnd-done, .match-done').length;
-  const parcialScore = {
-    p1: byTopic['p1']||0,
-    p2: byTopic['p2']||0
-  };
-  const state = {totalDone, pct, byTopic, interactive, parcialScore};
-  const panel = document.getElementById('badges');
-  if(!panel) return;
-  BADGES.forEach(b => {
-    const el = panel.querySelector(`[data-bid="${b.id}"]`);
-    if(!el) return;
-    if(b.check(state)) el.classList.add('earned');
-  });
-}
-
-function saveInteractive(){
-  const dnd = {};
-  document.querySelectorAll('.dnd[id]').forEach(d => {
-    if(d.classList.contains('dnd-done')) dnd[d.id] = 'done';
-  });
-  const mt = {};
-  document.querySelectorAll('.match[id]').forEach(m => {
-    if(m.classList.contains('match-done')) mt[m.id] = 'done';
-  });
-  localStorage.setItem('mkt-dnd', JSON.stringify(dnd));
-  localStorage.setItem('mkt-match', JSON.stringify(mt));
-  updateTopicProgress();
-}
-
-function loadInteractive(){
-  try{
-    const d = JSON.parse(localStorage.getItem('mkt-dnd')||'{}');
-    Object.keys(d).forEach(k => {
-      const el = document.getElementById(k); if(el) el.classList.add('dnd-done');
-    });
-    const m = JSON.parse(localStorage.getItem('mkt-match')||'{}');
-    Object.keys(m).forEach(k => {
-      const el = document.getElementById(k); if(el) el.classList.add('match-done');
-    });
-  }catch(e){}
-}
-
-/* ============ EXAM MODE ============ */
-let examQs = [], examIdx = 0, examAns = [], examTimer = null, examTime = 0;
-
-function startExam(){
-  const allQs = [...document.querySelectorAll('.q')].filter(q => !q.closest('#p1') && !q.closest('#p2'));
-  // pick 15 random
-  const shuffled = [...allQs].sort(() => Math.random()-0.5);
-  examQs = shuffled.slice(0, 15);
-  examIdx = 0; examAns = new Array(examQs.length).fill(null);
-  examTime = 15*60; // 15 minutes
-  document.getElementById('examOverlay').classList.add('active');
-  renderExamQ();
-  examTimer = setInterval(tickExam, 1000);
-}
-
-function tickExam(){
-  examTime--;
-  const el = document.getElementById('examTimeDisp');
-  if(!el) return;
-  const m = Math.floor(examTime/60), s = examTime%60;
-  el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  el.classList.toggle('warning', examTime<=180);
-  el.classList.toggle('danger', examTime<=60);
-  if(examTime<=0){ clearInterval(examTimer); finishExam(); }
-}
-
-function renderExamQ(){
-  const box = document.getElementById('examBody');
-  const q = examQs[examIdx];
-  if(!q){ return finishExam(); }
-  const clone = q.cloneNode(true);
-  clone.querySelector('.q-fb').textContent = '';
-  clone.classList.remove('done','bad');
-  clone.querySelectorAll('.vld').forEach(v => { v.value=''; v.classList.remove('ok','bad'); });
-  clone.querySelectorAll('input[type="radio"]').forEach(r => r.checked=false);
-  clone.querySelectorAll('.q-opts label').forEach(l => l.classList.remove('picked','ok','bad'));
-  const btn = clone.querySelector('.q-btn');
-  if(btn) btn.remove();
-  const sol = clone.querySelector('.q-sol');
-  if(sol) sol.remove();
-  box.innerHTML = `<div style="color:var(--muted);font-size:.88em;margin-bottom:8px">Pregunta ${examIdx+1} de ${examQs.length}</div>`;
-  box.appendChild(clone);
-  const nav = document.createElement('div');
-  nav.style.cssText='display:flex;gap:8px;margin-top:16px';
-  nav.innerHTML = `
-    <button class="q-btn" onclick="prevExamQ()" ${examIdx===0?'disabled style=opacity:.4':''}><i data-lucide="chevron-left" style="width:14px;height:14px"></i> Anterior</button>
-    <button class="q-btn" onclick="nextExamQ()">${examIdx===examQs.length-1?'Finalizar':'Siguiente'} <i data-lucide="chevron-right" style="width:14px;height:14px"></i></button>
-    <span style="flex:1"></span>
-    <button class="exam-close" onclick="closeExam()">Cancelar</button>
-  `;
-  box.appendChild(nav);
-  // restore answer if any
-  if(examAns[examIdx]){
-    const ans = examAns[examIdx];
-    if(ans.type==='mc'){
-      const r = clone.querySelector(`input[value="${ans.val}"]`);
-      if(r){ r.checked=true; r.closest('label').classList.add('picked'); }
-    } else if(ans.type==='vld'){
-      clone.querySelectorAll('.vld').forEach((v,i) => v.value = ans.val[i]||'');
-    }
-  }
-  if(typeof lucide!=='undefined') lucide.createIcons();
-}
-
-function captureAnswer(){
-  const box = document.getElementById('examBody');
-  const q = box.querySelector('.q');
-  if(!q) return;
-  const r = q.querySelector('input[type="radio"]:checked');
-  if(r){ examAns[examIdx] = {type:'mc', val:r.value}; return; }
-  const vs = [...q.querySelectorAll('.vld')].map(v => v.value);
-  if(vs.some(v => v && v.trim())){ examAns[examIdx] = {type:'vld', val:vs}; return; }
-  examAns[examIdx] = null;
-}
-
-function prevExamQ(){ captureAnswer(); if(examIdx>0){ examIdx--; renderExamQ(); } }
-function nextExamQ(){ captureAnswer(); if(examIdx<examQs.length-1){ examIdx++; renderExamQ(); } else { finishExam(); } }
-
-function finishExam(){
-  clearInterval(examTimer);
-  captureAnswer();
-  // score
-  let correct = 0;
-  examQs.forEach((q,i) => {
-    const ans = examAns[i]; if(!ans) return;
-    if(ans.type==='mc'){
-      if(normText(ans.val)===normText(q.dataset.mc)) correct++;
-    } else if(ans.type==='vld'){
-      const inps = [...q.querySelectorAll('.vld')];
-      let allOk = inps.length>0;
-      inps.forEach((inp,idx) => {
-        const raw = ans.val[idx];
-        const c = inp.dataset.a; const t = inp.dataset.t;
-        let ok = false;
-        if(!raw || !raw.trim()){ allOk=false; return; }
-        if(t==='vf'){
-          const u = normText(raw), cc = normText(c);
-          ok = (cc==='v' && (u==='v'||u==='verdadero')) || (cc==='f' && (u==='f'||u==='falso'));
-        } else if(t==='text'){
-          ok = String(c).split('|').map(normText).includes(normText(raw));
-        }
-        if(!ok) allOk=false;
-      });
-      if(allOk) correct++;
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({top: target.offsetTop - 70, behavior: 'smooth'});
     }
   });
-  const pct = Math.round(correct/examQs.length*100);
-  const grade = pct>=90?'A':pct>=75?'B':pct>=60?'C':'D';
-  const box = document.getElementById('examBody');
-  box.innerHTML = `
-    <div class="exam-result">
-      <h2 style="color:var(--accent);margin-bottom:8px">Resultado</h2>
-      <div class="score grade-${grade}">${pct}%</div>
-      <p style="font-size:1.1em;margin:10px 0">${correct} de ${examQs.length} correctas</p>
-      <p style="color:var(--muted);margin-bottom:16px">${grade==='A'?'Excelente':grade==='B'?'Muy bien':grade==='C'?'Aprobado':'A repasar'}</p>
-      <button class="q-btn" onclick="closeExam()">Cerrar</button>
-    </div>
-  `;
-}
-
-function closeExam(){
-  clearInterval(examTimer);
-  document.getElementById('examOverlay').classList.remove('active');
-}
-
-window.addEventListener('DOMContentLoaded',()=>{
-  loadQState();updateQStats();
-  loadInteractive();
-  document.querySelectorAll('.dnd').forEach(initDnD);
-  initMatch();
-  initSortable();
-  updateTopicProgress();
-  if(typeof lucide!=='undefined') lucide.createIcons();
 });
-
-// Expose for exam dynamic rendering
-window.prevExamQ = prevExamQ;
-window.nextExamQ = nextExamQ;
-window.closeExam = closeExam;
-window.startExam = startExam;
 </script>
 
 </body>
