@@ -43,7 +43,8 @@ body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color
 .progress-bar{position:fixed;top:52px;left:0;right:0;height:1px;z-index:999;background:var(--border)}
 .progress-bar .fill{height:100%;width:0;background:var(--text);transition:width .1s}
 
-.content{max-width:720px;margin:68px auto 60px;padding:0 20px}
+.content{max-width:780px;margin:68px auto 60px;padding:0 32px}
+@media(max-width:600px){.content{padding:0 20px}}
 
 /* Hero */
 .hero{border-bottom:1px solid var(--border);padding:40px 0 30px;margin-bottom:24px}
@@ -288,7 +289,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 <nav class="topnav">
   <div class="logo"><i data-lucide="target" style="width:20px;height:20px"></i> Marketing</div>
   <div class="nav-links">
-    <a href="#intro">Intro</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--pink);font-weight:700">Parciales</a><a href="#bibliografia">Fuentes</a>
+    <a href="#intro">Intro</a><a href="#ndd">Necesidades</a><a href="#4ps">4 P's</a><a href="#miopia">Miopia</a><a href="#evolucion">Evolucion</a><a href="#entornos">Entornos</a><a href="#mercado">Mercado</a><a href="#estr-op">Estr/Op</a><a href="#planeam">Planeam</a><a href="#foda">FODA</a><a href="#segm">Segm</a><a href="#estrats">Estrategias</a><a href="#ansoff">Ansoff</a><a href="#parciales" style="color:var(--text);font-weight:600">Parciales</a><a href="#bibliografia">Fuentes</a>
   </div>
   <div class="controls">
     <button onclick="toggleAll()" title="Abrir/cerrar todo"><i data-lucide="layout-list" style="width:16px;height:16px"></i></button>
@@ -329,6 +330,147 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 
 </div></div>
 
+<!-- ======= TEMA 1: INTRO ======= -->
+<div class="section" id="intro">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="sparkles" style="width:20px;height:20px"></i> 1. &iquest;Que es el Marketing?</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+
+
+<h3><i data-lucide="target" style="width:18px;height:18px;vertical-align:-3px"></i> &iquest;Para que es util el Marketing?</h3>
+
+<div class="card-grid">
+  <div class="card" style="border-left:4px solid var(--blue)">
+    <h4>1. Detectar necesidades</h4>
+    <p>Identifica que <strong>necesidades insatisfechas</strong> existen en el mercado, antes de producir.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--purple)">
+    <h4>2. Crear valor</h4>
+    <p>Diseña productos y servicios que <strong>resuelvan</strong> esas necesidades mejor que la competencia.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--green)">
+    <h4>3. Conectar oferta y demanda</h4>
+    <p>Funciona como <strong>intermediario</strong> entre lo que la empresa produce y lo que el mercado consume.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--amber)">
+    <h4>4. Generar ingresos sostenibles</h4>
+    <p>No solo vender una vez: construir <strong>relaciones duraderas</strong> que den rentabilidad en el tiempo.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--pink)">
+    <h4>5. Adaptar a la empresa al entorno</h4>
+    <p>Analiza cambios en consumidores, competencia y tecnologia para que la empresa <strong>no quede obsoleta</strong>.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--accent)">
+    <h4>6. Diferenciar y posicionar</h4>
+    <p>Logra que la marca ocupe un <strong>lugar unico en la mente</strong> del consumidor frente a otras opciones.</p>
+  </div>
+</div>
+
+
+
+<h3>Concepto central de Marketing</h3>
+<div class="card" style="border-left:4px solid var(--accent)">
+<p>El marketing, como disciplina, se ocupa de <strong>identificar y satisfacer las necesidades de las personas y de la sociedad</strong>. Una de las definiciones mas breves es la de Kotler: <em>"satisfacer necesidades de manera rentable"</em>.</p>
+<p>No se trata solo de vender o hacer publicidad. Como dicen Kotler y Armstrong (2012, p.5): <em>"El proceso mediante el cual las compañias <strong>crean valor para sus clientes y establecen relaciones solidas con ellos</strong> para obtener a cambio valor de estos"</em>.</p>
+<p>A lo largo del tiempo, el concepto de marketing <strong>evoluciono</strong> junto con los cambios en los mercados, los consumidores y las tecnologias. Por eso existen <strong>multiples definiciones</strong>, cada una reflejando el contexto de su epoca.</p>
+</div>
+
+<h3>Definiciones de Marketing (5 definiciones del PPT)</h3>
+<p>Estas son las <strong>5 definiciones de marketing</strong> que figuran en el PPT de catedra (Unidad 1 - Marketing y Contexto), ordenadas cronologicamente:</p>
+
+<div class="card">
+  <h4>1) McCarthy (1964)</h4>
+  <p>"Es el resultado de la actividad de la empresa que <strong>dirige el flujo de bienes y servicios desde el productor hasta el consumidor o usuario</strong>, con la pretension de satisfacer a los consumidores y permitir alcanzar los objetivos de la empresa."</p>
+</div>
+
+<div class="card">
+  <h4>2) Asociacion Americana de Marketing (AMA, 1960)</h4>
+  <p>"La <strong>ejecucion de ciertas actividades en los negocios</strong> que, de una forma planificada y sistematica, dirigen el flujo de mercancias y servicios desde el productor hasta el consumidor <strong>con beneficio mutuo</strong>."</p>
+</div>
+
+<div class="card">
+  <h4>3) Asociacion Americana de Marketing (AMA, 2006)</h4>
+  <p>"Marketing es una <strong>funcion organizacional y un conjunto de procesos para generar, comunicar y entregar valor</strong> a los consumidores, asi como para administrar las relaciones con estos ultimos, de modo que la organizacion y sus accionistas obtengan un beneficio."</p>
+</div>
+
+<div class="card">
+  <h4>4) Definicion Social &mdash; Philip Kotler (2006)</h4>
+  <p>"Marketing es un <strong>proceso social</strong> por el cual tanto grupos como individuos consiguen lo que necesitan y desean mediante la <strong>creacion, la oferta y el libre intercambio</strong> de productos y servicios de valor para otros grupos o individuos."</p>
+</div>
+
+<div class="card">
+  <h4>5) Definicion Empresarial &mdash; Peter Drucker</h4>
+  <p>"<strong>Conocer y entender tan bien al consumidor</strong> que los productos y servicios se ajusten perfectamente a sus necesidades y <strong>se vendan solos</strong>."</p>
+</div>
+
+<div class="quote">
+  "Nadie quiere un taladro de 1/4 de pulgada... lo que todo el mundo desea son huecos en la pared de 1/4 de pulgada."
+  <span class="q-author">Theodore Levitt (1960) - Marketing Miopia, Harvard Business Review</span>
+</div>
+
+<h3>Conceptos centrales del marketing (Kotler y Keller, 2006)</h3>
+<p>Para <strong>desarrollar bien el concepto</strong>, conviene mencionar los <strong>conceptos nucleo</strong> que componen el marketing:</p>
+
+<div class="card-grid">
+  <div class="card" style="border-left:4px solid var(--red)">
+    <h4>Necesidades, deseos, demandas</h4>
+    <p>Punto de partida: el marketing parte de <strong>detectar necesidades innatas</strong>, moldear <strong>deseos</strong> y convertirlos en <strong>demandas</strong> (deseos respaldados por poder de compra).</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--blue)">
+    <h4>Producto / Oferta</h4>
+    <p>Todo aquello que se ofrece a un mercado para <strong>satisfacer una necesidad o un deseo</strong>: bienes fisicos, servicios, experiencias, eventos, personas, lugares, ideas.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--green)">
+    <h4>Valor y Satisfaccion</h4>
+    <p><strong>Valor</strong> = beneficios percibidos / costos percibidos. El consumidor elige la oferta que le entrega <strong>mas valor</strong>. La <strong>satisfaccion</strong> depende del rendimiento percibido del producto respecto a las expectativas.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--amber)">
+    <h4>Intercambio y transacciones</h4>
+    <p>El marketing emerge cuando la gente decide satisfacer necesidades y deseos mediante el <strong>intercambio</strong>. Es el <strong>acto fundamental</strong> del marketing.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--purple)">
+    <h4>Relaciones y redes</h4>
+    <p><strong>Marketing de relaciones:</strong> el objetivo es construir relaciones <strong>duraderas y satisfactorias</strong> con clientes, proveedores y distribuidores. El activo final es la <strong>red de marketing</strong> de la empresa.</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--pink)">
+    <h4>Mercado meta y posicionamiento</h4>
+    <p>La empresa no puede servir a todos. Identifica <strong>segmentos</strong>, elige <strong>mercados meta</strong> y diseña una <strong>oferta posicionada</strong> en la mente del consumidor.</p>
+  </div>
+</div>
+
+
+
+
+</div></div>
+
+<!-- ======= TEMA 2: NDD ======= -->
+<div class="section" id="ndd">
+<div class="section-header" onclick="toggle(this)">
+  <h2><i data-lucide="heart" style="width:20px;height:20px"></i> 2. Necesidad, Deseo y Demanda</h2>
+  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
+</div>
+<div class="section-body">
+
+
+
+
+
+<p>Son conceptos <strong>basicos del marketing</strong> que Kotler distingue claramente en <em>Direccion de Marketing</em> (Cap. 1). Kotler considera que <strong>el marketing busca detectar y satisfacer necesidades humanas y sociales de forma rentable</strong>. Estos tres conceptos forman la base de toda la disciplina.</p>
+
+
+
+
+
+
+
+
+
+
+</div></div>
+
 <!-- ======= TEMA 2: LAS 4 P's ======= -->
 <div class="section" id="4ps">
 <div class="section-header" onclick="toggle(this)">
@@ -337,13 +479,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag ppt">PPT catedra C01</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag gomez">Gomez &amp; Tauro (2023) - McCarthy 1964</span>
-  <span class="source-tag romero">Notas clase Romero C03</span>
-</div>
+
 
 
 
@@ -352,8 +488,6 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 
 <p>Las 4 P's son las <strong>variables controlables</strong> de la empresa. Son operativas, de corto plazo, y se combinan para llegar al consumidor. McCarthy (1960) fue quien las sistematizo.</p>
-
-<img src="img/4ps.jpg" alt="Las 4 Ps del Marketing Mix" class="illust med" onclick="openLightbox(this)">
 
 <div class="card-grid">
   <div class="card">
@@ -378,8 +512,6 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 
 <h3>La Mezcla de Comunicacion (5 elementos de la P de Promocion)</h3>
-
-<img src="img/mezcla-comunicacion.png" alt="Mezcla de Comunicacion" class="illust wide" onclick="openLightbox(this)">
 
 <table>
 <tr><th>Elemento</th><th>Que es</th><th>Ejemplo</th></tr>
@@ -412,13 +544,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag levitt">Levitt (1960) HBR</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
-  <span class="source-tag romero">Notas clase Romero C02</span>
-</div>
+
 
 <div class="card" style="border-left:4px solid var(--accent)">
 <p><strong>Origen:</strong> <strong>Theodore Levitt</strong> escribio en 1960 el articulo <em>"Marketing Myopia"</em>, publicado en la <strong>Harvard Business Review</strong> (edicion de julio-agosto). Un articulo que <strong>aun hoy se sigue estudiando</strong>.</p>
@@ -426,8 +552,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 <p style="margin-top:8px"><strong>En criollo:</strong> es el error de <strong>definir el negocio por el producto</strong> en lugar de por la <strong>necesidad que se satisface</strong>.</p>
 </div>
 
-<img src="img/bicicleta-miopia.png" alt="Miopia del marketing" class="illust sm" onclick="openLightbox(this)">
-<figcaption>Clasico: una bici con flotadores. Querer seguir vendiendo "bicis" cuando el mercado pide otra cosa.</figcaption>
+
 
 <div class="quote">
   "Nadie quiere un taladro de 1/4 de pulgada. Lo que todo el mundo desea son <strong>huecos en la pared</strong> de 1/4 de pulgada."
@@ -498,14 +623,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006) Cap. 1</span>
-  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
-  <span class="source-tag gomez">Gomez &amp; Tauro (2023) - M1.0 a 5.0</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag romero">Notas clase Romero C02</span>
-</div>
+
 
 
 <h3>Linea de tiempo de las 7 etapas</h3>
@@ -751,9 +869,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 
 <p>Lambin cuenta la evolucion desde <strong>la organizacion de la empresa</strong>. Distingue <strong>tres fases</strong> segun el objetivo prioritario del marketing:</p>
 
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA DE PARCIAL (examen real 2024 - 10 PUNTOS)</div>
-<p>"Explique, segun la evolucion historica del Marketing, la etapa de <strong>Marketing Pasivo</strong>" (10 pts). Esto es <strong>especificamente Lambin Cap. 1</strong>. Abajo esta la respuesta completa con estructura.</p>
-</div>
+
 
 <div class="card" style="border-left:4px solid var(--blue)">
   <h4><i data-lucide="factory" style="width:16px;height:16px;vertical-align:-3px"></i> 1. Marketing Pasivo (optica de produccion) - LAMBIN</h4>
@@ -864,8 +980,6 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <span class="q-author">Theodore Levitt (1960)</span>
 </div>
 
-<img src="img/segway-innovacion.png" alt="Innovacion" class="illust sm" onclick="openLightbox(this)">
-
 <h3>Tabla de equivalencias Kotler &harr; Lambin</h3>
 <table>
 <tr><th>Kotler</th><th>Lambin</th><th>Relacion oferta-demanda</th><th>Rol del marketing</th></tr>
@@ -898,13 +1012,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
-  <span class="source-tag ppt">PPT catedra C02</span>
-  <span class="source-tag romero">Notas clase Romero C02</span>
-</div>
+
 
 <h3>Concepto de Entorno (Apunte UCES U1)</h3>
 <div class="card" style="border-left:4px solid var(--accent)">
@@ -996,12 +1104,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte UCES U1 Cap. 2 (Torres Tirado, 2011)</span>
-  <span class="source-tag ppt">PPT catedra C03</span>
-  <span class="source-tag romero">Notas clase Romero C03</span>
-</div>
+
 
 <div class="card-grid">
   <div class="card" style="border-left:4px solid var(--blue)">
@@ -1054,10 +1157,6 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 <tr><td>Negociacion</td><td>Simple y frecuente</td><td>Compleja y poco frecuente</td></tr>
 </table>
 
-<img src="img/gafas-producto.png" alt="Producto" class="illust sm" onclick="openLightbox(this)">
-
-
-
 </div></div>
 
 <!-- ======= TEMA 7: MKT ESTRATEGICO VS OPERATIVO ======= -->
@@ -1068,19 +1167,11 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag lambin">Lambin (1995) Cap. 1 - eje central</span>
-  <span class="source-tag apunte">Apunte U1 / Planeamiento Estrategico</span>
-  <span class="source-tag romero">Notas clase Romero C03-C04</span>
-</div>
 
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA DE PARCIAL (examen real 2024 - 20 PUNTOS)</div>
-<p>"Desarrollar brevemente el concepto de Marketing Operativo y Estrategico" (20 pts). <strong>Es la pregunta mas pesada del parcial.</strong> Se evalua: calidad y precision conceptual, lenguaje tecnico, ortografia. Lo que sigue es la respuesta completa con Lambin Cap. 1.</p>
-</div>
 
-<img src="img/estrategico-vs-tactico.png" alt="Estrategico vs tactico" class="illust wide" onclick="openLightbox(this)">
-<figcaption>Lambin: Marketing estrategico (analisis y eleccion) vs Marketing operativo / tactico (accion e implementacion)</figcaption>
+
+
+
 
 <h3>Concepto general (Lambin, Cap. 1)</h3>
 <div class="card" style="border-left:4px solid var(--accent)">
@@ -1187,16 +1278,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte: Planeamiento Estrategico</span>
-  <span class="source-tag kotler">Kotler (1992) - cita "decidir hoy que hacer en el futuro"</span>
-  <span class="source-tag romero">Notas clase Romero C03</span>
-</div>
 
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA DE PARCIAL (examen real 2024 - 10 PUNTOS)</div>
-<p>"Enuncie un concepto para Planeamiento Estrategico. Enumere sus etapas" (10 pts). Abajo esta la respuesta con el concepto textual y las etapas.</p>
-</div>
+
+
 
 <h3>Concepto de Planeamiento Estrategico</h3>
 <div class="card" style="border-left:4px solid var(--accent)">
@@ -1383,12 +1467,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte: Estrategias Cruzadas FODA</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag romero">Notas clase Romero C04 + regla C05 (FODA debe ser real)</span>
-</div>
+
 
 <p>Herramienta de <strong>diagnostico</strong>. Separa lo positivo y lo negativo, lo interno y lo externo.</p>
 
@@ -1451,13 +1530,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
-  <span class="source-tag lambin">Lambin (1995) Cap. 1</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag romero">Notas clase Romero C04</span>
-</div>
+
 
 <p><strong>Dividir el mercado en subgrupos homogeneos</strong> segun criterios para poder ofrecer algo mas especifico a cada grupo.</p>
 
@@ -1488,12 +1561,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag romero">Notas clase Romero C04</span>
-</div>
+
 
 <p>Hacer que el producto ocupe un <strong>lugar distintivo en la mente del consumidor</strong> con respecto a la competencia.</p>
 
@@ -1521,12 +1589,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte: Planeamiento Estrategico (3 niveles)</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006) - Porter UEN</span>
-  <span class="source-tag romero">Notas clase Romero C05 (estrategia corporativa)</span>
-</div>
+
 
 <h3>Nivel 1 &mdash; Estrategia Corporativa</h3>
 <p>Se toma en la <strong>cima de la piramide</strong>. Abarca la organizacion en general.</p>
@@ -1586,12 +1649,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag apunte">Apunte: Matriz de Ansoff</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
-  <span class="source-tag romero">Notas clase Romero C04</span>
-</div>
+
 
 <p>Herramienta para definir <strong>estrategias de crecimiento</strong> cruzando producto (actual/nuevo) con mercado (actual/nuevo).</p>
 
@@ -1652,12 +1710,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body open">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag romero">Simulacro integrador U1+U2 basado en tipo de pregunta Prof. Romero</span>
-  <span class="source-tag apunte">Apuntes U1 + Planeamiento + FODA + Ansoff</span>
-  <span class="source-tag ppt">PPT catedra C01-C05</span>
-</div>
+
 
 <div class="q-group-t">Bloque A &mdash; Conceptos fundamentales <span class="pts">40 pts</span></div>
 
@@ -1732,13 +1785,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 <div class="section-body open">
 
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag romero">Simulacro con casos reales basado en estilo Prof. Romero</span>
-  <span class="source-tag apunte">Ejemplos del apunte (Texas Instruments, Apple, Amazon)</span>
-  <span class="source-tag lambin">Lambin (1995) - marketing salvaje, estrategico vs operativo</span>
-  <span class="source-tag levitt">Levitt (1960) - miopia</span>
-</div>
+
 
 <div class="q-group-t">Bloque A &mdash; Aplicacion a casos <span class="pts">50 pts</span></div>
 
