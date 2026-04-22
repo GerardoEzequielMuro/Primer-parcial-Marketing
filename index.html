@@ -318,337 +318,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <div style="margin-top:8px"><button class="q-reset" onclick="resetAll()"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar todo el progreso</button></div>
 </div>
 
-<h3 style="color:var(--accent);margin:16px 0 6px;font-size:1em;display:flex;align-items:center;gap:6px"><i data-lucide="award" style="width:18px;height:18px"></i> Logros desbloqueados</h3>
-<div class="badges-panel" id="badges">
-  <div class="badge-item" data-bid="first"><i data-lucide="target"></i><span class="badge-tooltip">1a pregunta correcta</span></div>
-  <div class="badge-item" data-bid="ten"><i data-lucide="star"></i><span class="badge-tooltip">10 correctas</span></div>
-  <div class="badge-item" data-bid="quarter"><i data-lucide="flame"></i><span class="badge-tooltip">25% global</span></div>
-  <div class="badge-item" data-bid="half"><i data-lucide="dumbbell"></i><span class="badge-tooltip">50% global</span></div>
-  <div class="badge-item" data-bid="master"><i data-lucide="trophy"></i><span class="badge-tooltip">100% global</span></div>
-  <div class="badge-item" data-bid="4ps"><i data-lucide="shopping-cart"></i><span class="badge-tooltip">Tema 4Ps 100%</span></div>
-  <div class="badge-item" data-bid="foda"><i data-lucide="compass"></i><span class="badge-tooltip">Tema FODA 100%</span></div>
-  <div class="badge-item" data-bid="ansoff"><i data-lucide="map"></i><span class="badge-tooltip">Tema Ansoff 100%</span></div>
-  <div class="badge-item" data-bid="interactive"><i data-lucide="gamepad-2"></i><span class="badge-tooltip">1er drag &amp; drop OK</span></div>
-  <div class="badge-item" data-bid="exam"><i data-lucide="scroll"></i><span class="badge-tooltip">Parcial 1 aprobado</span></div>
-  <div class="badge-item" data-bid="examP"><i data-lucide="graduation-cap"></i><span class="badge-tooltip">Parcial 2 aprobado</span></div>
-</div>
-
-<div class="exam-start" onclick="startExam()">
-  <div style="font-size:1.2em;font-weight:700;margin-bottom:2px"><i data-lucide="timer" style="width:18px;height:18px;vertical-align:-3px"></i> Modo Examen</div>
-  <div style="font-size:.88em;opacity:.92">15 preguntas random de todo el material &bull; 15 min cronometrados &bull; Obtene tu nota</div>
-</div>
-
-<div class="exam-overlay" id="examOverlay">
-  <div class="exam-box">
-    <div class="exam-timer">
-      <div><i data-lucide="clock" style="width:16px;height:16px;vertical-align:-3px"></i> <span class="t-time" id="examTimeDisp">15:00</span></div>
-      <button class="exam-close" onclick="closeExam()">Cancelar</button>
-    </div>
-    <div id="examBody"></div>
-  </div>
-</div>
-
-<!-- ======= TEMA 1: QUE ES EL MARKETING ======= -->
-<div class="section" id="intro">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="sparkles" style="width:20px;height:20px"></i> 1. &iquest;Que es el Marketing?</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag ppt">PPT catedra C01</span>
-  <span class="source-tag apunte">Apunte U1</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006)</span>
-  <span class="source-tag romero">Notas clase Romero</span>
-</div>
-
-<h3><i data-lucide="target" style="width:18px;height:18px;vertical-align:-3px"></i> &iquest;Para que es util el Marketing?</h3>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>1. Detectar necesidades</h4>
-    <p>Identifica que <strong>necesidades insatisfechas</strong> existen en el mercado, antes de producir.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>2. Crear valor</h4>
-    <p>Diseña productos y servicios que <strong>resuelvan</strong> esas necesidades mejor que la competencia.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4>3. Conectar oferta y demanda</h4>
-    <p>Funciona como <strong>intermediario</strong> entre lo que la empresa produce y lo que el mercado consume.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4>4. Generar ingresos sostenibles</h4>
-    <p>No solo vender una vez: construir <strong>relaciones duraderas</strong> que den rentabilidad en el tiempo.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--pink)">
-    <h4>5. Adaptar a la empresa al entorno</h4>
-    <p>Analiza cambios en consumidores, competencia y tecnologia para que la empresa <strong>no quede obsoleta</strong>.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--accent)">
-    <h4>6. Diferenciar y posicionar</h4>
-    <p>Logra que la marca ocupe un <strong>lugar unico en la mente</strong> del consumidor frente a otras opciones.</p>
-  </div>
-</div>
-
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA DE PARCIAL (examen real 2024 - 10 PUNTOS)</div>
-<p>"Desarrollar el concepto de Marketing" (10 pts). Abajo estan las 5 definiciones del PPT de catedra + modelo de respuesta.</p>
-</div>
-
-<h3>Concepto central de Marketing</h3>
-<div class="card" style="border-left:4px solid var(--accent)">
-<p>El marketing, como disciplina, se ocupa de <strong>identificar y satisfacer las necesidades de las personas y de la sociedad</strong>. Una de las definiciones mas breves es la de Kotler: <em>"satisfacer necesidades de manera rentable"</em>.</p>
-<p>No se trata solo de vender o hacer publicidad. Como dicen Kotler y Armstrong (2012, p.5): <em>"El proceso mediante el cual las compañias <strong>crean valor para sus clientes y establecen relaciones solidas con ellos</strong> para obtener a cambio valor de estos"</em>.</p>
-<p>A lo largo del tiempo, el concepto de marketing <strong>evoluciono</strong> junto con los cambios en los mercados, los consumidores y las tecnologias. Por eso existen <strong>multiples definiciones</strong>, cada una reflejando el contexto de su epoca.</p>
-</div>
-
-<h3>Definiciones de Marketing (5 definiciones del PPT)</h3>
-<p>Estas son las <strong>5 definiciones de marketing</strong> que figuran en el PPT de catedra (Unidad 1 - Marketing y Contexto), ordenadas cronologicamente:</p>
-
-<div class="card">
-  <h4>1) McCarthy (1964)</h4>
-  <p>"Es el resultado de la actividad de la empresa que <strong>dirige el flujo de bienes y servicios desde el productor hasta el consumidor o usuario</strong>, con la pretension de satisfacer a los consumidores y permitir alcanzar los objetivos de la empresa."</p>
-</div>
-
-<div class="card">
-  <h4>2) Asociacion Americana de Marketing (AMA, 1960)</h4>
-  <p>"La <strong>ejecucion de ciertas actividades en los negocios</strong> que, de una forma planificada y sistematica, dirigen el flujo de mercancias y servicios desde el productor hasta el consumidor <strong>con beneficio mutuo</strong>."</p>
-</div>
-
-<div class="card">
-  <h4>3) Asociacion Americana de Marketing (AMA, 2006)</h4>
-  <p>"Marketing es una <strong>funcion organizacional y un conjunto de procesos para generar, comunicar y entregar valor</strong> a los consumidores, asi como para administrar las relaciones con estos ultimos, de modo que la organizacion y sus accionistas obtengan un beneficio."</p>
-</div>
-
-<div class="card">
-  <h4>4) Definicion Social &mdash; Philip Kotler (2006)</h4>
-  <p>"Marketing es un <strong>proceso social</strong> por el cual tanto grupos como individuos consiguen lo que necesitan y desean mediante la <strong>creacion, la oferta y el libre intercambio</strong> de productos y servicios de valor para otros grupos o individuos."</p>
-</div>
-
-<div class="card">
-  <h4>5) Definicion Empresarial &mdash; Peter Drucker</h4>
-  <p>"<strong>Conocer y entender tan bien al consumidor</strong> que los productos y servicios se ajusten perfectamente a sus necesidades y <strong>se vendan solos</strong>."</p>
-</div>
-
-<div class="quote">
-  "Nadie quiere un taladro de 1/4 de pulgada... lo que todo el mundo desea son huecos en la pared de 1/4 de pulgada."
-  <span class="q-author">Theodore Levitt (1960) - Marketing Miopia, Harvard Business Review</span>
-</div>
-
-<h3>Conceptos centrales del marketing (Kotler y Keller, 2006)</h3>
-<p>Para <strong>desarrollar bien el concepto</strong>, conviene mencionar los <strong>conceptos nucleo</strong> que componen el marketing:</p>
-
-<div class="card-grid">
-  <div class="card" style="border-left:4px solid var(--red)">
-    <h4>Necesidades, deseos, demandas</h4>
-    <p>Punto de partida: el marketing parte de <strong>detectar necesidades innatas</strong>, moldear <strong>deseos</strong> y convertirlos en <strong>demandas</strong> (deseos respaldados por poder de compra).</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--blue)">
-    <h4>Producto / Oferta</h4>
-    <p>Todo aquello que se ofrece a un mercado para <strong>satisfacer una necesidad o un deseo</strong>: bienes fisicos, servicios, experiencias, eventos, personas, lugares, ideas.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4>Valor y Satisfaccion</h4>
-    <p><strong>Valor</strong> = beneficios percibidos / costos percibidos. El consumidor elige la oferta que le entrega <strong>mas valor</strong>. La <strong>satisfaccion</strong> depende del rendimiento percibido del producto respecto a las expectativas.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4>Intercambio y transacciones</h4>
-    <p>El marketing emerge cuando la gente decide satisfacer necesidades y deseos mediante el <strong>intercambio</strong>. Es el <strong>acto fundamental</strong> del marketing.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--purple)">
-    <h4>Relaciones y redes</h4>
-    <p><strong>Marketing de relaciones:</strong> el objetivo es construir relaciones <strong>duraderas y satisfactorias</strong> con clientes, proveedores y distribuidores. El activo final es la <strong>red de marketing</strong> de la empresa.</p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--pink)">
-    <h4>Mercado meta y posicionamiento</h4>
-    <p>La empresa no puede servir a todos. Identifica <strong>segmentos</strong>, elige <strong>mercados meta</strong> y diseña una <strong>oferta posicionada</strong> en la mente del consumidor.</p>
-  </div>
-</div>
 
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: &iquest;Que es el Marketing?</div>
-
-  <div class="q" data-mc="c">
-    <div class="q-stem">1. Segun la <strong>definicion empresarial de Peter Drucker</strong>, marketing es:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-intro-1" value="a"> a) Vender productos a todos los clientes posibles maximizando los ingresos.</label>
-      <label><input type="radio" name="q-intro-1" value="b"> b) Crear publicidad atractiva para atraer al mayor numero de consumidores.</label>
-      <label><input type="radio" name="q-intro-1" value="c"> c) Conocer y entender tan bien al consumidor que los productos y servicios se ajusten a sus necesidades y se vendan solos.</label>
-      <label><input type="radio" name="q-intro-1" value="d"> d) Distribuir productos desde el productor al consumidor al menor costo.</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">2. La <strong>definicion social de Kotler (2006)</strong> menciona que el marketing es un proceso social de <strong>libre intercambio</strong> entre grupos. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. La AMA (1960) define marketing como "la ejecucion de actividades que dirigen el flujo de mercancias del productor al consumidor con <strong>beneficio mutuo</strong>". (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">4. &iquest;Quien definio el marketing como "el resultado de la actividad de la empresa que dirige el flujo de bienes y servicios desde el productor hasta el consumidor"?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-intro-4" value="a"> a) Philip Kotler (2006)</label>
-      <label><input type="radio" name="q-intro-4" value="b"> b) McCarthy (1964)</label>
-      <label><input type="radio" name="q-intro-4" value="c"> c) Peter Drucker</label>
-      <label><input type="radio" name="q-intro-4" value="d"> d) Theodore Levitt (1960)</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="c">
-    <div class="q-stem">5. Segun la <strong>AMA (2006)</strong>, marketing es "una funcion organizacional y un conjunto de procesos para generar, comunicar y entregar _____ a los consumidores".</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-intro-5" value="a"> a) Productos</label>
-      <label><input type="radio" name="q-intro-5" value="b"> b) Precio</label>
-      <label><input type="radio" name="q-intro-5" value="c"> c) Valor</label>
-      <label><input type="radio" name="q-intro-5" value="d"> d) Ingresos</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-</div>
-
-</div></div>
-
-<!-- ======= TEMA 1.5: NECESIDAD, DESEO Y DEMANDA ======= -->
-<div class="section" id="ndd">
-<div class="section-header" onclick="toggle(this)">
-  <h2><i data-lucide="heart" style="width:20px;height:20px"></i> 2. Necesidad, Deseo y Demanda</h2>
-  <span class="chevron"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></span>
-</div>
-<div class="section-body">
-
-<div class="source-row">
-  <span class="source-label"><i data-lucide="book-open" style="width:12px;height:12px"></i> Fuentes:</span>
-  <span class="source-tag ppt">PPT catedra C01</span>
-  <span class="source-tag kotler">Kotler &amp; Keller (2006) Cap. 1</span>
-  <span class="source-tag apunte">Apunte U1</span>
-</div>
-
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA DE PARCIAL (examen real 2024 - 10 PUNTOS)</div>
-<p>"Enuncie un concepto Necesidad y demanda" (10 pts). Abajo estan las definiciones textuales de Kotler listas para copiar, con ejemplos y la cadena completa.</p>
-</div>
-
-<p>Son conceptos <strong>basicos del marketing</strong> que Kotler distingue claramente en <em>Direccion de Marketing</em> (Cap. 1). Kotler considera que <strong>el marketing busca detectar y satisfacer necesidades humanas y sociales de forma rentable</strong>. Estos tres conceptos forman la base de toda la disciplina.</p>
-
-<h3>Definiciones textuales (Kotler &amp; Keller, 2006)</h3>
-
-<div class="quote">
-  "Las <strong>necesidades</strong> son los requerimientos humanos basicos. Las personas necesitan alimentos, aire, agua, vestido y refugio para sobrevivir. Tambien tienen fuertes necesidades de ocio, educacion y entretenimiento."
-  <span class="q-author">Kotler y Keller (2006)</span>
-</div>
-
-<div class="quote">
-  "Estas necesidades se convierten en <strong>deseos</strong> cuando se dirigen a objetos especificos que podrian satisfacer esa necesidad. Un consumidor estadounidense necesita alimento pero desea una hamburguesa, papas fritas y un refresco. Una persona en Mauricio tambien necesita alimento pero desea un mango, arroz, lentejas y frijoles. Los deseos son <strong>moldeados por la sociedad</strong> en la que vivimos."
-  <span class="q-author">Kotler y Keller (2006)</span>
-</div>
-
-<div class="quote">
-  "Las <strong>demandas</strong> son deseos de productos especificos que estan <strong>respaldados por una capacidad de pago</strong>. Muchas personas desean un Mercedes; solo unas pocas pueden y estan dispuestas a comprarlo. Las empresas deben medir no solo <strong>cuantas</strong> personas desean su producto, sino <strong>cuantas estarian dispuestas a comprarlo y podrian hacerlo</strong>."
-  <span class="q-author">Kotler y Keller (2006)</span>
-</div>
-
-<div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
-  <div class="card" style="border-left:4px solid var(--red)">
-    <h4><i data-lucide="alert-circle" style="width:16px;height:16px;vertical-align:-3px"></i> Necesidad</h4>
-    <p><strong>Estado de privacion o carencia</strong> que siente una persona. Es <strong>innata</strong>: el marketing NO las crea, ya existen en el ser humano.</p>
-    <p style="font-size:.9em;color:var(--muted)"><em>Ej: hambre, sed, abrigo, seguridad, pertenencia.</em></p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--amber)">
-    <h4><i data-lucide="lightbulb" style="width:16px;height:16px;vertical-align:-3px"></i> Deseo</h4>
-    <p>La <strong>forma concreta</strong> que toma una necesidad segun la <strong>cultura, personalidad y contexto</strong> de la persona. <strong>Se moldean</strong> culturalmente; el marketing influye aca.</p>
-    <p style="font-size:.9em;color:var(--muted)"><em>Ej: misma hambre &rarr; en Argentina deseo empanada, en Japon deseo sushi.</em></p>
-  </div>
-  <div class="card" style="border-left:4px solid var(--green)">
-    <h4><i data-lucide="shopping-cart" style="width:16px;height:16px;vertical-align:-3px"></i> Demanda</h4>
-    <p>Deseo respaldado por el <strong>poder adquisitivo</strong> (plata para pagarlo) y la <strong>decision de compra</strong>. Es el deseo que se vuelve cliente real.</p>
-    <p style="font-size:.9em;color:var(--muted)"><em>Ej: deseo un iPhone (deseo) + tengo la plata (demanda).</em></p>
-  </div>
-</div>
-
-<div class="alert alert-info"><div class="at"><i data-lucide="lightbulb" style="width:14px;height:14px"></i> LA CADENA</div>
-<p><strong>Necesidad</strong> (innata) &rarr; <strong>Deseo</strong> (moldeado por cultura) &rarr; <strong>Demanda</strong> (deseo + poder adquisitivo + decision).</p>
-<p style="margin-top:6px">Muchas personas tienen el deseo de un Ferrari, pero pocas lo <strong>demandan</strong> realmente porque no pueden pagarlo.</p>
-</div>
-
-<div class="alert alert-warn"><div class="at"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> PREGUNTA CLASICA DE PARCIAL</div>
-<p>&iquest;El marketing <strong>crea</strong> las necesidades? <strong>NO</strong>. Las necesidades son innatas, ya existen. El marketing <strong>detecta</strong> necesidades existentes, <strong>moldea deseos</strong> hacia productos concretos y <strong>activa demanda</strong> convirtiendo deseos en clientes.</p>
-</div>
-
-<div class="example-box"><div class="et">Ejemplo aplicado: una persona con hambre</div>
-<ul style="margin-left:22px">
-<li><strong>Necesidad:</strong> hambre (sensacion fisica de privacion de comida).</li>
-<li><strong>Deseo:</strong> pizza de mozzarella (eleccion cultural; otra persona podria desear sushi o milanesa).</li>
-<li><strong>Demanda:</strong> tiene $5000 para pagar la pizza y decide comprarla.</li>
-</ul>
-</div>
-
-<h3>Los 8 estados de la demanda (Kotler)</h3>
-<p>Kotler identifica <strong>8 estados posibles</strong> en los que puede estar la demanda, y para cada uno el marketing tiene una tarea especifica:</p>
-
-<table>
-<tr><th>Estado de la demanda</th><th>Situacion</th><th>Tarea del marketing</th></tr>
-<tr><td><strong>1. Demanda negativa</strong></td><td>A los consumidores les disgusta el producto (vacunas, tratamiento dental)</td><td>Analizar por que, intentar cambiar creencias (<strong>marketing conversional</strong>)</td></tr>
-<tr><td><strong>2. Demanda inexistente</strong></td><td>Los consumidores no conocen o no se interesan por el producto</td><td>Conectar los beneficios del producto con las necesidades del consumidor (<strong>marketing estimulante</strong>)</td></tr>
-<tr><td><strong>3. Demanda latente</strong></td><td>Existe una necesidad fuerte que ningun producto cubre todavia</td><td>Medir el tamaño del mercado y desarrollar un producto (<strong>marketing de desarrollo</strong>)</td></tr>
-<tr><td><strong>4. Demanda decreciente</strong></td><td>La demanda de un producto esta cayendo</td><td>Revertir la tendencia con reposicionamiento (<strong>re-marketing</strong>)</td></tr>
-<tr><td><strong>5. Demanda irregular</strong></td><td>Demanda varia por temporada / dia / hora (transporte, hoteles)</td><td>Alinear oferta y demanda con precios y promociones (<strong>sincromarketing</strong>)</td></tr>
-<tr><td><strong>6. Demanda plena</strong></td><td>La empresa esta satisfecha con el volumen de ventas</td><td>Mantener el nivel frente a competencia (<strong>mantenimiento</strong>)</td></tr>
-<tr><td><strong>7. Demanda excesiva</strong></td><td>Hay mas consumidores de los que la empresa puede / quiere atender</td><td>Reducir temporal o permanentemente la demanda (<strong>desmarketing</strong>)</td></tr>
-<tr><td><strong>8. Demanda indeseable</strong></td><td>Producto socialmente daniño (tabaco, armas, drogas)</td><td>Intentar que los consumidores dejen de consumirlo (<strong>contra-marketing</strong>)</td></tr>
-</table>
 
 
-<h3><i data-lucide="check-square" style="width:18px;height:18px;vertical-align:-3px"></i> Mini-quiz: Necesidad, deseo y demanda</h3>
-<div class="q" data-mc="b">
-  <div class="q-stem">1. El marketing <strong>crea</strong> las necesidades humanas.</div>
-  <div class="q-opts">
-    <label><input type="radio" name="q-ndd-1" value="a"> a) Verdadero</label>
-    <label><input type="radio" name="q-ndd-1" value="b"> b) Falso &mdash; las necesidades son innatas; el marketing las detecta y moldea deseos</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>FALSO. Las necesidades (hambre, seguridad, pertenencia) son innatas al ser humano. El marketing las <em>detecta</em>, y despues influye sobre los <em>deseos</em> (en que producto concreto la persona va a buscar satisfacerla).</p></details>
-</div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">2. La diferencia entre <strong>deseo</strong> y <strong>demanda</strong> es:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="q-ndd-2" value="a"> a) El deseo es mas intenso que la demanda</label>
-    <label><input type="radio" name="q-ndd-2" value="b"> b) La demanda es un deseo respaldado por <strong>poder adquisitivo</strong> y decision de compra</label>
-    <label><input type="radio" name="q-ndd-2" value="c"> c) La demanda se siente, el deseo se compra</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>Correcta <strong>b</strong>. Tenes deseo de muchas cosas, pero solo se vuelve demanda cuando tenes plata y decis comprarlo.</p></details>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">3. Juan tiene sed en el desierto y quiere una Coca Cola fria. &iquest;Que es la <strong>sed</strong>?</div>
-  <div class="q-opts">
-    <label><input type="radio" name="q-ndd-3" value="a"> a) Una demanda</label>
-    <label><input type="radio" name="q-ndd-3" value="b"> b) Un deseo</label>
-    <label><input type="radio" name="q-ndd-3" value="c"> c) Una necesidad</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>Correcta <strong>c</strong>. La <strong>sed</strong> es la necesidad innata (privacion). La <strong>Coca Cola fria</strong> es el deseo (forma cultural que adopta). Si Juan tiene plata y decide comprarla &rarr; se vuelve demanda.</p></details>
-</div>
 
-<div class="q" data-mc="a">
-  <div class="q-stem">4. Dos personas tienen hambre. Una quiere un choripan, otra un temaki roll. Esto muestra que las <strong>necesidades</strong> son iguales pero los <strong>deseos</strong> se moldean por la cultura.</div>
-  <div class="q-opts">
-    <label><input type="radio" name="q-ndd-4" value="a"> a) Verdadero</label>
-    <label><input type="radio" name="q-ndd-4" value="b"> b) Falso</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>VERDADERO. Misma necesidad (hambre), distintos deseos segun cultura/preferencia personal. Ese es exactamente el punto de la distincion Kotler.</p></details>
-</div>
+
 
 </div></div>
 
@@ -668,8 +345,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <span class="source-tag romero">Notas clase Romero C03</span>
 </div>
 
-<div class="topic-progress"><div class="fill"></div></div>
-<div class="topic-progress-label"><span>&mdash;</span><span>0%</span></div>
+
 
 <div class="alert alert-info"><div class="at"><i data-lucide="book-marked" style="width:14px;height:14px"></i> DEFINICION (Kotler y Armstrong, 2007)</div>
 <p>La <strong>mezcla de marketing</strong> es un conjunto de variables o herramientas controlables que se combinan para lograr un determinado resultado en el <strong>mercado meta</strong>, como influir positivamente en la demanda, generar ventas, entre otros.</p>
@@ -720,105 +396,11 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 
 <h3><i data-lucide="layers" style="width:18px;height:18px;vertical-align:-3px"></i> Flashcards &mdash; toca para voltear</h3>
-<div class="flashcards">
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">La P que...</div>Genera ingresos</div>
-    <div class="flashcard-back"><strong>Precio</strong><br>Es la unica P que genera ingresos. Las otras son costos.</div>
-  </div></div>
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">Subvariable de</div>Marca</div>
-    <div class="flashcard-back"><strong>Producto</strong><br>Junto con calidad, aspecto, empaque, tamaño, servicios y garantias.</div>
-  </div></div>
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">Pertenece a</div>Canales de distribucion</div>
-    <div class="flashcard-back"><strong>Plaza</strong><br>Junto con cobertura, localizacion, inventario y logistica.</div>
-  </div></div>
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">Tipo de comunicacion</div>Sin intermediarios</div>
-    <div class="flashcard-back"><strong>Marketing directo</strong><br>Email, telemarketing, catalogos. Llega directo al cliente.</div>
-  </div></div>
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">Tipo de comunicacion</div>Incentivo corto plazo</div>
-    <div class="flashcard-back"><strong>Promocion de venta</strong><br>2x1, descuentos, muestras gratis, demostraciones.</div>
-  </div></div>
-  <div class="flashcard"><div class="flashcard-inner">
-    <div class="flashcard-front"><div class="fc-label">Año clave</div>Las 4 P's fueron sistematizadas en...</div>
-    <div class="flashcard-back"><strong>1960</strong> - Jerome McCarthy<br>Las agrupo en "Basic Marketing: A Managerial Approach".</div>
-  </div></div>
-</div>
 
-<div class="dnd" id="dnd-4ps">
-  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica cada ejemplo en la P correcta (toca y arrastra)</div>
-  <div class="dnd-pool" data-cat="pool">
-    <div class="dnd-item" data-cat="producto">Garantia de 1 año</div>
-    <div class="dnd-item" data-cat="precio">Descuento del 20%</div>
-    <div class="dnd-item" data-cat="plaza">Local en shopping</div>
-    <div class="dnd-item" data-cat="promocion">Aviso en Instagram</div>
-    <div class="dnd-item" data-cat="producto">Diseño del empaque</div>
-    <div class="dnd-item" data-cat="precio">Pago en 12 cuotas</div>
-    <div class="dnd-item" data-cat="plaza">Envio a domicilio</div>
-    <div class="dnd-item" data-cat="promocion">Muestra gratis en supermercado</div>
-  </div>
-  <div class="dnd-targets">
-    <div class="dnd-target" data-cat="producto"><span class="dnd-target-label"><i data-lucide="package" style="width:14px;height:14px;vertical-align:-2px"></i> Producto</span></div>
-    <div class="dnd-target" data-cat="precio"><span class="dnd-target-label"><i data-lucide="dollar-sign" style="width:14px;height:14px;vertical-align:-2px"></i> Precio</span></div>
-    <div class="dnd-target" data-cat="plaza"><span class="dnd-target-label"><i data-lucide="truck" style="width:14px;height:14px;vertical-align:-2px"></i> Plaza</span></div>
-    <div class="dnd-target" data-cat="promocion"><span class="dnd-target-label"><i data-lucide="megaphone" style="width:14px;height:14px;vertical-align:-2px"></i> Promocion</span></div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
-    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: 4 P's</div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">1. &iquest;Cual de las 4 P's es la unica que <strong>genera ingresos</strong>?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-4ps-1" value="a"> a) Producto</label>
-      <label><input type="radio" name="q-4ps-1" value="b"> b) Precio</label>
-      <label><input type="radio" name="q-4ps-1" value="c"> c) Plaza</label>
-      <label><input type="radio" name="q-4ps-1" value="d"> d) Promocion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="c">
-    <div class="q-stem">2. Un 2x1 en supermercado es un ejemplo de:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-4ps-2" value="a"> a) Publicidad</label>
-      <label><input type="radio" name="q-4ps-2" value="b"> b) Relaciones publicas</label>
-      <label><input type="radio" name="q-4ps-2" value="c"> c) Promocion de venta</label>
-      <label><input type="radio" name="q-4ps-2" value="d"> d) Marketing directo</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q">
-    <div class="q-stem">3. Las 4 P's son variables <strong>controlables</strong> de la empresa. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. La <strong>marca</strong> es una subvariable de qué P?</div>
-    <div class="q-in"><input class="vld" data-a="producto|p de producto|product" data-t="text" placeholder="Producto / Precio / Plaza / Promocion"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">5. &iquest;Cual elemento de la mezcla de comunicacion NO tiene intermediarios?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-4ps-5" value="a"> a) Publicidad</label>
-      <label><input type="radio" name="q-4ps-5" value="b"> b) Venta personal</label>
-      <label><input type="radio" name="q-4ps-5" value="c"> c) Relaciones publicas</label>
-      <label><input type="radio" name="q-4ps-5" value="d"> d) Marketing directo</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -900,86 +482,11 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <p>Al definir la mision de tu empresa, preguntate: <strong>&iquest;Que necesidad estoy satisfaciendo?</strong> (no "que producto hago"). Asi identificas a tu competencia real.</p>
 </div>
 
-<div class="case-study">
-  <div class="case-title"><i data-lucide="book" style="width:18px;height:18px"></i> Caso real: Kodak vs los smartphones</div>
-  <div class="case-scenario">
-    <strong>Los hechos:</strong> Kodak fue la empresa dominante de la fotografia durante casi 100 años. En su apogeo tenia el 90% del mercado de rollos en EEUU. En 1975 <strong>Kodak invento la primera camara digital</strong> pero la archivo por miedo a canibalizar su negocio de rollos. Para 2012 se declaro en quiebra. &iquest;Por que?
-  </div>
-  <div class="q" data-mc="c">
-    <div class="q-stem">&iquest;Cual fue el error clave de Kodak?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-kodak-1" value="a"> a) Falto de capital para investigar</label>
-      <label><input type="radio" name="case-kodak-1" value="b"> b) No tenia buenos empleados</label>
-      <label><input type="radio" name="case-kodak-1" value="c"> c) Definio su negocio como "hacer rollos" en vez de "preservar recuerdos"</label>
-      <label><input type="radio" name="case-kodak-1" value="d"> d) Tenia demasiada competencia china</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-  <div class="q" data-mc="b">
-    <div class="q-stem">Si hubieras sido CEO de Kodak en el 2000, &iquest;que mision habrias elegido?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-kodak-2" value="a"> a) "Somos lideres en produccion de rollos fotograficos"</label>
-      <label><input type="radio" name="case-kodak-2" value="b"> b) "Ayudamos a las personas a preservar e inmortalizar sus recuerdos mas importantes"</label>
-      <label><input type="radio" name="case-kodak-2" value="c"> c) "Vendemos camaras de alta gama al mercado profesional"</label>
-      <label><input type="radio" name="case-kodak-2" value="d"> d) "Somos la empresa mas grande de quimicos fotograficos"</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-</div>
 
-<div class="case-study">
-  <div class="case-title"><i data-lucide="film" style="width:18px;height:18px"></i> Caso real: Blockbuster vs Netflix</div>
-  <div class="case-scenario">
-    <strong>Los hechos:</strong> Blockbuster era la cadena de alquiler de VHS y DVDs mas grande del mundo. En <strong>2000 Netflix se le ofrecio en venta por US$50 millones</strong> y Blockbuster se rio. Blockbuster se declaro en quiebra en 2010. Netflix hoy vale mas de US$200.000 millones.
-  </div>
-  <div class="q" data-mc="b">
-    <div class="q-stem">&iquest;Cual era el verdadero negocio que deberian haber identificado?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-block-1" value="a"> a) Alquiler fisico de peliculas</label>
-      <label><input type="radio" name="case-block-1" value="b"> b) Entretenimiento audiovisual en el hogar</label>
-      <label><input type="radio" name="case-block-1" value="c"> c) Compra de derechos de peliculas</label>
-      <label><input type="radio" name="case-block-1" value="d"> d) Fabricacion de DVDs</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Miopia del Marketing</div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">1. &iquest;Quien acuñó el concepto de miopia del marketing?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-mio-1" value="a"> a) Philip Kotler</label>
-      <label><input type="radio" name="q-mio-1" value="b"> b) Theodore Levitt</label>
-      <label><input type="radio" name="q-mio-1" value="c"> c) Peter Drucker</label>
-      <label><input type="radio" name="q-mio-1" value="d"> d) Michael Porter</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q">
-    <div class="q-stem">2. La miopia del marketing consiste en definir el negocio por <strong>el producto</strong> y no por la <strong>necesidad</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
 
-  <div class="q">
-    <div class="q-stem">3. Una empresa miope detecta facilmente a sus competidores de otras industrias. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Justamente eso es la miopia: solo ve competidores que fabrican lo mismo y <strong>no</strong> detecta sustitutos de otras industrias.</p></details>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. Si Kodak hubiera definido su negocio como "inmortalizar imagenes" (no como fotografia analogica), habria podido detectar la amenaza del celular. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">5. Segun la mirada correcta, &iquest;cual seria el negocio real de "la industria de los ferrocarriles"? (1 palabra)</div>
-    <div class="q-in"><input class="vld" data-a="transporte" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -1379,47 +886,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </ul>
 </div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Evolucion del Marketing</div>
 
-  <div class="q" data-mc="a">
-    <div class="q-stem">1. &iquest;Que enfoque de Kotler corresponde al momento historico donde demanda &gt; oferta?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-evo-1" value="a"> a) Produccion</label>
-      <label><input type="radio" name="q-evo-1" value="b"> b) Ventas</label>
-      <label><input type="radio" name="q-evo-1" value="c"> c) Marketing</label>
-      <label><input type="radio" name="q-evo-1" value="d"> d) Holistico</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">2. El enfoque "de organizacion" de Lambin equivale al enfoque de <strong>ventas</strong> de Kotler. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. El marketing holistico tiene 4 componentes: integrado, interno, relacional y _______.</div>
-    <div class="q-in"><input class="vld" data-a="social|societal" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">4. &iquest;Que era de marketing pone el centro en la <strong>tecnologia (IA, Big Data)</strong>?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-evo-4" value="a"> a) 2.0</label>
-      <label><input type="radio" name="q-evo-4" value="b"> b) 3.0</label>
-      <label><input type="radio" name="q-evo-4" value="c"> c) 4.0</label>
-      <label><input type="radio" name="q-evo-4" value="d"> d) 5.0</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">5. Segun Lambin, el enfoque de "marketing salvaje" (venta forzada, publicidad engañosa) es <strong>autodestructor</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -1515,73 +982,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   Ni el micro ni el macro son controlables. La empresa <strong>solo controla el entorno interno</strong> (RRHH, produccion, marketing, finanzas, administracion) y las <strong>4 P's</strong>.</p>
 </div>
 
-<div class="dnd" id="dnd-entornos">
-  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Arrastra cada elemento a microentorno o macroentorno</div>
-  <div class="dnd-pool" data-cat="pool">
-    <div class="dnd-item" data-cat="micro">Proveedor de materia prima</div>
-    <div class="dnd-item" data-cat="macro">Inflacion anual</div>
-    <div class="dnd-item" data-cat="micro">Distribuidor minorista</div>
-    <div class="dnd-item" data-cat="macro">Nueva ley de etiquetado</div>
-    <div class="dnd-item" data-cat="macro">Avance de la IA</div>
-    <div class="dnd-item" data-cat="micro">Competencia directa (Coca vs Pepsi)</div>
-    <div class="dnd-item" data-cat="macro">Cambio climatico</div>
-    <div class="dnd-item" data-cat="micro">Consumidor final</div>
-    <div class="dnd-item" data-cat="macro">Envejecimiento de la poblacion</div>
-  </div>
-  <div class="dnd-targets">
-    <div class="dnd-target" data-cat="micro"><span class="dnd-target-label"><i data-lucide="zoom-in" style="width:14px;height:14px;vertical-align:-2px"></i> Microentorno</span></div>
-    <div class="dnd-target" data-cat="macro"><span class="dnd-target-label"><i data-lucide="globe" style="width:14px;height:14px;vertical-align:-2px"></i> Macroentorno</span></div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
-    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Entornos</div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">1. La inflacion pertenece a &iquest;que entorno?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ent-1" value="a"> a) Micro</label>
-      <label><input type="radio" name="q-ent-1" value="b"> b) Macro (economico)</label>
-      <label><input type="radio" name="q-ent-1" value="c"> c) Interno</label>
-      <label><input type="radio" name="q-ent-1" value="d"> d) No es parte del entorno</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="c">
-    <div class="q-stem">2. La competencia Coca vs Pepsi es un ejemplo de competencia de:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ent-2" value="a"> a) Necesidades</label>
-      <label><input type="radio" name="q-ent-2" value="b"> b) Producto</label>
-      <label><input type="radio" name="q-ent-2" value="c"> c) Marca (la mas intensa)</label>
-      <label><input type="radio" name="q-ent-2" value="d"> d) Genero</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. Los proveedores pertenecen al <strong>microentorno</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. La empresa <strong>controla</strong> el macroentorno. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>La empresa <strong>no controla</strong> ni el micro ni el macroentorno. Solo controla el entorno interno y las 4 P's.</p></details>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">5. &iquest;Que tipo de mercado tiene <strong>demanda derivada</strong>?</div>
-    <div class="q-in"><input class="vld" data-a="industrial|organizacional|mercado industrial|mercado organizacional" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>El <strong>mercado industrial</strong>: existe porque hay demanda de consumo detras.</p></details>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -1653,32 +1056,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 
 <img src="img/gafas-producto.png" alt="Producto" class="illust sm" onclick="openLightbox(this)">
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Clases de Mercado</div>
 
-  <div class="q">
-    <div class="q-stem">1. El mercado industrial tiene <strong>demanda inelastica</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">2. &iquest;En que mercado hay generalmente <strong>pocos compradores y gran volumen</strong>?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-mer-2" value="a"> a) Mercado de consumo</label>
-      <label><input type="radio" name="q-mer-2" value="b"> b) Mercado industrial</label>
-      <label><input type="radio" name="q-mer-2" value="c"> c) Ambos por igual</label>
-      <label><input type="radio" name="q-mer-2" value="d"> d) Ninguno</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. La compra en el mercado industrial suele ser mas <strong>emocional</strong> que en el de consumo. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Al reves: el industrial compra <strong>racional</strong> (evaluando costo, especificaciones, contratos). El consumo puede ser mas emocional.</p></details>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -1797,43 +1175,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Estrategico vs Operativo</div>
 
-  <div class="q" data-mc="a">
-    <div class="q-stem">1. Segmentar el mercado es una tarea del marketing:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-eo-1" value="a"> a) Estrategico</label>
-      <label><input type="radio" name="q-eo-1" value="b"> b) Operativo</label>
-      <label><input type="radio" name="q-eo-1" value="c"> c) Pasivo</label>
-      <label><input type="radio" name="q-eo-1" value="d"> d) De organizacion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">2. Las 4 P's son el corazon de:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-eo-2" value="a"> a) Marketing estrategico</label>
-      <label><input type="radio" name="q-eo-2" value="b"> b) Marketing operativo</label>
-      <label><input type="radio" name="q-eo-2" value="c"> c) Micromarketing</label>
-      <label><input type="radio" name="q-eo-2" value="d"> d) Marketing de servicios</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. El marketing operativo puede <strong>crear demanda donde no hay necesidad</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. El operativo solo trabaja sobre necesidades que ya existen. Detectarlas y activarlas es tarea del marketing <strong>estrategico</strong>.</p></details>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. El marketing estrategico opera en el <strong>corto plazo</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2027,60 +1369,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 </div>
 
 
-<div class="dnd sort-box">
-  <div class="dnd-title"><i data-lucide="arrow-up-down" style="width:18px;height:18px"></i> Ordena los 6 pasos del planeamiento estrategico</div>
-  <p style="font-size:.88em;color:var(--muted);margin:0 0 8px">Arrastra los items para ordenarlos. Toca "verificar" cuando creas que estan en orden.</p>
-  <ul class="sortable-list">
-    <li data-pos="4">Definir estrategia (como adaptarse al entorno)</li>
-    <li data-pos="1">Analisis de situacion (recopilar info de entornos)</li>
-    <li data-pos="6">Control (comparar resultados vs objetivos)</li>
-    <li data-pos="2">Diagnostico FODA</li>
-    <li data-pos="5">Implementacion (4 P's)</li>
-    <li data-pos="3">Definir objetivos</li>
-  </ul>
-  <div class="dnd-actions">
-    <button class="q-btn" onclick="checkSort(this)">Verificar orden</button>
-    <span class="dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Planeamiento Estrategico</div>
 
-  <div class="q" data-mc="c">
-    <div class="q-stem">1. &iquest;En que paso del planeamiento se definen las 4 P's?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-pla-1" value="a"> a) Analisis</label>
-      <label><input type="radio" name="q-pla-1" value="b"> b) Diagnostico</label>
-      <label><input type="radio" name="q-pla-1" value="c"> c) Implementacion</label>
-      <label><input type="radio" name="q-pla-1" value="d"> d) Control</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q">
-    <div class="q-stem">2. La <strong>mision</strong> define lo que la organizacion quiere <strong>llegar a ser</strong> en el futuro. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. La <strong>vision</strong> habla del futuro (SER). La <strong>mision</strong> es el presente (DAR).</p></details>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">3. &iquest;En que orden se ejecutan los pasos del planeamiento?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-pla-3" value="a"> a) Objetivos &rarr; FODA &rarr; Estrategia &rarr; 4 P's</label>
-      <label><input type="radio" name="q-pla-3" value="b"> b) Analisis &rarr; FODA &rarr; Objetivos &rarr; Estrategia &rarr; Implementacion &rarr; Control</label>
-      <label><input type="radio" name="q-pla-3" value="c"> c) Estrategia &rarr; Analisis &rarr; Objetivos &rarr; Control</label>
-      <label><input type="radio" name="q-pla-3" value="d"> d) FODA &rarr; 4 P's &rarr; Analisis &rarr; Control</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. Revlon diciendo "vendemos esperanza" en lugar de "hacemos cosmeticos" es un ejemplo de <strong>mision orientada al mercado</strong>. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2142,140 +1433,13 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <div class="mc4"><strong>DA &mdash; Sobrevivir</strong><br><small>Minimizar D y A. Precaria</small></div>
 </div>
 
-<div class="example-box">
-  <div class="et">Ejemplos</div>
-  <p><strong>FO:</strong> empresa con buena capacidad financiera (F) aprovecha que un competidor se retira (O) para expandirse.<br>
-  <strong>DA:</strong> empresa con baja calidad (D) y competencia agresiva (A) lucha por sobrevivir, quiza necesita fusionarse.</p>
-</div>
 
-<div class="dnd" id="dnd-foda">
-  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica cada situacion en F / O / D / A</div>
-  <div class="dnd-pool" data-cat="pool">
-    <div class="dnd-item" data-cat="F">Personal altamente capacitado</div>
-    <div class="dnd-item" data-cat="O">Un competidor grande se retiro del mercado</div>
-    <div class="dnd-item" data-cat="D">Maquinaria obsoleta</div>
-    <div class="dnd-item" data-cat="A">Aumento del costo de la energia</div>
-    <div class="dnd-item" data-cat="F">Patente exclusiva del producto</div>
-    <div class="dnd-item" data-cat="O">Cambio de habitos favorece tu producto</div>
-    <div class="dnd-item" data-cat="D">Alto nivel de endeudamiento</div>
-    <div class="dnd-item" data-cat="A">Nueva regulacion mas estricta</div>
-    <div class="dnd-item" data-cat="F">Ubicacion estrategica del local</div>
-    <div class="dnd-item" data-cat="O">Crecimiento del turismo en la zona</div>
-    <div class="dnd-item" data-cat="D">Falta de presencia digital</div>
-    <div class="dnd-item" data-cat="A">Devaluacion del 30% anual</div>
-  </div>
-  <div class="dnd-targets">
-    <div class="dnd-target" data-cat="F" style="border-color:var(--green)"><span class="dnd-target-label" style="color:var(--green)">F &mdash; Fortalezas (interno +)</span></div>
-    <div class="dnd-target" data-cat="O" style="border-color:var(--amber)"><span class="dnd-target-label" style="color:#d97706">O &mdash; Oportunidades (externo +)</span></div>
-    <div class="dnd-target" data-cat="D" style="border-color:var(--red)"><span class="dnd-target-label" style="color:var(--red)">D &mdash; Debilidades (interno -)</span></div>
-    <div class="dnd-target" data-cat="A" style="border-color:var(--blue)"><span class="dnd-target-label" style="color:var(--blue)">A &mdash; Amenazas (externo -)</span></div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
-    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="case-study">
-  <div class="case-title"><i data-lucide="store" style="width:18px;height:18px"></i> Caso: Kiosco "La Esquinita"</div>
-  <div class="case-scenario">
-    <strong>Escenario:</strong> Maria tiene un kiosco en una esquina concurrida del centro. Vende productos de primera necesidad, golosinas y bebidas. Tiene 15 años de antigüedad y conocimiento de sus clientes. Recientemente abrio un supermercado express a 2 cuadras. La inflacion impacta sus costos pero sus clientes siguen siendo leales.
-  </div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">&iquest;Cual es una FORTALEZA del kiosco?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-foda-1" value="a"> a) Inflacion que le impacta los costos</label>
-      <label><input type="radio" name="case-foda-1" value="b"> b) 15 años de antigüedad y clientes leales</label>
-      <label><input type="radio" name="case-foda-1" value="c"> c) El nuevo supermercado a 2 cuadras</label>
-      <label><input type="radio" name="case-foda-1" value="d"> d) Poca competencia digital</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="c">
-    <div class="q-stem">&iquest;Cual es una AMENAZA?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-foda-2" value="a"> a) Su ubicacion estrategica</label>
-      <label><input type="radio" name="case-foda-2" value="b"> b) Sus clientes leales</label>
-      <label><input type="radio" name="case-foda-2" value="c"> c) El nuevo supermercado que abrio cerca</label>
-      <label><input type="radio" name="case-foda-2" value="d"> d) Su antigüedad en el barrio</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="d">
-    <div class="q-stem">&iquest;Que estrategia cruzada se adapta mejor al caso (supermercado nuevo + clientela leal)?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="case-foda-3" value="a"> a) DA (sobrevivir)</label>
-      <label><input type="radio" name="case-foda-3" value="b"> b) DO (movilizar)</label>
-      <label><input type="radio" name="case-foda-3" value="c"> c) FO (atacar)</label>
-      <label><input type="radio" name="case-foda-3" value="d"> d) FA (defender: usar la lealtad para reducir el impacto del nuevo competidor)</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: FODA</div>
 
-  <div class="q" data-mc="c">
-    <div class="q-stem">1. "Los costos bajos de la empresa" es una:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-foda-1" value="a"> a) Debilidad</label>
-      <label><input type="radio" name="q-foda-1" value="b"> b) Oportunidad</label>
-      <label><input type="radio" name="q-foda-1" value="c"> c) Fortaleza</label>
-      <label><input type="radio" name="q-foda-1" value="d"> d) Amenaza</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">2. "Inflacion del 200% anual" es una:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-foda-2" value="a"> a) Fortaleza</label>
-      <label><input type="radio" name="q-foda-2" value="b"> b) Oportunidad</label>
-      <label><input type="radio" name="q-foda-2" value="c"> c) Debilidad</label>
-      <label><input type="radio" name="q-foda-2" value="d"> d) Amenaza</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">3. Segun Romero, "podria aumentar la competencia" es una amenaza valida del FODA. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. La regla de Romero: el FODA debe ser real/concreto. "Podria" implica posibilidad futura, no un hecho actual.</p></details>
-  </div>
-
-  <div class="q" data-mc="a">
-    <div class="q-stem">4. &iquest;Que estrategia cruzada combina <strong>Fortalezas con Oportunidades</strong>?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-foda-4" value="a"> a) FO - atacar (ideal)</label>
-      <label><input type="radio" name="q-foda-4" value="b"> b) DO - movilizar</label>
-      <label><input type="radio" name="q-foda-4" value="c"> c) FA - defender</label>
-      <label><input type="radio" name="q-foda-4" value="d"> d) DA - sobrevivir</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">5. La estrategia <strong>mas precaria</strong> del cruce FODA es:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-foda-5" value="a"> a) FO</label>
-      <label><input type="radio" name="q-foda-5" value="b"> b) DO</label>
-      <label><input type="radio" name="q-foda-5" value="c"> c) FA</label>
-      <label><input type="radio" name="q-foda-5" value="d"> d) DA</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">6. Las <strong>Oportunidades</strong> pertenecen al entorno interno. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2312,48 +1476,7 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <p>Ningun producto satisface a todos por igual. Al segmentar puedes: (1) afinar la propuesta, (2) usar el presupuesto de mkt eficientemente, (3) posicionarte mejor en un grupo definido.</p>
 </div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Segmentacion</div>
 
-  <div class="q" data-mc="a">
-    <div class="q-stem">1. "Mujeres de 25 a 35 años, clase media" es segmentacion:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-seg-1" value="a"> a) Demografica</label>
-      <label><input type="radio" name="q-seg-1" value="b"> b) Geografica</label>
-      <label><input type="radio" name="q-seg-1" value="c"> c) Psicografica</label>
-      <label><input type="radio" name="q-seg-1" value="d"> d) Conductual</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="c">
-    <div class="q-stem">2. "Consumidores ecologicos que priorizan productos sustentables" es segmentacion:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-seg-2" value="a"> a) Demografica</label>
-      <label><input type="radio" name="q-seg-2" value="b"> b) Geografica</label>
-      <label><input type="radio" name="q-seg-2" value="c"> c) Psicografica</label>
-      <label><input type="radio" name="q-seg-2" value="d"> d) Conductual</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">3. "Clientes sensibles al precio" es segmentacion:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-seg-3" value="a"> a) Demografica</label>
-      <label><input type="radio" name="q-seg-3" value="b"> b) Geografica</label>
-      <label><input type="radio" name="q-seg-3" value="c"> c) Psicografica</label>
-      <label><input type="radio" name="q-seg-3" value="d"> d) Conductual</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">4. Segmentar permite afinar la propuesta de valor para cada subgrupo. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2379,78 +1502,14 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <p>Se logra <strong>asociando la marca a una cualidad</strong> que evoque el recuerdo. Una sola idea, clara y fuerte.</p>
 </div>
 
-<div class="example-box">
-  <div class="et">Ejemplos</div>
-  <ul>
-    <li><strong>Volvo</strong> &rarr; seguridad</li>
-    <li><strong>Ferrari</strong> &rarr; velocidad / lujo deportivo</li>
-    <li><strong>Red Bull</strong> &rarr; energia</li>
-    <li><strong>Coca-Cola</strong> &rarr; felicidad</li>
-    <li><strong>Apple</strong> &rarr; diseño / innovacion</li>
-  </ul>
-</div>
+
 
 <h3>Relacion con la segmentacion</h3>
 <p>Segmentacion y posicionamiento van <strong>juntos</strong>: <strong>primero se segmenta</strong>, <strong>luego se posiciona</strong> en el segmento elegido. Ambos determinan el <strong>marketing mix</strong> (4 P's).</p>
 
-<div class="match" id="match-pos">
-  <div class="dnd-title"><i data-lucide="link" style="width:18px;height:18px"></i> Emparejar marca con su posicionamiento (toca una de cada columna)</div>
-  <div class="match-grid">
-    <div class="match-col">
-      <div class="match-item" data-col="A" data-pair="volvo">Volvo</div>
-      <div class="match-item" data-col="A" data-pair="ferrari">Ferrari</div>
-      <div class="match-item" data-col="A" data-pair="redbull">Red Bull</div>
-      <div class="match-item" data-col="A" data-pair="cocacola">Coca-Cola</div>
-      <div class="match-item" data-col="A" data-pair="apple">Apple</div>
-      <div class="match-item" data-col="A" data-pair="nike">Nike</div>
-    </div>
-    <div class="match-col">
-      <div class="match-item" data-col="B" data-pair="apple">Diseño e innovacion</div>
-      <div class="match-item" data-col="B" data-pair="volvo">Seguridad</div>
-      <div class="match-item" data-col="B" data-pair="cocacola">Felicidad</div>
-      <div class="match-item" data-col="B" data-pair="ferrari">Lujo deportivo / velocidad</div>
-      <div class="match-item" data-col="B" data-pair="nike">Just do it / superacion deportiva</div>
-      <div class="match-item" data-col="B" data-pair="redbull">Energia</div>
-    </div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-reset" onclick="resetMatch(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="match-feedback dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Posicionamiento</div>
 
-  <div class="q">
-    <div class="q-stem">1. El posicionamiento es un lugar <strong>fisico</strong> en el punto de venta donde esta ubicado el producto. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-    <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. El posicionamiento es un lugar <strong>en la mente</strong> del consumidor, no fisico.</p></details>
-  </div>
 
-  <div class="q" data-mc="a">
-    <div class="q-stem">2. Volvo se posiciona asociada a:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-pos-2" value="a"> a) Seguridad</label>
-      <label><input type="radio" name="q-pos-2" value="b"> b) Velocidad</label>
-      <label><input type="radio" name="q-pos-2" value="c"> c) Precio bajo</label>
-      <label><input type="radio" name="q-pos-2" value="d"> d) Lujo deportivo</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">3. &iquest;Que va primero?</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-pos-3" value="a"> a) Posicionamiento &rarr; Segmentacion</label>
-      <label><input type="radio" name="q-pos-3" value="b"> b) Segmentacion &rarr; Posicionamiento</label>
-      <label><input type="radio" name="q-pos-3" value="c"> c) Van en paralelo y son independientes</label>
-      <label><input type="radio" name="q-pos-3" value="d"> d) Ninguno, primero las 4 P's</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2513,85 +1572,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
   <p>Corporativa (CEO / directorio) &rarr; UEN (gerente de unidad / Porter) &rarr; Funcional (gerentes de area / 4 P's). Cada nivel se apoya en el anterior.</p>
 </div>
 
-<div class="match" id="match-porter">
-  <div class="dnd-title"><i data-lucide="link" style="width:18px;height:18px"></i> Empareja empresa con su estrategia generica de Porter</div>
-  <div class="match-grid">
-    <div class="match-col">
-      <div class="match-item" data-col="A" data-pair="walmart">Walmart</div>
-      <div class="match-item" data-col="A" data-pair="zara">Zara</div>
-      <div class="match-item" data-col="A" data-pair="apple">Apple</div>
-      <div class="match-item" data-col="A" data-pair="rolex">Rolex</div>
-      <div class="match-item" data-col="A" data-pair="ferrari">Ferrari</div>
-      <div class="match-item" data-col="A" data-pair="mercedes">Mercedes-Benz</div>
-    </div>
-    <div class="match-col">
-      <div class="match-item" data-col="B" data-pair="walmart">Liderazgo en costos (masivo)</div>
-      <div class="match-item" data-col="B" data-pair="apple">Diferenciacion por diseño</div>
-      <div class="match-item" data-col="B" data-pair="rolex">Enfoque en el segmento de lujo</div>
-      <div class="match-item" data-col="B" data-pair="zara">Liderazgo en costos (moda rapida)</div>
-      <div class="match-item" data-col="B" data-pair="ferrari">Enfoque en deportivos de alta gama</div>
-      <div class="match-item" data-col="B" data-pair="mercedes">Diferenciacion por prestigio y calidad</div>
-    </div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-reset" onclick="resetMatch(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="match-feedback dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Estrategias</div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">1. Las 3 estrategias genericas de Porter son liderazgo en costos, diferenciacion y:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-est-1" value="a"> a) Penetracion</label>
-      <label><input type="radio" name="q-est-1" value="b"> b) Enfoque (concentracion)</label>
-      <label><input type="radio" name="q-est-1" value="c"> c) Diversificacion</label>
-      <label><input type="radio" name="q-est-1" value="d"> d) Consolidacion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">2. Apple con diseño e innovacion como valor diferencial aplica:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-est-2" value="a"> a) Liderazgo en costos</label>
-      <label><input type="radio" name="q-est-2" value="b"> b) Diferenciacion</label>
-      <label><input type="radio" name="q-est-2" value="c"> c) Enfoque</label>
-      <label><input type="radio" name="q-est-2" value="d"> d) Expansion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="c">
-    <div class="q-stem">3. Zara y Walmart con enfasis en bajos costos aplican:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-est-3" value="a"> a) Enfoque</label>
-      <label><input type="radio" name="q-est-3" value="b"> b) Diferenciacion</label>
-      <label><input type="radio" name="q-est-3" value="c"> c) Liderazgo en costos</label>
-      <label><input type="radio" name="q-est-3" value="d"> d) Penetracion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="a">
-    <div class="q-stem">4. La <strong>Matriz de Ansoff</strong> se usa en el nivel:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-est-4" value="a"> a) Corporativo</label>
-      <label><input type="radio" name="q-est-4" value="b"> b) UEN</label>
-      <label><input type="radio" name="q-est-4" value="c"> c) Funcional</label>
-      <label><input type="radio" name="q-est-4" value="d"> d) Operativo</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">5. La segmentacion y posicionamiento son tareas del nivel <strong>funcional</strong> (marketing). (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2638,95 +1621,9 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 <tr><td><strong>Conglomerada</strong></td><td>Productos sin relacion, <strong>no hay sinergia</strong></td><td>Amazon entra a supermercados fisicos</td></tr>
 </table>
 
-<div class="dnd" id="dnd-ansoff">
-  <div class="dnd-title"><i data-lucide="move" style="width:18px;height:18px"></i> Clasifica las acciones en la matriz de Ansoff</div>
-  <div class="dnd-pool" data-cat="pool">
-    <div class="dnd-item" data-cat="pen">Supermercado ofrece tarjeta de fidelidad a clientes habituales</div>
-    <div class="dnd-item" data-cat="dm">Netflix llega a un nuevo pais</div>
-    <div class="dnd-item" data-cat="dp">McDonald's lanza linea vegetariana</div>
-    <div class="dnd-item" data-cat="div">Virgin (musica) lanza aerolinea</div>
-    <div class="dnd-item" data-cat="pen">Kiosco hace 2x1 en gaseosas</div>
-    <div class="dnd-item" data-cat="dm">Mercadolibre abre en Colombia</div>
-    <div class="dnd-item" data-cat="dp">Apple lanza el iPhone 16 a sus clientes actuales</div>
-    <div class="dnd-item" data-cat="div">Amazon entra al negocio de supermercados (Whole Foods)</div>
-  </div>
-  <div class="dnd-targets">
-    <div class="dnd-target" data-cat="pen"><span class="dnd-target-label">Penetracion (prod actual + mercado actual)</span></div>
-    <div class="dnd-target" data-cat="dp"><span class="dnd-target-label">Desarrollo de producto</span></div>
-    <div class="dnd-target" data-cat="dm"><span class="dnd-target-label">Desarrollo de mercado</span></div>
-    <div class="dnd-target" data-cat="div"><span class="dnd-target-label">Diversificacion</span></div>
-  </div>
-  <div class="dnd-actions">
-    <button class="q-btn" onclick="checkDnD(this)">Verificar</button>
-    <button class="q-reset" onclick="resetDnD(this)"><i data-lucide="refresh-cw" style="width:13px;height:13px;vertical-align:-2px"></i> Reiniciar</button>
-    <span class="dnd-feedback"></span>
-  </div>
-</div>
 
-<div class="quiz">
-  <div class="quiz-title"><i data-lucide="brain" style="width:18px;height:18px"></i> Quiz: Matriz de Ansoff</div>
 
-  <div class="q" data-mc="a">
-    <div class="q-stem">1. Una cadena de supermercados hace promo 2x1 para que sus clientes actuales compren mas. Es una estrategia de:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ans-1" value="a"> a) Penetracion</label>
-      <label><input type="radio" name="q-ans-1" value="b"> b) Desarrollo de mercado</label>
-      <label><input type="radio" name="q-ans-1" value="c"> c) Desarrollo de producto</label>
-      <label><input type="radio" name="q-ans-1" value="d"> d) Diversificacion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
 
-  <div class="q" data-mc="b">
-    <div class="q-stem">2. McDonald&apos;s abre locales en un pais nuevo. Es:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ans-2" value="a"> a) Penetracion</label>
-      <label><input type="radio" name="q-ans-2" value="b"> b) Desarrollo de mercado</label>
-      <label><input type="radio" name="q-ans-2" value="c"> c) Desarrollo de producto</label>
-      <label><input type="radio" name="q-ans-2" value="d"> d) Diversificacion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="c">
-    <div class="q-stem">3. Apple lanza un nuevo modelo de iPhone a sus clientes habituales. Es:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ans-3" value="a"> a) Penetracion</label>
-      <label><input type="radio" name="q-ans-3" value="b"> b) Desarrollo de mercado</label>
-      <label><input type="radio" name="q-ans-3" value="c"> c) Desarrollo de producto</label>
-      <label><input type="radio" name="q-ans-3" value="d"> d) Diversificacion</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="d">
-    <div class="q-stem">4. Amazon (e-commerce) entra al negocio de supermercados fisicos (Whole Foods). Es una diversificacion:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ans-4" value="a"> a) Horizontal</label>
-      <label><input type="radio" name="q-ans-4" value="b"> b) Vertical</label>
-      <label><input type="radio" name="q-ans-4" value="c"> c) Concentrica</label>
-      <label><input type="radio" name="q-ans-4" value="d"> d) Conglomerada</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q" data-mc="b">
-    <div class="q-stem">5. Una empresa de lacteos lanza una linea de yogures. Es una diversificacion:</div>
-    <div class="q-opts">
-      <label><input type="radio" name="q-ans-5" value="a"> a) Horizontal</label>
-      <label><input type="radio" name="q-ans-5" value="b"> b) Concentrica</label>
-      <label><input type="radio" name="q-ans-5" value="c"> c) Vertical</label>
-      <label><input type="radio" name="q-ans-5" value="d"> d) Conglomerada</label>
-    </div>
-    <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-  </div>
-
-  <div class="q">
-    <div class="q-stem">6. La estrategia con <strong>mayor riesgo</strong> en la matriz de Ansoff es la diversificacion. (V/F)</div>
-    <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  </div>
-
-</div>
 
 </div></div>
 
@@ -2764,185 +1661,53 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 
 <div class="q-group-t">Bloque A &mdash; Conceptos fundamentales <span class="pts">40 pts</span></div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">1. &iquest;Cual es la definicion empresarial de marketing segun Drucker y la catedra?</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-1" value="a"> a) Publicitar el producto al maximo posible.</label>
-    <label><input type="radio" name="p1-1" value="b"> b) Conocer al cliente tan bien que el producto se venda por si mismo.</label>
-    <label><input type="radio" name="p1-1" value="c"> c) Distribuir el producto al menor costo posible.</label>
-    <label><input type="radio" name="p1-1" value="d"> d) Generar demanda donde no hay necesidad.</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">2. En el concepto de <strong>valor</strong>, se concreta el intercambio cuando el <strong>beneficio</strong> percibido es mayor que el sacrificio. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">3. &iquest;Cual de las 4 P's contiene a la <strong>marca</strong> como subvariable?</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-3" value="a"> a) Precio</label>
-    <label><input type="radio" name="p1-3" value="b"> b) Plaza</label>
-    <label><input type="radio" name="p1-3" value="c"> c) Producto</label>
-    <label><input type="radio" name="p1-3" value="d"> d) Promocion</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">4. Las bonificaciones se dan por volumen de compra, los descuentos por un motivo puntual. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
 
 <div class="q-group-t">Bloque B &mdash; Miopia y Evolucion <span class="pts">20 pts</span></div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">5. La miopia del marketing (Levitt) es:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-5" value="a"> a) Definir el negocio por la necesidad y no por el producto.</label>
-    <label><input type="radio" name="p1-5" value="b"> b) Definir el negocio por el producto y no por la necesidad.</label>
-    <label><input type="radio" name="p1-5" value="c"> c) Vender sin conocer al cliente.</label>
-    <label><input type="radio" name="p1-5" value="d"> d) Ignorar a los competidores directos.</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">6. Segun Kotler, la etapa donde oferta &gt; demanda y se vende a toda costa es:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-6" value="a"> a) Produccion</label>
-    <label><input type="radio" name="p1-6" value="b"> b) Ventas</label>
-    <label><input type="radio" name="p1-6" value="c"> c) Marketing</label>
-    <label><input type="radio" name="p1-6" value="d"> d) Holistico</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">7. El <strong>marketing holistico</strong> tiene 4 componentes: integrado, interno, relacional y ______.</div>
-  <div class="q-in"><input class="vld" data-a="social|societal" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
 
 <div class="q-group-t">Bloque C &mdash; Entornos y mercados <span class="pts">30 pts</span></div>
 
-<div class="q" data-mc="d">
-  <div class="q-stem">8. "Crecimiento exponencial de la IA generativa" es una variable del entorno:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-8" value="a"> a) Sociocultural</label>
-    <label><input type="radio" name="p1-8" value="b"> b) Economico</label>
-    <label><input type="radio" name="p1-8" value="c"> c) Politico-legal</label>
-    <label><input type="radio" name="p1-8" value="d"> d) Tecnologico</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">9. Los proveedores y los intermediarios pertenecen al <strong>microentorno</strong>. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">10. &iquest;Cual nivel de competencia es el mas intenso?</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-10" value="a"> a) De necesidades</label>
-    <label><input type="radio" name="p1-10" value="b"> b) De producto</label>
-    <label><input type="radio" name="p1-10" value="c"> c) De marca</label>
-    <label><input type="radio" name="p1-10" value="d"> d) De categoria</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">11. El <strong>mercado industrial</strong> tiene demanda derivada, pocos compradores y gran volumen. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
 
 <div class="q-group-t">Bloque D &mdash; Planeamiento + FODA <span class="pts">40 pts</span></div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">12. &iquest;En que paso del planeamiento se definen las 4 P's?</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-12" value="a"> a) Diagnostico (FODA)</label>
-    <label><input type="radio" name="p1-12" value="b"> b) Objetivos</label>
-    <label><input type="radio" name="p1-12" value="c"> c) Implementacion</label>
-    <label><input type="radio" name="p1-12" value="d"> d) Control</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">13. La <strong>vision</strong> responde a "&iquest;que queremos ser en el futuro?" (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">14. "La empresa tiene personal con baja capacitacion" es una:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-14" value="a"> a) Fortaleza</label>
-    <label><input type="radio" name="p1-14" value="b"> b) Debilidad</label>
-    <label><input type="radio" name="p1-14" value="c"> c) Oportunidad</label>
-    <label><input type="radio" name="p1-14" value="d"> d) Amenaza</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="a">
-  <div class="q-stem">15. La estrategia cruzada que usa <strong>F</strong> para aprovechar <strong>O</strong> es:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-15" value="a"> a) FO (atacar)</label>
-    <label><input type="radio" name="p1-15" value="b"> b) DO (movilizar)</label>
-    <label><input type="radio" name="p1-15" value="c"> c) FA (defender)</label>
-    <label><input type="radio" name="p1-15" value="d"> d) DA (sobrevivir)</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">16. En un FODA, "podria llegar un nuevo competidor" cumple con la regla de Romero. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
+
 
 <div class="q-group-t">Bloque E &mdash; Segmentacion, posicionamiento, Ansoff, Porter <span class="pts">30 pts</span></div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">17. "Consumidores que compran productos ecologicos por sus valores ambientales" es segmentacion:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-17" value="a"> a) Demografica</label>
-    <label><input type="radio" name="p1-17" value="b"> b) Geografica</label>
-    <label><input type="radio" name="p1-17" value="c"> c) Psicografica</label>
-    <label><input type="radio" name="p1-17" value="d"> d) Conductual</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">18. Una heladeria abre locales en una ciudad donde nunca vendio. Estrategia de Ansoff:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-18" value="a"> a) Penetracion</label>
-    <label><input type="radio" name="p1-18" value="b"> b) Desarrollo de mercado</label>
-    <label><input type="radio" name="p1-18" value="c"> c) Desarrollo de producto</label>
-    <label><input type="radio" name="p1-18" value="d"> d) Diversificacion</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">19. Walmart con su estrategia de precios bajos aplica la estrategia generica de Porter:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p1-19" value="a"> a) Diferenciacion</label>
-    <label><input type="radio" name="p1-19" value="b"> b) Enfoque</label>
-    <label><input type="radio" name="p1-19" value="c"> c) Liderazgo en costos</label>
-    <label><input type="radio" name="p1-19" value="d"> d) Penetracion</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q">
-  <div class="q-stem">20. El posicionamiento se logra asociando la marca a una cualidad distintiva. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
 
 <button class="q-reset" onclick="resetParcial('p1')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 1</button>
 
@@ -2977,141 +1742,49 @@ figcaption{text-align:center;color:var(--muted);font-size:.8em;margin-top:6px}
 
 <div class="q-group-t">Bloque A &mdash; Aplicacion a casos <span class="pts">50 pts</span></div>
 
-<div class="q" data-mc="b">
-  <div class="q-stem">1. Kodak no noto que los celulares la sacarian del mercado. Caso tipico de:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p2-1" value="a"> a) Marketing holistico mal aplicado</label>
-    <label><input type="radio" name="p2-1" value="b"> b) Miopia del marketing</label>
-    <label><input type="radio" name="p2-1" value="c"> c) Mala segmentacion</label>
-    <label><input type="radio" name="p2-1" value="d"> d) Problema de distribucion</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="d">
-  <div class="q-stem">2. Si Kodak hubiera definido su mision correctamente orientada al mercado, esta seria:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p2-2" value="a"> a) Hacer camaras de calidad.</label>
-    <label><input type="radio" name="p2-2" value="b"> b) Vender rollos de pelicula a todos los hogares.</label>
-    <label><input type="radio" name="p2-2" value="c"> c) Liderar el mercado de fotografia analogica.</label>
-    <label><input type="radio" name="p2-2" value="d"> d) Ayudar a la gente a preservar sus recuerdos / inmortalizar imagenes.</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">3. Ferrari compite en un segmento muy especifico de autos deportivos de lujo. Porter diria que aplica:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p2-3" value="a"> a) Liderazgo en costos</label>
-    <label><input type="radio" name="p2-3" value="b"> b) Diferenciacion</label>
-    <label><input type="radio" name="p2-3" value="c"> c) Enfoque / concentracion</label>
-    <label><input type="radio" name="p2-3" value="d"> d) Las tres al mismo tiempo</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="c">
-  <div class="q-stem">4. Arcor compra una empresa azucarera (su proveedor de azucar). Tipo de diversificacion:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p2-4" value="a"> a) Horizontal</label>
-    <label><input type="radio" name="p2-4" value="b"> b) Conglomerada</label>
-    <label><input type="radio" name="p2-4" value="c"> c) Vertical hacia atras</label>
-    <label><input type="radio" name="p2-4" value="d"> d) Concentrica</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
 
-<div class="q" data-mc="d">
-  <div class="q-stem">5. Una marca dice "vendemos felicidad, no gaseosa". Esta usando una definicion de mision:</div>
-  <div class="q-opts">
-    <label><input type="radio" name="p2-5" value="a"> a) Orientada al producto</label>
-    <label><input type="radio" name="p2-5" value="b"> b) Miope</label>
-    <label><input type="radio" name="p2-5" value="c"> c) De ventas</label>
-    <label><input type="radio" name="p2-5" value="d"> d) Orientada al mercado (a la necesidad)</label>
-  </div>
-  <button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span>
-</div>
+
+
+
+
+
 
 <div class="q-group-t">Bloque B &mdash; V/F conceptual <span class="pts">30 pts</span></div>
 
-<div class="q">
-  <div class="q-stem">6. El marketing estrategico usa las 4 P's para ejecutar la estrategia. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Las 4 P's son parte del marketing <strong>operativo</strong>.</p></details>
-</div>
 
-<div class="q">
-  <div class="q-stem">7. Una empresa puede controlar el macroentorno si tiene suficiente poder de mercado. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">8. Primero se segmenta, luego se posiciona en el segmento elegido. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">9. La Matriz de Ansoff pertenece al nivel de estrategia <strong>funcional</strong>. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="F" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-  <details class="q-sol"><summary>Ver explicacion</summary><p>Falso. Pertenece al nivel <strong>corporativo</strong> (estrategia de crecimiento de la empresa).</p></details>
-</div>
 
-<div class="q">
-  <div class="q-stem">10. En el marketing 4.0 "la mejor publicidad la hacen los clientes satisfechos". (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">11. "La venta esta orientada hacia las necesidades del vendedor; el marketing, hacia las del comprador." Es una frase de Theodore <strong>Levitt</strong>. (V/F)</div>
-  <div class="q-in"><select class="vld" data-a="V" data-t="vf"><option value="">?</option><option value="V">V</option><option value="F">F</option></select><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
+
+
 
 <div class="q-group-t">Bloque C &mdash; Completar / identificar <span class="pts">40 pts</span></div>
 
-<div class="q">
-  <div class="q-stem">12. Segun Lambin, el equivalente al enfoque de "produccion" de Kotler se llama marketing ______.</div>
-  <div class="q-in"><input class="vld" data-a="pasivo" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">13. Lambin llama marketing "______" a la etapa de ventas (con venta forzada y autodestructora).</div>
-  <div class="q-in"><input class="vld" data-a="de organizacion|organizacion" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">14. Una lavanderia de barrio hace descuentos a sus clientes para que laven mas veces al mes. Ansoff: estrategia de _____.</div>
-  <div class="q-in"><input class="vld" data-a="penetracion" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">15. Unilever (productos de consumo masivo) decide fabricar autopartes. Tipo de diversificacion: _____.</div>
-  <div class="q-in"><input class="vld" data-a="conglomerada" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">16. La mision de Revlon ("vendemos esperanza") es un ejemplo clasico de mision orientada al _____ (no al producto).</div>
-  <div class="q-in"><input class="vld" data-a="mercado|cliente|consumidor|necesidad" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">17. En el FODA de Romero, las fortalezas deben ser hechos reales, no potenciales ni ______.</div>
-  <div class="q-in"><input class="vld" data-a="posibilidades|probables|potenciales" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">18. El elemento de la mezcla de comunicacion que no utiliza intermediarios (email, telemarketing, catalogos) se llama marketing _____.</div>
-  <div class="q-in"><input class="vld" data-a="directo" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">19. El marketing ______ tiene como componentes integrado, interno, relacional y social.</div>
-  <div class="q-in"><input class="vld" data-a="holistico" data-t="text" placeholder="respuesta"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
 
-<div class="q">
-  <div class="q-stem">20. La estrategia cruzada del FODA mas precaria es la de _____ (codigo de 2 letras).</div>
-  <div class="q-in"><input class="vld" data-a="DA|da" data-t="text" placeholder="ej: FA"><button class="q-btn" onclick="chk(this)">Verificar</button><span class="q-fb"></span></div>
-</div>
+
+
+
+
+
+
+
+
+
 
 <button class="q-reset" onclick="resetParcial('p2')" style="margin-top:16px"><i data-lucide="refresh-cw" style="width:14px;height:14px;vertical-align:-2px"></i> Reiniciar parcial 2</button>
 
